@@ -7,28 +7,34 @@
 #
 ### SOURCES 
 #
-# To send data to spyderbat a source must be specified, the source of data has
-# an associated source UID. A source UID can be specified by the user and is 
-# used as a way to group data as coming from a particular source. 
+# To send data to spyderbat a source must be specified. The source is a source
+# of data such as a machine, an IDS, flow logs for a VPC, etc. The source
+# is simply a source of data which may be used as a primary source of data
+# or as a source of data that is used to verify or enrich data from other
+# sources. So for example a machine might represent a primary source of 
+# data about processes on the machine, where an IDS might represent
+# data about alerts related to specific machines or processes. 
 # 
-# For example a single alert source, this way the source can be monitored to 
-# make sure it's actively sending data. Data supplied by a source may be 
-# utilized to enrich data for other sources. So for example an IDS system 
-# represents a source which may supply data about multiple targets or 
-# machines, and might be used to enrich data for those machines. 
+# Each source as UID which is used to uniquely identify the source. For
+# example if we have multiple snort IDS sources we will need to uniquely
+# identify them, if we consider them to be unique sources of data. 
+# Alternatively AWS VPC flow logs may be a single source of data if the 
+# flow logs are coming from a single source, even though they might
+# cover multple AWS VPCs. 
 # 
 ### VARIABLES 
 #
 # SOURCE_UID is the UID associated with a source, this can be user supplied
 # and is unique identifier for the source of data, the source UID cannot
-# contain '/' 
+# contain '/', and may only contain A-Za-z0-9:_-
 SOURCE_UID="src_001"
 #
 # JWT is the JWT API Token for a specific organization
 JWT="YOUR API JWT"
 #
 # ORG_UID is the UID associated with the organization to create the source
-# in and to send data to
+# in and to send data to. You can find your ORG UID in the URL you use to 
+# access your organization.
 ORG_UID="YOUR ORG"
 #
 # DATATYPE is the datatype of data being sent to spyderbat, which can be
@@ -45,8 +51,9 @@ API_URL=api.tigerbat.com
 # 
 # For the API to work you will need to supply a JWT and make sure your API_URL 
 # is correctly specified. Each API call requires the JWT to be specified in an 
-# authorization header, and the correct content type must be specified. 
+# authorization header, and the correct content type must be also be specified. 
 # 
+
 ### CREATING THE SOURCE
 #
 # To create a source we need to use the "Create source" API, you can reference
@@ -58,6 +65,7 @@ API_URL=api.tigerbat.com
 # 
 # If this call is successful a json document is returned with the UID of the created
 # source, or a msg indicating that the source already exists is returned
+#
 cat <<EOF | curl -H "Content-Type:application/json" -H "Authorization: Bearer $JWT" https://$API_URL/api/v1/org/$ORG_UID/source/ --data-binary @-
 {
 	"uid":"$SOURCE_UID",
@@ -66,7 +74,6 @@ cat <<EOF | curl -H "Content-Type:application/json" -H "Authorization: Bearer $J
 }
 EOF
 
-#
 #### SENDING DATA TO THE SOURCE
 # 
 # To send data to a source, we first need to create the source , which we did 
@@ -81,16 +88,24 @@ EOF
 # and a unique 'id' which must be a UUID. 
 # 
 # We're going to construct these values
+#
+# A schema to identify the type of data 
 SCHEMA='example_data:1.0'
+# A unique ID
 ID=`head -1000 /dev/urandom | md5sum | cut -f 1 -d " "`
+# Time the EPOCH time which may contain a fractional component
 TIME=`date +%s`
+#
+
+# Let's create our data to upload
 cat <<EOF > /tmp/source_data.ndjson
 { "schema":"$SCHEMA", "id":"$ID.0", "time":$TIME.000 }
 { "schema":"$SCHEMA", "id":"$ID.1", "time":$TIME.001 }
 { "schema":"$SCHEMA", "id":"$ID.2", "time":$TIME.002 }
 EOF
 
-echo "Sending"
+# Show the data we've constructed
+echo "Here is the data we'll send for our source"
 cat /tmp/source_data.ndjson
 
 # When sending source data, it must be compressed using gzip. Notice that 
@@ -105,3 +120,8 @@ cat /tmp/source_data.ndjson | gzip | curl -v -v \
 	-H "Authorization: Bearer $JWT" \
 	https://$API_URL/api/v1/org/$ORG_UID/source/$SOURCE_UID/data/$DATATYPE \
 	--data-binary @-
+
+#### DELETING THE SOURCE
+#
+# We can also delete a source
+
