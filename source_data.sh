@@ -8,7 +8,7 @@
 ### SOURCES 
 #
 # To send data to spyderbat a source must be specified, the source of data has
-# an assocuated source UID. A source UID can be specified by the user and is 
+# an associated source UID. A source UID can be specified by the user and is 
 # used as a way to group data as coming from a particular source. 
 # 
 # For example a single alert source, this way the source can be monitored to 
@@ -27,7 +27,7 @@ SOURCE_UID="src_001"
 # JWT is the JWT API Token for a specific organization
 JWT="YOUR API JWT"
 #
-# ORG_UID is the UID associtaed with the organization to create the source
+# ORG_UID is the UID associated with the organization to create the source
 # in and to send data to
 ORG_UID="YOUR ORG"
 #
@@ -50,7 +50,7 @@ API_URL=api.tigerbat.com
 ### CREATING THE SOURCE
 #
 # To create a source we need to use the "Create source" API, you can reference
-# the api documentation to read the full specificiation. This call is designed
+# the api documentation to read the full specification. This call is designed
 # to be idempotent, so that no check is required to see if a source exists 
 # before creating it. So for example if a process needs to send data for a specific
 # source the source can be created each time without needing to verify that the
