@@ -12,7 +12,7 @@ import gzip
 # API_KEY is the API Token for a specific organization
 # Best practice is to store it in an environment variable.
 #
-API_KEY = os.environ.get("S_API_KEY")
+API_KEY = os.environ.get("API_KEY")
 
 
 #
@@ -21,13 +21,13 @@ API_KEY = os.environ.get("S_API_KEY")
 #    https://www.tigerbat.com/app/org/taQ5dvsTc81oS8U0kQvi/sources
 # the org is the compoenent after /org/
 #
-ORG_UID = "taQ5dvsTc81oS8U0kQvi"
+ORG_UID = os.environ.get("ORG_UID")
 
 
 #
 # You can probably leave this alone.
 #
-API_URL = "https://api.tigerbat.com"
+API_URL = os.environ.get("API_URL", "https://api.tigerbat.com")
 
 
 #
@@ -38,7 +38,7 @@ class ApiError(Exception):
 
 
 # -----------------------------------------------------------------------
-def create_source(api_key, org_uid, source_uid, name, api_url=API_URL):
+def create_source(api_key, org_uid, source_uid, description, api_url=API_URL):
     """Creates a source in the specified organization.
 
     Args:
@@ -55,7 +55,7 @@ def create_source(api_key, org_uid, source_uid, name, api_url=API_URL):
     headers = {"Authorization": f"Bearer {api_key}"}
     content = {
         "uid": source_uid,
-        "name": name,
+        "description": description,
         "org_uid": org_uid
     }
     url = f"{api_url}/api/v1/org/{org_uid}/source/"
@@ -132,22 +132,29 @@ if __name__ == "__main__":
     import uuid
 
     # Demo code
-    src_uid = 'bs_src_02'
+    src_uid = 'bs_src_03'
     # Make sure source exists
     sources = list_sources(API_KEY, ORG_UID)
     found = False
+    print("%20s %10s %s" % ('uid', 'name', 'description'))
+    print("----------------------------------------------")
     for src in sources:
+        print("%20s %10s %s" % (src['uid'], src['name'], src['description']))
         if src['uid'] == src_uid:
             found = True
-            break
 
     if not found:
-        create_source(API_KEY, ORG_UID, src_uid, "Overwrite Source")
+        print("Creating source %s" % src_uid)
+        create_source(API_KEY, ORG_UID, src_uid, "My Third Source")
+    else:
+        print("Source %s already exists" % src_uid)
 
     intel = {
       "schema": "threat_intel",
-      "name:": "FBI list",
+      "id": uuid.uuid4().hex,
       "time": time.time(),
+      "list_name": "Dynamic C&C",
+      "key_field": "remote_ip",
       "data": {
         "24.54.161.13": {
           "severity": 0,
@@ -162,6 +169,5 @@ if __name__ == "__main__":
           "description": "Brian's Home Machine"
         }
       },
-      "id": uuid.uuid4().hex
     }
     send_data(API_KEY, ORG_UID, src_uid, intel)
