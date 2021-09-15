@@ -105,7 +105,7 @@ else:
 start = math.floor(start)
 end = math.ceil(end)
 
-if options.end[0] == '+':
+if options.end is not None and len(options.end) > 0 and options.end[0] == '+':
     end += start
 
 if end <= start:
