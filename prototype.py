@@ -8,6 +8,8 @@ import os
 import json
 from ast import literal_eval
 import requests
+import re
+import time
 
 DESCRIPTION = """
 Prototype for test-jig
@@ -58,6 +60,7 @@ def main():
     commands = '''
         cp /usr/bin/wget ~
         cp ~/wget ~/Documents
+        ~/Documents/wget github.com
     '''
 
     cmdstring = f"strace -f -ttt -o {filename} /bin/bash"
@@ -70,6 +73,7 @@ def main():
     with open(filename, 'r') as f:
         for line in f.readlines():
             if 'execve' in line and 'resumed' not in line:
+                line = re.sub(r'  +', ' ', line)
                 split = line.split(' ')
                 PID = split[0]
                 time_created = split[1]
@@ -82,14 +86,19 @@ def main():
                 else:
                     processes.append(run_result(PID, PPID, time_created, args))
 
-    # ------ wait ------
+    # ------ Wait ------
+    secs = 30
+    print(f"sleeping {secs} seconds")
+    time.sleep(secs)
 
     # ------ API Call -----
     
     api_fname = "apidata.json"
 
     org_uid = os.environ.get("I_ORG_UID"),
+    org_uid = org_uid[0]
     api_key = os.environ.get("I_API_KEY"),
+    api_key = api_key[0]
     with open('/opt/spyderbat/etc/muid', 'r') as f:
         muid = f.read()
     datatype = 'spydergraph'
@@ -100,7 +109,7 @@ def main():
     }
 
     with open(api_fname, 'w') as f:
-        for p in processes:
+        for p in processes[1:2]:
             start = float(p.ctime) - 1
             end = start + 2
             url = f"https://api.kangaroobat.net/api/v1/org/{org_uid}/data/?src={muid}&st={start}&et={end}&dt={datatype}"
@@ -115,14 +124,37 @@ def main():
 
     # ------ Grab Results ------
 
-    results = None
+    entries = []
+    key_entries = ["event_redflag:copied_sensitive_command"]
     with open(api_fname, 'r') as f:
-        json.loads(f)
+        for line in f.readlines():
+            for key in key_entries:
+                if key in line:
+                    entries.append(json.loads(line))
+                    break
 
     # ------ Compare Results ------
 
-    for proc in processes:
-        print(proc.pid)
+    check1 = {
+        'src' : "/usr/bin/wget",
+        'dst' : "/home/br-spyder"
+    }
+
+    check2 = {
+        'src' : "/home/br-spyder/wget",
+        'dst' : "/home/br-spyder/Documents"
+    }
+    
+    checks = [check1, check2]
+    passed = [False, False]
+
+    for entry in entries:
+        for ind, check in enumerate(checks):
+            if check['src'] == entry['args'][1] and\
+                check['dst'] == entry['args'][2]:
+                passed[ind] = True
+
+    print(passed)
 
 
     
