@@ -27,7 +27,7 @@ ORG_UID = os.environ.get("ORG_UID")
 #
 # You can probably leave this alone.
 #
-API_URL = os.environ.get("API_URL", "https://api.tigerbat.com")
+API_URL = os.environ.get("API_URL", "https://api.spyderbat.com")
 
 
 #
@@ -91,26 +91,53 @@ def list_sources(api_key, org_uid, api_url=API_URL):
 
 
 # -----------------------------------------------------------------------
-def send_data(api_key, org_uid, source_uid, data,
-              datatype="sb-agent", api_url=API_URL):
-    """Sends data to Spyderbat analytic in the specified organization.
+def query(api_key, org_uid, source_uid, start, end,
+              datatype="spydergraph", api_url=API_URL):
+    """Retrieve data from Spyderbat in the specified organization.
 
     Args:
         api_key:    a string containing your API key for spyderbat
         org_uid:    a string containing the organization UID in spyderbat
         source_uid: a string containing the UID of the data source
-        data:       one or more JSON serializable objects to send
+        start:      start time (epoch time) for the fetch
+        end:        end time (epoch time) for the fetch
         datatype:   optional datatype.  Leave this alone unless you
                     know what you're doing.
         api_url:    an optional base URL that locates the Spyrderbat API
 
+    Returns:
+        Data fetched from API
+    """
+
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Accept": "application/json"
+    }
+    url = f"{api_url}/api/v1/org/{org_uid}/data/?src={source_uid}&st={start}&et={end}&dt={datatype}"
+    r = requests.get(url, headers=headers)
+    if r.status_code == 200:
+        data = r.text.split('\n')
+        return [json.loads(x) for x in data]
+    else:
+        raise ApiError(r.status_code)
+
+# -----------------------------------------------------------------------
+def send_data(api_key, org_uid, source_uid, data, api_url=API_URL):
+    """Sends data to Spyderbat analytic in the specified organization.
+    Args:
+        api_key:    a string containing your API key for spyderbat
+        org_uid:    a string containing the organization UID in spyderbat
+        source_uid: a string containing the UID of the data source
+        data:       one or more JSON serializable objects to send
+                    use a list to send multiple objects
+        api_url:    an optional base URL that locates the Spyrderbat API
     Returns:
         None
     """
 
     if type(data) is not list:
         data = [data]
-    data = [json.dumps(x) for x in data]
+    data = [json.dumps(x) if type(x) is not str else x for x in data]
     data = '\n'.join(data).encode('ascii')
     data = gzip.compress(data)
     headers = {
@@ -118,13 +145,12 @@ def send_data(api_key, org_uid, source_uid, data,
         "Content-Encoding": "gzip",
         "Content-Type": "application/ndjson"
     }
-    url = f"{api_url}/api/v1/org/{org_uid}/source/{source_uid}/data/{datatype}"
+    url = f"{api_url}/api/v1/org/{org_uid}/source/{source_uid}/data/sb-agent"
     r = requests.post(url, headers=headers, data=data)
     if r.status_code == 200:
         return None
     else:
         raise ApiError(r.status_code)
-
 
 # -----------------------------------------------------------------------
 if __name__ == "__main__":
