@@ -1,0 +1,12 @@
+{
+    "API Key": "",
+    "Org ID": "",
+    "Source": "",
+    "Source Desc": "PicoAgent demo source",
+    "Bats": [
+        "python3 samplebat.py"
+    ],
+    "URL": "https://api.kangaroobat.net",
+    "Prefix": "pico",
+    "MUID": ""
+}
