@@ -16,4 +16,4 @@ clean:
 	rm -f openapi.json openapitools.json
 
 clean_libraries:
-	rm -ri go javascript python
+	rm -r go javascript python
