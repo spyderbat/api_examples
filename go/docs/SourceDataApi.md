@@ -1,6 +1,6 @@
 # \SourceDataApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## SrcDataQuery
 
-> SrcDataQuery(ctx).SrcDataQueryInput(srcDataQueryInput).Execute()
+> string SrcDataQuery(ctx).SrcDataQueryInput(srcDataQueryInput).Execute()
 
 Query source data
 
@@ -40,6 +40,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SourceDataApi.SrcDataQuery``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `SrcDataQuery`: string
+    fmt.Fprintf(os.Stdout, "Response from `SourceDataApi.SrcDataQuery`: %v\n", resp)
 }
 ```
 
@@ -58,7 +60,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**string**
 
 ### Authorization
 
@@ -67,7 +69,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/x-ndjson, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -76,7 +78,7 @@ Name | Type | Description  | Notes
 
 ## SrcDataQueryV2
 
-> SrcDataQueryV2(ctx, orgUID).Dt(dt).E(e).Et(et).Id(id).Pj(pj).Q(q).Qf(qf).Qs(qs).Rr(rr).Src(src).St(st).Execute()
+> string SrcDataQueryV2(ctx, orgUID).Dt(dt).E(e).Et(et).Id(id).Pj(pj).Q(q).Qf(qf).Qs(qs).Rr(rr).Src(src).St(st).Execute()
 
 Query source data
 
@@ -115,6 +117,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `SourceDataApi.SrcDataQueryV2``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `SrcDataQueryV2`: string
+    fmt.Fprintf(os.Stdout, "Response from `SourceDataApi.SrcDataQueryV2`: %v\n", resp)
 }
 ```
 
@@ -148,7 +152,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**string**
 
 ### Authorization
 
@@ -157,7 +161,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/x-ndjson, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

@@ -1,6 +1,6 @@
 # sbapi.OrgTypeApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,10 +26,10 @@ import sbapi
 from sbapi.api import org_type_api
 from sbapi.model.session_org_type_max_limit import SessionOrgTypeMaxLimit
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -104,10 +104,10 @@ import sbapi
 from sbapi.api import org_type_api
 from sbapi.model.session_org_type_max_limit import SessionOrgTypeMaxLimit
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -182,10 +182,10 @@ import sbapi
 from sbapi.api import org_type_api
 from sbapi.model.dao_org_type import DaoOrgType
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters

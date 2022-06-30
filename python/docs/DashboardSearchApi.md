@@ -1,6 +1,6 @@
 # sbapi.DashboardSearchApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,10 +28,10 @@ import sbapi
 from sbapi.api import dashboard_search_api
 from sbapi.model.dashboard_search_create_input import DashboardSearchCreateInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -130,10 +130,10 @@ import time
 import sbapi
 from sbapi.api import dashboard_search_api
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -209,10 +209,10 @@ import sbapi
 from sbapi.api import dashboard_search_api
 from sbapi.model.dashboard_search import DashboardSearch
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -289,10 +289,10 @@ import sbapi
 from sbapi.api import dashboard_search_api
 from sbapi.model.dashboard_search import DashboardSearch
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -367,10 +367,10 @@ import sbapi
 from sbapi.api import dashboard_search_api
 from sbapi.model.dashboard_search_update_input import DashboardSearchUpdateInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters

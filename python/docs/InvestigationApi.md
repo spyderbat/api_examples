@@ -1,6 +1,6 @@
 # sbapi.InvestigationApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,10 +32,10 @@ from sbapi.model.api_investigation_create_output import ApiInvestigationCreateOu
 from sbapi.model.validation_error import ValidationError
 from sbapi.model.investigation_create_input import InvestigationCreateInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -155,10 +155,10 @@ import time
 import sbapi
 from sbapi.api import investigation_api
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -235,10 +235,10 @@ from sbapi.api import investigation_api
 from sbapi.model.dao_investigation import DaoInvestigation
 from sbapi.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -314,10 +314,10 @@ import sbapi
 from sbapi.api import investigation_api
 from sbapi.model.dao_investigation import DaoInvestigation
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -394,10 +394,10 @@ import sbapi
 from sbapi.api import investigation_api
 from sbapi.model.dao_investigation import DaoInvestigation
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -474,10 +474,10 @@ import sbapi
 from sbapi.api import investigation_api
 from sbapi.model.dao_investigation import DaoInvestigation
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -557,10 +557,10 @@ from sbapi.api import investigation_api
 from sbapi.model.investigation_update_input import InvestigationUpdateInput
 from sbapi.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters

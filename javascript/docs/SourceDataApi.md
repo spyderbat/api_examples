@@ -1,6 +1,6 @@
 # Sbapi.SourceDataApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## srcDataQuery
 
-> srcDataQuery(opts)
+> String srcDataQuery(opts)
 
 Query source data
 
@@ -35,7 +35,7 @@ apiInstance.srcDataQuery(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**String**
 
 ### Authorization
 
@@ -58,12 +58,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/x-ndjson, application/json
 
 
 ## srcDataQueryV2
 
-> srcDataQueryV2(orgUID, dt, opts)
+> String srcDataQueryV2(orgUID, dt, opts)
 
 Query source data
 
@@ -97,7 +97,7 @@ apiInstance.srcDataQueryV2(orgUID, dt, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**String**
 
 ### Authorization
 
@@ -131,7 +131,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/x-ndjson, application/json
 
 
 ## srcSendData

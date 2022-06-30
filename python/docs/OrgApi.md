@@ -1,6 +1,6 @@
 # sbapi.OrgApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -33,10 +33,10 @@ import sbapi
 from sbapi.api import org_api
 from sbapi.model.org_assign_role_input import OrgAssignRoleInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -122,10 +122,10 @@ import sbapi
 from sbapi.api import org_api
 from sbapi.model.org_invite_users_input import OrgInviteUsersInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -217,10 +217,10 @@ from sbapi.api import org_api
 from sbapi.model.org import Org
 from sbapi.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -313,10 +313,10 @@ import sbapi
 from sbapi.api import org_api
 from sbapi.model.dao_org_role_response import DaoOrgRoleResponse
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -406,10 +406,10 @@ import sbapi
 from sbapi.api import org_api
 from sbapi.model.org import Org
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **org_load_notification_policy**
-> org_load_notification_policy(org_uid)
+> NotificationPolicy org_load_notification_policy(org_uid)
 
 Load Notification Policy
 
@@ -482,11 +482,12 @@ Load Notification Policy
 import time
 import sbapi
 from sbapi.api import org_api
+from sbapi.model.notification_policy import NotificationPolicy
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -508,7 +509,8 @@ with sbapi.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Load Notification Policy
-        api_instance.org_load_notification_policy(org_uid)
+        api_response = api_instance.org_load_notification_policy(org_uid)
+        pprint(api_response)
     except sbapi.ApiException as e:
         print("Exception when calling OrgApi->org_load_notification_policy: %s\n" % e)
 ```
@@ -522,7 +524,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**NotificationPolicy**](NotificationPolicy.md)
 
 ### Authorization
 
@@ -531,7 +533,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/hjson, application/json
 
 
 ### HTTP response details
@@ -560,10 +562,10 @@ import sbapi
 from sbapi.api import org_api
 from sbapi.model.org_test_notification_target_input import OrgTestNotificationTargetInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -649,10 +651,10 @@ import sbapi
 from sbapi.api import org_api
 from sbapi.model.org_unassign_role_input import OrgUnassignRoleInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -740,10 +742,10 @@ from sbapi.api import org_api
 from sbapi.model.org_update_input import OrgUpdateInput
 from sbapi.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -840,7 +842,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **org_update_notification_policy**
-> org_update_notification_policy(org_uid)
+> org_update_notification_policy(org_uid, notification_policy)
 
 Update an organization's notification policy
 
@@ -854,12 +856,13 @@ Update an organization's notification policy
 import time
 import sbapi
 from sbapi.api import org_api
+from sbapi.model.notification_policy import NotificationPolicy
 from sbapi.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -877,11 +880,84 @@ with sbapi.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | 
+    notification_policy = NotificationPolicy(
+        routes=[
+            NotificationPolicyRoutesInner(
+                data=None,
+                description="description_example",
+                destination=NotificationPolicyDestination(
+                    data=None,
+                    description="description_example",
+                    email=[
+                        "email_example",
+                    ],
+                    org_uid="org_uid_example",
+                    slack=NotificationPolicyDestinationSlack(
+                        url="url_example",
+                    ),
+                    users=[
+                        "users_example",
+                    ],
+                    webhook=NotificationPolicyDestinationWebhook(
+                        no_tls_validation=True,
+                        url="url_example",
+                    ),
+                ),
+                expr=Expr(
+                    _and=[
+                        Expr(),
+                    ],
+                    contains_str="contains_str_example",
+                    equals=None,
+                    exists=True,
+                    greater_than=None,
+                    has_prefix="has_prefix_example",
+                    has_suffix="has_suffix_example",
+                    _in=[
+                        None,
+                    ],
+                    less_than=None,
+                    _not=Expr(),
+                    _or=[
+                        Expr(),
+                    ],
+                    _property="_property_example",
+                    re_match="re_match_example",
+                    schema="schema_example",
+                    time_range=RstreamTimeRange(
+                        end_time=3.14,
+                        start_time=3.14,
+                    ),
+                ),
+                target="target_example",
+            ),
+        ],
+        targets={
+            "key": NotificationPolicyDestination(
+                data=None,
+                description="description_example",
+                email=[
+                    "email_example",
+                ],
+                org_uid="org_uid_example",
+                slack=NotificationPolicyDestinationSlack(
+                    url="url_example",
+                ),
+                users=[
+                    "users_example",
+                ],
+                webhook=NotificationPolicyDestinationWebhook(
+                    no_tls_validation=True,
+                    url="url_example",
+                ),
+            ),
+        },
+    ) # NotificationPolicy | The notification policy
 
     # example passing only required values which don't have defaults set
     try:
         # Update an organization's notification policy
-        api_instance.org_update_notification_policy(org_uid)
+        api_instance.org_update_notification_policy(org_uid, notification_policy)
     except sbapi.ApiException as e:
         print("Exception when calling OrgApi->org_update_notification_policy: %s\n" % e)
 ```
@@ -892,6 +968,7 @@ with sbapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_uid** | **str**|  |
+ **notification_policy** | [**NotificationPolicy**](NotificationPolicy.md)| The notification policy |
 
 ### Return type
 
@@ -903,7 +980,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

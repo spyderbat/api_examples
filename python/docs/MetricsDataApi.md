@@ -1,6 +1,6 @@
 # sbapi.MetricsDataApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **metrics_data_query**
-> metrics_data_query()
+> str metrics_data_query()
 
 Query metrics data
 
@@ -25,10 +25,10 @@ from sbapi.api import metrics_data_api
 from sbapi.model.metrics_data_query_input import MetricsDataQueryInput
 from sbapi.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -113,7 +113,8 @@ with sbapi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Query metrics data
-        api_instance.metrics_data_query(metrics_data_query_input=metrics_data_query_input)
+        api_response = api_instance.metrics_data_query(metrics_data_query_input=metrics_data_query_input)
+        pprint(api_response)
     except sbapi.ApiException as e:
         print("Exception when calling MetricsDataApi->metrics_data_query: %s\n" % e)
 ```
@@ -127,7 +128,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**str**
 
 ### Authorization
 
@@ -136,7 +137,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/x-ndjson, application/json
 
 
 ### HTTP response details

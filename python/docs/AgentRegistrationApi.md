@@ -1,6 +1,6 @@
 # sbapi.AgentRegistrationApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,10 +31,10 @@ from sbapi.model.agent_registration_create_input import AgentRegistrationCreateI
 from sbapi.model.api_agent_create_handler_output import ApiAgentCreateHandlerOutput
 from sbapi.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -147,10 +147,10 @@ import sbapi
 from sbapi.api import agent_registration_api
 from sbapi.model.api_agent_registration_download_link_handler_output import ApiAgentRegistrationDownloadLinkHandlerOutput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -229,10 +229,10 @@ import sbapi
 from sbapi.api import agent_registration_api
 from sbapi.model.dao_agent_log import DaoAgentLog
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -324,10 +324,10 @@ import sbapi
 from sbapi.api import agent_registration_api
 from sbapi.model.agent_registration import AgentRegistration
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -415,10 +415,10 @@ import sbapi
 from sbapi.api import agent_registration_api
 from sbapi.model.agent_registration import AgentRegistration
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -497,10 +497,10 @@ from sbapi.api import agent_registration_api
 from sbapi.model.agent_registration_update_input import AgentRegistrationUpdateInput
 from sbapi.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.prod.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sbapi.Configuration(
-    host = "http://localhost"
+    host = "https://api.prod.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters

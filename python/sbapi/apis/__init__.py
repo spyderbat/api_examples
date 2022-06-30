@@ -19,7 +19,6 @@ from sbapi.api.agent_api import AgentApi
 from sbapi.api.agent_work_api import AgentWorkApi
 from sbapi.api.agent_registration_api import AgentRegistrationApi
 from sbapi.api.dashboard_search_api import DashboardSearchApi
-from sbapi.api.internal_api_api import InternalAPIApi
 from sbapi.api.investigation_api import InvestigationApi
 from sbapi.api.metadata_api_api import MetadataAPIApi
 from sbapi.api.metrics_data_api import MetricsDataApi

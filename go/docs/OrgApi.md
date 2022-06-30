@@ -1,6 +1,6 @@
 # \OrgApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -385,7 +385,7 @@ Name | Type | Description  | Notes
 
 ## OrgLoadNotificationPolicy
 
-> OrgLoadNotificationPolicy(ctx, orgUID).Execute()
+> NotificationPolicy OrgLoadNotificationPolicy(ctx, orgUID).Execute()
 
 Load Notification Policy
 
@@ -413,6 +413,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `OrgApi.OrgLoadNotificationPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `OrgLoadNotificationPolicy`: NotificationPolicy
+    fmt.Fprintf(os.Stdout, "Response from `OrgApi.OrgLoadNotificationPolicy`: %v\n", resp)
 }
 ```
 
@@ -435,7 +437,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+[**NotificationPolicy**](NotificationPolicy.md)
 
 ### Authorization
 
@@ -444,7 +446,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/hjson, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)
@@ -663,7 +665,7 @@ Name | Type | Description  | Notes
 
 ## OrgUpdateNotificationPolicy
 
-> OrgUpdateNotificationPolicy(ctx, orgUID).Execute()
+> OrgUpdateNotificationPolicy(ctx, orgUID).NotificationPolicy(notificationPolicy).Execute()
 
 Update an organization's notification policy
 
@@ -683,10 +685,11 @@ import (
 
 func main() {
     orgUID := "orgUID_example" // string | 
+    notificationPolicy := *openapiclient.NewNotificationPolicy() // NotificationPolicy | The notification policy
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.OrgApi.OrgUpdateNotificationPolicy(context.Background(), orgUID).Execute()
+    resp, r, err := apiClient.OrgApi.OrgUpdateNotificationPolicy(context.Background(), orgUID).NotificationPolicy(notificationPolicy).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `OrgApi.OrgUpdateNotificationPolicy``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -710,6 +713,7 @@ Other parameters are passed through a pointer to a apiOrgUpdateNotificationPolic
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 
+ **notificationPolicy** | [**NotificationPolicy**](NotificationPolicy.md) | The notification policy | 
 
 ### Return type
 
@@ -721,7 +725,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

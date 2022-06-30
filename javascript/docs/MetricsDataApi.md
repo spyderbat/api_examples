@@ -1,6 +1,6 @@
 # Sbapi.MetricsDataApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## metricsDataQuery
 
-> metricsDataQuery(opts)
+> String metricsDataQuery(opts)
 
 Query metrics data
 
@@ -33,7 +33,7 @@ apiInstance.metricsDataQuery(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**String**
 
 ### Authorization
 
@@ -56,5 +56,5 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/x-ndjson, application/json
 

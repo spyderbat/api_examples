@@ -1,6 +1,6 @@
 # \MetricsDataApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 ## MetricsDataQuery
 
-> MetricsDataQuery(ctx).MetricsDataQueryInput(metricsDataQueryInput).Execute()
+> string MetricsDataQuery(ctx).MetricsDataQueryInput(metricsDataQueryInput).Execute()
 
 Query metrics data
 
@@ -38,6 +38,8 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `MetricsDataApi.MetricsDataQuery``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
     }
+    // response from `MetricsDataQuery`: string
+    fmt.Fprintf(os.Stdout, "Response from `MetricsDataApi.MetricsDataQuery`: %v\n", resp)
 }
 ```
 
@@ -56,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
- (empty response body)
+**string**
 
 ### Authorization
 
@@ -65,7 +67,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/x-ndjson, application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
 [[Back to Model list]](../README.md#documentation-for-models)

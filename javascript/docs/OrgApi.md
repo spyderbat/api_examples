@@ -1,6 +1,6 @@
 # Sbapi.OrgApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.prod.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ## orgLoadNotificationPolicy
 
-> orgLoadNotificationPolicy(orgUID)
+> NotificationPolicy orgLoadNotificationPolicy(orgUID)
 
 Load Notification Policy
 
@@ -317,7 +317,7 @@ apiInstance.orgLoadNotificationPolicy(orgUID, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**NotificationPolicy**](NotificationPolicy.md)
 
 ### Authorization
 
@@ -340,7 +340,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/hjson, application/json
 
 
 ## orgTestNotificationTarget
@@ -504,7 +504,7 @@ null (empty response body)
 
 ## orgUpdateNotificationPolicy
 
-> orgUpdateNotificationPolicy(orgUID)
+> orgUpdateNotificationPolicy(orgUID, notificationPolicy)
 
 Update an organization&#39;s notification policy
 
@@ -521,7 +521,8 @@ apiToken.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new Sbapi.OrgApi();
 let orgUID = "orgUID_example"; // String | 
-apiInstance.orgUpdateNotificationPolicy(orgUID, (error, data, response) => {
+let notificationPolicy = new Sbapi.NotificationPolicy(); // NotificationPolicy | The notification policy
+apiInstance.orgUpdateNotificationPolicy(orgUID, notificationPolicy, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -536,6 +537,7 @@ apiInstance.orgUpdateNotificationPolicy(orgUID, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orgUID** | **String**|  | 
+ **notificationPolicy** | [**NotificationPolicy**](NotificationPolicy.md)| The notification policy | 
 
 ### Return type
 
@@ -547,6 +549,6 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 
