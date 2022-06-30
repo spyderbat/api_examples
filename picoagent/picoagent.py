@@ -87,9 +87,9 @@ def rand_id():
     return bstr.decode('utf-8')
 
 def make_source(sources, path):
-    src = config[PREFIX] + rand_id()
+    src = f"{config[PREFIX]}:{rand_id()}"
     while src in sources:
-        src = config[PREFIX] + rand_id()
+        src = f"{config[PREFIX]}:{rand_id()}"
     config[SOURCE] = src
     write_config(path)
     
