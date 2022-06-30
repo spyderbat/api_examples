@@ -6,5 +6,6 @@
     "Bats": [],
     "URL": "https://api.spyderbat.com",
     "Prefix": "",
-    "MUID": ""
+    "MUID": "",
+    "Timeout": 2
 }

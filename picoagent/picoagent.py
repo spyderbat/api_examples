@@ -1,13 +1,16 @@
-from genericpath import exists
-import os
-import json
 import argparse
-import subprocess as sp
-from threading import Thread
-import requests
 import gzip
-from uuid import uuid4
+import json
+import os
+import subprocess as sp
 from base64 import urlsafe_b64encode
+from syslog import syslog
+from threading import Lock, Thread
+from time import sleep
+from uuid import uuid4
+
+import requests
+from genericpath import exists
 
 DESCRIPTION = "Runs bats like the nano agent, but even smaller!"
 APIKEY = "API Key"
@@ -18,11 +21,25 @@ SRCDESC = "Source Desc"
 PREFIX = "Prefix"
 BATS = "Bats"
 MUID = "MUID"
+TIMEOUT = "Timeout"
 
-REQ_CONFIG = [APIKEY, ORGID, MUID]
+REQ_CONFIG = [APIKEY, ORGID, MUID, TIMEOUT]
 REQ_FIELDS = ["schema", "time"]
 
 global config
+global verbose
+global running
+
+queue_lock = Lock()
+print_lock = Lock()
+
+data_queue = []
+
+def log(msg):
+    with print_lock:
+        syslog(msg)
+        if verbose:
+            print(msg, flush=True)
 
 def parse_args():
     parser = argparse.ArgumentParser(description=DESCRIPTION)
@@ -31,6 +48,7 @@ def parse_args():
     parser.add_argument('-p', '--prefix', help="A custom prefix to use for generating the source ID")
     parser.add_argument('-m', '--muid', help="A custom machine ID to use for analytics")
     parser.add_argument('-i', '--input', action=argparse.BooleanOptionalAction, help="Read bat data from standard input instead of sepcified bats")
+    parser.add_argument('-v', '--verbose', action=argparse.BooleanOptionalAction, help="Print logs of bat output and data sending")
     args = parser.parse_args()
     return args
 
@@ -42,7 +60,7 @@ def read_config(path):
 
 def write_config(path):
     with open(path, 'w') as f:
-        f.write(json.dumps(config))
+        f.write(json.dumps(config, indent=4))
 
 def set_config(args):
     if args.url:
@@ -105,7 +123,7 @@ def validate_config(run_bats, path):
     if run_bats and not config[BATS]:
         raise ValueError("No bats were specified to be run")
 
-def send_data(data):
+def process_data(data):
     try:
         data = json.loads(data)
     except json.decoder.JSONDecodeError as e:
@@ -118,25 +136,44 @@ def send_data(data):
     if not "muid" in data or not data["muid"]:
         data["muid"] = config[MUID]
     # could add more data validation here
-    data = json.dumps(data).encode('ascii')
-    # TODO: batch data sending
-    data = gzip.compress(data)
-    headers = {
-        "Authorization": f"Bearer {config[APIKEY]}",
-        "Content-Encoding": "gzip",
-        "Content-Type": "application/ndjson"
-    }
-    url = f"{config[APIURL]}/api/v1/org/{config[ORGID]}/source/{config[SOURCE]}/data/sb-agent"
-    r = requests.post(url, headers=headers, data=data)
-    if r.status_code != 200:
-        raise RuntimeError(f"Failed to send data to source, status code: {r.status_code}")
+    data = json.dumps(data)
+    add_batch(data)
+
+def add_batch(data):
+    with queue_lock:
+        data_queue.append(data)
+
+def send_batches():
+    try:
+        while running:
+            sleep(config[TIMEOUT])
+            with queue_lock:
+                if len(data_queue) == 0:
+                    continue
+                data = "\n".join(data_queue).encode("ascii")
+                data = gzip.compress(data)
+                headers = {
+                    "Authorization": f"Bearer {config[APIKEY]}",
+                    "Content-Encoding": "gzip",
+                    "Content-Type": "application/ndjson"
+                }
+                url = f"{config[APIURL]}/api/v1/org/{config[ORGID]}/source/{config[SOURCE]}/data/sb-agent"
+                r = requests.post(url, headers=headers, data=data)
+                if r.status_code != 200:
+                    raise RuntimeError(f"Failed to send data to source, status code: {r.status_code}")
+                else:
+                    log(f"Sent {len(data_queue)} output{'s' if len(data_queue) != 1 else ''} to source")
+                data_queue.clear()
+    except KeyboardInterrupt:
+        exit()
 
 def run_bat(bat):
     proc = sp.Popen(f"exec {bat}", shell=True, stdout=sp.PIPE)
     try:
         for out in proc.stdout:
-            out = out.decode("utf-8")
-            send_data(out.strip())
+            out = out.decode("utf-8").strip()
+            log(f"{bat}:   received output {out}")
+            process_data(out)
     except Exception as e:
         proc.kill()
         raise e
@@ -146,21 +183,27 @@ def run_bat(bat):
 if __name__ == '__main__':
     os.environ["PYTHONUNBUFFERED"] = "1"
     args = parse_args()
+    verbose = args.verbose
     config = read_config(args.config)
     set_config(args)
     validate_config(not args.input, args.config)
     try:
+        batch_thread = Thread(target=send_batches)
+        running = True
         if args.input:
+            batch_thread.start()
             while True:
-                send_data(input())
+                process_data(input())
         else:
-            threads = []
+            threads = [batch_thread]
             for bat in config[BATS]:
                 threads.append(Thread(target=run_bat, args=(bat,)))
             for thread in threads:
                 thread.start()
-            for thread in threads:
+            for thread in threads[1:]:
                 thread.join()
+            running = False
     except KeyboardInterrupt:
+        running = False
         exit()
     

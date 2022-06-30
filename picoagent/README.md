@@ -9,7 +9,8 @@
 `-u` / `--url`: A custom API url to use \
 `-p` / `--prefix`: A custom prefix to use for generating the source ID \
 `-m` / `--muid`: A custom machine ID to use for analytics \
-`-i` / `--input`: Read bat data from standard input instead of sepcified bats
+`-i` / `--input`: Read bat data from standard input instead of sepcified bats \
+`-v` / `--verbose`: Print logs of bat output and data sending
 
 ## Configuration Fields
 
@@ -20,7 +21,8 @@
 `Bats`: A list of bats to run, in the form of commands \
 `URL`: The API url to use \
 `Prefix`: The prefix to use for generating the source ID \
-`MUID`: The machine ID to use if none is sourced from the bat
+`MUID`: The machine ID to use if none is sourced from the bat \
+`Timeout`: The delay between each send of collected data
 
 ## Configuration Handling and Startup Logic
 

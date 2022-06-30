@@ -8,5 +8,6 @@
     ],
     "URL": "https://api.kangaroobat.net",
     "Prefix": "pico",
-    "MUID": ""
+    "MUID": "",
+    "Timeout": 2
 }
