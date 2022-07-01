@@ -16,6 +16,7 @@ Packages:
 
 ## Running the bat
 
+First, download the picoagent from https://github.com/spyderbat/api_examples/tree/main/picoagent. Find the picoagent.py file and move it into the same directory as this file.
 To start up the ec2bat, fill out the required configuration fields as shown below and the run the following command: 'python3 picoagent.py -c ec2config.json'.
 Optionally, use -v to output the results of the bat to stdout. By default, nothing will be outputted to stdout - this is normal, and the bat is still running correctly.
 
