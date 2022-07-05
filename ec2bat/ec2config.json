@@ -1,12 +1,12 @@
 {
     "API Key": "",
     "Org ID": "",
-    "Source": "ec2metadata:StBGXwQCRdI",
+    "Source": "",
     "Source Desc": "EC2 bat tags",
     "Bats": [
-        "python3 ec2tag.py -k=YOURKEY -sk=YOURSECRETKEY"
+        "python3 ec2tag.py"
     ],
-    "URL": "https://api.kangaroobat.net",
+    "URL": "https://api.spyderbat.net",
     "Prefix": "ec2metadata",
     "MUID": "muid:RCIr4Je832",
     "Timeout": 2
