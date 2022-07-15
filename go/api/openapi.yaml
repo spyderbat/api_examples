@@ -1,10 +1,23 @@
 openapi: 3.0.1
 info:
+  contact:
+    email: apisupport@spyderbat.com
+    name: API Support
+    url: https://api.spyderbat.com/openapi.pdf
   description: Restful APIs for use by UI & customers.
+  license:
+    name: MIT
+    url: https://mit-license.org/
+  termsOfService: https://www.spyderbat.com/terms-of-use/
   title: Spyderbat API UI & Public APIs
   version: 1.0.0
+  x-logo:
+    url: https://app.spyderbat.com/static/media/sb-logo.03d4ae14.svg
+    backgroundColor: '#161A21'
+    altText: Spyderbat Logo
 servers:
-- url: /
+- description: Spyderbat API Server
+  url: https://api.spyderbat.com/
 security:
 - apiToken: []
 tags:
@@ -47,10 +60,6 @@ tags:
 - description: "\nDashboard Searches are used to drive the Dashboard page, which shows\
     \ realtime searches in the UI\n"
   name: DashboardSearch
-- description: |2
-
-    Internal APIs for; not intended for customer usage.
-  name: Internal API
 - description: "Investigations can be created by users as a way to have an investigation\
     \ into a potential attack, allowing users to associate data from one or more sources\
     \ into a single investigation. An investigation may be utilized by multiple users\
@@ -197,116 +206,6 @@ tags:
 - description: User APIs
   name: User
 paths:
-  /api/v1/_/log:
-    post:
-      description: |2
-
-        For internal logging purposes
-      operationId: LogData
-      responses:
-        "200":
-          description: OK
-        "403":
-          description: permission denied
-      security:
-      - {}
-      summary: Logs data
-      tags:
-      - Internal API
-      x-internal: true
-  /api/v1/app/signup:
-    get:
-      description: "\nUsers can sign up by providing an email address. If the email\
-        \ is invalid or a user with the same existing email address has already registered\
-        \ an error is returned\n\n### Default configuration\n\nBy default the user\
-        \ will have an organization created for them, with the all actions allowed\
-        \ on the organization. The user can discover their organization id by \nlist\
-        \ all organizations.\n\n\t\t\t"
-      operationId: UserSignup
-      parameters:
-      - explode: true
-        in: query
-        name: auth
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: confirm
-        required: false
-        schema:
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: email
-        required: false
-        schema:
-          type: string
-        style: form
-      - allowEmptyValue: true
-        explode: true
-        in: query
-        name: enable
-        required: false
-        schema:
-          type: boolean
-        style: form
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user signup
-      security:
-      - {}
-      summary: Sign up a new user
-      tags:
-      - User
-  /api/v1/app/user/auth:
-    post:
-      description: "\nUsers may be authenticate by providing their email address and\
-        \ password as a JSON object, in response an authentication token will be returned\
-        \ in the header 'Authorization-Token'. The returned token must be used in\
-        \ a request header with the name 'Authorization' when making other authenticated\
-        \ API calls, for example 'Authorization: Bearer TOKEN'.\n"
-      operationId: UserAuth
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserAuthInput'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-          description: OK
-          headers:
-            Authorization-Token:
-              description: Authorization token to be provided when making authenticated
-                calls
-              explode: false
-              schema:
-                type: string
-              style: simple
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid auth request
-      security:
-      - {}
-      summary: "Authenticate a user, returns token required for authentication"
-      tags:
-      - User
-      x-internal: true
   /api/v1/app/user/current:
     get:
       description: "\nThis api call will return the current user as a JSON object,\
@@ -326,8 +225,7 @@ paths:
           description: User is expired or in a pending state
         "404":
           description: No user is associated
-      security:
-      - {}
+      security: []
       summary: Returns the current user
       tags:
       - User
@@ -466,6 +364,10 @@ paths:
               $ref: '#/components/schemas/MetricsDataQueryInput'
       responses:
         "200":
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/NDJSONStream'
           description: OK
         "400":
           content:
@@ -1709,6 +1611,10 @@ paths:
         style: form
       responses:
         "200":
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/NDJSONStream'
           description: OK
         "400":
           content:
@@ -2090,6 +1996,13 @@ paths:
           maxLength: 64
           type: string
         style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotificationPolicy'
+        description: The notification policy
+        required: true
       responses:
         "200":
           description: OK
@@ -2124,6 +2037,13 @@ paths:
         style: simple
       responses:
         "200":
+          content:
+            application/hjson:
+              schema:
+                $ref: '#/components/schemas/NotificationPolicy'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotificationPolicy'
           description: OK
         "403":
           description: permission denied
@@ -3117,6 +3037,10 @@ paths:
               $ref: '#/components/schemas/SrcDataQueryInput'
       responses:
         "200":
+          content:
+            application/x-ndjson:
+              schema:
+                $ref: '#/components/schemas/NDJSONStream'
           description: OK
         "400":
           content:
@@ -5165,6 +5089,9 @@ components:
         type:
           type: string
       type: object
+    DaoAuthPolicy:
+      description: Authentication policy
+      type: object
     DaoInvestigation:
       example:
         modified_on: 2000-01-23T04:56:07.000+00:00
@@ -5291,6 +5218,20 @@ components:
           description: The user uid for the user
           type: string
       type: object
+    DaoOrgRoles:
+      properties:
+        default_roles:
+          description: Default roles for the user
+          items:
+            type: string
+          maxItems: 32
+          minItems: 1
+          type: array
+        org_uid:
+          description: Org UID
+          maxLength: 32
+          type: string
+      type: object
     DaoOrgType:
       example:
         org_uid: org_uid
@@ -5335,6 +5276,59 @@ components:
           description: "Retention period for stored data, in days"
           format: int32
           type: integer
+      type: object
+    DaoPlan:
+      description: Plan
+      properties:
+        policies:
+          description: Policies for the plan
+          items:
+            $ref: '#/components/schemas/DaoPolicy'
+          type: array
+      type: object
+    DaoPolicy:
+      properties:
+        allowed_providers:
+          description: Allowed providers (use direct for direct sign-in)
+          items:
+            type: string
+          maxItems: 32
+          minItems: 1
+          type: array
+        auth_policy:
+          description: Authentication policy
+          type: object
+        comment:
+          description: comment
+          maxLength: 4096
+          type: string
+        email_regex:
+          description: Regular expression for email addresses
+          maxLength: 128
+          minLength: 3
+          type: string
+        signup_policy:
+          $ref: '#/components/schemas/DaoSignupPolicy'
+      required:
+      - allowed_providers
+      - email_regex
+      - signup_policy
+      type: object
+    DaoSignupPolicy:
+      description: Signup policy
+      properties:
+        create_personal_org:
+          description: Create a personal org for the user
+          type: boolean
+        default_org_roles:
+          description: Default org roles for new orgs
+          items:
+            $ref: '#/components/schemas/DaoOrgRoles'
+          maxItems: 32
+          type: array
+        requires_approval:
+          description: Require admin approval for new orgs
+          type: boolean
       type: object
     DashboardSearch:
       example:
@@ -5941,6 +5935,171 @@ components:
       - data_type
       - org_uid
       type: object
+    NDJSONStream:
+      description: A line-separated list of json objects
+      format: ndjson
+      type: string
+    NotificationPolicy:
+      description: A notification policy in json or hjson
+      example:
+        routes:
+        - data: ""
+          destination:
+            org_uid: org_uid
+            webhook:
+              no_tls_validation: true
+              url: http://example.com/aeiou
+            data: ""
+            slack:
+              url: http://example.com/aeiou
+            description: description
+            email:
+            - email
+            - email
+            users:
+            - users
+            - users
+          description: description
+          expr:
+            schema: schema
+            or:
+            - null
+            - null
+            in:
+            - ""
+            - ""
+            - ""
+            - ""
+            - ""
+            has_suffix: has_suffix
+            not: null
+            contains_str: contains_str
+            time_range:
+              start_time: 1.4658129805029452
+              end_time: 6.027456183070403
+            and:
+            - null
+            - null
+            greater_than: ""
+            equals: ""
+            less_than: ""
+            has_prefix: has_prefix
+            property: property
+            exists: true
+            re_match: re_match
+          target: target
+        - data: ""
+          destination:
+            org_uid: org_uid
+            webhook:
+              no_tls_validation: true
+              url: http://example.com/aeiou
+            data: ""
+            slack:
+              url: http://example.com/aeiou
+            description: description
+            email:
+            - email
+            - email
+            users:
+            - users
+            - users
+          description: description
+          expr:
+            schema: schema
+            or:
+            - null
+            - null
+            in:
+            - ""
+            - ""
+            - ""
+            - ""
+            - ""
+            has_suffix: has_suffix
+            not: null
+            contains_str: contains_str
+            time_range:
+              start_time: 1.4658129805029452
+              end_time: 6.027456183070403
+            and:
+            - null
+            - null
+            greater_than: ""
+            equals: ""
+            less_than: ""
+            has_prefix: has_prefix
+            property: property
+            exists: true
+            re_match: re_match
+          target: target
+        targets:
+          key:
+            org_uid: org_uid
+            webhook:
+              no_tls_validation: true
+              url: http://example.com/aeiou
+            data: ""
+            slack:
+              url: http://example.com/aeiou
+            description: description
+            email:
+            - email
+            - email
+            users:
+            - users
+            - users
+      properties:
+        routes:
+          items:
+            $ref: '#/components/schemas/NotificationPolicy_routes_inner'
+          type: array
+        targets:
+          additionalProperties:
+            $ref: '#/components/schemas/NotificationPolicyDestination'
+          type: object
+      type: object
+    NotificationPolicyDestination:
+      description: "A notification policy destination, containing one and only one\
+        \ of the available types"
+      example:
+        org_uid: org_uid
+        webhook:
+          no_tls_validation: true
+          url: http://example.com/aeiou
+        data: ""
+        slack:
+          url: http://example.com/aeiou
+        description: description
+        email:
+        - email
+        - email
+        users:
+        - users
+        - users
+      maxProperties: 3
+      minProperties: 1
+      properties:
+        data:
+          description: UI-supplied data
+        description:
+          type: string
+        email:
+          items:
+            format: email
+            type: string
+          type: array
+        org_uid:
+          type: string
+        slack:
+          $ref: '#/components/schemas/NotificationPolicyDestination_slack'
+        users:
+          items:
+            type: string
+          type: array
+        webhook:
+          $ref: '#/components/schemas/NotificationPolicyDestination_webhook'
+      type: object
     Orc_apiAgentWork:
       description: "Agent work, which is sent to the agents"
       example:
@@ -6199,7 +6358,7 @@ components:
       properties:
         name:
           description: Name of the organization
-          maxLength: 32
+          maxLength: 64
           minLength: 3
           type: string
         org_type_uid:
@@ -6355,7 +6514,7 @@ components:
       properties:
         name:
           description: Name of the organization
-          maxLength: 32
+          maxLength: 64
           minLength: 3
           type: string
         org_type_uid:
@@ -7391,24 +7550,6 @@ components:
       required:
       - email
       type: object
-    UserAuthInput:
-      example:
-        password: password
-        email: email
-      properties:
-        email:
-          description: User email
-          maxLength: 64
-          minLength: 4
-          type: string
-        password:
-          maxLength: 32
-          minLength: 8
-          type: string
-      required:
-      - email
-      - password
-      type: object
     ValidationError:
       properties:
         err_msg:
@@ -7423,6 +7564,89 @@ components:
         tags:
           description: Validation tag which failed
           type: string
+      type: object
+    NotificationPolicy_routes_inner:
+      example:
+        data: ""
+        destination:
+          org_uid: org_uid
+          webhook:
+            no_tls_validation: true
+            url: http://example.com/aeiou
+          data: ""
+          slack:
+            url: http://example.com/aeiou
+          description: description
+          email:
+          - email
+          - email
+          users:
+          - users
+          - users
+        description: description
+        expr:
+          schema: schema
+          or:
+          - null
+          - null
+          in:
+          - ""
+          - ""
+          - ""
+          - ""
+          - ""
+          has_suffix: has_suffix
+          not: null
+          contains_str: contains_str
+          time_range:
+            start_time: 1.4658129805029452
+            end_time: 6.027456183070403
+          and:
+          - null
+          - null
+          greater_than: ""
+          equals: ""
+          less_than: ""
+          has_prefix: has_prefix
+          property: property
+          exists: true
+          re_match: re_match
+        target: target
+      properties:
+        data:
+          description: UI-supplied data
+        description:
+          type: string
+        destination:
+          $ref: '#/components/schemas/NotificationPolicyDestination'
+        expr:
+          $ref: '#/components/schemas/Expr'
+        target:
+          description: One of the targets specified in `targets`
+          type: string
+      type: object
+    NotificationPolicyDestination_slack:
+      example:
+        url: http://example.com/aeiou
+      properties:
+        url:
+          format: url
+          type: string
+      required:
+      - url
+      type: object
+    NotificationPolicyDestination_webhook:
+      example:
+        no_tls_validation: true
+        url: http://example.com/aeiou
+      properties:
+        no_tls_validation:
+          type: boolean
+        url:
+          format: url
+          type: string
+      required:
+      - url
       type: object
   securitySchemes:
     apiToken:

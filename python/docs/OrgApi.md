@@ -1,6 +1,6 @@
-# sbapi.OrgApi
+# spyderbat_api.OrgApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -29,14 +29,14 @@ Assign OrgRole
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_api
-from sbapi.model.org_assign_role_input import OrgAssignRoleInput
+import spyderbat_api
+from spyderbat_api.api import org_api
+from spyderbat_api.model.org_assign_role_input import OrgAssignRoleInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -45,12 +45,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -63,7 +63,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Assign OrgRole
         api_instance.org_assign_role(org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_assign_role: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -71,7 +71,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Assign OrgRole
         api_instance.org_assign_role(org_uid, org_assign_role_input=org_assign_role_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_assign_role: %s\n" % e)
 ```
 
@@ -118,14 +118,14 @@ Invite users to an organization
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_api
-from sbapi.model.org_invite_users_input import OrgInviteUsersInput
+import spyderbat_api
+from spyderbat_api.api import org_api
+from spyderbat_api.model.org_invite_users_input import OrgInviteUsersInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -134,12 +134,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -156,7 +156,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Invite users to an organization
         api_instance.org_invite_users(org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_invite_users: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -164,7 +164,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Invite users to an organization
         api_instance.org_invite_users(org_uid, org_invite_users_input=org_invite_users_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_invite_users: %s\n" % e)
 ```
 
@@ -212,15 +212,15 @@ List organizations
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_api
-from sbapi.model.org import Org
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import org_api
+from spyderbat_api.model.org import Org
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -229,12 +229,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     has_resource_policy = True # bool |  (optional)
@@ -254,7 +254,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List organizations
         api_response = api_instance.org_list(has_resource_policy=has_resource_policy, has_tags=has_tags, include_expired=include_expired, name_contains=name_contains, owner_uid_equals=owner_uid_equals, page=page, page_size=page_size, uid_equals=uid_equals)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_list: %s\n" % e)
 ```
 
@@ -309,14 +309,14 @@ List OrgRoles
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_api
-from sbapi.model.dao_org_role_response import DaoOrgRoleResponse
+import spyderbat_api
+from spyderbat_api.api import org_api
+from spyderbat_api.model.dao_org_role_response import DaoOrgRoleResponse
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -325,12 +325,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -343,7 +343,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List OrgRoles
         api_response = api_instance.org_list_role(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_list_role: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -352,7 +352,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List OrgRoles
         api_response = api_instance.org_list_role(org_uid, role_uid_equals=role_uid_equals, user_email_equals=user_email_equals, user_uid_equals=user_uid_equals)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_list_role: %s\n" % e)
 ```
 
@@ -402,14 +402,14 @@ Load an organization
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_api
-from sbapi.model.org import Org
+import spyderbat_api
+from spyderbat_api.api import org_api
+from spyderbat_api.model.org import Org
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -418,12 +418,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -433,7 +433,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Load an organization
         api_response = api_instance.org_load(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_load: %s\n" % e)
 ```
 
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **org_load_notification_policy**
-> org_load_notification_policy(org_uid)
+> NotificationPolicy org_load_notification_policy(org_uid)
 
 Load Notification Policy
 
@@ -480,13 +480,14 @@ Load Notification Policy
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_api
+import spyderbat_api
+from spyderbat_api.api import org_api
+from spyderbat_api.model.notification_policy import NotificationPolicy
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -495,12 +496,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -508,8 +509,9 @@ with sbapi.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Load Notification Policy
-        api_instance.org_load_notification_policy(org_uid)
-    except sbapi.ApiException as e:
+        api_response = api_instance.org_load_notification_policy(org_uid)
+        pprint(api_response)
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_load_notification_policy: %s\n" % e)
 ```
 
@@ -522,7 +524,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**NotificationPolicy**](NotificationPolicy.md)
 
 ### Authorization
 
@@ -531,7 +533,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/hjson, application/json
 
 
 ### HTTP response details
@@ -556,14 +558,14 @@ Test Notification Target
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_api
-from sbapi.model.org_test_notification_target_input import OrgTestNotificationTargetInput
+import spyderbat_api
+from spyderbat_api.api import org_api
+from spyderbat_api.model.org_test_notification_target_input import OrgTestNotificationTargetInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -572,12 +574,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -589,7 +591,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Test Notification Target
         api_instance.org_test_notification_target(org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_test_notification_target: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -597,7 +599,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Test Notification Target
         api_instance.org_test_notification_target(org_uid, org_test_notification_target_input=org_test_notification_target_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_test_notification_target: %s\n" % e)
 ```
 
@@ -645,14 +647,14 @@ Unassign OrgRole
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_api
-from sbapi.model.org_unassign_role_input import OrgUnassignRoleInput
+import spyderbat_api
+from spyderbat_api.api import org_api
+from spyderbat_api.model.org_unassign_role_input import OrgUnassignRoleInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -661,12 +663,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -679,7 +681,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Unassign OrgRole
         api_instance.org_unassign_role(org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_unassign_role: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -687,7 +689,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Unassign OrgRole
         api_instance.org_unassign_role(org_uid, org_unassign_role_input=org_unassign_role_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_unassign_role: %s\n" % e)
 ```
 
@@ -735,15 +737,15 @@ Update an organization
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_api
-from sbapi.model.org_update_input import OrgUpdateInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import org_api
+from spyderbat_api.model.validation_error import ValidationError
+from spyderbat_api.model.org_update_input import OrgUpdateInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -752,12 +754,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | Org UID
@@ -795,7 +797,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Update an organization
         api_instance.org_update(org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_update: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -803,7 +805,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Update an organization
         api_instance.org_update(org_uid, org_update_input=org_update_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_update: %s\n" % e)
 ```
 
@@ -840,7 +842,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **org_update_notification_policy**
-> org_update_notification_policy(org_uid)
+> org_update_notification_policy(org_uid, notification_policy)
 
 Update an organization's notification policy
 
@@ -852,14 +854,15 @@ Update an organization's notification policy
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import org_api
+from spyderbat_api.model.notification_policy import NotificationPolicy
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -868,21 +871,94 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | 
+    notification_policy = NotificationPolicy(
+        routes=[
+            NotificationPolicyRoutesInner(
+                data=None,
+                description="description_example",
+                destination=NotificationPolicyDestination(
+                    data=None,
+                    description="description_example",
+                    email=[
+                        "email_example",
+                    ],
+                    org_uid="org_uid_example",
+                    slack=NotificationPolicyDestinationSlack(
+                        url="url_example",
+                    ),
+                    users=[
+                        "users_example",
+                    ],
+                    webhook=NotificationPolicyDestinationWebhook(
+                        no_tls_validation=True,
+                        url="url_example",
+                    ),
+                ),
+                expr=Expr(
+                    _and=[
+                        Expr(),
+                    ],
+                    contains_str="contains_str_example",
+                    equals=None,
+                    exists=True,
+                    greater_than=None,
+                    has_prefix="has_prefix_example",
+                    has_suffix="has_suffix_example",
+                    _in=[
+                        None,
+                    ],
+                    less_than=None,
+                    _not=Expr(),
+                    _or=[
+                        Expr(),
+                    ],
+                    _property="_property_example",
+                    re_match="re_match_example",
+                    schema="schema_example",
+                    time_range=RstreamTimeRange(
+                        end_time=3.14,
+                        start_time=3.14,
+                    ),
+                ),
+                target="target_example",
+            ),
+        ],
+        targets={
+            "key": NotificationPolicyDestination(
+                data=None,
+                description="description_example",
+                email=[
+                    "email_example",
+                ],
+                org_uid="org_uid_example",
+                slack=NotificationPolicyDestinationSlack(
+                    url="url_example",
+                ),
+                users=[
+                    "users_example",
+                ],
+                webhook=NotificationPolicyDestinationWebhook(
+                    no_tls_validation=True,
+                    url="url_example",
+                ),
+            ),
+        },
+    ) # NotificationPolicy | The notification policy
 
     # example passing only required values which don't have defaults set
     try:
         # Update an organization's notification policy
-        api_instance.org_update_notification_policy(org_uid)
-    except sbapi.ApiException as e:
+        api_instance.org_update_notification_policy(org_uid, notification_policy)
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgApi->org_update_notification_policy: %s\n" % e)
 ```
 
@@ -892,6 +968,7 @@ with sbapi.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_uid** | **str**|  |
+ **notification_policy** | [**NotificationPolicy**](NotificationPolicy.md)| The notification policy |
 
 ### Return type
 
@@ -903,7 +980,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

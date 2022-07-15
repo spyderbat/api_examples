@@ -1,6 +1,6 @@
-# Sbapi.OrgApi
+# SpyderbatApi.OrgApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -28,16 +28,16 @@ Assign OrgRole
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgApi();
+let apiInstance = new SpyderbatApi.OrgApi();
 let orgUID = "orgUID_example"; // String | 
 let opts = {
-  'orgAssignRoleInput': new Sbapi.OrgAssignRoleInput() // OrgAssignRoleInput | 
+  'orgAssignRoleInput': new SpyderbatApi.OrgAssignRoleInput() // OrgAssignRoleInput | 
 };
 apiInstance.orgAssignRole(orgUID, opts, (error, data, response) => {
   if (error) {
@@ -81,16 +81,16 @@ Invite users to an organization
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgApi();
+let apiInstance = new SpyderbatApi.OrgApi();
 let orgUID = "orgUID_example"; // String | 
 let opts = {
-  'orgInviteUsersInput': new Sbapi.OrgInviteUsersInput() // OrgInviteUsersInput | 
+  'orgInviteUsersInput': new SpyderbatApi.OrgInviteUsersInput() // OrgInviteUsersInput | 
 };
 apiInstance.orgInviteUsers(orgUID, opts, (error, data, response) => {
   if (error) {
@@ -134,13 +134,13 @@ List organizations
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgApi();
+let apiInstance = new SpyderbatApi.OrgApi();
 let opts = {
   'hasResourcePolicy': true, // Boolean | 
   'hasTags': ["null"], // [String] | 
@@ -199,13 +199,13 @@ List OrgRoles
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgApi();
+let apiInstance = new SpyderbatApi.OrgApi();
 let orgUID = "orgUID_example"; // String | 
 let opts = {
   'roleUidEquals': "roleUidEquals_example", // String | 
@@ -256,13 +256,13 @@ Load an organization
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgApi();
+let apiInstance = new SpyderbatApi.OrgApi();
 let orgUID = "orgUID_example"; // String | 
 apiInstance.orgLoad(orgUID, (error, data, response) => {
   if (error) {
@@ -296,7 +296,7 @@ Name | Type | Description  | Notes
 
 ## orgLoadNotificationPolicy
 
-> orgLoadNotificationPolicy(orgUID)
+> NotificationPolicy orgLoadNotificationPolicy(orgUID)
 
 Load Notification Policy
 
@@ -305,19 +305,19 @@ Load Notification Policy
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgApi();
+let apiInstance = new SpyderbatApi.OrgApi();
 let orgUID = "orgUID_example"; // String | 
 apiInstance.orgLoadNotificationPolicy(orgUID, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -331,7 +331,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**NotificationPolicy**](NotificationPolicy.md)
 
 ### Authorization
 
@@ -340,7 +340,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: Not defined
+- **Accept**: application/hjson, application/json
 
 
 ## orgTestNotificationTarget
@@ -354,16 +354,16 @@ Test Notification Target
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgApi();
+let apiInstance = new SpyderbatApi.OrgApi();
 let orgUID = "orgUID_example"; // String | 
 let opts = {
-  'orgTestNotificationTargetInput': new Sbapi.OrgTestNotificationTargetInput() // OrgTestNotificationTargetInput | 
+  'orgTestNotificationTargetInput': new SpyderbatApi.OrgTestNotificationTargetInput() // OrgTestNotificationTargetInput | 
 };
 apiInstance.orgTestNotificationTarget(orgUID, opts, (error, data, response) => {
   if (error) {
@@ -407,16 +407,16 @@ Unassign OrgRole
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgApi();
+let apiInstance = new SpyderbatApi.OrgApi();
 let orgUID = "orgUID_example"; // String | 
 let opts = {
-  'orgUnassignRoleInput': new Sbapi.OrgUnassignRoleInput() // OrgUnassignRoleInput | 
+  'orgUnassignRoleInput': new SpyderbatApi.OrgUnassignRoleInput() // OrgUnassignRoleInput | 
 };
 apiInstance.orgUnassignRole(orgUID, opts, (error, data, response) => {
   if (error) {
@@ -460,16 +460,16 @@ Update an organization
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgApi();
+let apiInstance = new SpyderbatApi.OrgApi();
 let orgUID = "orgUID_example"; // String | Org UID
 let opts = {
-  'orgUpdateInput': new Sbapi.OrgUpdateInput() // OrgUpdateInput | 
+  'orgUpdateInput': new SpyderbatApi.OrgUpdateInput() // OrgUpdateInput | 
 };
 apiInstance.orgUpdate(orgUID, opts, (error, data, response) => {
   if (error) {
@@ -504,7 +504,7 @@ null (empty response body)
 
 ## orgUpdateNotificationPolicy
 
-> orgUpdateNotificationPolicy(orgUID)
+> orgUpdateNotificationPolicy(orgUID, notificationPolicy)
 
 Update an organization&#39;s notification policy
 
@@ -513,15 +513,16 @@ Update an organization&#39;s notification policy
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgApi();
+let apiInstance = new SpyderbatApi.OrgApi();
 let orgUID = "orgUID_example"; // String | 
-apiInstance.orgUpdateNotificationPolicy(orgUID, (error, data, response) => {
+let notificationPolicy = new SpyderbatApi.NotificationPolicy(); // NotificationPolicy | The notification policy
+apiInstance.orgUpdateNotificationPolicy(orgUID, notificationPolicy, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -536,6 +537,7 @@ apiInstance.orgUpdateNotificationPolicy(orgUID, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orgUID** | **String**|  | 
+ **notificationPolicy** | [**NotificationPolicy**](NotificationPolicy.md)| The notification policy | 
 
 ### Return type
 
@@ -547,6 +549,6 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: application/json
 - **Accept**: application/json
 

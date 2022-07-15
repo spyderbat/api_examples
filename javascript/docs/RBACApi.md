@@ -1,6 +1,6 @@
-# Sbapi.RBACApi
+# SpyderbatApi.RBACApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,15 +19,15 @@ Allows for querying of what actions a user can perform; results may be cached fo
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.RBACApi();
+let apiInstance = new SpyderbatApi.RBACApi();
 let opts = {
-  'canUserPerformInput': new Sbapi.CanUserPerformInput() // CanUserPerformInput | 
+  'canUserPerformInput': new SpyderbatApi.CanUserPerformInput() // CanUserPerformInput | 
 };
 apiInstance.canUserPerform(opts, (error, data, response) => {
   if (error) {

@@ -1,4 +1,4 @@
-# Sbapi.ApiInvestigationCreateOutput
+# SpyderbatApi.ApiInvestigationCreateOutput
 
 ## Properties
 

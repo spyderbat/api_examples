@@ -1,6 +1,6 @@
-# sbapi.APIKeyApi
+# spyderbat_api.APIKeyApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,15 +23,15 @@ Creates a new API key
 
 ```python
 import time
-import sbapi
-from sbapi.api import api_key_api
-from sbapi.model.api_key_create_input import ApiKeyCreateInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import api_key_api
+from spyderbat_api.model.api_key_create_input import ApiKeyCreateInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -40,12 +40,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = api_key_api.APIKeyApi(api_client)
     user_uid = "userUID_example" # str | User UID
@@ -59,7 +59,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Creates a new API key
         api_response = api_instance.api_key_create(user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling APIKeyApi->api_key_create: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -68,7 +68,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Creates a new API key
         api_response = api_instance.api_key_create(user_uid, api_key_create_input=api_key_create_input)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling APIKeyApi->api_key_create: %s\n" % e)
 ```
 
@@ -116,14 +116,14 @@ Delete an API key
 
 ```python
 import time
-import sbapi
-from sbapi.api import api_key_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import api_key_api
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -132,12 +132,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = api_key_api.APIKeyApi(api_client)
     uid = "uid_example" # str | API Key UID
@@ -147,7 +147,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Delete an API key
         api_instance.api_key_delete(uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling APIKeyApi->api_key_delete: %s\n" % e)
 ```
 
@@ -195,15 +195,15 @@ Lists an API key
 
 ```python
 import time
-import sbapi
-from sbapi.api import api_key_api
-from sbapi.model.api_key import APIKey
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import api_key_api
+from spyderbat_api.model.api_key import APIKey
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -212,12 +212,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = api_key_api.APIKeyApi(api_client)
     user_uid = "userUID_example" # str | User UID
@@ -227,7 +227,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Lists an API key
         api_response = api_instance.api_key_list(user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling APIKeyApi->api_key_list: %s\n" % e)
 ```
 
@@ -274,15 +274,15 @@ Updates an API key
 
 ```python
 import time
-import sbapi
-from sbapi.api import api_key_api
-from sbapi.model.api_key_update_input import ApiKeyUpdateInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import api_key_api
+from spyderbat_api.model.api_key_update_input import ApiKeyUpdateInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -291,12 +291,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = api_key_api.APIKeyApi(api_client)
     uid = "uid_example" # str | API Key UID
@@ -310,7 +310,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Updates an API key
         api_instance.api_key_update(uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling APIKeyApi->api_key_update: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -318,7 +318,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Updates an API key
         api_instance.api_key_update(uid, user_uid, api_key_update_input=api_key_update_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling APIKeyApi->api_key_update: %s\n" % e)
 ```
 

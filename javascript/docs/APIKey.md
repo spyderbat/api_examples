@@ -1,4 +1,4 @@
-# Sbapi.APIKey
+# SpyderbatApi.APIKey
 
 ## Properties
 

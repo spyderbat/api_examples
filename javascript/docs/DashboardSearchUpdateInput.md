@@ -1,4 +1,4 @@
-# Sbapi.DashboardSearchUpdateInput
+# SpyderbatApi.DashboardSearchUpdateInput
 
 ## Properties
 

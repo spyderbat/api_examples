@@ -1,4 +1,4 @@
-# Sbapi.DaoOrgType
+# SpyderbatApi.DaoOrgType
 
 ## Properties
 

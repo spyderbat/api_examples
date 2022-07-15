@@ -1,4 +1,4 @@
-# Sbapi.OrcApiRuntimeDetails
+# SpyderbatApi.OrcApiRuntimeDetails
 
 ## Properties
 

@@ -1,6 +1,6 @@
-# Sbapi.AgentApi
+# SpyderbatApi.AgentApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,13 +20,13 @@ List agents
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentApi();
+let apiInstance = new SpyderbatApi.AgentApi();
 let orgUID = "orgUID_example"; // String | 
 let opts = {
   'agentRegistrationUidEquals': "agentRegistrationUidEquals_example", // String | 
@@ -81,13 +81,13 @@ Load an agent
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentApi();
+let apiInstance = new SpyderbatApi.AgentApi();
 let agentUID = "agentUID_example"; // String | 
 let orgUID = "orgUID_example"; // String | 
 apiInstance.agentLoad(agentUID, orgUID, (error, data, response) => {

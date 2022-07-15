@@ -1,8 +1,8 @@
 {
-  "name": "sbapi",
+  "name": "spyderbat-api",
   "version": "1.0.0",
   "description": "Restful_APIs_for_use_by_UI__customers_",
-  "license": "Unlicense",
+  "license": "MIT",
   "main": "dist/index.js",
   "scripts": {
     "build": "babel src -d dist",

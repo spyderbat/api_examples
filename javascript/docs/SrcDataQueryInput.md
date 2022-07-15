@@ -1,4 +1,4 @@
-# Sbapi.SrcDataQueryInput
+# SpyderbatApi.SrcDataQueryInput
 
 ## Properties
 

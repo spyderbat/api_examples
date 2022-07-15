@@ -1,4 +1,4 @@
-# Sbapi.OrgInviteUsersInput
+# SpyderbatApi.OrgInviteUsersInput
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Sbapi.DashboardSearch
+# SpyderbatApi.DashboardSearch
 
 ## Properties
 

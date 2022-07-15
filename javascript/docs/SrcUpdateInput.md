@@ -1,4 +1,4 @@
-# Sbapi.SrcUpdateInput
+# SpyderbatApi.SrcUpdateInput
 
 ## Properties
 

@@ -1,6 +1,6 @@
-# sbapi.AgentWorkApi
+# spyderbat_api.AgentWorkApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,14 +25,14 @@ Delete agent work data for a specific agent
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_work_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import agent_work_api
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -41,12 +41,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_work_api.AgentWorkApi(api_client)
     agent_uid = "agentUID_example" # str | Agent UID
@@ -56,7 +56,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Delete agent work data for a specific agent
         api_instance.agent_delete_agent_work(agent_uid, org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_delete_agent_work: %s\n" % e)
 ```
 
@@ -104,14 +104,14 @@ Delete agent work for an org
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_work_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import agent_work_api
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -120,12 +120,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_work_api.AgentWorkApi(api_client)
     agent_uid = "agentUID_example" # str | Agent UID
@@ -135,7 +135,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Delete agent work for an org
         api_instance.agent_delete_org_work(agent_uid, org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_delete_org_work: %s\n" % e)
 ```
 
@@ -183,15 +183,15 @@ Get agent work data for a specific agent
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_work_api
-from sbapi.model.api_agent_work_output import ApiAgentWorkOutput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import agent_work_api
+from spyderbat_api.model.api_agent_work_output import ApiAgentWorkOutput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -200,12 +200,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_work_api.AgentWorkApi(api_client)
     agent_uid = "agentUID_example" # str | Agent UID
@@ -216,7 +216,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get agent work data for a specific agent
         api_response = api_instance.agent_get_agent_work(agent_uid, org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_get_agent_work: %s\n" % e)
 ```
 
@@ -264,15 +264,15 @@ Get agent work data for the organization
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_work_api
-from sbapi.model.api_agent_work_output import ApiAgentWorkOutput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import agent_work_api
+from spyderbat_api.model.api_agent_work_output import ApiAgentWorkOutput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -281,12 +281,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_work_api.AgentWorkApi(api_client)
     agent_uid = "agentUID_example" # str | Agent UID
@@ -297,7 +297,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get agent work data for the organization
         api_response = api_instance.agent_get_org_work(agent_uid, org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_get_org_work: %s\n" % e)
 ```
 
@@ -345,15 +345,15 @@ Set agent work data for a specific agent
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_work_api
-from sbapi.model.agent_set_agent_work_input import AgentSetAgentWorkInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import agent_work_api
+from spyderbat_api.model.agent_set_agent_work_input import AgentSetAgentWorkInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -362,12 +362,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_work_api.AgentWorkApi(api_client)
     agent_uid = "agentUID_example" # str | Agent UID
@@ -401,7 +401,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set agent work data for a specific agent
         api_instance.agent_set_agent_work(agent_uid, org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_set_agent_work: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -409,7 +409,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set agent work data for a specific agent
         api_instance.agent_set_agent_work(agent_uid, org_uid, agent_set_agent_work_input=agent_set_agent_work_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_set_agent_work: %s\n" % e)
 ```
 
@@ -458,15 +458,15 @@ Set agent work data for a specific agent
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_work_api
-from sbapi.model.agent_set_org_work_input import AgentSetOrgWorkInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import agent_work_api
+from spyderbat_api.model.validation_error import ValidationError
+from spyderbat_api.model.agent_set_org_work_input import AgentSetOrgWorkInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -475,12 +475,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_work_api.AgentWorkApi(api_client)
     agent_uid = "agentUID_example" # str | Agent UID
@@ -514,7 +514,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set agent work data for a specific agent
         api_instance.agent_set_org_work(agent_uid, org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_set_org_work: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -522,7 +522,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set agent work data for a specific agent
         api_instance.agent_set_org_work(agent_uid, org_uid, agent_set_org_work_input=agent_set_org_work_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_set_org_work: %s\n" % e)
 ```
 

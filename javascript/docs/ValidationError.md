@@ -1,4 +1,4 @@
-# Sbapi.ValidationError
+# SpyderbatApi.ValidationError
 
 ## Properties
 

@@ -1,6 +1,6 @@
-# Sbapi.APIKeyApi
+# SpyderbatApi.APIKeyApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,16 +22,16 @@ Creates a new API key
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.APIKeyApi();
+let apiInstance = new SpyderbatApi.APIKeyApi();
 let userUID = "userUID_example"; // String | User UID
 let opts = {
-  'apiKeyCreateInput': new Sbapi.ApiKeyCreateInput() // ApiKeyCreateInput | 
+  'apiKeyCreateInput': new SpyderbatApi.ApiKeyCreateInput() // ApiKeyCreateInput | 
 };
 apiInstance.apiKeyCreate(userUID, opts, (error, data, response) => {
   if (error) {
@@ -75,13 +75,13 @@ Delete an API key
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.APIKeyApi();
+let apiInstance = new SpyderbatApi.APIKeyApi();
 let uid = "uid_example"; // String | API Key UID
 let userUID = "userUID_example"; // String | User UID
 apiInstance.apiKeyDelete(uid, userUID, (error, data, response) => {
@@ -126,13 +126,13 @@ Lists an API key
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.APIKeyApi();
+let apiInstance = new SpyderbatApi.APIKeyApi();
 let userUID = "userUID_example"; // String | User UID
 apiInstance.apiKeyList(userUID, (error, data, response) => {
   if (error) {
@@ -175,17 +175,17 @@ Updates an API key
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.APIKeyApi();
+let apiInstance = new SpyderbatApi.APIKeyApi();
 let uid = "uid_example"; // String | API Key UID
 let userUID = "userUID_example"; // String | User UID
 let opts = {
-  'apiKeyUpdateInput': new Sbapi.ApiKeyUpdateInput() // ApiKeyUpdateInput | 
+  'apiKeyUpdateInput': new SpyderbatApi.ApiKeyUpdateInput() // ApiKeyUpdateInput | 
 };
 apiInstance.apiKeyUpdate(uid, userUID, opts, (error, data, response) => {
   if (error) {

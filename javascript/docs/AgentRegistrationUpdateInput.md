@@ -1,4 +1,4 @@
-# Sbapi.AgentRegistrationUpdateInput
+# SpyderbatApi.AgentRegistrationUpdateInput
 
 ## Properties
 

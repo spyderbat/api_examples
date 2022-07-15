@@ -1,6 +1,6 @@
-# sbapi.RBACApi
+# spyderbat_api.RBACApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,16 +20,16 @@ Allows for querying of what actions a user can perform; results may be cached fo
 
 ```python
 import time
-import sbapi
-from sbapi.api import rbac_api
-from sbapi.model.api_rbac_actions import ApiRBACActions
-from sbapi.model.can_user_perform_input import CanUserPerformInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import rbac_api
+from spyderbat_api.model.can_user_perform_input import CanUserPerformInput
+from spyderbat_api.model.api_rbac_actions import ApiRBACActions
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -38,12 +38,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = rbac_api.RBACApi(api_client)
     can_user_perform_input = CanUserPerformInput(
@@ -63,7 +63,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query allows actions on objects
         api_response = api_instance.can_user_perform(can_user_perform_input=can_user_perform_input)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling RBACApi->can_user_perform: %s\n" % e)
 ```
 

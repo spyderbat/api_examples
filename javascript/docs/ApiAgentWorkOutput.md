@@ -1,4 +1,4 @@
-# Sbapi.ApiAgentWorkOutput
+# SpyderbatApi.ApiAgentWorkOutput
 
 ## Properties
 

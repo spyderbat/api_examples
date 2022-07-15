@@ -1,6 +1,6 @@
-# Sbapi.AgentWorkApi
+# SpyderbatApi.AgentWorkApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,13 +24,13 @@ Delete agent work data for a specific agent
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentWorkApi();
+let apiInstance = new SpyderbatApi.AgentWorkApi();
 let agentUID = "agentUID_example"; // String | Agent UID
 let orgUID = "orgUID_example"; // String | 
 apiInstance.agentDeleteAgentWork(agentUID, orgUID, (error, data, response) => {
@@ -75,13 +75,13 @@ Delete agent work for an org
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentWorkApi();
+let apiInstance = new SpyderbatApi.AgentWorkApi();
 let agentUID = "agentUID_example"; // String | Agent UID
 let orgUID = "orgUID_example"; // String | 
 apiInstance.agentDeleteOrgWork(agentUID, orgUID, (error, data, response) => {
@@ -126,13 +126,13 @@ Get agent work data for a specific agent
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentWorkApi();
+let apiInstance = new SpyderbatApi.AgentWorkApi();
 let agentUID = "agentUID_example"; // String | Agent UID
 let orgUID = "orgUID_example"; // String | 
 apiInstance.agentGetAgentWork(agentUID, orgUID, (error, data, response) => {
@@ -177,13 +177,13 @@ Get agent work data for the organization
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentWorkApi();
+let apiInstance = new SpyderbatApi.AgentWorkApi();
 let agentUID = "agentUID_example"; // String | Agent UID
 let orgUID = "orgUID_example"; // String | 
 apiInstance.agentGetOrgWork(agentUID, orgUID, (error, data, response) => {
@@ -228,17 +228,17 @@ Set agent work data for a specific agent
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentWorkApi();
+let apiInstance = new SpyderbatApi.AgentWorkApi();
 let agentUID = "agentUID_example"; // String | Agent UID
 let orgUID = "orgUID_example"; // String | 
 let opts = {
-  'agentSetAgentWorkInput': new Sbapi.AgentSetAgentWorkInput() // AgentSetAgentWorkInput | 
+  'agentSetAgentWorkInput': new SpyderbatApi.AgentSetAgentWorkInput() // AgentSetAgentWorkInput | 
 };
 apiInstance.agentSetAgentWork(agentUID, orgUID, opts, (error, data, response) => {
   if (error) {
@@ -283,17 +283,17 @@ Set agent work data for a specific agent
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentWorkApi();
+let apiInstance = new SpyderbatApi.AgentWorkApi();
 let agentUID = "agentUID_example"; // String | Agent UID
 let orgUID = "orgUID_example"; // String | 
 let opts = {
-  'agentSetOrgWorkInput': new Sbapi.AgentSetOrgWorkInput() // AgentSetOrgWorkInput | 
+  'agentSetOrgWorkInput': new SpyderbatApi.AgentSetOrgWorkInput() // AgentSetOrgWorkInput | 
 };
 apiInstance.agentSetOrgWork(agentUID, orgUID, opts, (error, data, response) => {
   if (error) {

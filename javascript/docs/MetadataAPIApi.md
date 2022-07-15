@@ -1,6 +1,6 @@
-# Sbapi.MetadataAPIApi
+# SpyderbatApi.MetadataAPIApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -19,13 +19,13 @@ Returns the schema used for search
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.MetadataAPIApi();
+let apiInstance = new SpyderbatApi.MetadataAPIApi();
 apiInstance.metadataSearchSchema((error, data, response) => {
   if (error) {
     console.error(error);

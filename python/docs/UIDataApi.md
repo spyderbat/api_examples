@@ -1,6 +1,6 @@
-# sbapi.UIDataApi
+# spyderbat_api.UIDataApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -39,14 +39,14 @@ Delete Org UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -55,12 +55,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -72,7 +72,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Delete Org UI Data
         api_instance.ui_data_delete_org_data(data_key, org_uid, source_uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_delete_org_data: %s\n" % e)
 ```
 
@@ -122,14 +122,14 @@ Delete Source UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -138,12 +138,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -155,7 +155,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Delete Source UI Data
         api_instance.ui_data_delete_source_data(data_key, org_uid, source_uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_delete_source_data: %s\n" % e)
 ```
 
@@ -205,14 +205,14 @@ Delete User UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -221,12 +221,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -238,7 +238,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Delete User UI Data
         api_instance.ui_data_delete_user_data(data_key, org_uid, source_uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_delete_user_data: %s\n" % e)
 ```
 
@@ -288,14 +288,14 @@ Delete UserOrg UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -304,12 +304,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -321,7 +321,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Delete UserOrg UI Data
         api_instance.ui_data_delete_user_org_data(data_key, org_uid, source_uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_delete_user_org_data: %s\n" % e)
 ```
 
@@ -371,14 +371,14 @@ Delete UserSource UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -387,12 +387,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -404,7 +404,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Delete UserSource UI Data
         api_instance.ui_data_delete_user_source_data(data_key, org_uid, source_uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_delete_user_source_data: %s\n" % e)
 ```
 
@@ -454,15 +454,15 @@ Get Org UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data import UIData
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data import UIData
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -471,12 +471,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -489,7 +489,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get Org UI Data
         api_response = api_instance.ui_data_get_org_data(data_key, org_uid, source_uid, user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_get_org_data: %s\n" % e)
 ```
 
@@ -539,15 +539,15 @@ Get Source UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data import UIData
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data import UIData
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -556,12 +556,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -574,7 +574,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get Source UI Data
         api_response = api_instance.ui_data_get_source_data(data_key, org_uid, source_uid, user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_get_source_data: %s\n" % e)
 ```
 
@@ -624,15 +624,15 @@ Get User UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data import UIData
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data import UIData
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -641,12 +641,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -659,7 +659,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get User UI Data
         api_response = api_instance.ui_data_get_user_data(data_key, org_uid, source_uid, user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_get_user_data: %s\n" % e)
 ```
 
@@ -709,15 +709,15 @@ Get UserOrg UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data import UIData
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data import UIData
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -726,12 +726,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -744,7 +744,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get UserOrg UI Data
         api_response = api_instance.ui_data_get_user_org_data(data_key, org_uid, source_uid, user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_get_user_org_data: %s\n" % e)
 ```
 
@@ -794,15 +794,15 @@ Get UserSource UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data import UIData
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data import UIData
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -811,12 +811,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -829,7 +829,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get UserSource UI Data
         api_response = api_instance.ui_data_get_user_source_data(data_key, org_uid, source_uid, user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_get_user_source_data: %s\n" % e)
 ```
 
@@ -879,15 +879,15 @@ Query Org UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data import UIData
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data import UIData
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -896,12 +896,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -917,7 +917,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query Org UI Data
         api_response = api_instance.ui_data_query_org_data(data_key, org_uid, source_uid, user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_query_org_data: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -926,7 +926,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query Org UI Data
         api_response = api_instance.ui_data_query_org_data(data_key, org_uid, source_uid, user_uid, tags=tags)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_query_org_data: %s\n" % e)
 ```
 
@@ -977,15 +977,15 @@ Query Source UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data import UIData
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data import UIData
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -994,12 +994,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -1015,7 +1015,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query Source UI Data
         api_response = api_instance.ui_data_query_source_data(data_key, org_uid, source_uid, user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_query_source_data: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1024,7 +1024,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query Source UI Data
         api_response = api_instance.ui_data_query_source_data(data_key, org_uid, source_uid, user_uid, tags=tags)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_query_source_data: %s\n" % e)
 ```
 
@@ -1075,15 +1075,15 @@ Query User UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data import UIData
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data import UIData
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1092,12 +1092,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -1113,7 +1113,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query User UI Data
         api_response = api_instance.ui_data_query_user_data(data_key, org_uid, source_uid, user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_query_user_data: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1122,7 +1122,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query User UI Data
         api_response = api_instance.ui_data_query_user_data(data_key, org_uid, source_uid, user_uid, tags=tags)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_query_user_data: %s\n" % e)
 ```
 
@@ -1173,15 +1173,15 @@ Query UserOrg UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data import UIData
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data import UIData
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1190,12 +1190,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -1211,7 +1211,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query UserOrg UI Data
         api_response = api_instance.ui_data_query_user_org_data(data_key, org_uid, source_uid, user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_query_user_org_data: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1220,7 +1220,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query UserOrg UI Data
         api_response = api_instance.ui_data_query_user_org_data(data_key, org_uid, source_uid, user_uid, tags=tags)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_query_user_org_data: %s\n" % e)
 ```
 
@@ -1271,15 +1271,15 @@ Query UserSource UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data import UIData
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data import UIData
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1288,12 +1288,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -1309,7 +1309,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query UserSource UI Data
         api_response = api_instance.ui_data_query_user_source_data(data_key, org_uid, source_uid, user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_query_user_source_data: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1318,7 +1318,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Query UserSource UI Data
         api_response = api_instance.ui_data_query_user_source_data(data_key, org_uid, source_uid, user_uid, tags=tags)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_query_user_source_data: %s\n" % e)
 ```
 
@@ -1369,15 +1369,15 @@ Set Org UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data_set_org_data_input import UiDataSetOrgDataInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.validation_error import ValidationError
+from spyderbat_api.model.ui_data_set_org_data_input import UiDataSetOrgDataInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1386,12 +1386,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -1416,7 +1416,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set Org UI Data
         api_instance.ui_data_set_org_data(data_key, org_uid, source_uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_set_org_data: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1424,7 +1424,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set Org UI Data
         api_instance.ui_data_set_org_data(data_key, org_uid, source_uid, user_uid, ui_data_set_org_data_input=ui_data_set_org_data_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_set_org_data: %s\n" % e)
 ```
 
@@ -1475,15 +1475,15 @@ Set Source UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data_set_source_data_input import UiDataSetSourceDataInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.validation_error import ValidationError
+from spyderbat_api.model.ui_data_set_source_data_input import UiDataSetSourceDataInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1492,12 +1492,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -1522,7 +1522,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set Source UI Data
         api_instance.ui_data_set_source_data(data_key, org_uid, source_uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_set_source_data: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1530,7 +1530,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set Source UI Data
         api_instance.ui_data_set_source_data(data_key, org_uid, source_uid, user_uid, ui_data_set_source_data_input=ui_data_set_source_data_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_set_source_data: %s\n" % e)
 ```
 
@@ -1581,15 +1581,15 @@ Set User UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data_set_user_data_input import UiDataSetUserDataInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data_set_user_data_input import UiDataSetUserDataInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1598,12 +1598,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -1628,7 +1628,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set User UI Data
         api_instance.ui_data_set_user_data(data_key, org_uid, source_uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_set_user_data: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1636,7 +1636,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set User UI Data
         api_instance.ui_data_set_user_data(data_key, org_uid, source_uid, user_uid, ui_data_set_user_data_input=ui_data_set_user_data_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_set_user_data: %s\n" % e)
 ```
 
@@ -1687,15 +1687,15 @@ Set UserOrg UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data_set_user_org_data_input import UiDataSetUserOrgDataInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data_set_user_org_data_input import UiDataSetUserOrgDataInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1704,12 +1704,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -1734,7 +1734,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set UserOrg UI Data
         api_instance.ui_data_set_user_org_data(data_key, org_uid, source_uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_set_user_org_data: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1742,7 +1742,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set UserOrg UI Data
         api_instance.ui_data_set_user_org_data(data_key, org_uid, source_uid, user_uid, ui_data_set_user_org_data_input=ui_data_set_user_org_data_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_set_user_org_data: %s\n" % e)
 ```
 
@@ -1793,15 +1793,15 @@ Set UserSource UI Data
 
 ```python
 import time
-import sbapi
-from sbapi.api import ui_data_api
-from sbapi.model.ui_data_set_user_source_data_input import UiDataSetUserSourceDataInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import ui_data_api
+from spyderbat_api.model.ui_data_set_user_source_data_input import UiDataSetUserSourceDataInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -1810,12 +1810,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = ui_data_api.UIDataApi(api_client)
     data_key = "dataKey_example" # str | Key for the data
@@ -1840,7 +1840,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set UserSource UI Data
         api_instance.ui_data_set_user_source_data(data_key, org_uid, source_uid, user_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_set_user_source_data: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -1848,7 +1848,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Set UserSource UI Data
         api_instance.ui_data_set_user_source_data(data_key, org_uid, source_uid, user_uid, ui_data_set_user_source_data_input=ui_data_set_user_source_data_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UIDataApi->ui_data_set_user_source_data: %s\n" % e)
 ```
 

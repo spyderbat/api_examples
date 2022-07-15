@@ -1,6 +1,6 @@
-# sbapi.SourceDataApi
+# spyderbat_api.SourceDataApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **src_data_query**
-> src_data_query()
+> str src_data_query()
 
 Query source data
 
@@ -22,15 +22,15 @@ Query source data
 
 ```python
 import time
-import sbapi
-from sbapi.api import source_data_api
-from sbapi.model.src_data_query_input import SrcDataQueryInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import source_data_api
+from spyderbat_api.model.src_data_query_input import SrcDataQueryInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -39,12 +39,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = source_data_api.SourceDataApi(api_client)
     src_data_query_input = SrcDataQueryInput(
@@ -115,8 +115,9 @@ with sbapi.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Query source data
-        api_instance.src_data_query(src_data_query_input=src_data_query_input)
-    except sbapi.ApiException as e:
+        api_response = api_instance.src_data_query(src_data_query_input=src_data_query_input)
+        pprint(api_response)
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceDataApi->src_data_query: %s\n" % e)
 ```
 
@@ -129,7 +130,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**str**
 
 ### Authorization
 
@@ -138,7 +139,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
+ - **Accept**: application/x-ndjson, application/json
 
 
 ### HTTP response details
@@ -152,7 +153,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **src_data_query_v2**
-> src_data_query_v2(org_uid, dt)
+> str src_data_query_v2(org_uid, dt)
 
 Query source data
 
@@ -164,14 +165,14 @@ Same as the post query above except results are cached
 
 ```python
 import time
-import sbapi
-from sbapi.api import source_data_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import source_data_api
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -180,12 +181,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = source_data_api.SourceDataApi(api_client)
     org_uid = "orgUID_example" # str | Organization UID to query
@@ -208,16 +209,18 @@ with sbapi.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Query source data
-        api_instance.src_data_query_v2(org_uid, dt)
-    except sbapi.ApiException as e:
+        api_response = api_instance.src_data_query_v2(org_uid, dt)
+        pprint(api_response)
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceDataApi->src_data_query_v2: %s\n" % e)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Query source data
-        api_instance.src_data_query_v2(org_uid, dt, e=e, et=et, id=id, pj=pj, q=q, qf=qf, qs=qs, rr=rr, src=src, st=st)
-    except sbapi.ApiException as e:
+        api_response = api_instance.src_data_query_v2(org_uid, dt, e=e, et=et, id=id, pj=pj, q=q, qf=qf, qs=qs, rr=rr, src=src, st=st)
+        pprint(api_response)
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceDataApi->src_data_query_v2: %s\n" % e)
 ```
 
@@ -241,7 +244,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+**str**
 
 ### Authorization
 
@@ -250,7 +253,7 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json
+ - **Accept**: application/x-ndjson, application/json
 
 
 ### HTTP response details
@@ -276,14 +279,14 @@ Sends data to a source
 
 ```python
 import time
-import sbapi
-from sbapi.api import source_data_api
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import source_data_api
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -292,12 +295,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = source_data_api.SourceDataApi(api_client)
     data_type = "dataType_example" # str | 
@@ -308,7 +311,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'
         api_instance.src_send_data(data_type, org_uid, source_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceDataApi->src_send_data: %s\n" % e)
 ```
 

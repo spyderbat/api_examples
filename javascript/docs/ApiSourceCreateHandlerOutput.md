@@ -1,4 +1,4 @@
-# Sbapi.ApiSourceCreateHandlerOutput
+# SpyderbatApi.ApiSourceCreateHandlerOutput
 
 ## Properties
 

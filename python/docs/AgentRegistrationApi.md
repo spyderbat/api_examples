@@ -1,6 +1,6 @@
-# sbapi.AgentRegistrationApi
+# spyderbat_api.AgentRegistrationApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,16 +25,16 @@ Create an agent registration
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_registration_api
-from sbapi.model.agent_registration_create_input import AgentRegistrationCreateInput
-from sbapi.model.api_agent_create_handler_output import ApiAgentCreateHandlerOutput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import agent_registration_api
+from spyderbat_api.model.api_agent_create_handler_output import ApiAgentCreateHandlerOutput
+from spyderbat_api.model.agent_registration_create_input import AgentRegistrationCreateInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -43,12 +43,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_registration_api.AgentRegistrationApi(api_client)
     org_uid = "orgUID_example" # str | The OrgUID the registration is associated with
@@ -84,7 +84,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Create an agent registration
         api_response = api_instance.agent_registration_create(org_uid, uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_create: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -93,7 +93,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Create an agent registration
         api_response = api_instance.agent_registration_create(org_uid, uid, agent_registration_create_input=agent_registration_create_input)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_create: %s\n" % e)
 ```
 
@@ -143,14 +143,14 @@ Get a download link for this registration
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_registration_api
-from sbapi.model.api_agent_registration_download_link_handler_output import ApiAgentRegistrationDownloadLinkHandlerOutput
+import spyderbat_api
+from spyderbat_api.api import agent_registration_api
+from spyderbat_api.model.api_agent_registration_download_link_handler_output import ApiAgentRegistrationDownloadLinkHandlerOutput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -159,12 +159,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_registration_api.AgentRegistrationApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -175,7 +175,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get a download link for this registration
         api_response = api_instance.agent_registration_download_link(org_uid, uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_download_link: %s\n" % e)
 ```
 
@@ -225,14 +225,14 @@ Get log of recent agent registration activity
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_registration_api
-from sbapi.model.dao_agent_log import DaoAgentLog
+import spyderbat_api
+from spyderbat_api.api import agent_registration_api
+from spyderbat_api.model.dao_agent_log import DaoAgentLog
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -241,12 +241,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_registration_api.AgentRegistrationApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -259,7 +259,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get log of recent agent registration activity
         api_response = api_instance.agent_registration_get_log(org_uid, uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_get_log: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -268,7 +268,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get log of recent agent registration activity
         api_response = api_instance.agent_registration_get_log(org_uid, uid, page=page, page_size=page_size)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_get_log: %s\n" % e)
 ```
 
@@ -320,14 +320,14 @@ List agent registrations
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_registration_api
-from sbapi.model.agent_registration import AgentRegistration
+import spyderbat_api
+from spyderbat_api.api import agent_registration_api
+from spyderbat_api.model.agent_registration import AgentRegistration
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -336,12 +336,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_registration_api.AgentRegistrationApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -353,7 +353,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List agent registrations
         api_response = api_instance.agent_registration_list(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -362,7 +362,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List agent registrations
         api_response = api_instance.agent_registration_list(org_uid, page=page, page_size=page_size)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_list: %s\n" % e)
 ```
 
@@ -411,14 +411,14 @@ Load an agent registration
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_registration_api
-from sbapi.model.agent_registration import AgentRegistration
+import spyderbat_api
+from spyderbat_api.api import agent_registration_api
+from spyderbat_api.model.agent_registration import AgentRegistration
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -427,12 +427,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_registration_api.AgentRegistrationApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -443,7 +443,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Load an agent registration
         api_response = api_instance.agent_registration_load(org_uid, uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_load: %s\n" % e)
 ```
 
@@ -492,15 +492,15 @@ Update an agent registration
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_registration_api
-from sbapi.model.agent_registration_update_input import AgentRegistrationUpdateInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import agent_registration_api
+from spyderbat_api.model.agent_registration_update_input import AgentRegistrationUpdateInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -509,12 +509,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_registration_api.AgentRegistrationApi(api_client)
     org_uid = "orgUID_example" # str | The OrgUID the registration is associated with
@@ -549,7 +549,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Update an agent registration
         api_instance.agent_registration_update(org_uid, uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_update: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -557,7 +557,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Update an agent registration
         api_instance.agent_registration_update(org_uid, uid, agent_registration_update_input=agent_registration_update_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_update: %s\n" % e)
 ```
 

@@ -1,4 +1,4 @@
-# Sbapi.DaoAgentClass
+# SpyderbatApi.DaoAgentClass
 
 ## Properties
 

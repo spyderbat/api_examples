@@ -1,4 +1,4 @@
-# Sbapi.DaoOrgTypePolicy
+# SpyderbatApi.DaoOrgTypePolicy
 
 ## Properties
 

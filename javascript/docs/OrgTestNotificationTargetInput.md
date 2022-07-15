@@ -1,4 +1,4 @@
-# Sbapi.OrgTestNotificationTargetInput
+# SpyderbatApi.OrgTestNotificationTargetInput
 
 ## Properties
 

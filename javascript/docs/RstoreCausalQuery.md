@@ -1,4 +1,4 @@
-# Sbapi.RstoreCausalQuery
+# SpyderbatApi.RstoreCausalQuery
 
 ## Properties
 

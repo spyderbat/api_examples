@@ -1,6 +1,6 @@
-# sbapi.MetadataAPIApi
+# spyderbat_api.MetadataAPIApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,14 +20,14 @@ Returns the schema used for search
 
 ```python
 import time
-import sbapi
-from sbapi.api import metadata_api_api
-from sbapi.model.elastic_record_schema import ElasticRecordSchema
+import spyderbat_api
+from spyderbat_api.api import metadata_api_api
+from spyderbat_api.model.elastic_record_schema import ElasticRecordSchema
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -36,12 +36,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api_api.MetadataAPIApi(api_client)
 
@@ -50,7 +50,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Returns the schema used for search
         api_response = api_instance.metadata_search_schema()
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling MetadataAPIApi->metadata_search_schema: %s\n" % e)
 ```
 

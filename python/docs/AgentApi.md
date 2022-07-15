@@ -1,6 +1,6 @@
-# sbapi.AgentApi
+# spyderbat_api.AgentApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,14 +21,14 @@ List agents
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_api
-from sbapi.model.agent import Agent
+import spyderbat_api
+from spyderbat_api.api import agent_api
+from spyderbat_api.model.agent import Agent
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -37,12 +37,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_api.AgentApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -57,7 +57,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List agents
         api_response = api_instance.agent_list(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentApi->agent_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -66,7 +66,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List agents
         api_response = api_instance.agent_list(org_uid, agent_registration_uid_equals=agent_registration_uid_equals, original_association=original_association, page=page, page_size=page_size, source_uid_equals=source_uid_equals)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentApi->agent_list: %s\n" % e)
 ```
 
@@ -118,14 +118,14 @@ Load an agent
 
 ```python
 import time
-import sbapi
-from sbapi.api import agent_api
-from sbapi.model.agent import Agent
+import spyderbat_api
+from spyderbat_api.api import agent_api
+from spyderbat_api.model.agent import Agent
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -134,12 +134,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_api.AgentApi(api_client)
     agent_uid = "agentUID_example" # str | 
@@ -150,7 +150,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Load an agent
         api_response = api_instance.agent_load(agent_uid, org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling AgentApi->agent_load: %s\n" % e)
 ```
 

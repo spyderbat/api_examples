@@ -1,4 +1,4 @@
-# Sbapi.ApiRBACActions
+# SpyderbatApi.ApiRBACActions
 
 ## Properties
 

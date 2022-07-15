@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 api/openapi.yaml
@@ -8,7 +7,6 @@ api_agent_registration.go
 api_agent_work.go
 api_api_key.go
 api_dashboard_search.go
-api_internal_api.go
 api_investigation.go
 api_metadata_api.go
 api_metrics_data.go
@@ -47,8 +45,12 @@ docs/DaoAgentConfig.md
 docs/DaoAgentLog.md
 docs/DaoInvestigation.md
 docs/DaoOrgRoleResponse.md
+docs/DaoOrgRoles.md
 docs/DaoOrgType.md
 docs/DaoOrgTypePolicy.md
+docs/DaoPlan.md
+docs/DaoPolicy.md
+docs/DaoSignupPolicy.md
 docs/DashboardSearch.md
 docs/DashboardSearchApi.md
 docs/DashboardSearchCreateInput.md
@@ -56,13 +58,17 @@ docs/DashboardSearchUpdateInput.md
 docs/ElasticRecordField.md
 docs/ElasticRecordSchema.md
 docs/Expr.md
-docs/InternalAPIApi.md
 docs/InvestigationApi.md
 docs/InvestigationCreateInput.md
 docs/InvestigationUpdateInput.md
 docs/MetadataAPIApi.md
 docs/MetricsDataApi.md
 docs/MetricsDataQueryInput.md
+docs/NotificationPolicy.md
+docs/NotificationPolicyDestination.md
+docs/NotificationPolicyDestinationSlack.md
+docs/NotificationPolicyDestinationWebhook.md
+docs/NotificationPolicyRoutesInner.md
 docs/OrcApiAgentWork.md
 docs/OrcApiBatWork.md
 docs/OrcApiRuntimeDetails.md
@@ -96,7 +102,6 @@ docs/UiDataSetUserOrgDataInput.md
 docs/UiDataSetUserSourceDataInput.md
 docs/User.md
 docs/UserApi.md
-docs/UserAuthInput.md
 docs/ValidationError.md
 git_push.sh
 go.mod
@@ -123,8 +128,12 @@ model_dao_agent_config.go
 model_dao_agent_log.go
 model_dao_investigation.go
 model_dao_org_role_response.go
+model_dao_org_roles.go
 model_dao_org_type.go
 model_dao_org_type_policy.go
+model_dao_plan.go
+model_dao_policy.go
+model_dao_signup_policy.go
 model_dashboard_search.go
 model_dashboard_search_create_input.go
 model_dashboard_search_update_input.go
@@ -134,6 +143,11 @@ model_expr.go
 model_investigation_create_input.go
 model_investigation_update_input.go
 model_metrics_data_query_input.go
+model_notification_policy.go
+model_notification_policy_destination.go
+model_notification_policy_destination_slack.go
+model_notification_policy_destination_webhook.go
+model_notification_policy_routes_inner.go
 model_orc_api_agent_work.go
 model_orc_api_bat_work.go
 model_orc_api_runtime_details.go
@@ -160,7 +174,6 @@ model_ui_data_set_user_data_input.go
 model_ui_data_set_user_org_data_input.go
 model_ui_data_set_user_source_data_input.go
 model_user.go
-model_user_auth_input.go
 model_validation_error.go
 response.go
 utils.go

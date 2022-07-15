@@ -1,4 +1,4 @@
-# Sbapi.AgentSetAgentWorkInput
+# SpyderbatApi.AgentSetAgentWorkInput
 
 ## Properties
 

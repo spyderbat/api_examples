@@ -1,4 +1,4 @@
-# Sbapi.ResourcePolicy
+# SpyderbatApi.ResourcePolicy
 
 ## Properties
 

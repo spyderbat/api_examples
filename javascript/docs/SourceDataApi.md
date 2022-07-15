@@ -1,6 +1,6 @@
-# Sbapi.SourceDataApi
+# SpyderbatApi.SourceDataApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 ## srcDataQuery
 
-> srcDataQuery(opts)
+> String srcDataQuery(opts)
 
 Query source data
 
@@ -21,21 +21,21 @@ Query source data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceDataApi();
+let apiInstance = new SpyderbatApi.SourceDataApi();
 let opts = {
-  'srcDataQueryInput': new Sbapi.SrcDataQueryInput() // SrcDataQueryInput | 
+  'srcDataQueryInput': new SpyderbatApi.SrcDataQueryInput() // SrcDataQueryInput | 
 };
 apiInstance.srcDataQuery(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -49,7 +49,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**String**
 
 ### Authorization
 
@@ -58,12 +58,12 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: application/json
-- **Accept**: application/json
+- **Accept**: application/x-ndjson, application/json
 
 
 ## srcDataQueryV2
 
-> srcDataQueryV2(orgUID, dt, opts)
+> String srcDataQueryV2(orgUID, dt, opts)
 
 Query source data
 
@@ -72,13 +72,13 @@ Same as the post query above except results are cached
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceDataApi();
+let apiInstance = new SpyderbatApi.SourceDataApi();
 let orgUID = "orgUID_example"; // String | Organization UID to query
 let dt = "dt_example"; // String | DataType to query
 let opts = {
@@ -97,7 +97,7 @@ apiInstance.srcDataQueryV2(orgUID, dt, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+**String**
 
 ### Authorization
 
@@ -131,7 +131,7 @@ null (empty response body)
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/json
+- **Accept**: application/x-ndjson, application/json
 
 
 ## srcSendData
@@ -145,13 +145,13 @@ Sends data to a source
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceDataApi();
+let apiInstance = new SpyderbatApi.SourceDataApi();
 let dataType = "dataType_example"; // String | 
 let orgUID = "orgUID_example"; // String | 
 let sourceUID = "sourceUID_example"; // String | 

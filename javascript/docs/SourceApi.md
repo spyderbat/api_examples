@@ -1,6 +1,6 @@
-# Sbapi.SourceApi
+# SpyderbatApi.SourceApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,13 +24,13 @@ List sources for integration with SOARs
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceApi();
+let apiInstance = new SpyderbatApi.SourceApi();
 let orgUID = "orgUID_example"; // String | 
 let opts = {
   'et': 789, // Number | optional end time of the query
@@ -89,16 +89,16 @@ Create a source
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceApi();
+let apiInstance = new SpyderbatApi.SourceApi();
 let orgUID = "orgUID_example"; // String | The org this source is associated with
 let opts = {
-  'srcCreateInput': new Sbapi.SrcCreateInput() // SrcCreateInput | 
+  'srcCreateInput': new SpyderbatApi.SrcCreateInput() // SrcCreateInput | 
 };
 apiInstance.srcCreate(orgUID, opts, (error, data, response) => {
   if (error) {
@@ -142,13 +142,13 @@ Delete a source
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceApi();
+let apiInstance = new SpyderbatApi.SourceApi();
 let orgUID = "orgUID_example"; // String | 
 let sourceUID = "sourceUID_example"; // String | 
 apiInstance.srcDelete(orgUID, sourceUID, (error, data, response) => {
@@ -193,13 +193,13 @@ List sources
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceApi();
+let apiInstance = new SpyderbatApi.SourceApi();
 let orgUID = "orgUID_example"; // String | 
 let opts = {
   'agentUidEquals': "agentUidEquals_example", // String | 
@@ -256,13 +256,13 @@ Load a source
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceApi();
+let apiInstance = new SpyderbatApi.SourceApi();
 let orgUID = "orgUID_example"; // String | 
 let sourceUID = "sourceUID_example"; // String | 
 apiInstance.srcLoad(orgUID, sourceUID, (error, data, response) => {
@@ -307,17 +307,17 @@ Update a source
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceApi();
+let apiInstance = new SpyderbatApi.SourceApi();
 let orgUID = "orgUID_example"; // String | The org this source is associated with
 let sourceUID = "sourceUID_example"; // String | The UID of the source
 let opts = {
-  'srcUpdateInput': new Sbapi.SrcUpdateInput() // SrcUpdateInput | 
+  'srcUpdateInput': new SpyderbatApi.SrcUpdateInput() // SrcUpdateInput | 
 };
 apiInstance.srcUpdate(orgUID, sourceUID, opts, (error, data, response) => {
   if (error) {

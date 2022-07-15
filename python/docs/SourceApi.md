@@ -1,6 +1,6 @@
-# sbapi.SourceApi
+# spyderbat_api.SourceApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,14 +25,14 @@ List sources for integration with SOARs
 
 ```python
 import time
-import sbapi
-from sbapi.api import source_api
-from sbapi.model.api_soar_list_handler_output import ApiSOARListHandlerOutput
+import spyderbat_api
+from spyderbat_api.api import source_api
+from spyderbat_api.model.api_soar_list_handler_output import ApiSOARListHandlerOutput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -41,12 +41,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = source_api.SourceApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -63,7 +63,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List sources for integration with SOARs
         api_response = api_instance.integration_soar_src_list(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceApi->integration_soar_src_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -72,7 +72,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List sources for integration with SOARs
         api_response = api_instance.integration_soar_src_list(org_uid, et=et, hostname=hostname, ip_address=ip_address, mac_address=mac_address, page=page, page_size=page_size, st=st)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceApi->integration_soar_src_list: %s\n" % e)
 ```
 
@@ -126,16 +126,16 @@ Create a source
 
 ```python
 import time
-import sbapi
-from sbapi.api import source_api
-from sbapi.model.src_create_input import SrcCreateInput
-from sbapi.model.api_source_create_handler_output import ApiSourceCreateHandlerOutput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import source_api
+from spyderbat_api.model.api_source_create_handler_output import ApiSourceCreateHandlerOutput
+from spyderbat_api.model.src_create_input import SrcCreateInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -144,12 +144,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = source_api.SourceApi(api_client)
     org_uid = "orgUID_example" # str | The org this source is associated with
@@ -196,7 +196,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Create a source
         api_response = api_instance.src_create(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceApi->src_create: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -205,7 +205,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Create a source
         api_response = api_instance.src_create(org_uid, src_create_input=src_create_input)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceApi->src_create: %s\n" % e)
 ```
 
@@ -254,13 +254,13 @@ Delete a source
 
 ```python
 import time
-import sbapi
-from sbapi.api import source_api
+import spyderbat_api
+from spyderbat_api.api import source_api
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -269,12 +269,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = source_api.SourceApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -284,7 +284,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Delete a source
         api_instance.src_delete(org_uid, source_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceApi->src_delete: %s\n" % e)
 ```
 
@@ -332,14 +332,14 @@ List sources
 
 ```python
 import time
-import sbapi
-from sbapi.api import source_api
-from sbapi.model.source import Source
+import spyderbat_api
+from spyderbat_api.api import source_api
+from spyderbat_api.model.source import Source
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -348,12 +348,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = source_api.SourceApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -371,7 +371,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List sources
         api_response = api_instance.src_list(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceApi->src_list: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -380,7 +380,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List sources
         api_response = api_instance.src_list(org_uid, agent_uid_equals=agent_uid_equals, description_contains=description_contains, has_tags=has_tags, original_association=original_association, page=page, page_size=page_size)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceApi->src_list: %s\n" % e)
 ```
 
@@ -433,14 +433,14 @@ Load a source
 
 ```python
 import time
-import sbapi
-from sbapi.api import source_api
-from sbapi.model.source import Source
+import spyderbat_api
+from spyderbat_api.api import source_api
+from spyderbat_api.model.source import Source
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -449,12 +449,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = source_api.SourceApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -465,7 +465,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Load a source
         api_response = api_instance.src_load(org_uid, source_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceApi->src_load: %s\n" % e)
 ```
 
@@ -514,15 +514,15 @@ Update a source
 
 ```python
 import time
-import sbapi
-from sbapi.api import source_api
-from sbapi.model.src_update_input import SrcUpdateInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import source_api
+from spyderbat_api.model.validation_error import ValidationError
+from spyderbat_api.model.src_update_input import SrcUpdateInput
 from pprint import pprint
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "http://localhost"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -531,12 +531,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = source_api.SourceApi(api_client)
     org_uid = "orgUID_example" # str | The org this source is associated with
@@ -605,7 +605,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Update a source
         api_instance.src_update(org_uid, source_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceApi->src_update: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -613,7 +613,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Update a source
         api_instance.src_update(org_uid, source_uid, src_update_input=src_update_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling SourceApi->src_update: %s\n" % e)
 ```
 

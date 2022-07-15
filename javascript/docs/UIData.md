@@ -1,4 +1,4 @@
-# Sbapi.UIData
+# SpyderbatApi.UIData
 
 ## Properties
 
