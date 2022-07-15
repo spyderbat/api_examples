@@ -1,4 +1,4 @@
-# Sbapi.RbacStatement
+# SpyderbatApi.RbacStatement
 
 ## Properties
 

@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.api_key_update_input import ApiKeyUpdateInput
+import spyderbat_api
+from spyderbat_api.model.api_key_update_input import ApiKeyUpdateInput
 
 
 class TestApiKeyUpdateInput(unittest.TestCase):

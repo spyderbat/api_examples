@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.session_org_type_max_limit import SessionOrgTypeMaxLimit
+import spyderbat_api
+from spyderbat_api.model.session_org_type_max_limit import SessionOrgTypeMaxLimit
 
 
 class TestSessionOrgTypeMaxLimit(unittest.TestCase):

@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.orc_api_runtime_details import OrcApiRuntimeDetails
+import spyderbat_api
+from spyderbat_api.model.orc_api_runtime_details import OrcApiRuntimeDetails
 globals()['OrcApiRuntimeDetails'] = OrcApiRuntimeDetails
-from sbapi.model.dao_agent_log import DaoAgentLog
+from spyderbat_api.model.dao_agent_log import DaoAgentLog
 
 
 class TestDaoAgentLog(unittest.TestCase):

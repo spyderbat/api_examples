@@ -1,4 +1,4 @@
-# Sbapi.ApiAgentRegistrationDownloadLinkHandlerOutput
+# SpyderbatApi.ApiAgentRegistrationDownloadLinkHandlerOutput
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# Sbapi.UiDataSetUserSourceDataInput
+# SpyderbatApi.UiDataSetUserSourceDataInput
 
 ## Properties
 

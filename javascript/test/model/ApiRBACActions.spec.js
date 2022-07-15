@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.ApiRBACActions();
+    instance = new SpyderbatApi.ApiRBACActions();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('ApiRBACActions', function() {
     it('should create an instance of ApiRBACActions', function() {
       // uncomment below and update the code to test ApiRBACActions
-      //var instance = new Sbapi.ApiRBACActions();
-      //expect(instance).to.be.a(Sbapi.ApiRBACActions);
+      //var instance = new SpyderbatApi.ApiRBACActions();
+      //expect(instance).to.be.a(SpyderbatApi.ApiRBACActions);
     });
 
     it('should have the property actions (base name: "actions")', function() {
       // uncomment below and update the code to test the property actions
-      //var instance = new Sbapi.ApiRBACActions();
+      //var instance = new SpyderbatApi.ApiRBACActions();
       //expect(instance).to.be();
     });
 

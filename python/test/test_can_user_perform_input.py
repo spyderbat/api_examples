@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.rbac_action import RBACAction
+import spyderbat_api
+from spyderbat_api.model.rbac_action import RBACAction
 globals()['RBACAction'] = RBACAction
-from sbapi.model.can_user_perform_input import CanUserPerformInput
+from spyderbat_api.model.can_user_perform_input import CanUserPerformInput
 
 
 class TestCanUserPerformInput(unittest.TestCase):

@@ -1,4 +1,4 @@
-# Sbapi.ElasticRecordSchema
+# SpyderbatApi.ElasticRecordSchema
 
 ## Properties
 

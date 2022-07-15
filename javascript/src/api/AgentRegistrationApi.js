@@ -24,7 +24,7 @@ import ValidationError from '../model/ValidationError';
 /**
 * AgentRegistration service.
 * @module api/AgentRegistrationApi
-* @version 0.1.0
+* @version 1.0.0
 */
 export default class AgentRegistrationApi {
 

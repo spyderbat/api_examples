@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.OrcApiBatWork();
+    instance = new SpyderbatApi.OrcApiBatWork();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,49 +50,49 @@
   describe('OrcApiBatWork', function() {
     it('should create an instance of OrcApiBatWork', function() {
       // uncomment below and update the code to test OrcApiBatWork
-      //var instance = new Sbapi.OrcApiBatWork();
-      //expect(instance).to.be.a(Sbapi.OrcApiBatWork);
+      //var instance = new SpyderbatApi.OrcApiBatWork();
+      //expect(instance).to.be.a(SpyderbatApi.OrcApiBatWork);
     });
 
     it('should have the property _arguments (base name: "arguments")', function() {
       // uncomment below and update the code to test the property _arguments
-      //var instance = new Sbapi.OrcApiBatWork();
+      //var instance = new SpyderbatApi.OrcApiBatWork();
       //expect(instance).to.be();
     });
 
     it('should have the property batUid (base name: "bat_uid")', function() {
       // uncomment below and update the code to test the property batUid
-      //var instance = new Sbapi.OrcApiBatWork();
+      //var instance = new SpyderbatApi.OrcApiBatWork();
       //expect(instance).to.be();
     });
 
     it('should have the property enabled (base name: "enabled")', function() {
       // uncomment below and update the code to test the property enabled
-      //var instance = new Sbapi.OrcApiBatWork();
+      //var instance = new SpyderbatApi.OrcApiBatWork();
       //expect(instance).to.be();
     });
 
     it('should have the property parameters (base name: "parameters")', function() {
       // uncomment below and update the code to test the property parameters
-      //var instance = new Sbapi.OrcApiBatWork();
+      //var instance = new SpyderbatApi.OrcApiBatWork();
       //expect(instance).to.be();
     });
 
     it('should have the property startOrder (base name: "start_order")', function() {
       // uncomment below and update the code to test the property startOrder
-      //var instance = new Sbapi.OrcApiBatWork();
+      //var instance = new SpyderbatApi.OrcApiBatWork();
       //expect(instance).to.be();
     });
 
     it('should have the property uid (base name: "uid")', function() {
       // uncomment below and update the code to test the property uid
-      //var instance = new Sbapi.OrcApiBatWork();
+      //var instance = new SpyderbatApi.OrcApiBatWork();
       //expect(instance).to.be();
     });
 
     it('should have the property version (base name: "version")', function() {
       // uncomment below and update the code to test the property version
-      //var instance = new Sbapi.OrcApiBatWork();
+      //var instance = new SpyderbatApi.OrcApiBatWork();
       //expect(instance).to.be();
     });
 

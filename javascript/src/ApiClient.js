@@ -17,7 +17,7 @@ import querystring from "querystring";
 
 /**
 * @module ApiClient
-* @version 0.1.0
+* @version 1.0.0
 */
 
 /**
@@ -33,11 +33,11 @@ class ApiClient {
      * Overrides the default value set in spec file if present
      * @param {String} basePath
      */
-    constructor(basePath = 'https://api.prod.spyderbat.com') {
+    constructor(basePath = 'https://api.spyderbat.com') {
         /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://api.prod.spyderbat.com
+         * @default https://api.spyderbat.com
          */
         this.basePath = basePath.replace(/\/+$/, '');
 
@@ -55,7 +55,7 @@ class ApiClient {
          * @default {}
          */
         this.defaultHeaders = {
-            'User-Agent': 'OpenAPI-Generator/0.1.0/Javascript'
+            'User-Agent': 'OpenAPI-Generator/1.0.0/Javascript'
         };
 
         /**
@@ -593,7 +593,7 @@ class ApiClient {
     hostSettings() {
         return [
             {
-              'url': "https://api.prod.spyderbat.com",
+              'url': "https://api.spyderbat.com",
               'description': "Spyderbat API Server",
             }
       ];

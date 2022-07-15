@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.dao_org_type_policy import DaoOrgTypePolicy
+import spyderbat_api
+from spyderbat_api.model.dao_org_type_policy import DaoOrgTypePolicy
 globals()['DaoOrgTypePolicy'] = DaoOrgTypePolicy
-from sbapi.model.dao_org_type import DaoOrgType
+from spyderbat_api.model.dao_org_type import DaoOrgType
 
 
 class TestDaoOrgType(unittest.TestCase):

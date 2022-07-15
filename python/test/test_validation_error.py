@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.model.validation_error import ValidationError
 
 
 class TestValidationError(unittest.TestCase):

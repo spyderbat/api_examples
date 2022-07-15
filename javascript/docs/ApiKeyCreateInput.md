@@ -1,4 +1,4 @@
-# Sbapi.ApiKeyCreateInput
+# SpyderbatApi.ApiKeyCreateInput
 
 ## Properties
 

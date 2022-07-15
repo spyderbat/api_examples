@@ -11,8 +11,8 @@
 
 import unittest
 
-import sbapi
-from sbapi.api.metadata_api_api import MetadataAPIApi  # noqa: E501
+import spyderbat_api
+from spyderbat_api.api.metadata_api_api import MetadataAPIApi  # noqa: E501
 
 
 class TestMetadataAPIApi(unittest.TestCase):

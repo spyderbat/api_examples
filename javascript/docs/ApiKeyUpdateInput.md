@@ -1,4 +1,4 @@
-# Sbapi.ApiKeyUpdateInput
+# SpyderbatApi.ApiKeyUpdateInput
 
 ## Properties
 

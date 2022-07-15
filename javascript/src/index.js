@@ -105,9 +105,9 @@ import UserApi from './api/UserApi';
 * <p>
 * An AMD (recommended!) or CommonJS application will generally do something equivalent to the following:
 * <pre>
-* var Sbapi = require('index'); // See note below*.
-* var xxxSvc = new Sbapi.XxxApi(); // Allocate the API class we're going to use.
-* var yyyModel = new Sbapi.Yyy(); // Construct a model instance.
+* var SpyderbatApi = require('index'); // See note below*.
+* var xxxSvc = new SpyderbatApi.XxxApi(); // Allocate the API class we're going to use.
+* var yyyModel = new SpyderbatApi.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -119,8 +119,8 @@ import UserApi from './api/UserApi';
 * <p>
 * A non-AMD browser application (discouraged) might do something like this:
 * <pre>
-* var xxxSvc = new Sbapi.XxxApi(); // Allocate the API class we're going to use.
-* var yyy = new Sbapi.Yyy(); // Construct a model instance.
+* var xxxSvc = new SpyderbatApi.XxxApi(); // Allocate the API class we're going to use.
+* var yyy = new SpyderbatApi.Yyy(); // Construct a model instance.
 * yyyModel.someProperty = 'someValue';
 * ...
 * var zzz = xxxSvc.doSomething(yyyModel); // Invoke the service.
@@ -128,7 +128,7 @@ import UserApi from './api/UserApi';
 * </pre>
 * </p>
 * @module index
-* @version 0.1.0
+* @version 1.0.0
 */
 export {
     /**

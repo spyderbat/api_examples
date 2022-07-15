@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.NotificationPolicyRoutesInner();
+    instance = new SpyderbatApi.NotificationPolicyRoutesInner();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,37 +50,37 @@
   describe('NotificationPolicyRoutesInner', function() {
     it('should create an instance of NotificationPolicyRoutesInner', function() {
       // uncomment below and update the code to test NotificationPolicyRoutesInner
-      //var instance = new Sbapi.NotificationPolicyRoutesInner();
-      //expect(instance).to.be.a(Sbapi.NotificationPolicyRoutesInner);
+      //var instance = new SpyderbatApi.NotificationPolicyRoutesInner();
+      //expect(instance).to.be.a(SpyderbatApi.NotificationPolicyRoutesInner);
     });
 
     it('should have the property data (base name: "data")', function() {
       // uncomment below and update the code to test the property data
-      //var instance = new Sbapi.NotificationPolicyRoutesInner();
+      //var instance = new SpyderbatApi.NotificationPolicyRoutesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instance = new Sbapi.NotificationPolicyRoutesInner();
+      //var instance = new SpyderbatApi.NotificationPolicyRoutesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property destination (base name: "destination")', function() {
       // uncomment below and update the code to test the property destination
-      //var instance = new Sbapi.NotificationPolicyRoutesInner();
+      //var instance = new SpyderbatApi.NotificationPolicyRoutesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property expr (base name: "expr")', function() {
       // uncomment below and update the code to test the property expr
-      //var instance = new Sbapi.NotificationPolicyRoutesInner();
+      //var instance = new SpyderbatApi.NotificationPolicyRoutesInner();
       //expect(instance).to.be();
     });
 
     it('should have the property target (base name: "target")', function() {
       // uncomment below and update the code to test the property target
-      //var instance = new Sbapi.NotificationPolicyRoutesInner();
+      //var instance = new SpyderbatApi.NotificationPolicyRoutesInner();
       //expect(instance).to.be();
     });
 

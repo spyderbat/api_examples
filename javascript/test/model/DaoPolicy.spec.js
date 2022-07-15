@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.DaoPolicy();
+    instance = new SpyderbatApi.DaoPolicy();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,37 +50,37 @@
   describe('DaoPolicy', function() {
     it('should create an instance of DaoPolicy', function() {
       // uncomment below and update the code to test DaoPolicy
-      //var instance = new Sbapi.DaoPolicy();
-      //expect(instance).to.be.a(Sbapi.DaoPolicy);
+      //var instance = new SpyderbatApi.DaoPolicy();
+      //expect(instance).to.be.a(SpyderbatApi.DaoPolicy);
     });
 
     it('should have the property allowedProviders (base name: "allowed_providers")', function() {
       // uncomment below and update the code to test the property allowedProviders
-      //var instance = new Sbapi.DaoPolicy();
+      //var instance = new SpyderbatApi.DaoPolicy();
       //expect(instance).to.be();
     });
 
     it('should have the property authPolicy (base name: "auth_policy")', function() {
       // uncomment below and update the code to test the property authPolicy
-      //var instance = new Sbapi.DaoPolicy();
+      //var instance = new SpyderbatApi.DaoPolicy();
       //expect(instance).to.be();
     });
 
     it('should have the property comment (base name: "comment")', function() {
       // uncomment below and update the code to test the property comment
-      //var instance = new Sbapi.DaoPolicy();
+      //var instance = new SpyderbatApi.DaoPolicy();
       //expect(instance).to.be();
     });
 
     it('should have the property emailRegex (base name: "email_regex")', function() {
       // uncomment below and update the code to test the property emailRegex
-      //var instance = new Sbapi.DaoPolicy();
+      //var instance = new SpyderbatApi.DaoPolicy();
       //expect(instance).to.be();
     });
 
     it('should have the property signupPolicy (base name: "signup_policy")', function() {
       // uncomment below and update the code to test the property signupPolicy
-      //var instance = new Sbapi.DaoPolicy();
+      //var instance = new SpyderbatApi.DaoPolicy();
       //expect(instance).to.be();
     });
 

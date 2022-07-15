@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.api_key import APIKey
+import spyderbat_api
+from spyderbat_api.model.api_key import APIKey
 
 
 class TestAPIKey(unittest.TestCase):

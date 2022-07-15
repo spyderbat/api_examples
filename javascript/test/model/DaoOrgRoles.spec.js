@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.DaoOrgRoles();
+    instance = new SpyderbatApi.DaoOrgRoles();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('DaoOrgRoles', function() {
     it('should create an instance of DaoOrgRoles', function() {
       // uncomment below and update the code to test DaoOrgRoles
-      //var instance = new Sbapi.DaoOrgRoles();
-      //expect(instance).to.be.a(Sbapi.DaoOrgRoles);
+      //var instance = new SpyderbatApi.DaoOrgRoles();
+      //expect(instance).to.be.a(SpyderbatApi.DaoOrgRoles);
     });
 
     it('should have the property defaultRoles (base name: "default_roles")', function() {
       // uncomment below and update the code to test the property defaultRoles
-      //var instance = new Sbapi.DaoOrgRoles();
+      //var instance = new SpyderbatApi.DaoOrgRoles();
       //expect(instance).to.be();
     });
 
     it('should have the property orgUid (base name: "org_uid")', function() {
       // uncomment below and update the code to test the property orgUid
-      //var instance = new Sbapi.DaoOrgRoles();
+      //var instance = new SpyderbatApi.DaoOrgRoles();
       //expect(instance).to.be();
     });
 

@@ -11,8 +11,8 @@
 
 import unittest
 
-import sbapi
-from sbapi.api.agent_registration_api import AgentRegistrationApi  # noqa: E501
+import spyderbat_api
+from spyderbat_api.api.agent_registration_api import AgentRegistrationApi  # noqa: E501
 
 
 class TestAgentRegistrationApi(unittest.TestCase):

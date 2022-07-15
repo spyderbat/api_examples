@@ -1,4 +1,4 @@
-# Sbapi.ApiSOARListHandlerOutput
+# SpyderbatApi.ApiSOARListHandlerOutput
 
 ## Properties
 

@@ -22,7 +22,7 @@ import ValidationError from '../model/ValidationError';
 /**
 * Investigation service.
 * @module api/InvestigationApi
-* @version 0.1.0
+* @version 1.0.0
 */
 export default class InvestigationApi {
 

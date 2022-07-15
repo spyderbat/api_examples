@@ -17,7 +17,7 @@ import DaoSignupPolicy from './DaoSignupPolicy';
 /**
  * The DaoPolicy model module.
  * @module model/DaoPolicy
- * @version 0.1.0
+ * @version 1.0.0
  */
 class DaoPolicy {
     /**

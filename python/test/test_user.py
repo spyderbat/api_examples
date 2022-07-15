@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.user import User
+import spyderbat_api
+from spyderbat_api.model.user import User
 
 
 class TestUser(unittest.TestCase):

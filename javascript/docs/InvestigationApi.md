@@ -1,6 +1,6 @@
-# Sbapi.InvestigationApi
+# SpyderbatApi.InvestigationApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,17 +25,17 @@ Create an investigation
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.InvestigationApi();
+let apiInstance = new SpyderbatApi.InvestigationApi();
 let investigationUID = "investigationUID_example"; // String | Investigation UID
 let orgUID = "orgUID_example"; // String | Investigation OrgUID
 let opts = {
-  'investigationCreateInput': new Sbapi.InvestigationCreateInput() // InvestigationCreateInput | 
+  'investigationCreateInput': new SpyderbatApi.InvestigationCreateInput() // InvestigationCreateInput | 
 };
 apiInstance.investigationCreate(investigationUID, orgUID, opts, (error, data, response) => {
   if (error) {
@@ -80,13 +80,13 @@ Delete an investigation
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.InvestigationApi();
+let apiInstance = new SpyderbatApi.InvestigationApi();
 let investigationUID = "investigationUID_example"; // String | Investigation UID
 let orgUID = "orgUID_example"; // String | Investigation OrgUID
 apiInstance.investigationDelete(investigationUID, orgUID, (error, data, response) => {
@@ -131,13 +131,13 @@ List investigations
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.InvestigationApi();
+let apiInstance = new SpyderbatApi.InvestigationApi();
 let orgUID = "orgUID_example"; // String | 
 apiInstance.investigationList(orgUID, (error, data, response) => {
   if (error) {
@@ -180,13 +180,13 @@ List Investigation Versions
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.InvestigationApi();
+let apiInstance = new SpyderbatApi.InvestigationApi();
 let investigationUID = "investigationUID_example"; // String | 
 let orgUID = "orgUID_example"; // String | 
 apiInstance.investigationListVersions(investigationUID, orgUID, (error, data, response) => {
@@ -231,13 +231,13 @@ Load an investigation
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.InvestigationApi();
+let apiInstance = new SpyderbatApi.InvestigationApi();
 let investigationUID = "investigationUID_example"; // String | 
 let orgUID = "orgUID_example"; // String | 
 apiInstance.investigationLoad(investigationUID, orgUID, (error, data, response) => {
@@ -282,13 +282,13 @@ Load Investigation Version
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.InvestigationApi();
+let apiInstance = new SpyderbatApi.InvestigationApi();
 let investigationUID = "investigationUID_example"; // String | 
 let orgUID = "orgUID_example"; // String | 
 let version = 56; // Number | 
@@ -335,17 +335,17 @@ Update an investigation
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.InvestigationApi();
+let apiInstance = new SpyderbatApi.InvestigationApi();
 let investigationUID = "investigationUID_example"; // String | Investigation UID
 let orgUID = "orgUID_example"; // String | Investigation OrgUID
 let opts = {
-  'investigationUpdateInput': new Sbapi.InvestigationUpdateInput() // InvestigationUpdateInput | 
+  'investigationUpdateInput': new SpyderbatApi.InvestigationUpdateInput() // InvestigationUpdateInput | 
 };
 apiInstance.investigationUpdate(investigationUID, orgUID, opts, (error, data, response) => {
   if (error) {

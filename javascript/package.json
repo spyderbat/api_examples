@@ -1,6 +1,6 @@
 {
-  "name": "sbapi",
-  "version": "0.1.0",
+  "name": "spyderbat-api",
+  "version": "1.0.0",
   "description": "Restful_APIs_for_use_by_UI__customers_",
   "license": "MIT",
   "main": "dist/index.js",

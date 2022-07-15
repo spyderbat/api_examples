@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OrgAssignRoleInput model module.
  * @module model/OrgAssignRoleInput
- * @version 0.1.0
+ * @version 1.0.0
  */
 class OrgAssignRoleInput {
     /**

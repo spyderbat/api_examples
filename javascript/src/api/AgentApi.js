@@ -18,7 +18,7 @@ import Agent from '../model/Agent';
 /**
 * Agent service.
 * @module api/AgentApi
-* @version 0.1.0
+* @version 1.0.0
 */
 export default class AgentApi {
 

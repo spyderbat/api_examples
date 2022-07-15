@@ -1,4 +1,4 @@
-# Sbapi.OrgUpdateInput
+# SpyderbatApi.OrgUpdateInput
 
 ## Properties
 

@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.api_agent_registration_download_link_handler_output import ApiAgentRegistrationDownloadLinkHandlerOutput
+import spyderbat_api
+from spyderbat_api.model.api_agent_registration_download_link_handler_output import ApiAgentRegistrationDownloadLinkHandlerOutput
 
 
 class TestApiAgentRegistrationDownloadLinkHandlerOutput(unittest.TestCase):

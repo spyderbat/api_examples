@@ -11,8 +11,8 @@
 
 import unittest
 
-import sbapi
-from sbapi.api.org_api import OrgApi  # noqa: E501
+import spyderbat_api
+from spyderbat_api.api.org_api import OrgApi  # noqa: E501
 
 
 class TestOrgApi(unittest.TestCase):

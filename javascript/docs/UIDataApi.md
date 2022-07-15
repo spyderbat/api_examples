@@ -1,6 +1,6 @@
-# Sbapi.UIDataApi
+# SpyderbatApi.UIDataApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -38,13 +38,13 @@ Delete Org UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -93,13 +93,13 @@ Delete Source UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -148,13 +148,13 @@ Delete User UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -203,13 +203,13 @@ Delete UserOrg UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -258,13 +258,13 @@ Delete UserSource UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -313,13 +313,13 @@ Get Org UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -368,13 +368,13 @@ Get Source UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -423,13 +423,13 @@ Get User UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -478,13 +478,13 @@ Get UserOrg UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -533,13 +533,13 @@ Get UserSource UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -588,13 +588,13 @@ Query Org UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -647,13 +647,13 @@ Query Source UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -706,13 +706,13 @@ Query User UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -765,13 +765,13 @@ Query UserOrg UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -824,13 +824,13 @@ Query UserSource UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Src UID
@@ -883,19 +883,19 @@ Set Org UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Source UID
 let userUID = "userUID_example"; // String | Owner UID
 let opts = {
-  'uiDataSetOrgDataInput': new Sbapi.UiDataSetOrgDataInput() // UiDataSetOrgDataInput | 
+  'uiDataSetOrgDataInput': new SpyderbatApi.UiDataSetOrgDataInput() // UiDataSetOrgDataInput | 
 };
 apiInstance.uiDataSetOrgData(dataKey, orgUID, sourceUID, userUID, opts, (error, data, response) => {
   if (error) {
@@ -942,19 +942,19 @@ Set Source UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Source UID
 let userUID = "userUID_example"; // String | Owner UID
 let opts = {
-  'uiDataSetSourceDataInput': new Sbapi.UiDataSetSourceDataInput() // UiDataSetSourceDataInput | 
+  'uiDataSetSourceDataInput': new SpyderbatApi.UiDataSetSourceDataInput() // UiDataSetSourceDataInput | 
 };
 apiInstance.uiDataSetSourceData(dataKey, orgUID, sourceUID, userUID, opts, (error, data, response) => {
   if (error) {
@@ -1001,19 +1001,19 @@ Set User UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Source UID
 let userUID = "userUID_example"; // String | Owner UID
 let opts = {
-  'uiDataSetUserDataInput': new Sbapi.UiDataSetUserDataInput() // UiDataSetUserDataInput | 
+  'uiDataSetUserDataInput': new SpyderbatApi.UiDataSetUserDataInput() // UiDataSetUserDataInput | 
 };
 apiInstance.uiDataSetUserData(dataKey, orgUID, sourceUID, userUID, opts, (error, data, response) => {
   if (error) {
@@ -1060,19 +1060,19 @@ Set UserOrg UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Source UID
 let userUID = "userUID_example"; // String | Owner UID
 let opts = {
-  'uiDataSetUserOrgDataInput': new Sbapi.UiDataSetUserOrgDataInput() // UiDataSetUserOrgDataInput | 
+  'uiDataSetUserOrgDataInput': new SpyderbatApi.UiDataSetUserOrgDataInput() // UiDataSetUserOrgDataInput | 
 };
 apiInstance.uiDataSetUserOrgData(dataKey, orgUID, sourceUID, userUID, opts, (error, data, response) => {
   if (error) {
@@ -1119,19 +1119,19 @@ Set UserSource UI Data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UIDataApi();
+let apiInstance = new SpyderbatApi.UIDataApi();
 let dataKey = "dataKey_example"; // String | Key for the data
 let orgUID = "orgUID_example"; // String | Org UID
 let sourceUID = "sourceUID_example"; // String | Source UID
 let userUID = "userUID_example"; // String | Owner UID
 let opts = {
-  'uiDataSetUserSourceDataInput': new Sbapi.UiDataSetUserSourceDataInput() // UiDataSetUserSourceDataInput | 
+  'uiDataSetUserSourceDataInput': new SpyderbatApi.UiDataSetUserSourceDataInput() // UiDataSetUserSourceDataInput | 
 };
 apiInstance.uiDataSetUserSourceData(dataKey, orgUID, sourceUID, userUID, opts, (error, data, response) => {
   if (error) {

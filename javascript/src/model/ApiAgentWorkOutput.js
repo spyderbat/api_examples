@@ -17,7 +17,7 @@ import OrcApiAgentWork from './OrcApiAgentWork';
 /**
  * The ApiAgentWorkOutput model module.
  * @module model/ApiAgentWorkOutput
- * @version 0.1.0
+ * @version 1.0.0
  */
 class ApiAgentWorkOutput {
     /**

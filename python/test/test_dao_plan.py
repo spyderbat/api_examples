@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.dao_policy import DaoPolicy
+import spyderbat_api
+from spyderbat_api.model.dao_policy import DaoPolicy
 globals()['DaoPolicy'] = DaoPolicy
-from sbapi.model.dao_plan import DaoPlan
+from spyderbat_api.model.dao_plan import DaoPlan
 
 
 class TestDaoPlan(unittest.TestCase):

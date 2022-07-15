@@ -17,7 +17,7 @@ import ResourcePolicy from './ResourcePolicy';
 /**
  * The Org model module.
  * @module model/Org
- * @version 0.1.0
+ * @version 1.0.0
  */
 class Org {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OrcApiRuntimeDetails model module.
  * @module model/OrcApiRuntimeDetails
- * @version 0.1.0
+ * @version 1.0.0
  */
 class OrcApiRuntimeDetails {
     /**

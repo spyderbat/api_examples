@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.DaoSignupPolicy();
+    instance = new SpyderbatApi.DaoSignupPolicy();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('DaoSignupPolicy', function() {
     it('should create an instance of DaoSignupPolicy', function() {
       // uncomment below and update the code to test DaoSignupPolicy
-      //var instance = new Sbapi.DaoSignupPolicy();
-      //expect(instance).to.be.a(Sbapi.DaoSignupPolicy);
+      //var instance = new SpyderbatApi.DaoSignupPolicy();
+      //expect(instance).to.be.a(SpyderbatApi.DaoSignupPolicy);
     });
 
     it('should have the property createPersonalOrg (base name: "create_personal_org")', function() {
       // uncomment below and update the code to test the property createPersonalOrg
-      //var instance = new Sbapi.DaoSignupPolicy();
+      //var instance = new SpyderbatApi.DaoSignupPolicy();
       //expect(instance).to.be();
     });
 
     it('should have the property defaultOrgRoles (base name: "default_org_roles")', function() {
       // uncomment below and update the code to test the property defaultOrgRoles
-      //var instance = new Sbapi.DaoSignupPolicy();
+      //var instance = new SpyderbatApi.DaoSignupPolicy();
       //expect(instance).to.be();
     });
 
     it('should have the property requiresApproval (base name: "requires_approval")', function() {
       // uncomment below and update the code to test the property requiresApproval
-      //var instance = new Sbapi.DaoSignupPolicy();
+      //var instance = new SpyderbatApi.DaoSignupPolicy();
       //expect(instance).to.be();
     });
 

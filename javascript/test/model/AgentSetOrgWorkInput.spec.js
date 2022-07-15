@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.AgentSetOrgWorkInput();
+    instance = new SpyderbatApi.AgentSetOrgWorkInput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('AgentSetOrgWorkInput', function() {
     it('should create an instance of AgentSetOrgWorkInput', function() {
       // uncomment below and update the code to test AgentSetOrgWorkInput
-      //var instance = new Sbapi.AgentSetOrgWorkInput();
-      //expect(instance).to.be.a(Sbapi.AgentSetOrgWorkInput);
+      //var instance = new SpyderbatApi.AgentSetOrgWorkInput();
+      //expect(instance).to.be.a(SpyderbatApi.AgentSetOrgWorkInput);
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instance = new Sbapi.AgentSetOrgWorkInput();
+      //var instance = new SpyderbatApi.AgentSetOrgWorkInput();
       //expect(instance).to.be();
     });
 
     it('should have the property work (base name: "work")', function() {
       // uncomment below and update the code to test the property work
-      //var instance = new Sbapi.AgentSetOrgWorkInput();
+      //var instance = new SpyderbatApi.AgentSetOrgWorkInput();
       //expect(instance).to.be();
     });
 

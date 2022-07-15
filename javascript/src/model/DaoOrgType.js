@@ -17,7 +17,7 @@ import DaoOrgTypePolicy from './DaoOrgTypePolicy';
 /**
  * The DaoOrgType model module.
  * @module model/DaoOrgType
- * @version 0.1.0
+ * @version 1.0.0
  */
 class DaoOrgType {
     /**

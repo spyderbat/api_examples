@@ -11,8 +11,8 @@
 
 import unittest
 
-import sbapi
-from sbapi.api.rbac_api import RBACApi  # noqa: E501
+import spyderbat_api
+from spyderbat_api.api.rbac_api import RBACApi  # noqa: E501
 
 
 class TestRBACApi(unittest.TestCase):

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.UiDataSetUserDataInput();
+    instance = new SpyderbatApi.UiDataSetUserDataInput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,49 +50,49 @@
   describe('UiDataSetUserDataInput', function() {
     it('should create an instance of UiDataSetUserDataInput', function() {
       // uncomment below and update the code to test UiDataSetUserDataInput
-      //var instance = new Sbapi.UiDataSetUserDataInput();
-      //expect(instance).to.be.a(Sbapi.UiDataSetUserDataInput);
+      //var instance = new SpyderbatApi.UiDataSetUserDataInput();
+      //expect(instance).to.be.a(SpyderbatApi.UiDataSetUserDataInput);
     });
 
     it('should have the property  (base name: "")', function() {
       // uncomment below and update the code to test the property 
-      //var instance = new Sbapi.UiDataSetUserDataInput();
+      //var instance = new SpyderbatApi.UiDataSetUserDataInput();
       //expect(instance).to.be();
     });
 
     it('should have the property data (base name: "data")', function() {
       // uncomment below and update the code to test the property data
-      //var instance = new Sbapi.UiDataSetUserDataInput();
+      //var instance = new SpyderbatApi.UiDataSetUserDataInput();
       //expect(instance).to.be();
     });
 
     it('should have the property lastUsed (base name: "last_used")', function() {
       // uncomment below and update the code to test the property lastUsed
-      //var instance = new Sbapi.UiDataSetUserDataInput();
+      //var instance = new SpyderbatApi.UiDataSetUserDataInput();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instance = new Sbapi.UiDataSetUserDataInput();
+      //var instance = new SpyderbatApi.UiDataSetUserDataInput();
       //expect(instance).to.be();
     });
 
     it('should have the property uid (base name: "uid")', function() {
       // uncomment below and update the code to test the property uid
-      //var instance = new Sbapi.UiDataSetUserDataInput();
+      //var instance = new SpyderbatApi.UiDataSetUserDataInput();
       //expect(instance).to.be();
     });
 
     it('should have the property validFrom (base name: "valid_from")', function() {
       // uncomment below and update the code to test the property validFrom
-      //var instance = new Sbapi.UiDataSetUserDataInput();
+      //var instance = new SpyderbatApi.UiDataSetUserDataInput();
       //expect(instance).to.be();
     });
 
     it('should have the property validTo (base name: "valid_to")', function() {
       // uncomment below and update the code to test the property validTo
-      //var instance = new Sbapi.UiDataSetUserDataInput();
+      //var instance = new SpyderbatApi.UiDataSetUserDataInput();
       //expect(instance).to.be();
     });
 

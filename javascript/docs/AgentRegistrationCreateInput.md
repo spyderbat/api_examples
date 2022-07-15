@@ -1,4 +1,4 @@
-# Sbapi.AgentRegistrationCreateInput
+# SpyderbatApi.AgentRegistrationCreateInput
 
 ## Properties
 

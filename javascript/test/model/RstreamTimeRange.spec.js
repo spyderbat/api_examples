@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.RstreamTimeRange();
+    instance = new SpyderbatApi.RstreamTimeRange();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('RstreamTimeRange', function() {
     it('should create an instance of RstreamTimeRange', function() {
       // uncomment below and update the code to test RstreamTimeRange
-      //var instance = new Sbapi.RstreamTimeRange();
-      //expect(instance).to.be.a(Sbapi.RstreamTimeRange);
+      //var instance = new SpyderbatApi.RstreamTimeRange();
+      //expect(instance).to.be.a(SpyderbatApi.RstreamTimeRange);
     });
 
     it('should have the property endTime (base name: "end_time")', function() {
       // uncomment below and update the code to test the property endTime
-      //var instance = new Sbapi.RstreamTimeRange();
+      //var instance = new SpyderbatApi.RstreamTimeRange();
       //expect(instance).to.be();
     });
 
     it('should have the property startTime (base name: "start_time")', function() {
       // uncomment below and update the code to test the property startTime
-      //var instance = new Sbapi.RstreamTimeRange();
+      //var instance = new SpyderbatApi.RstreamTimeRange();
       //expect(instance).to.be();
     });
 

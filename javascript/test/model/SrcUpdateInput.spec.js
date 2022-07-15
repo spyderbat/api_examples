@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.SrcUpdateInput();
+    instance = new SpyderbatApi.SrcUpdateInput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,85 +50,85 @@
   describe('SrcUpdateInput', function() {
     it('should create an instance of SrcUpdateInput', function() {
       // uncomment below and update the code to test SrcUpdateInput
-      //var instance = new Sbapi.SrcUpdateInput();
-      //expect(instance).to.be.a(Sbapi.SrcUpdateInput);
+      //var instance = new SpyderbatApi.SrcUpdateInput();
+      //expect(instance).to.be.a(SpyderbatApi.SrcUpdateInput);
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property lastData (base name: "last_data")', function() {
       // uncomment below and update the code to test the property lastData
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property lastIngestChunkEndTime (base name: "last_ingest_chunk_end_time")', function() {
       // uncomment below and update the code to test the property lastIngestChunkEndTime
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property lastStoredChunkEndTime (base name: "last_stored_chunk_end_time")', function() {
       // uncomment below and update the code to test the property lastStoredChunkEndTime
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property resourceName (base name: "resource_name")', function() {
       // uncomment below and update the code to test the property resourceName
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property resourcePolicy (base name: "resource_policy")', function() {
       // uncomment below and update the code to test the property resourcePolicy
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property runtimeDescription (base name: "runtime_description")', function() {
       // uncomment below and update the code to test the property runtimeDescription
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property runtimeDetails (base name: "runtime_details")', function() {
       // uncomment below and update the code to test the property runtimeDetails
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property validFrom (base name: "valid_from")', function() {
       // uncomment below and update the code to test the property validFrom
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property validTo (base name: "valid_to")', function() {
       // uncomment below and update the code to test the property validTo
-      //var instance = new Sbapi.SrcUpdateInput();
+      //var instance = new SpyderbatApi.SrcUpdateInput();
       //expect(instance).to.be();
     });
 

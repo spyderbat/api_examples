@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.OrgUpdateInput();
+    instance = new SpyderbatApi.OrgUpdateInput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,61 +50,61 @@
   describe('OrgUpdateInput', function() {
     it('should create an instance of OrgUpdateInput', function() {
       // uncomment below and update the code to test OrgUpdateInput
-      //var instance = new Sbapi.OrgUpdateInput();
-      //expect(instance).to.be.a(Sbapi.OrgUpdateInput);
+      //var instance = new SpyderbatApi.OrgUpdateInput();
+      //expect(instance).to.be.a(SpyderbatApi.OrgUpdateInput);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new Sbapi.OrgUpdateInput();
+      //var instance = new SpyderbatApi.OrgUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property orgTypeUid (base name: "org_type_uid")', function() {
       // uncomment below and update the code to test the property orgTypeUid
-      //var instance = new Sbapi.OrgUpdateInput();
+      //var instance = new SpyderbatApi.OrgUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property ownerEmail (base name: "owner_email")', function() {
       // uncomment below and update the code to test the property ownerEmail
-      //var instance = new Sbapi.OrgUpdateInput();
+      //var instance = new SpyderbatApi.OrgUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property ownerUid (base name: "owner_uid")', function() {
       // uncomment below and update the code to test the property ownerUid
-      //var instance = new Sbapi.OrgUpdateInput();
+      //var instance = new SpyderbatApi.OrgUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property resourceName (base name: "resource_name")', function() {
       // uncomment below and update the code to test the property resourceName
-      //var instance = new Sbapi.OrgUpdateInput();
+      //var instance = new SpyderbatApi.OrgUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property resourcePolicy (base name: "resource_policy")', function() {
       // uncomment below and update the code to test the property resourcePolicy
-      //var instance = new Sbapi.OrgUpdateInput();
+      //var instance = new SpyderbatApi.OrgUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instance = new Sbapi.OrgUpdateInput();
+      //var instance = new SpyderbatApi.OrgUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property validFrom (base name: "valid_from")', function() {
       // uncomment below and update the code to test the property validFrom
-      //var instance = new Sbapi.OrgUpdateInput();
+      //var instance = new SpyderbatApi.OrgUpdateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property validTo (base name: "valid_to")', function() {
       // uncomment below and update the code to test the property validTo
-      //var instance = new Sbapi.OrgUpdateInput();
+      //var instance = new SpyderbatApi.OrgUpdateInput();
       //expect(instance).to.be();
     });
 

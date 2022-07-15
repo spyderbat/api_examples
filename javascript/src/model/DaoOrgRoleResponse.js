@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DaoOrgRoleResponse model module.
  * @module model/DaoOrgRoleResponse
- * @version 0.1.0
+ * @version 1.0.0
  */
 class DaoOrgRoleResponse {
     /**

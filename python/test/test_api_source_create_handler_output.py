@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.api_source_create_handler_output import ApiSourceCreateHandlerOutput
+import spyderbat_api
+from spyderbat_api.model.api_source_create_handler_output import ApiSourceCreateHandlerOutput
 
 
 class TestApiSourceCreateHandlerOutput(unittest.TestCase):

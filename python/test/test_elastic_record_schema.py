@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.elastic_record_field import ElasticRecordField
+import spyderbat_api
+from spyderbat_api.model.elastic_record_field import ElasticRecordField
 globals()['ElasticRecordField'] = ElasticRecordField
-from sbapi.model.elastic_record_schema import ElasticRecordSchema
+from spyderbat_api.model.elastic_record_schema import ElasticRecordSchema
 
 
 class TestElasticRecordSchema(unittest.TestCase):

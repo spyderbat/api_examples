@@ -12,12 +12,12 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.expr import Expr
-from sbapi.model.rstore_causal_query import RstoreCausalQuery
+import spyderbat_api
+from spyderbat_api.model.expr import Expr
+from spyderbat_api.model.rstore_causal_query import RstoreCausalQuery
 globals()['Expr'] = Expr
 globals()['RstoreCausalQuery'] = RstoreCausalQuery
-from sbapi.model.src_data_query_input import SrcDataQueryInput
+from spyderbat_api.model.src_data_query_input import SrcDataQueryInput
 
 
 class TestSrcDataQueryInput(unittest.TestCase):

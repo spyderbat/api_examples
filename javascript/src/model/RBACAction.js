@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RBACAction model module.
  * @module model/RBACAction
- * @version 0.1.0
+ * @version 1.0.0
  */
 class RBACAction {
     /**

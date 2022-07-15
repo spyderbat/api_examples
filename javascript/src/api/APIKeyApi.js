@@ -21,7 +21,7 @@ import ValidationError from '../model/ValidationError';
 /**
 * APIKey service.
 * @module api/APIKeyApi
-* @version 0.1.0
+* @version 1.0.0
 */
 export default class APIKeyApi {
 

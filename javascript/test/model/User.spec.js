@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.User();
+    instance = new SpyderbatApi.User();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,43 +50,43 @@
   describe('User', function() {
     it('should create an instance of User', function() {
       // uncomment below and update the code to test User
-      //var instance = new Sbapi.User();
-      //expect(instance).to.be.a(Sbapi.User);
+      //var instance = new SpyderbatApi.User();
+      //expect(instance).to.be.a(SpyderbatApi.User);
     });
 
     it('should have the property disableEmail (base name: "disable_email")', function() {
       // uncomment below and update the code to test the property disableEmail
-      //var instance = new Sbapi.User();
+      //var instance = new SpyderbatApi.User();
       //expect(instance).to.be();
     });
 
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
-      //var instance = new Sbapi.User();
+      //var instance = new SpyderbatApi.User();
       //expect(instance).to.be();
     });
 
     it('should have the property resourceName (base name: "resource_name")', function() {
       // uncomment below and update the code to test the property resourceName
-      //var instance = new Sbapi.User();
+      //var instance = new SpyderbatApi.User();
       //expect(instance).to.be();
     });
 
     it('should have the property uid (base name: "uid")', function() {
       // uncomment below and update the code to test the property uid
-      //var instance = new Sbapi.User();
+      //var instance = new SpyderbatApi.User();
       //expect(instance).to.be();
     });
 
     it('should have the property validFrom (base name: "valid_from")', function() {
       // uncomment below and update the code to test the property validFrom
-      //var instance = new Sbapi.User();
+      //var instance = new SpyderbatApi.User();
       //expect(instance).to.be();
     });
 
     it('should have the property validTo (base name: "valid_to")', function() {
       // uncomment below and update the code to test the property validTo
-      //var instance = new Sbapi.User();
+      //var instance = new SpyderbatApi.User();
       //expect(instance).to.be();
     });
 

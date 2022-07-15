@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.orc_api_runtime_details import OrcApiRuntimeDetails
+import spyderbat_api
+from spyderbat_api.model.orc_api_runtime_details import OrcApiRuntimeDetails
 
 
 class TestOrcApiRuntimeDetails(unittest.TestCase):

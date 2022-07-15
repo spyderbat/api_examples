@@ -17,7 +17,7 @@ import RstreamTimeRange from './RstreamTimeRange';
 /**
  * The Expr model module.
  * @module model/Expr
- * @version 0.1.0
+ * @version 1.0.0
  */
 class Expr {
     /**

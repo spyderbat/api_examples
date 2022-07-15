@@ -17,7 +17,7 @@ import OrcApiBatWork from './OrcApiBatWork';
 /**
  * The OrcApiAgentWork model module.
  * @module model/OrcApiAgentWork
- * @version 0.1.0
+ * @version 1.0.0
  */
 class OrcApiAgentWork {
     /**

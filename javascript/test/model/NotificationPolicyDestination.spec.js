@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.NotificationPolicyDestination();
+    instance = new SpyderbatApi.NotificationPolicyDestination();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,49 +50,49 @@
   describe('NotificationPolicyDestination', function() {
     it('should create an instance of NotificationPolicyDestination', function() {
       // uncomment below and update the code to test NotificationPolicyDestination
-      //var instance = new Sbapi.NotificationPolicyDestination();
-      //expect(instance).to.be.a(Sbapi.NotificationPolicyDestination);
+      //var instance = new SpyderbatApi.NotificationPolicyDestination();
+      //expect(instance).to.be.a(SpyderbatApi.NotificationPolicyDestination);
     });
 
     it('should have the property data (base name: "data")', function() {
       // uncomment below and update the code to test the property data
-      //var instance = new Sbapi.NotificationPolicyDestination();
+      //var instance = new SpyderbatApi.NotificationPolicyDestination();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instance = new Sbapi.NotificationPolicyDestination();
+      //var instance = new SpyderbatApi.NotificationPolicyDestination();
       //expect(instance).to.be();
     });
 
     it('should have the property email (base name: "email")', function() {
       // uncomment below and update the code to test the property email
-      //var instance = new Sbapi.NotificationPolicyDestination();
+      //var instance = new SpyderbatApi.NotificationPolicyDestination();
       //expect(instance).to.be();
     });
 
     it('should have the property orgUid (base name: "org_uid")', function() {
       // uncomment below and update the code to test the property orgUid
-      //var instance = new Sbapi.NotificationPolicyDestination();
+      //var instance = new SpyderbatApi.NotificationPolicyDestination();
       //expect(instance).to.be();
     });
 
     it('should have the property slack (base name: "slack")', function() {
       // uncomment below and update the code to test the property slack
-      //var instance = new Sbapi.NotificationPolicyDestination();
+      //var instance = new SpyderbatApi.NotificationPolicyDestination();
       //expect(instance).to.be();
     });
 
     it('should have the property users (base name: "users")', function() {
       // uncomment below and update the code to test the property users
-      //var instance = new Sbapi.NotificationPolicyDestination();
+      //var instance = new SpyderbatApi.NotificationPolicyDestination();
       //expect(instance).to.be();
     });
 
     it('should have the property webhook (base name: "webhook")', function() {
       // uncomment below and update the code to test the property webhook
-      //var instance = new Sbapi.NotificationPolicyDestination();
+      //var instance = new SpyderbatApi.NotificationPolicyDestination();
       //expect(instance).to.be();
     });
 

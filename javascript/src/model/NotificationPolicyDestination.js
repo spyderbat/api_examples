@@ -18,7 +18,7 @@ import NotificationPolicyDestinationWebhook from './NotificationPolicyDestinatio
 /**
  * The NotificationPolicyDestination model module.
  * @module model/NotificationPolicyDestination
- * @version 0.1.0
+ * @version 1.0.0
  */
 class NotificationPolicyDestination {
     /**

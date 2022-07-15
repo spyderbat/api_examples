@@ -12,12 +12,12 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.expr import Expr
-from sbapi.model.notification_policy_destination import NotificationPolicyDestination
+import spyderbat_api
+from spyderbat_api.model.expr import Expr
+from spyderbat_api.model.notification_policy_destination import NotificationPolicyDestination
 globals()['Expr'] = Expr
 globals()['NotificationPolicyDestination'] = NotificationPolicyDestination
-from sbapi.model.notification_policy_routes_inner import NotificationPolicyRoutesInner
+from spyderbat_api.model.notification_policy_routes_inner import NotificationPolicyRoutesInner
 
 
 class TestNotificationPolicyRoutesInner(unittest.TestCase):

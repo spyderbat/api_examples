@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.DaoPlan();
+    instance = new SpyderbatApi.DaoPlan();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('DaoPlan', function() {
     it('should create an instance of DaoPlan', function() {
       // uncomment below and update the code to test DaoPlan
-      //var instance = new Sbapi.DaoPlan();
-      //expect(instance).to.be.a(Sbapi.DaoPlan);
+      //var instance = new SpyderbatApi.DaoPlan();
+      //expect(instance).to.be.a(SpyderbatApi.DaoPlan);
     });
 
     it('should have the property policies (base name: "policies")', function() {
       // uncomment below and update the code to test the property policies
-      //var instance = new Sbapi.DaoPlan();
+      //var instance = new SpyderbatApi.DaoPlan();
       //expect(instance).to.be();
     });
 

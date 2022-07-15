@@ -1,4 +1,4 @@
-# Sbapi.SessionOrgTypeMaxLimit
+# SpyderbatApi.SessionOrgTypeMaxLimit
 
 ## Properties
 

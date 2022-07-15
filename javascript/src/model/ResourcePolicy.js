@@ -17,7 +17,7 @@ import RbacStatement from './RbacStatement';
 /**
  * The ResourcePolicy model module.
  * @module model/ResourcePolicy
- * @version 0.1.0
+ * @version 1.0.0
  */
 class ResourcePolicy {
     /**

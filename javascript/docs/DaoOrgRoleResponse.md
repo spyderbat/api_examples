@@ -1,4 +1,4 @@
-# Sbapi.DaoOrgRoleResponse
+# SpyderbatApi.DaoOrgRoleResponse
 
 ## Properties
 

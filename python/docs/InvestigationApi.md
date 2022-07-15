@@ -1,6 +1,6 @@
-# sbapi.InvestigationApi
+# spyderbat_api.InvestigationApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -26,16 +26,16 @@ Create an investigation
 
 ```python
 import time
-import sbapi
-from sbapi.api import investigation_api
-from sbapi.model.api_investigation_create_output import ApiInvestigationCreateOutput
-from sbapi.model.validation_error import ValidationError
-from sbapi.model.investigation_create_input import InvestigationCreateInput
+import spyderbat_api
+from spyderbat_api.api import investigation_api
+from spyderbat_api.model.investigation_create_input import InvestigationCreateInput
+from spyderbat_api.model.api_investigation_create_output import ApiInvestigationCreateOutput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -44,12 +44,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = investigation_api.InvestigationApi(api_client)
     investigation_uid = "investigationUID_example" # str | Investigation UID
@@ -93,7 +93,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Create an investigation
         api_response = api_instance.investigation_create(investigation_uid, org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_create: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -102,7 +102,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Create an investigation
         api_response = api_instance.investigation_create(investigation_uid, org_uid, investigation_create_input=investigation_create_input)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_create: %s\n" % e)
 ```
 
@@ -152,13 +152,13 @@ Delete an investigation
 
 ```python
 import time
-import sbapi
-from sbapi.api import investigation_api
+import spyderbat_api
+from spyderbat_api.api import investigation_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -167,12 +167,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = investigation_api.InvestigationApi(api_client)
     investigation_uid = "investigationUID_example" # str | Investigation UID
@@ -182,7 +182,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Delete an investigation
         api_instance.investigation_delete(investigation_uid, org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_delete: %s\n" % e)
 ```
 
@@ -230,15 +230,15 @@ List investigations
 
 ```python
 import time
-import sbapi
-from sbapi.api import investigation_api
-from sbapi.model.dao_investigation import DaoInvestigation
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import investigation_api
+from spyderbat_api.model.dao_investigation import DaoInvestigation
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -247,12 +247,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = investigation_api.InvestigationApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -262,7 +262,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List investigations
         api_response = api_instance.investigation_list(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_list: %s\n" % e)
 ```
 
@@ -310,14 +310,14 @@ List Investigation Versions
 
 ```python
 import time
-import sbapi
-from sbapi.api import investigation_api
-from sbapi.model.dao_investigation import DaoInvestigation
+import spyderbat_api
+from spyderbat_api.api import investigation_api
+from spyderbat_api.model.dao_investigation import DaoInvestigation
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -326,12 +326,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = investigation_api.InvestigationApi(api_client)
     investigation_uid = "investigationUID_example" # str | 
@@ -342,7 +342,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List Investigation Versions
         api_response = api_instance.investigation_list_versions(investigation_uid, org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_list_versions: %s\n" % e)
 ```
 
@@ -390,14 +390,14 @@ Load an investigation
 
 ```python
 import time
-import sbapi
-from sbapi.api import investigation_api
-from sbapi.model.dao_investigation import DaoInvestigation
+import spyderbat_api
+from spyderbat_api.api import investigation_api
+from spyderbat_api.model.dao_investigation import DaoInvestigation
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -406,12 +406,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = investigation_api.InvestigationApi(api_client)
     investigation_uid = "investigationUID_example" # str | 
@@ -422,7 +422,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Load an investigation
         api_response = api_instance.investigation_load(investigation_uid, org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_load: %s\n" % e)
 ```
 
@@ -470,14 +470,14 @@ Load Investigation Version
 
 ```python
 import time
-import sbapi
-from sbapi.api import investigation_api
-from sbapi.model.dao_investigation import DaoInvestigation
+import spyderbat_api
+from spyderbat_api.api import investigation_api
+from spyderbat_api.model.dao_investigation import DaoInvestigation
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -486,12 +486,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = investigation_api.InvestigationApi(api_client)
     investigation_uid = "investigationUID_example" # str | 
@@ -503,7 +503,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Load Investigation Version
         api_response = api_instance.investigation_load_version(investigation_uid, org_uid, version)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_load_version: %s\n" % e)
 ```
 
@@ -552,15 +552,15 @@ Update an investigation
 
 ```python
 import time
-import sbapi
-from sbapi.api import investigation_api
-from sbapi.model.investigation_update_input import InvestigationUpdateInput
-from sbapi.model.validation_error import ValidationError
+import spyderbat_api
+from spyderbat_api.api import investigation_api
+from spyderbat_api.model.investigation_update_input import InvestigationUpdateInput
+from spyderbat_api.model.validation_error import ValidationError
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -569,12 +569,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = investigation_api.InvestigationApi(api_client)
     investigation_uid = "investigationUID_example" # str | Investigation UID
@@ -617,7 +617,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Update an investigation
         api_instance.investigation_update(investigation_uid, org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_update: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -625,7 +625,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Update an investigation
         api_instance.investigation_update(investigation_uid, org_uid, investigation_update_input=investigation_update_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_update: %s\n" % e)
 ```
 

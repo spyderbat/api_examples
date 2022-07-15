@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.ApiKeyCreateInput();
+    instance = new SpyderbatApi.ApiKeyCreateInput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('ApiKeyCreateInput', function() {
     it('should create an instance of ApiKeyCreateInput', function() {
       // uncomment below and update the code to test ApiKeyCreateInput
-      //var instance = new Sbapi.ApiKeyCreateInput();
-      //expect(instance).to.be.a(Sbapi.ApiKeyCreateInput);
+      //var instance = new SpyderbatApi.ApiKeyCreateInput();
+      //expect(instance).to.be.a(SpyderbatApi.ApiKeyCreateInput);
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instance = new Sbapi.ApiKeyCreateInput();
+      //var instance = new SpyderbatApi.ApiKeyCreateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property validTo (base name: "valid_to")', function() {
       // uncomment below and update the code to test the property validTo
-      //var instance = new Sbapi.ApiKeyCreateInput();
+      //var instance = new SpyderbatApi.ApiKeyCreateInput();
       //expect(instance).to.be();
     });
 

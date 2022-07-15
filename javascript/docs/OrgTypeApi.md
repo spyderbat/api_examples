@@ -1,6 +1,6 @@
-# Sbapi.OrgTypeApi
+# SpyderbatApi.OrgTypeApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,13 +21,13 @@ Loads limits regarding active sources
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgTypeApi();
+let apiInstance = new SpyderbatApi.OrgTypeApi();
 let orgUID = "orgUID_example"; // String | 
 apiInstance.orgTypeLimitActiveSources(orgUID, (error, data, response) => {
   if (error) {
@@ -70,13 +70,13 @@ Loads limits regarding org roles
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgTypeApi();
+let apiInstance = new SpyderbatApi.OrgTypeApi();
 let orgUID = "orgUID_example"; // String | 
 apiInstance.orgTypeLimitOrgRoles(orgUID, (error, data, response) => {
   if (error) {
@@ -119,13 +119,13 @@ Load the org type for the organization
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.OrgTypeApi();
+let apiInstance = new SpyderbatApi.OrgTypeApi();
 let orgUID = "orgUID_example"; // String | 
 apiInstance.orgTypeLoad(orgUID, (error, data, response) => {
   if (error) {

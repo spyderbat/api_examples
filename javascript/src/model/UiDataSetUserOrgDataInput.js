@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UiDataSetUserOrgDataInput model module.
  * @module model/UiDataSetUserOrgDataInput
- * @version 0.1.0
+ * @version 1.0.0
  */
 class UiDataSetUserOrgDataInput {
     /**

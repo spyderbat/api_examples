@@ -17,7 +17,7 @@ import Source from './Source';
 /**
  * The ApiSOARListHandlerOutput model module.
  * @module model/ApiSOARListHandlerOutput
- * @version 0.1.0
+ * @version 1.0.0
  */
 class ApiSOARListHandlerOutput {
     /**

@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.dao_org_roles import DaoOrgRoles
+import spyderbat_api
+from spyderbat_api.model.dao_org_roles import DaoOrgRoles
 globals()['DaoOrgRoles'] = DaoOrgRoles
-from sbapi.model.dao_signup_policy import DaoSignupPolicy
+from spyderbat_api.model.dao_signup_policy import DaoSignupPolicy
 
 
 class TestDaoSignupPolicy(unittest.TestCase):

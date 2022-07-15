@@ -12,12 +12,12 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.orc_api_runtime_details import OrcApiRuntimeDetails
-from sbapi.model.resource_policy import ResourcePolicy
+import spyderbat_api
+from spyderbat_api.model.orc_api_runtime_details import OrcApiRuntimeDetails
+from spyderbat_api.model.resource_policy import ResourcePolicy
 globals()['OrcApiRuntimeDetails'] = OrcApiRuntimeDetails
 globals()['ResourcePolicy'] = ResourcePolicy
-from sbapi.model.source import Source
+from spyderbat_api.model.source import Source
 
 
 class TestSource(unittest.TestCase):

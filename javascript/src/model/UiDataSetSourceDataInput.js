@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The UiDataSetSourceDataInput model module.
  * @module model/UiDataSetSourceDataInput
- * @version 0.1.0
+ * @version 1.0.0
  */
 class UiDataSetSourceDataInput {
     /**

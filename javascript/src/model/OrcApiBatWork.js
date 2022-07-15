@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OrcApiBatWork model module.
  * @module model/OrcApiBatWork
- * @version 0.1.0
+ * @version 1.0.0
  */
 class OrcApiBatWork {
     /**

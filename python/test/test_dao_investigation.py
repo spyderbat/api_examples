@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.resource_policy import ResourcePolicy
+import spyderbat_api
+from spyderbat_api.model.resource_policy import ResourcePolicy
 globals()['ResourcePolicy'] = ResourcePolicy
-from sbapi.model.dao_investigation import DaoInvestigation
+from spyderbat_api.model.dao_investigation import DaoInvestigation
 
 
 class TestDaoInvestigation(unittest.TestCase):

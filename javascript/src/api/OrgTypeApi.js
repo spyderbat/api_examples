@@ -19,7 +19,7 @@ import SessionOrgTypeMaxLimit from '../model/SessionOrgTypeMaxLimit';
 /**
 * OrgType service.
 * @module api/OrgTypeApi
-* @version 0.1.0
+* @version 1.0.0
 */
 export default class OrgTypeApi {
 

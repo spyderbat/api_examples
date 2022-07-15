@@ -11,8 +11,8 @@
 
 import unittest
 
-import sbapi
-from sbapi.api.source_data_api import SourceDataApi  # noqa: E501
+import spyderbat_api
+from spyderbat_api.api.source_data_api import SourceDataApi  # noqa: E501
 
 
 class TestSourceDataApi(unittest.TestCase):

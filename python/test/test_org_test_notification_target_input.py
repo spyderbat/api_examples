@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.org_test_notification_target_input import OrgTestNotificationTargetInput
+import spyderbat_api
+from spyderbat_api.model.org_test_notification_target_input import OrgTestNotificationTargetInput
 
 
 class TestOrgTestNotificationTargetInput(unittest.TestCase):

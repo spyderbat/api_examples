@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.orc_api_bat_work import OrcApiBatWork
+import spyderbat_api
+from spyderbat_api.model.orc_api_bat_work import OrcApiBatWork
 
 
 class TestOrcApiBatWork(unittest.TestCase):

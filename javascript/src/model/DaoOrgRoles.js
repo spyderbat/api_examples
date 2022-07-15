@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The DaoOrgRoles model module.
  * @module model/DaoOrgRoles
- * @version 0.1.0
+ * @version 1.0.0
  */
 class DaoOrgRoles {
     /**

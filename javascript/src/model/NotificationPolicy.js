@@ -18,7 +18,7 @@ import NotificationPolicyRoutesInner from './NotificationPolicyRoutesInner';
 /**
  * The NotificationPolicy model module.
  * @module model/NotificationPolicy
- * @version 0.1.0
+ * @version 1.0.0
  */
 class NotificationPolicy {
     /**

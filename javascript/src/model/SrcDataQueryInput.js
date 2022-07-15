@@ -18,7 +18,7 @@ import RstoreCausalQuery from './RstoreCausalQuery';
 /**
  * The SrcDataQueryInput model module.
  * @module model/SrcDataQueryInput
- * @version 0.1.0
+ * @version 1.0.0
  */
 class SrcDataQueryInput {
     /**

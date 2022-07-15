@@ -1,6 +1,6 @@
-# sbapi.UserApi
+# spyderbat_api.UserApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,19 +20,19 @@ Returns the current user
 
 ```python
 import time
-import sbapi
-from sbapi.api import user_api
-from sbapi.model.user import User
+import spyderbat_api
+from spyderbat_api.api import user_api
+from spyderbat_api.model.user import User
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient() as api_client:
+with spyderbat_api.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
 
@@ -41,7 +41,7 @@ with sbapi.ApiClient() as api_client:
         # Returns the current user
         api_response = api_instance.user_current()
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UserApi->user_current: %s\n" % e)
 ```
 
@@ -86,14 +86,14 @@ Load a user by ID
 
 ```python
 import time
-import sbapi
-from sbapi.api import user_api
-from sbapi.model.user import User
+import spyderbat_api
+from spyderbat_api.api import user_api
+from spyderbat_api.model.user import User
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -102,12 +102,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
     user_uid = "userUID_example" # str | User UID
@@ -117,7 +117,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Load a user by ID
         api_response = api_instance.user_load(user_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling UserApi->user_load: %s\n" % e)
 ```
 

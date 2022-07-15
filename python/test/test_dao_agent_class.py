@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.dao_agent_class import DaoAgentClass
+import spyderbat_api
+from spyderbat_api.model.dao_agent_class import DaoAgentClass
 
 
 class TestDaoAgentClass(unittest.TestCase):

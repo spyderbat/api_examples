@@ -17,7 +17,7 @@ import RBACAction from './RBACAction';
 /**
  * The CanUserPerformInput model module.
  * @module model/CanUserPerformInput
- * @version 0.1.0
+ * @version 1.0.0
  */
 class CanUserPerformInput {
     /**

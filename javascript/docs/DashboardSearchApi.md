@@ -1,6 +1,6 @@
-# Sbapi.DashboardSearchApi
+# SpyderbatApi.DashboardSearchApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -23,17 +23,17 @@ Create a dashboard search
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.DashboardSearchApi();
+let apiInstance = new SpyderbatApi.DashboardSearchApi();
 let dashboardSearchUID = "dashboardSearchUID_example"; // String | UID for the DashboardSearch
 let orgUID = "orgUID_example"; // String | Org UID
 let opts = {
-  'dashboardSearchCreateInput': new Sbapi.DashboardSearchCreateInput() // DashboardSearchCreateInput | 
+  'dashboardSearchCreateInput': new SpyderbatApi.DashboardSearchCreateInput() // DashboardSearchCreateInput | 
 };
 apiInstance.dashboardSearchCreate(dashboardSearchUID, orgUID, opts, (error, data, response) => {
   if (error) {
@@ -78,13 +78,13 @@ Get a dashboard search
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.DashboardSearchApi();
+let apiInstance = new SpyderbatApi.DashboardSearchApi();
 let dashboardSearchUID = "dashboardSearchUID_example"; // String | 
 let orgUID = "orgUID_example"; // String | 
 apiInstance.dashboardSearchDelete(dashboardSearchUID, orgUID, (error, data, response) => {
@@ -129,13 +129,13 @@ Get a dashboard search
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.DashboardSearchApi();
+let apiInstance = new SpyderbatApi.DashboardSearchApi();
 let dashboardSearchUID = "dashboardSearchUID_example"; // String | 
 let orgUID = "orgUID_example"; // String | 
 apiInstance.dashboardSearchGet(dashboardSearchUID, orgUID, (error, data, response) => {
@@ -180,13 +180,13 @@ List dashboard searches
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.DashboardSearchApi();
+let apiInstance = new SpyderbatApi.DashboardSearchApi();
 let orgUID = "orgUID_example"; // String | Org UID
 apiInstance.dashboardSearchList(orgUID, (error, data, response) => {
   if (error) {
@@ -229,17 +229,17 @@ Update a dashboard search
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.DashboardSearchApi();
+let apiInstance = new SpyderbatApi.DashboardSearchApi();
 let dashboardSearchUID = "dashboardSearchUID_example"; // String | UID for the DashboardSearch
 let orgUID = "orgUID_example"; // String | Org UID
 let opts = {
-  'dashboardSearchUpdateInput': new Sbapi.DashboardSearchUpdateInput() // DashboardSearchUpdateInput | 
+  'dashboardSearchUpdateInput': new SpyderbatApi.DashboardSearchUpdateInput() // DashboardSearchUpdateInput | 
 };
 apiInstance.dashboardSearchUpdate(dashboardSearchUID, orgUID, opts, (error, data, response) => {
   if (error) {

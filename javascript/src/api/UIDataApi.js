@@ -24,7 +24,7 @@ import ValidationError from '../model/ValidationError';
 /**
 * UIData service.
 * @module api/UIDataApi
-* @version 0.1.0
+* @version 1.0.0
 */
 export default class UIDataApi {
 

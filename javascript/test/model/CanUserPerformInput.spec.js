@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.CanUserPerformInput();
+    instance = new SpyderbatApi.CanUserPerformInput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('CanUserPerformInput', function() {
     it('should create an instance of CanUserPerformInput', function() {
       // uncomment below and update the code to test CanUserPerformInput
-      //var instance = new Sbapi.CanUserPerformInput();
-      //expect(instance).to.be.a(Sbapi.CanUserPerformInput);
+      //var instance = new SpyderbatApi.CanUserPerformInput();
+      //expect(instance).to.be.a(SpyderbatApi.CanUserPerformInput);
     });
 
     it('should have the property actions (base name: "actions")', function() {
       // uncomment below and update the code to test the property actions
-      //var instance = new Sbapi.CanUserPerformInput();
+      //var instance = new SpyderbatApi.CanUserPerformInput();
       //expect(instance).to.be();
     });
 

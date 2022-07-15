@@ -1,4 +1,4 @@
-# Sbapi.CanUserPerformInput
+# SpyderbatApi.CanUserPerformInput
 
 ## Properties
 

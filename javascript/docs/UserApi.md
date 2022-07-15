@@ -1,6 +1,6 @@
-# Sbapi.UserApi
+# SpyderbatApi.UserApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -20,9 +20,9 @@ Returns the current user
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
+import SpyderbatApi from 'spyderbat-api';
 
-let apiInstance = new Sbapi.UserApi();
+let apiInstance = new SpyderbatApi.UserApi();
 apiInstance.userCurrent((error, data, response) => {
   if (error) {
     console.error(error);
@@ -61,13 +61,13 @@ Load a user by ID
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.UserApi();
+let apiInstance = new SpyderbatApi.UserApi();
 let userUID = "userUID_example"; // String | User UID
 apiInstance.userLoad(userUID, (error, data, response) => {
   if (error) {

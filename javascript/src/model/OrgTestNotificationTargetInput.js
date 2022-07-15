@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The OrgTestNotificationTargetInput model module.
  * @module model/OrgTestNotificationTargetInput
- * @version 0.1.0
+ * @version 1.0.0
  */
 class OrgTestNotificationTargetInput {
     /**

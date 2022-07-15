@@ -1,4 +1,4 @@
-# Sbapi.AgentRegistration
+# SpyderbatApi.AgentRegistration
 
 ## Properties
 

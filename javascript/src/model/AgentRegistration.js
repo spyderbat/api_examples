@@ -17,7 +17,7 @@ import DaoAgentConfig from './DaoAgentConfig';
 /**
  * The AgentRegistration model module.
  * @module model/AgentRegistration
- * @version 0.1.0
+ * @version 1.0.0
  */
 class AgentRegistration {
     /**

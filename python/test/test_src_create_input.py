@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.orc_api_runtime_details import OrcApiRuntimeDetails
+import spyderbat_api
+from spyderbat_api.model.orc_api_runtime_details import OrcApiRuntimeDetails
 globals()['OrcApiRuntimeDetails'] = OrcApiRuntimeDetails
-from sbapi.model.src_create_input import SrcCreateInput
+from spyderbat_api.model.src_create_input import SrcCreateInput
 
 
 class TestSrcCreateInput(unittest.TestCase):

@@ -17,7 +17,7 @@ import DaoOrgRoles from './DaoOrgRoles';
 /**
  * The DaoSignupPolicy model module.
  * @module model/DaoSignupPolicy
- * @version 0.1.0
+ * @version 1.0.0
  */
 class DaoSignupPolicy {
     /**

@@ -26,7 +26,7 @@ import ValidationError from '../model/ValidationError';
 /**
 * Org service.
 * @module api/OrgApi
-* @version 0.1.0
+* @version 1.0.0
 */
 export default class OrgApi {
 

@@ -17,7 +17,7 @@ import OrcApiAgentWork from './OrcApiAgentWork';
 /**
  * The AgentSetOrgWorkInput model module.
  * @module model/AgentSetOrgWorkInput
- * @version 0.1.0
+ * @version 1.0.0
  */
 class AgentSetOrgWorkInput {
     /**

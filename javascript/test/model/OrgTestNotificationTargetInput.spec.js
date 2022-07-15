@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.OrgTestNotificationTargetInput();
+    instance = new SpyderbatApi.OrgTestNotificationTargetInput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('OrgTestNotificationTargetInput', function() {
     it('should create an instance of OrgTestNotificationTargetInput', function() {
       // uncomment below and update the code to test OrgTestNotificationTargetInput
-      //var instance = new Sbapi.OrgTestNotificationTargetInput();
-      //expect(instance).to.be.a(Sbapi.OrgTestNotificationTargetInput);
+      //var instance = new SpyderbatApi.OrgTestNotificationTargetInput();
+      //expect(instance).to.be.a(SpyderbatApi.OrgTestNotificationTargetInput);
     });
 
     it('should have the property target (base name: "target")', function() {
       // uncomment below and update the code to test the property target
-      //var instance = new Sbapi.OrgTestNotificationTargetInput();
+      //var instance = new SpyderbatApi.OrgTestNotificationTargetInput();
       //expect(instance).to.be();
     });
 

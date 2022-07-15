@@ -1,4 +1,4 @@
-# Sbapi.DaoSignupPolicy
+# SpyderbatApi.DaoSignupPolicy
 
 ## Properties
 

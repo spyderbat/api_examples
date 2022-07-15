@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.api_investigation_create_output import ApiInvestigationCreateOutput
+import spyderbat_api
+from spyderbat_api.model.api_investigation_create_output import ApiInvestigationCreateOutput
 
 
 class TestApiInvestigationCreateOutput(unittest.TestCase):

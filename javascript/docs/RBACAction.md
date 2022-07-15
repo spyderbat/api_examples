@@ -1,4 +1,4 @@
-# Sbapi.RBACAction
+# SpyderbatApi.RBACAction
 
 ## Properties
 

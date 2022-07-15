@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.ApiSourceCreateHandlerOutput();
+    instance = new SpyderbatApi.ApiSourceCreateHandlerOutput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('ApiSourceCreateHandlerOutput', function() {
     it('should create an instance of ApiSourceCreateHandlerOutput', function() {
       // uncomment below and update the code to test ApiSourceCreateHandlerOutput
-      //var instance = new Sbapi.ApiSourceCreateHandlerOutput();
-      //expect(instance).to.be.a(Sbapi.ApiSourceCreateHandlerOutput);
+      //var instance = new SpyderbatApi.ApiSourceCreateHandlerOutput();
+      //expect(instance).to.be.a(SpyderbatApi.ApiSourceCreateHandlerOutput);
     });
 
     it('should have the property uid (base name: "uid")', function() {
       // uncomment below and update the code to test the property uid
-      //var instance = new Sbapi.ApiSourceCreateHandlerOutput();
+      //var instance = new SpyderbatApi.ApiSourceCreateHandlerOutput();
       //expect(instance).to.be();
     });
 

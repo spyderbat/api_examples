@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.notification_policy_destination_webhook import NotificationPolicyDestinationWebhook
+import spyderbat_api
+from spyderbat_api.model.notification_policy_destination_webhook import NotificationPolicyDestinationWebhook
 
 
 class TestNotificationPolicyDestinationWebhook(unittest.TestCase):

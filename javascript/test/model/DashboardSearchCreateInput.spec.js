@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.DashboardSearchCreateInput();
+    instance = new SpyderbatApi.DashboardSearchCreateInput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,49 +50,49 @@
   describe('DashboardSearchCreateInput', function() {
     it('should create an instance of DashboardSearchCreateInput', function() {
       // uncomment below and update the code to test DashboardSearchCreateInput
-      //var instance = new Sbapi.DashboardSearchCreateInput();
-      //expect(instance).to.be.a(Sbapi.DashboardSearchCreateInput);
+      //var instance = new SpyderbatApi.DashboardSearchCreateInput();
+      //expect(instance).to.be.a(SpyderbatApi.DashboardSearchCreateInput);
     });
 
     it('should have the property  (base name: "")', function() {
       // uncomment below and update the code to test the property 
-      //var instance = new Sbapi.DashboardSearchCreateInput();
+      //var instance = new SpyderbatApi.DashboardSearchCreateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property data (base name: "data")', function() {
       // uncomment below and update the code to test the property data
-      //var instance = new Sbapi.DashboardSearchCreateInput();
+      //var instance = new SpyderbatApi.DashboardSearchCreateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instance = new Sbapi.DashboardSearchCreateInput();
+      //var instance = new SpyderbatApi.DashboardSearchCreateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property notify (base name: "notify")', function() {
       // uncomment below and update the code to test the property notify
-      //var instance = new Sbapi.DashboardSearchCreateInput();
+      //var instance = new SpyderbatApi.DashboardSearchCreateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property notifyFrequency (base name: "notify_frequency")', function() {
       // uncomment below and update the code to test the property notifyFrequency
-      //var instance = new Sbapi.DashboardSearchCreateInput();
+      //var instance = new SpyderbatApi.DashboardSearchCreateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property search (base name: "search")', function() {
       // uncomment below and update the code to test the property search
-      //var instance = new Sbapi.DashboardSearchCreateInput();
+      //var instance = new SpyderbatApi.DashboardSearchCreateInput();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instance = new Sbapi.DashboardSearchCreateInput();
+      //var instance = new SpyderbatApi.DashboardSearchCreateInput();
       //expect(instance).to.be();
     });
 

@@ -1,6 +1,6 @@
-# Sbapi.SourceDataApi
+# SpyderbatApi.SourceDataApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -21,15 +21,15 @@ Query source data
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceDataApi();
+let apiInstance = new SpyderbatApi.SourceDataApi();
 let opts = {
-  'srcDataQueryInput': new Sbapi.SrcDataQueryInput() // SrcDataQueryInput | 
+  'srcDataQueryInput': new SpyderbatApi.SrcDataQueryInput() // SrcDataQueryInput | 
 };
 apiInstance.srcDataQuery(opts, (error, data, response) => {
   if (error) {
@@ -72,13 +72,13 @@ Same as the post query above except results are cached
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceDataApi();
+let apiInstance = new SpyderbatApi.SourceDataApi();
 let orgUID = "orgUID_example"; // String | Organization UID to query
 let dt = "dt_example"; // String | DataType to query
 let opts = {
@@ -145,13 +145,13 @@ Sends data to a source
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.SourceDataApi();
+let apiInstance = new SpyderbatApi.SourceDataApi();
 let dataType = "dataType_example"; // String | 
 let orgUID = "orgUID_example"; // String | 
 let sourceUID = "sourceUID_example"; // String | 

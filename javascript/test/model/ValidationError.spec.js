@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.ValidationError();
+    instance = new SpyderbatApi.ValidationError();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('ValidationError', function() {
     it('should create an instance of ValidationError', function() {
       // uncomment below and update the code to test ValidationError
-      //var instance = new Sbapi.ValidationError();
-      //expect(instance).to.be.a(Sbapi.ValidationError);
+      //var instance = new SpyderbatApi.ValidationError();
+      //expect(instance).to.be.a(SpyderbatApi.ValidationError);
     });
 
     it('should have the property errMsg (base name: "err_msg")', function() {
       // uncomment below and update the code to test the property errMsg
-      //var instance = new Sbapi.ValidationError();
+      //var instance = new SpyderbatApi.ValidationError();
       //expect(instance).to.be();
     });
 
     it('should have the property field (base name: "field")', function() {
       // uncomment below and update the code to test the property field
-      //var instance = new Sbapi.ValidationError();
+      //var instance = new SpyderbatApi.ValidationError();
       //expect(instance).to.be();
     });
 
     it('should have the property property (base name: "property")', function() {
       // uncomment below and update the code to test the property property
-      //var instance = new Sbapi.ValidationError();
+      //var instance = new SpyderbatApi.ValidationError();
       //expect(instance).to.be();
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instance = new Sbapi.ValidationError();
+      //var instance = new SpyderbatApi.ValidationError();
       //expect(instance).to.be();
     });
 

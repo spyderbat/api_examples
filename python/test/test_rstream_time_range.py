@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.rstream_time_range import RstreamTimeRange
+import spyderbat_api
+from spyderbat_api.model.rstream_time_range import RstreamTimeRange
 
 
 class TestRstreamTimeRange(unittest.TestCase):

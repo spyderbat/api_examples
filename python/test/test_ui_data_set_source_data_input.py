@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.ui_data_set_source_data_input import UiDataSetSourceDataInput
+import spyderbat_api
+from spyderbat_api.model.ui_data_set_source_data_input import UiDataSetSourceDataInput
 
 
 class TestUiDataSetSourceDataInput(unittest.TestCase):

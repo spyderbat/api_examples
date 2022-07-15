@@ -11,8 +11,8 @@
 
 import unittest
 
-import sbapi
-from sbapi.api.dashboard_search_api import DashboardSearchApi  # noqa: E501
+import spyderbat_api
+from spyderbat_api.api.dashboard_search_api import DashboardSearchApi  # noqa: E501
 
 
 class TestDashboardSearchApi(unittest.TestCase):

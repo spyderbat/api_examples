@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.rstream_time_range import RstreamTimeRange
+import spyderbat_api
+from spyderbat_api.model.rstream_time_range import RstreamTimeRange
 globals()['RstreamTimeRange'] = RstreamTimeRange
-from sbapi.model.expr import Expr
+from spyderbat_api.model.expr import Expr
 
 
 class TestExpr(unittest.TestCase):

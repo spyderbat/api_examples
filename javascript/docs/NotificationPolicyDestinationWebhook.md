@@ -1,4 +1,4 @@
-# Sbapi.NotificationPolicyDestinationWebhook
+# SpyderbatApi.NotificationPolicyDestinationWebhook
 
 ## Properties
 

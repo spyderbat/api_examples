@@ -1,4 +1,4 @@
-# Sbapi.UiDataSetUserOrgDataInput
+# SpyderbatApi.UiDataSetUserOrgDataInput
 
 ## Properties
 

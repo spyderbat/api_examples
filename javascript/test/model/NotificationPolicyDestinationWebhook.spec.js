@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.NotificationPolicyDestinationWebhook();
+    instance = new SpyderbatApi.NotificationPolicyDestinationWebhook();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('NotificationPolicyDestinationWebhook', function() {
     it('should create an instance of NotificationPolicyDestinationWebhook', function() {
       // uncomment below and update the code to test NotificationPolicyDestinationWebhook
-      //var instance = new Sbapi.NotificationPolicyDestinationWebhook();
-      //expect(instance).to.be.a(Sbapi.NotificationPolicyDestinationWebhook);
+      //var instance = new SpyderbatApi.NotificationPolicyDestinationWebhook();
+      //expect(instance).to.be.a(SpyderbatApi.NotificationPolicyDestinationWebhook);
     });
 
     it('should have the property noTlsValidation (base name: "no_tls_validation")', function() {
       // uncomment below and update the code to test the property noTlsValidation
-      //var instance = new Sbapi.NotificationPolicyDestinationWebhook();
+      //var instance = new SpyderbatApi.NotificationPolicyDestinationWebhook();
       //expect(instance).to.be();
     });
 
     it('should have the property url (base name: "url")', function() {
       // uncomment below and update the code to test the property url
-      //var instance = new Sbapi.NotificationPolicyDestinationWebhook();
+      //var instance = new SpyderbatApi.NotificationPolicyDestinationWebhook();
       //expect(instance).to.be();
     });
 

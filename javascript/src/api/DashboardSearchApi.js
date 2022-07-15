@@ -20,7 +20,7 @@ import DashboardSearchUpdateInput from '../model/DashboardSearchUpdateInput';
 /**
 * DashboardSearch service.
 * @module api/DashboardSearchApi
-* @version 0.1.0
+* @version 1.0.0
 */
 export default class DashboardSearchApi {
 

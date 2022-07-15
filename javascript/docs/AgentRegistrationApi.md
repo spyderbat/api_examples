@@ -1,6 +1,6 @@
-# Sbapi.AgentRegistrationApi
+# SpyderbatApi.AgentRegistrationApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,17 +24,17 @@ Create an agent registration
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentRegistrationApi();
+let apiInstance = new SpyderbatApi.AgentRegistrationApi();
 let orgUID = "orgUID_example"; // String | The OrgUID the registration is associated with
 let uid = "uid_example"; // String | Agent Registration UID
 let opts = {
-  'agentRegistrationCreateInput': new Sbapi.AgentRegistrationCreateInput() // AgentRegistrationCreateInput | 
+  'agentRegistrationCreateInput': new SpyderbatApi.AgentRegistrationCreateInput() // AgentRegistrationCreateInput | 
 };
 apiInstance.agentRegistrationCreate(orgUID, uid, opts, (error, data, response) => {
   if (error) {
@@ -79,13 +79,13 @@ Get a download link for this registration
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentRegistrationApi();
+let apiInstance = new SpyderbatApi.AgentRegistrationApi();
 let orgUID = "orgUID_example"; // String | 
 let uid = "uid_example"; // String | 
 apiInstance.agentRegistrationDownloadLink(orgUID, uid, (error, data, response) => {
@@ -130,13 +130,13 @@ Get log of recent agent registration activity
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentRegistrationApi();
+let apiInstance = new SpyderbatApi.AgentRegistrationApi();
 let orgUID = "orgUID_example"; // String | 
 let uid = "uid_example"; // String | 
 let opts = {
@@ -187,13 +187,13 @@ List agent registrations
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentRegistrationApi();
+let apiInstance = new SpyderbatApi.AgentRegistrationApi();
 let orgUID = "orgUID_example"; // String | 
 let opts = {
   'page': 56, // Number | 
@@ -242,13 +242,13 @@ Load an agent registration
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentRegistrationApi();
+let apiInstance = new SpyderbatApi.AgentRegistrationApi();
 let orgUID = "orgUID_example"; // String | 
 let uid = "uid_example"; // String | 
 apiInstance.agentRegistrationLoad(orgUID, uid, (error, data, response) => {
@@ -293,17 +293,17 @@ Update an agent registration
 ### Example
 
 ```javascript
-import Sbapi from 'sbapi';
-let defaultClient = Sbapi.ApiClient.instance;
+import SpyderbatApi from 'spyderbat-api';
+let defaultClient = SpyderbatApi.ApiClient.instance;
 // Configure Bearer (JWT) access token for authorization: apiToken
 let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-let apiInstance = new Sbapi.AgentRegistrationApi();
+let apiInstance = new SpyderbatApi.AgentRegistrationApi();
 let orgUID = "orgUID_example"; // String | The OrgUID the registration is associated with
 let uid = "uid_example"; // String | Agent Registration UID
 let opts = {
-  'agentRegistrationUpdateInput': new Sbapi.AgentRegistrationUpdateInput() // AgentRegistrationUpdateInput | 
+  'agentRegistrationUpdateInput': new SpyderbatApi.AgentRegistrationUpdateInput() // AgentRegistrationUpdateInput | 
 };
 apiInstance.agentRegistrationUpdate(orgUID, uid, opts, (error, data, response) => {
   if (error) {

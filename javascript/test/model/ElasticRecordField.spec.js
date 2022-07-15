@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.ElasticRecordField();
+    instance = new SpyderbatApi.ElasticRecordField();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,43 +50,43 @@
   describe('ElasticRecordField', function() {
     it('should create an instance of ElasticRecordField', function() {
       // uncomment below and update the code to test ElasticRecordField
-      //var instance = new Sbapi.ElasticRecordField();
-      //expect(instance).to.be.a(Sbapi.ElasticRecordField);
+      //var instance = new SpyderbatApi.ElasticRecordField();
+      //expect(instance).to.be.a(SpyderbatApi.ElasticRecordField);
     });
 
     it('should have the property dynamic (base name: "dynamic")', function() {
       // uncomment below and update the code to test the property dynamic
-      //var instance = new Sbapi.ElasticRecordField();
+      //var instance = new SpyderbatApi.ElasticRecordField();
       //expect(instance).to.be();
     });
 
     it('should have the property fields (base name: "fields")', function() {
       // uncomment below and update the code to test the property fields
-      //var instance = new Sbapi.ElasticRecordField();
+      //var instance = new SpyderbatApi.ElasticRecordField();
       //expect(instance).to.be();
     });
 
     it('should have the property index (base name: "index")', function() {
       // uncomment below and update the code to test the property index
-      //var instance = new Sbapi.ElasticRecordField();
+      //var instance = new SpyderbatApi.ElasticRecordField();
       //expect(instance).to.be();
     });
 
     it('should have the property properties (base name: "properties")', function() {
       // uncomment below and update the code to test the property properties
-      //var instance = new Sbapi.ElasticRecordField();
+      //var instance = new SpyderbatApi.ElasticRecordField();
       //expect(instance).to.be();
     });
 
     it('should have the property store (base name: "store")', function() {
       // uncomment below and update the code to test the property store
-      //var instance = new Sbapi.ElasticRecordField();
+      //var instance = new SpyderbatApi.ElasticRecordField();
       //expect(instance).to.be();
     });
 
     it('should have the property type (base name: "type")', function() {
       // uncomment below and update the code to test the property type
-      //var instance = new Sbapi.ElasticRecordField();
+      //var instance = new SpyderbatApi.ElasticRecordField();
       //expect(instance).to.be();
     });
 

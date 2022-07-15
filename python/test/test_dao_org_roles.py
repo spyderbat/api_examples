@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.dao_org_roles import DaoOrgRoles
+import spyderbat_api
+from spyderbat_api.model.dao_org_roles import DaoOrgRoles
 
 
 class TestDaoOrgRoles(unittest.TestCase):

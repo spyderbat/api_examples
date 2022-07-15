@@ -10,7 +10,7 @@ javascript: openapi.json javascript-config.yaml
 	openapi-generator-cli generate -g javascript -c javascript-config.yaml -i openapi.json -o javascript
 
 openapi.json: 
-	wget https://api.prod.spyderbat.com/openapi.json
+	wget https://api.spyderbat.com/openapi.json
 
 clean:
 	rm -f openapi.json openapitools.json

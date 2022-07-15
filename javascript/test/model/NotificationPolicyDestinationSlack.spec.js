@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.NotificationPolicyDestinationSlack();
+    instance = new SpyderbatApi.NotificationPolicyDestinationSlack();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,13 +50,13 @@
   describe('NotificationPolicyDestinationSlack', function() {
     it('should create an instance of NotificationPolicyDestinationSlack', function() {
       // uncomment below and update the code to test NotificationPolicyDestinationSlack
-      //var instance = new Sbapi.NotificationPolicyDestinationSlack();
-      //expect(instance).to.be.a(Sbapi.NotificationPolicyDestinationSlack);
+      //var instance = new SpyderbatApi.NotificationPolicyDestinationSlack();
+      //expect(instance).to.be.a(SpyderbatApi.NotificationPolicyDestinationSlack);
     });
 
     it('should have the property url (base name: "url")', function() {
       // uncomment below and update the code to test the property url
-      //var instance = new Sbapi.NotificationPolicyDestinationSlack();
+      //var instance = new SpyderbatApi.NotificationPolicyDestinationSlack();
       //expect(instance).to.be();
     });
 

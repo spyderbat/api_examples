@@ -1,4 +1,4 @@
-# Sbapi.DaoPolicy
+# SpyderbatApi.DaoPolicy
 
 ## Properties
 

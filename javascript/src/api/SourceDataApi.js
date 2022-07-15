@@ -19,7 +19,7 @@ import ValidationError from '../model/ValidationError';
 /**
 * SourceData service.
 * @module api/SourceDataApi
-* @version 0.1.0
+* @version 1.0.0
 */
 export default class SourceDataApi {
 

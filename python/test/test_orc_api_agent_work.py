@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.orc_api_bat_work import OrcApiBatWork
+import spyderbat_api
+from spyderbat_api.model.orc_api_bat_work import OrcApiBatWork
 globals()['OrcApiBatWork'] = OrcApiBatWork
-from sbapi.model.orc_api_agent_work import OrcApiAgentWork
+from spyderbat_api.model.orc_api_agent_work import OrcApiAgentWork
 
 
 class TestOrcApiAgentWork(unittest.TestCase):

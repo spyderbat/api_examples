@@ -11,8 +11,8 @@
 
 import unittest
 
-import sbapi
-from sbapi.api.api_key_api import APIKeyApi  # noqa: E501
+import spyderbat_api
+from spyderbat_api.api.api_key_api import APIKeyApi  # noqa: E501
 
 
 class TestAPIKeyApi(unittest.TestCase):

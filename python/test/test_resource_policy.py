@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.rbac_statement import RbacStatement
+import spyderbat_api
+from spyderbat_api.model.rbac_statement import RbacStatement
 globals()['RbacStatement'] = RbacStatement
-from sbapi.model.resource_policy import ResourcePolicy
+from spyderbat_api.model.resource_policy import ResourcePolicy
 
 
 class TestResourcePolicy(unittest.TestCase):

@@ -1,4 +1,4 @@
-# Sbapi.OrgAssignRoleInput
+# SpyderbatApi.OrgAssignRoleInput
 
 ## Properties
 

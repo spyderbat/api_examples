@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.source import Source
+import spyderbat_api
+from spyderbat_api.model.source import Source
 globals()['Source'] = Source
-from sbapi.model.api_soar_list_handler_output import ApiSOARListHandlerOutput
+from spyderbat_api.model.api_soar_list_handler_output import ApiSOARListHandlerOutput
 
 
 class TestApiSOARListHandlerOutput(unittest.TestCase):

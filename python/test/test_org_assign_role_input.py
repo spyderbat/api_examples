@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.org_assign_role_input import OrgAssignRoleInput
+import spyderbat_api
+from spyderbat_api.model.org_assign_role_input import OrgAssignRoleInput
 
 
 class TestOrgAssignRoleInput(unittest.TestCase):

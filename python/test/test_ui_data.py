@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.ui_data import UIData
+import spyderbat_api
+from spyderbat_api.model.ui_data import UIData
 
 
 class TestUIData(unittest.TestCase):

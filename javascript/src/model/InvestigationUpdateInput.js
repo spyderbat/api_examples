@@ -17,7 +17,7 @@ import ResourcePolicy from './ResourcePolicy';
 /**
  * The InvestigationUpdateInput model module.
  * @module model/InvestigationUpdateInput
- * @version 0.1.0
+ * @version 1.0.0
  */
 class InvestigationUpdateInput {
     /**

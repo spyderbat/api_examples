@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.elastic_record_field import ElasticRecordField
+import spyderbat_api
+from spyderbat_api.model.elastic_record_field import ElasticRecordField
 
 
 class TestElasticRecordField(unittest.TestCase):

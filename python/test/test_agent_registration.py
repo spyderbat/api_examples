@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.dao_agent_config import DaoAgentConfig
+import spyderbat_api
+from spyderbat_api.model.dao_agent_config import DaoAgentConfig
 globals()['DaoAgentConfig'] = DaoAgentConfig
-from sbapi.model.agent_registration import AgentRegistration
+from spyderbat_api.model.agent_registration import AgentRegistration
 
 
 class TestAgentRegistration(unittest.TestCase):

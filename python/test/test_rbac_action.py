@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.rbac_action import RBACAction
+import spyderbat_api
+from spyderbat_api.model.rbac_action import RBACAction
 
 
 class TestRBACAction(unittest.TestCase):

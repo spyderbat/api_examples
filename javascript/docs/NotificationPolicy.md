@@ -1,4 +1,4 @@
-# Sbapi.NotificationPolicy
+# SpyderbatApi.NotificationPolicy
 
 ## Properties
 

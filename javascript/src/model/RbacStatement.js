@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The RbacStatement model module.
  * @module model/RbacStatement
- * @version 0.1.0
+ * @version 1.0.0
  */
 class RbacStatement {
     /**

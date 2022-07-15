@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.DaoOrgType();
+    instance = new SpyderbatApi.DaoOrgType();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,31 +50,31 @@
   describe('DaoOrgType', function() {
     it('should create an instance of DaoOrgType', function() {
       // uncomment below and update the code to test DaoOrgType
-      //var instance = new Sbapi.DaoOrgType();
-      //expect(instance).to.be.a(Sbapi.DaoOrgType);
+      //var instance = new SpyderbatApi.DaoOrgType();
+      //expect(instance).to.be.a(SpyderbatApi.DaoOrgType);
     });
 
     it('should have the property description (base name: "description")', function() {
       // uncomment below and update the code to test the property description
-      //var instance = new Sbapi.DaoOrgType();
+      //var instance = new SpyderbatApi.DaoOrgType();
       //expect(instance).to.be();
     });
 
     it('should have the property orgUid (base name: "org_uid")', function() {
       // uncomment below and update the code to test the property orgUid
-      //var instance = new Sbapi.DaoOrgType();
+      //var instance = new SpyderbatApi.DaoOrgType();
       //expect(instance).to.be();
     });
 
     it('should have the property policy (base name: "policy")', function() {
       // uncomment below and update the code to test the property policy
-      //var instance = new Sbapi.DaoOrgType();
+      //var instance = new SpyderbatApi.DaoOrgType();
       //expect(instance).to.be();
     });
 
     it('should have the property uid (base name: "uid")', function() {
       // uncomment below and update the code to test the property uid
-      //var instance = new Sbapi.DaoOrgType();
+      //var instance = new SpyderbatApi.DaoOrgType();
       //expect(instance).to.be();
     });
 

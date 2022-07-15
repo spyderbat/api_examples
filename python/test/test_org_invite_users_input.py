@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.org_invite_users_input import OrgInviteUsersInput
+import spyderbat_api
+from spyderbat_api.model.org_invite_users_input import OrgInviteUsersInput
 
 
 class TestOrgInviteUsersInput(unittest.TestCase):

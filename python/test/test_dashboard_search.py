@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.dashboard_search import DashboardSearch
+import spyderbat_api
+from spyderbat_api.model.dashboard_search import DashboardSearch
 
 
 class TestDashboardSearch(unittest.TestCase):

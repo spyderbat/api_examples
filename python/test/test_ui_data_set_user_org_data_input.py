@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.ui_data_set_user_org_data_input import UiDataSetUserOrgDataInput
+import spyderbat_api
+from spyderbat_api.model.ui_data_set_user_org_data_input import UiDataSetUserOrgDataInput
 
 
 class TestUiDataSetUserOrgDataInput(unittest.TestCase):

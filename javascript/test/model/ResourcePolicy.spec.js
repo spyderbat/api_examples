@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.ResourcePolicy();
+    instance = new SpyderbatApi.ResourcePolicy();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,25 +50,25 @@
   describe('ResourcePolicy', function() {
     it('should create an instance of ResourcePolicy', function() {
       // uncomment below and update the code to test ResourcePolicy
-      //var instance = new Sbapi.ResourcePolicy();
-      //expect(instance).to.be.a(Sbapi.ResourcePolicy);
+      //var instance = new SpyderbatApi.ResourcePolicy();
+      //expect(instance).to.be.a(SpyderbatApi.ResourcePolicy);
     });
 
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
-      //var instance = new Sbapi.ResourcePolicy();
+      //var instance = new SpyderbatApi.ResourcePolicy();
       //expect(instance).to.be();
     });
 
     it('should have the property statements (base name: "statements")', function() {
       // uncomment below and update the code to test the property statements
-      //var instance = new Sbapi.ResourcePolicy();
+      //var instance = new SpyderbatApi.ResourcePolicy();
       //expect(instance).to.be();
     });
 
     it('should have the property version (base name: "version")', function() {
       // uncomment below and update the code to test the property version
-      //var instance = new Sbapi.ResourcePolicy();
+      //var instance = new SpyderbatApi.ResourcePolicy();
       //expect(instance).to.be();
     });
 

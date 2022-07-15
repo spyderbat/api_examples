@@ -17,7 +17,7 @@ import DaoAgentClass from './DaoAgentClass';
 /**
  * The DaoAgentConfig model module.
  * @module model/DaoAgentConfig
- * @version 0.1.0
+ * @version 1.0.0
  */
 class DaoAgentConfig {
     /**

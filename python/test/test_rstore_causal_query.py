@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.rstore_causal_query import RstoreCausalQuery
+import spyderbat_api
+from spyderbat_api.model.rstore_causal_query import RstoreCausalQuery
 
 
 class TestRstoreCausalQuery(unittest.TestCase):

@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.OrgUnassignRoleInput();
+    instance = new SpyderbatApi.OrgUnassignRoleInput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('OrgUnassignRoleInput', function() {
     it('should create an instance of OrgUnassignRoleInput', function() {
       // uncomment below and update the code to test OrgUnassignRoleInput
-      //var instance = new Sbapi.OrgUnassignRoleInput();
-      //expect(instance).to.be.a(Sbapi.OrgUnassignRoleInput);
+      //var instance = new SpyderbatApi.OrgUnassignRoleInput();
+      //expect(instance).to.be.a(SpyderbatApi.OrgUnassignRoleInput);
     });
 
     it('should have the property roleUid (base name: "role_uid")', function() {
       // uncomment below and update the code to test the property roleUid
-      //var instance = new Sbapi.OrgUnassignRoleInput();
+      //var instance = new SpyderbatApi.OrgUnassignRoleInput();
       //expect(instance).to.be();
     });
 
     it('should have the property userUid (base name: "user_uid")', function() {
       // uncomment below and update the code to test the property userUid
-      //var instance = new Sbapi.OrgUnassignRoleInput();
+      //var instance = new SpyderbatApi.OrgUnassignRoleInput();
       //expect(instance).to.be();
     });
 

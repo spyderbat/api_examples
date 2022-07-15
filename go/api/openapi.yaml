@@ -3,7 +3,7 @@ info:
   contact:
     email: apisupport@spyderbat.com
     name: API Support
-    url: https://api.prod.spyderbat.com/openapi.pdf
+    url: https://api.spyderbat.com/openapi.pdf
   description: Restful APIs for use by UI & customers.
   license:
     name: MIT
@@ -17,7 +17,7 @@ info:
     altText: Spyderbat Logo
 servers:
 - description: Spyderbat API Server
-  url: https://api.prod.spyderbat.com/
+  url: https://api.spyderbat.com/
 security:
 - apiToken: []
 tags:
@@ -6358,7 +6358,7 @@ components:
       properties:
         name:
           description: Name of the organization
-          maxLength: 32
+          maxLength: 64
           minLength: 3
           type: string
         org_type_uid:
@@ -6514,7 +6514,7 @@ components:
       properties:
         name:
           description: Name of the organization
-          maxLength: 32
+          maxLength: 64
           minLength: 3
           type: string
         org_type_uid:

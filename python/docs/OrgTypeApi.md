@@ -1,6 +1,6 @@
-# sbapi.OrgTypeApi
+# spyderbat_api.OrgTypeApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -22,14 +22,14 @@ Loads limits regarding active sources
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_type_api
-from sbapi.model.session_org_type_max_limit import SessionOrgTypeMaxLimit
+import spyderbat_api
+from spyderbat_api.api import org_type_api
+from spyderbat_api.model.session_org_type_max_limit import SessionOrgTypeMaxLimit
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -38,12 +38,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_type_api.OrgTypeApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -53,7 +53,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Loads limits regarding active sources
         api_response = api_instance.org_type_limit_active_sources(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgTypeApi->org_type_limit_active_sources: %s\n" % e)
 ```
 
@@ -100,14 +100,14 @@ Loads limits regarding org roles
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_type_api
-from sbapi.model.session_org_type_max_limit import SessionOrgTypeMaxLimit
+import spyderbat_api
+from spyderbat_api.api import org_type_api
+from spyderbat_api.model.session_org_type_max_limit import SessionOrgTypeMaxLimit
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,12 +116,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_type_api.OrgTypeApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -131,7 +131,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Loads limits regarding org roles
         api_response = api_instance.org_type_limit_org_roles(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgTypeApi->org_type_limit_org_roles: %s\n" % e)
 ```
 
@@ -178,14 +178,14 @@ Load the org type for the organization
 
 ```python
 import time
-import sbapi
-from sbapi.api import org_type_api
-from sbapi.model.dao_org_type import DaoOrgType
+import spyderbat_api
+from spyderbat_api.api import org_type_api
+from spyderbat_api.model.dao_org_type import DaoOrgType
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -194,12 +194,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = org_type_api.OrgTypeApi(api_client)
     org_uid = "orgUID_example" # str | 
@@ -209,7 +209,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Load the org type for the organization
         api_response = api_instance.org_type_load(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling OrgTypeApi->org_type_load: %s\n" % e)
 ```
 

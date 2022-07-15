@@ -1,6 +1,6 @@
-# sbapi.DashboardSearchApi
+# spyderbat_api.DashboardSearchApi
 
-All URIs are relative to *https://api.prod.spyderbat.com*
+All URIs are relative to *https://api.spyderbat.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,14 +24,14 @@ Create a dashboard search
 
 ```python
 import time
-import sbapi
-from sbapi.api import dashboard_search_api
-from sbapi.model.dashboard_search_create_input import DashboardSearchCreateInput
+import spyderbat_api
+from spyderbat_api.api import dashboard_search_api
+from spyderbat_api.model.dashboard_search_create_input import DashboardSearchCreateInput
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -40,12 +40,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_search_api.DashboardSearchApi(api_client)
     dashboard_search_uid = "dashboardSearchUID_example" # str | UID for the DashboardSearch
@@ -69,7 +69,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Create a dashboard search
         api_response = api_instance.dashboard_search_create(dashboard_search_uid, org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling DashboardSearchApi->dashboard_search_create: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -78,7 +78,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Create a dashboard search
         api_response = api_instance.dashboard_search_create(dashboard_search_uid, org_uid, dashboard_search_create_input=dashboard_search_create_input)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling DashboardSearchApi->dashboard_search_create: %s\n" % e)
 ```
 
@@ -127,13 +127,13 @@ Get a dashboard search
 
 ```python
 import time
-import sbapi
-from sbapi.api import dashboard_search_api
+import spyderbat_api
+from spyderbat_api.api import dashboard_search_api
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -142,12 +142,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_search_api.DashboardSearchApi(api_client)
     dashboard_search_uid = "dashboardSearchUID_example" # str | 
@@ -157,7 +157,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Get a dashboard search
         api_instance.dashboard_search_delete(dashboard_search_uid, org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling DashboardSearchApi->dashboard_search_delete: %s\n" % e)
 ```
 
@@ -205,14 +205,14 @@ Get a dashboard search
 
 ```python
 import time
-import sbapi
-from sbapi.api import dashboard_search_api
-from sbapi.model.dashboard_search import DashboardSearch
+import spyderbat_api
+from spyderbat_api.api import dashboard_search_api
+from spyderbat_api.model.dashboard_search import DashboardSearch
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -221,12 +221,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_search_api.DashboardSearchApi(api_client)
     dashboard_search_uid = "dashboardSearchUID_example" # str | 
@@ -237,7 +237,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # Get a dashboard search
         api_response = api_instance.dashboard_search_get(dashboard_search_uid, org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling DashboardSearchApi->dashboard_search_get: %s\n" % e)
 ```
 
@@ -285,14 +285,14 @@ List dashboard searches
 
 ```python
 import time
-import sbapi
-from sbapi.api import dashboard_search_api
-from sbapi.model.dashboard_search import DashboardSearch
+import spyderbat_api
+from spyderbat_api.api import dashboard_search_api
+from spyderbat_api.model.dashboard_search import DashboardSearch
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -301,12 +301,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_search_api.DashboardSearchApi(api_client)
     org_uid = "orgUID_example" # str | Org UID
@@ -316,7 +316,7 @@ with sbapi.ApiClient(configuration) as api_client:
         # List dashboard searches
         api_response = api_instance.dashboard_search_list(org_uid)
         pprint(api_response)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling DashboardSearchApi->dashboard_search_list: %s\n" % e)
 ```
 
@@ -363,14 +363,14 @@ Update a dashboard search
 
 ```python
 import time
-import sbapi
-from sbapi.api import dashboard_search_api
-from sbapi.model.dashboard_search_update_input import DashboardSearchUpdateInput
+import spyderbat_api
+from spyderbat_api.api import dashboard_search_api
+from spyderbat_api.model.dashboard_search_update_input import DashboardSearchUpdateInput
 from pprint import pprint
-# Defining the host is optional and defaults to https://api.prod.spyderbat.com
+# Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
-configuration = sbapi.Configuration(
-    host = "https://api.prod.spyderbat.com"
+configuration = spyderbat_api.Configuration(
+    host = "https://api.spyderbat.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -379,12 +379,12 @@ configuration = sbapi.Configuration(
 # satisfies your auth use case.
 
 # Configure Bearer authorization (JWT): apiToken
-configuration = sbapi.Configuration(
+configuration = spyderbat_api.Configuration(
     access_token = 'YOUR_BEARER_TOKEN'
 )
 
 # Enter a context with an instance of the API client
-with sbapi.ApiClient(configuration) as api_client:
+with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_search_api.DashboardSearchApi(api_client)
     dashboard_search_uid = "dashboardSearchUID_example" # str | UID for the DashboardSearch
@@ -407,7 +407,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Update a dashboard search
         api_instance.dashboard_search_update(dashboard_search_uid, org_uid)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling DashboardSearchApi->dashboard_search_update: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -415,7 +415,7 @@ with sbapi.ApiClient(configuration) as api_client:
     try:
         # Update a dashboard search
         api_instance.dashboard_search_update(dashboard_search_uid, org_uid, dashboard_search_update_input=dashboard_search_update_input)
-    except sbapi.ApiException as e:
+    except spyderbat_api.ApiException as e:
         print("Exception when calling DashboardSearchApi->dashboard_search_update: %s\n" % e)
 ```
 

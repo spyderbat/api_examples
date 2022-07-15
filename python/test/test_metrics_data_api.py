@@ -11,8 +11,8 @@
 
 import unittest
 
-import sbapi
-from sbapi.api.metrics_data_api import MetricsDataApi  # noqa: E501
+import spyderbat_api
+from spyderbat_api.api.metrics_data_api import MetricsDataApi  # noqa: E501
 
 
 class TestMetricsDataApi(unittest.TestCase):

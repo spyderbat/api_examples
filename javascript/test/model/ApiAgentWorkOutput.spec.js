@@ -20,15 +20,15 @@
     factory(require('expect.js'), require(process.cwd()+'/src/index'));
   } else {
     // Browser globals (root is window)
-    factory(root.expect, root.Sbapi);
+    factory(root.expect, root.SpyderbatApi);
   }
-}(this, function(expect, Sbapi) {
+}(this, function(expect, SpyderbatApi) {
   'use strict';
 
   var instance;
 
   beforeEach(function() {
-    instance = new Sbapi.ApiAgentWorkOutput();
+    instance = new SpyderbatApi.ApiAgentWorkOutput();
   });
 
   var getProperty = function(object, getter, property) {
@@ -50,19 +50,19 @@
   describe('ApiAgentWorkOutput', function() {
     it('should create an instance of ApiAgentWorkOutput', function() {
       // uncomment below and update the code to test ApiAgentWorkOutput
-      //var instance = new Sbapi.ApiAgentWorkOutput();
-      //expect(instance).to.be.a(Sbapi.ApiAgentWorkOutput);
+      //var instance = new SpyderbatApi.ApiAgentWorkOutput();
+      //expect(instance).to.be.a(SpyderbatApi.ApiAgentWorkOutput);
     });
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
-      //var instance = new Sbapi.ApiAgentWorkOutput();
+      //var instance = new SpyderbatApi.ApiAgentWorkOutput();
       //expect(instance).to.be();
     });
 
     it('should have the property work (base name: "work")', function() {
       // uncomment below and update the code to test the property work
-      //var instance = new Sbapi.ApiAgentWorkOutput();
+      //var instance = new SpyderbatApi.ApiAgentWorkOutput();
       //expect(instance).to.be();
     });
 

@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import sbapi
-from sbapi.model.rbac_statement import RbacStatement
+import spyderbat_api
+from spyderbat_api.model.rbac_statement import RbacStatement
 
 
 class TestRbacStatement(unittest.TestCase):
