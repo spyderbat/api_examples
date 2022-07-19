@@ -4,7 +4,6 @@
 
 The container bat is a collection prototype implementation that fetches docker information about 
 docker container instances known to the docker API. 
-
 This includes instances in all states, including terminated containers that have not been removed. 
 This proptotype polls the information on a regular interval (currently 60 minutes)
 
