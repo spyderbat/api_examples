@@ -1,0 +1,13 @@
+{
+    "API Key": "Your API Key Here",
+    "Org ID": "Your Org ID Here",
+    "Source": "",
+    "Source Desc": "container bat",
+    "Bats": [
+        "python3 container_bat.py"
+    ],
+    "URL": "https://api.kangaroobat.net",
+    "Prefix": "container",
+    "MUID": "Your MUID here",
+    "Timeout": 5
+}
