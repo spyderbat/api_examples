@@ -28,7 +28,6 @@ type ApiAgentRegistrationCreateRequest struct {
 	ctx context.Context
 	ApiService *AgentRegistrationApiService
 	orgUID string
-	uid string
 	agentRegistrationCreateInput *AgentRegistrationCreateInput
 }
 
@@ -52,15 +51,13 @@ Creates a new agent registration
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
  @param orgUID The OrgUID the registration is associated with
- @param uid Agent Registration UID
  @return ApiAgentRegistrationCreateRequest
 */
-func (a *AgentRegistrationApiService) AgentRegistrationCreate(ctx context.Context, orgUID string, uid string) ApiAgentRegistrationCreateRequest {
+func (a *AgentRegistrationApiService) AgentRegistrationCreate(ctx context.Context, orgUID string) ApiAgentRegistrationCreateRequest {
 	return ApiAgentRegistrationCreateRequest{
 		ApiService: a,
 		ctx: ctx,
 		orgUID: orgUID,
-		uid: uid,
 	}
 }
 
@@ -81,16 +78,12 @@ func (a *AgentRegistrationApiService) AgentRegistrationCreateExecute(r ApiAgentR
 
 	localVarPath := localBasePath + "/api/v1/org/{orgUID}/agent_registration/"
 	localVarPath = strings.Replace(localVarPath, "{"+"orgUID"+"}", url.PathEscape(parameterToString(r.orgUID, "")), -1)
-	localVarPath = strings.Replace(localVarPath, "{"+"uid"+"}", url.PathEscape(parameterToString(r.uid, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 	if strlen(r.orgUID) > 32 {
 		return localVarReturnValue, nil, reportError("orgUID must have less than 32 elements")
-	}
-	if strlen(r.uid) > 64 {
-		return localVarReturnValue, nil, reportError("uid must have less than 64 elements")
 	}
 
 	// to determine the Content-Type header

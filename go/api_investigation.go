@@ -27,7 +27,6 @@ type InvestigationApiService service
 type ApiInvestigationCreateRequest struct {
 	ctx context.Context
 	ApiService *InvestigationApiService
-	investigationUID string
 	orgUID string
 	investigationCreateInput *InvestigationCreateInput
 }
@@ -51,15 +50,13 @@ Create an investigationan
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param investigationUID Investigation UID
  @param orgUID Investigation OrgUID
  @return ApiInvestigationCreateRequest
 */
-func (a *InvestigationApiService) InvestigationCreate(ctx context.Context, investigationUID string, orgUID string) ApiInvestigationCreateRequest {
+func (a *InvestigationApiService) InvestigationCreate(ctx context.Context, orgUID string) ApiInvestigationCreateRequest {
 	return ApiInvestigationCreateRequest{
 		ApiService: a,
 		ctx: ctx,
-		investigationUID: investigationUID,
 		orgUID: orgUID,
 	}
 }
@@ -80,7 +77,6 @@ func (a *InvestigationApiService) InvestigationCreateExecute(r ApiInvestigationC
 	}
 
 	localVarPath := localBasePath + "/api/v1/org/{orgUID}/investigation/"
-	localVarPath = strings.Replace(localVarPath, "{"+"investigationUID"+"}", url.PathEscape(parameterToString(r.investigationUID, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"orgUID"+"}", url.PathEscape(parameterToString(r.orgUID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

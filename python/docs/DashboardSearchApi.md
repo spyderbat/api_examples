@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **dashboard_search_create**
-> str dashboard_search_create(dashboard_search_uid, org_uid)
+> str dashboard_search_create(org_uid)
 
 Create a dashboard search
 
@@ -48,10 +48,8 @@ configuration = spyderbat_api.Configuration(
 with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = dashboard_search_api.DashboardSearchApi(api_client)
-    dashboard_search_uid = "dashboardSearchUID_example" # str | UID for the DashboardSearch
     org_uid = "orgUID_example" # str | Org UID
     dashboard_search_create_input = DashboardSearchCreateInput(
-        =dateutil_parser('1970-01-01T00:00:00.00Z'),
         data={
             "key": None,
         },
@@ -67,7 +65,7 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create a dashboard search
-        api_response = api_instance.dashboard_search_create(dashboard_search_uid, org_uid)
+        api_response = api_instance.dashboard_search_create(org_uid)
         pprint(api_response)
     except spyderbat_api.ApiException as e:
         print("Exception when calling DashboardSearchApi->dashboard_search_create: %s\n" % e)
@@ -76,7 +74,7 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create a dashboard search
-        api_response = api_instance.dashboard_search_create(dashboard_search_uid, org_uid, dashboard_search_create_input=dashboard_search_create_input)
+        api_response = api_instance.dashboard_search_create(org_uid, dashboard_search_create_input=dashboard_search_create_input)
         pprint(api_response)
     except spyderbat_api.ApiException as e:
         print("Exception when calling DashboardSearchApi->dashboard_search_create: %s\n" % e)
@@ -87,7 +85,6 @@ with spyderbat_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboard_search_uid** | **str**| UID for the DashboardSearch |
  **org_uid** | **str**| Org UID |
  **dashboard_search_create_input** | [**DashboardSearchCreateInput**](DashboardSearchCreateInput.md)|  | [optional]
 
@@ -390,7 +387,6 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     dashboard_search_uid = "dashboardSearchUID_example" # str | UID for the DashboardSearch
     org_uid = "orgUID_example" # str | Org UID
     dashboard_search_update_input = DashboardSearchUpdateInput(
-        =dateutil_parser('1970-01-01T00:00:00.00Z'),
         data={
             "key": None,
         },

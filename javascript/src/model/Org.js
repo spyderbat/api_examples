@@ -24,10 +24,11 @@ class Org {
      * Constructs a new <code>Org</code>.
      * @alias module:model/Org
      * @param name {String} Name of the organization
+     * @param ownerEmail {String} The email address of the user who owns this org
      */
-    constructor(name) { 
+    constructor(name, ownerEmail) { 
         
-        Org.initialize(this, name);
+        Org.initialize(this, name, ownerEmail);
     }
 
     /**
@@ -35,8 +36,9 @@ class Org {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
+    static initialize(obj, name, ownerEmail) { 
         obj['name'] = name;
+        obj['owner_email'] = ownerEmail;
     }
 
     /**
@@ -50,6 +52,12 @@ class Org {
         if (data) {
             obj = obj || new Org();
 
+            if (data.hasOwnProperty('active_sources')) {
+                obj['active_sources'] = ApiClient.convertToType(data['active_sources'], 'Number');
+            }
+            if (data.hasOwnProperty('active_users')) {
+                obj['active_users'] = ApiClient.convertToType(data['active_users'], 'Number');
+            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
@@ -71,6 +79,12 @@ class Org {
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
+            if (data.hasOwnProperty('total_sources')) {
+                obj['total_sources'] = ApiClient.convertToType(data['total_sources'], 'Number');
+            }
+            if (data.hasOwnProperty('total_users')) {
+                obj['total_users'] = ApiClient.convertToType(data['total_users'], 'Number');
+            }
             if (data.hasOwnProperty('uid')) {
                 obj['uid'] = ApiClient.convertToType(data['uid'], 'String');
             }
@@ -86,6 +100,18 @@ class Org {
 
 
 }
+
+/**
+ * Total number of active sources within the last 5 minutes
+ * @member {Number} active_sources
+ */
+Org.prototype['active_sources'] = undefined;
+
+/**
+ * Total number of active users within the last 7 days (which might be active on a different org)
+ * @member {Number} active_users
+ */
+Org.prototype['active_users'] = undefined;
 
 /**
  * Name of the organization
@@ -127,6 +153,18 @@ Org.prototype['resource_policy'] = undefined;
  * @member {Array.<String>} tags
  */
 Org.prototype['tags'] = undefined;
+
+/**
+ * Total number of sources
+ * @member {Number} total_sources
+ */
+Org.prototype['total_sources'] = undefined;
+
+/**
+ * Total number of users
+ * @member {Number} total_users
+ */
+Org.prototype['total_users'] = undefined;
 
 /**
  * Org UID

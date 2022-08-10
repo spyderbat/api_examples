@@ -49,27 +49,21 @@ export default class InvestigationApi {
     /**
      * Create an investigation
      *  Create an investigationan   * Requires the user have the action *investigation:Create* 
-     * @param {String} investigationUID Investigation UID
      * @param {String} orgUID Investigation OrgUID
      * @param {Object} opts Optional parameters
      * @param {module:model/InvestigationCreateInput} opts.investigationCreateInput 
      * @param {module:api/InvestigationApi~investigationCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApiInvestigationCreateOutput}
      */
-    investigationCreate(investigationUID, orgUID, opts, callback) {
+    investigationCreate(orgUID, opts, callback) {
       opts = opts || {};
       let postBody = opts['investigationCreateInput'];
-      // verify the required parameter 'investigationUID' is set
-      if (investigationUID === undefined || investigationUID === null) {
-        throw new Error("Missing the required parameter 'investigationUID' when calling investigationCreate");
-      }
       // verify the required parameter 'orgUID' is set
       if (orgUID === undefined || orgUID === null) {
         throw new Error("Missing the required parameter 'orgUID' when calling investigationCreate");
       }
 
       let pathParams = {
-        'investigationUID': investigationUID,
         'orgUID': orgUID
       };
       let queryParams = {

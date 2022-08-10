@@ -18,8 +18,6 @@ import (
 
 // AgentRegistrationCreateInput struct for AgentRegistrationCreateInput
 type AgentRegistrationCreateInput struct {
-	// The agent secret used to authenticate agents
-	 *string `json:",omitempty"`
 	Config *DaoAgentConfig `json:"config,omitempty"`
 	// The user UID of the user who created the agent registration
 	CreatedBy *string `json:"created_by,omitempty"`
@@ -50,38 +48,6 @@ func NewAgentRegistrationCreateInput() *AgentRegistrationCreateInput {
 func NewAgentRegistrationCreateInputWithDefaults() *AgentRegistrationCreateInput {
 	this := AgentRegistrationCreateInput{}
 	return &this
-}
-
-// Get returns the  field value if set, zero value otherwise.
-func (o *AgentRegistrationCreateInput) Get() string {
-	if o == nil || o. == nil {
-		var ret string
-		return ret
-	}
-	return *o.
-}
-
-// GetOk returns a tuple with the  field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *AgentRegistrationCreateInput) GetOk() (*string, bool) {
-	if o == nil || o. == nil {
-		return nil, false
-	}
-	return o., true
-}
-
-// Has returns a boolean if a field has been set.
-func (o *AgentRegistrationCreateInput) Has() bool {
-	if o != nil && o. != nil {
-		return true
-	}
-
-	return false
-}
-
-// Set gets a reference to the given string and assigns it to the  field.
-func (o *AgentRegistrationCreateInput) Set(v string) {
-	o. = &v
 }
 
 // GetConfig returns the Config field value if set, zero value otherwise.
@@ -310,9 +276,6 @@ func (o *AgentRegistrationCreateInput) SetValidTo(v time.Time) {
 
 func (o AgentRegistrationCreateInput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o. != nil {
-		toSerialize[""] = o.
-	}
 	if o.Config != nil {
 		toSerialize["config"] = o.Config
 	}

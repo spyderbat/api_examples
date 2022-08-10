@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## investigationCreate
 
-> ApiInvestigationCreateOutput investigationCreate(investigationUID, orgUID, opts)
+> ApiInvestigationCreateOutput investigationCreate(orgUID, opts)
 
 Create an investigation
 
@@ -32,12 +32,11 @@ let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SpyderbatApi.InvestigationApi();
-let investigationUID = "investigationUID_example"; // String | Investigation UID
 let orgUID = "orgUID_example"; // String | Investigation OrgUID
 let opts = {
   'investigationCreateInput': new SpyderbatApi.InvestigationCreateInput() // InvestigationCreateInput | 
 };
-apiInstance.investigationCreate(investigationUID, orgUID, opts, (error, data, response) => {
+apiInstance.investigationCreate(orgUID, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -51,7 +50,6 @@ apiInstance.investigationCreate(investigationUID, orgUID, opts, (error, data, re
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **investigationUID** | **String**| Investigation UID | 
  **orgUID** | **String**| Investigation OrgUID | 
  **investigationCreateInput** | [**InvestigationCreateInput**](InvestigationCreateInput.md)|  | [optional] 
 

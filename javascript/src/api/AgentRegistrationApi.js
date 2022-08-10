@@ -52,27 +52,21 @@ export default class AgentRegistrationApi {
      * Create an agent registration
      *  Creates a new agent registration  * Requires the action  *agent_registration:Create* on the organization 
      * @param {String} orgUID The OrgUID the registration is associated with
-     * @param {String} uid Agent Registration UID
      * @param {Object} opts Optional parameters
      * @param {module:model/AgentRegistrationCreateInput} opts.agentRegistrationCreateInput 
      * @param {module:api/AgentRegistrationApi~agentRegistrationCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApiAgentCreateHandlerOutput}
      */
-    agentRegistrationCreate(orgUID, uid, opts, callback) {
+    agentRegistrationCreate(orgUID, opts, callback) {
       opts = opts || {};
       let postBody = opts['agentRegistrationCreateInput'];
       // verify the required parameter 'orgUID' is set
       if (orgUID === undefined || orgUID === null) {
         throw new Error("Missing the required parameter 'orgUID' when calling agentRegistrationCreate");
       }
-      // verify the required parameter 'uid' is set
-      if (uid === undefined || uid === null) {
-        throw new Error("Missing the required parameter 'uid' when calling agentRegistrationCreate");
-      }
 
       let pathParams = {
-        'orgUID': orgUID,
-        'uid': uid
+        'orgUID': orgUID
       };
       let queryParams = {
       };

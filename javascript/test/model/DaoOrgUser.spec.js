@@ -28,7 +28,7 @@
   var instance;
 
   beforeEach(function() {
-    instance = new SpyderbatApi.ApiKeyCreateInput();
+    instance = new SpyderbatApi.DaoOrgUser();
   });
 
   var getProperty = function(object, getter, property) {
@@ -47,22 +47,22 @@
       object[property] = value;
   }
 
-  describe('ApiKeyCreateInput', function() {
-    it('should create an instance of ApiKeyCreateInput', function() {
-      // uncomment below and update the code to test ApiKeyCreateInput
-      //var instance = new SpyderbatApi.ApiKeyCreateInput();
-      //expect(instance).to.be.a(SpyderbatApi.ApiKeyCreateInput);
+  describe('DaoOrgUser', function() {
+    it('should create an instance of DaoOrgUser', function() {
+      // uncomment below and update the code to test DaoOrgUser
+      //var instance = new SpyderbatApi.DaoOrgUser();
+      //expect(instance).to.be.a(SpyderbatApi.DaoOrgUser);
     });
 
-    it('should have the property description (base name: "description")', function() {
-      // uncomment below and update the code to test the property description
-      //var instance = new SpyderbatApi.ApiKeyCreateInput();
+    it('should have the property email (base name: "email")', function() {
+      // uncomment below and update the code to test the property email
+      //var instance = new SpyderbatApi.DaoOrgUser();
       //expect(instance).to.be();
     });
 
-    it('should have the property validTo (base name: "valid_to")', function() {
-      // uncomment below and update the code to test the property validTo
-      //var instance = new SpyderbatApi.ApiKeyCreateInput();
+    it('should have the property roles (base name: "roles")', function() {
+      // uncomment below and update the code to test the property roles
+      //var instance = new SpyderbatApi.DaoOrgUser();
       //expect(instance).to.be();
     });
 

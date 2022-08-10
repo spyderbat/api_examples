@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**** | Pointer to **string** | The agent secret used to authenticate agents | [optional] 
 **Config** | Pointer to [**DaoAgentConfig**](DaoAgentConfig.md) |  | [optional] 
 **CreatedBy** | Pointer to **string** | The user UID of the user who created the agent registration | [optional] 
 **Description** | Pointer to **string** | Description of the agent registration | [optional] 
@@ -31,31 +30,6 @@ will change when the set of required properties is changed
 NewAgentRegistrationCreateInputWithDefaults instantiates a new AgentRegistrationCreateInput object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### Get
-
-`func (o *AgentRegistrationCreateInput) Get() string`
-
-Get returns the  field if non-nil, zero value otherwise.
-
-### GetOk
-
-`func (o *AgentRegistrationCreateInput) GetOk() (*string, bool)`
-
-GetOk returns a tuple with the  field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### Set
-
-`func (o *AgentRegistrationCreateInput) Set(v string)`
-
-Set sets  field to given value.
-
-### Has
-
-`func (o *AgentRegistrationCreateInput) Has() bool`
-
-Has returns a boolean if a field has been set.
 
 ### GetConfig
 

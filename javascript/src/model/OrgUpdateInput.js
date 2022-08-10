@@ -24,10 +24,11 @@ class OrgUpdateInput {
      * Constructs a new <code>OrgUpdateInput</code>.
      * @alias module:model/OrgUpdateInput
      * @param name {String} Name of the organization
+     * @param ownerEmail {String} The email address of the user who owns this org
      */
-    constructor(name) { 
+    constructor(name, ownerEmail) { 
         
-        OrgUpdateInput.initialize(this, name);
+        OrgUpdateInput.initialize(this, name, ownerEmail);
     }
 
     /**
@@ -35,8 +36,9 @@ class OrgUpdateInput {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, name) { 
+    static initialize(obj, name, ownerEmail) { 
         obj['name'] = name;
+        obj['owner_email'] = ownerEmail;
     }
 
     /**
@@ -50,6 +52,12 @@ class OrgUpdateInput {
         if (data) {
             obj = obj || new OrgUpdateInput();
 
+            if (data.hasOwnProperty('active_sources')) {
+                obj['active_sources'] = ApiClient.convertToType(data['active_sources'], 'Number');
+            }
+            if (data.hasOwnProperty('active_users')) {
+                obj['active_users'] = ApiClient.convertToType(data['active_users'], 'Number');
+            }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
             }
@@ -71,6 +79,12 @@ class OrgUpdateInput {
             if (data.hasOwnProperty('tags')) {
                 obj['tags'] = ApiClient.convertToType(data['tags'], ['String']);
             }
+            if (data.hasOwnProperty('total_sources')) {
+                obj['total_sources'] = ApiClient.convertToType(data['total_sources'], 'Number');
+            }
+            if (data.hasOwnProperty('total_users')) {
+                obj['total_users'] = ApiClient.convertToType(data['total_users'], 'Number');
+            }
             if (data.hasOwnProperty('valid_from')) {
                 obj['valid_from'] = ApiClient.convertToType(data['valid_from'], 'Date');
             }
@@ -83,6 +97,18 @@ class OrgUpdateInput {
 
 
 }
+
+/**
+ * Total number of active sources within the last 5 minutes
+ * @member {Number} active_sources
+ */
+OrgUpdateInput.prototype['active_sources'] = undefined;
+
+/**
+ * Total number of active users within the last 7 days (which might be active on a different org)
+ * @member {Number} active_users
+ */
+OrgUpdateInput.prototype['active_users'] = undefined;
 
 /**
  * Name of the organization
@@ -124,6 +150,18 @@ OrgUpdateInput.prototype['resource_policy'] = undefined;
  * @member {Array.<String>} tags
  */
 OrgUpdateInput.prototype['tags'] = undefined;
+
+/**
+ * Total number of sources
+ * @member {Number} total_sources
+ */
+OrgUpdateInput.prototype['total_sources'] = undefined;
+
+/**
+ * Total number of users
+ * @member {Number} total_users
+ */
+OrgUpdateInput.prototype['total_users'] = undefined;
 
 /**
  * Valid from date, the first date this object was valid

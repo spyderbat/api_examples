@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 ## InvestigationCreate
 
-> ApiInvestigationCreateOutput InvestigationCreate(ctx, investigationUID, orgUID).InvestigationCreateInput(investigationCreateInput).Execute()
+> ApiInvestigationCreateOutput InvestigationCreate(ctx, orgUID).InvestigationCreateInput(investigationCreateInput).Execute()
 
 Create an investigation
 
@@ -35,13 +35,12 @@ import (
 )
 
 func main() {
-    investigationUID := "investigationUID_example" // string | Investigation UID
     orgUID := "orgUID_example" // string | Investigation OrgUID
     investigationCreateInput := *openapiclient.NewInvestigationCreateInput() // InvestigationCreateInput |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.InvestigationApi.InvestigationCreate(context.Background(), investigationUID, orgUID).InvestigationCreateInput(investigationCreateInput).Execute()
+    resp, r, err := apiClient.InvestigationApi.InvestigationCreate(context.Background(), orgUID).InvestigationCreateInput(investigationCreateInput).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `InvestigationApi.InvestigationCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -57,7 +56,6 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**investigationUID** | **string** | Investigation UID | 
 **orgUID** | **string** | Investigation OrgUID | 
 
 ### Other Parameters
@@ -67,7 +65,6 @@ Other parameters are passed through a pointer to a apiInvestigationCreateRequest
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
  **investigationCreateInput** | [**InvestigationCreateInput**](InvestigationCreateInput.md) |  | 
 

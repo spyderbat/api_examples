@@ -106,10 +106,14 @@ var defaultClient = SpyderbatApi.ApiClient.instance;
 var apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
-var api = new SpyderbatApi.APIKeyApi()
-var userUID = "userUID_example"; // {String} User UID
+var api = new SpyderbatApi.AgentApi()
+var orgUID = "orgUID_example"; // {String} 
 var opts = {
-  'apiKeyCreateInput': new SpyderbatApi.ApiKeyCreateInput() // {ApiKeyCreateInput} 
+  'agentRegistrationUidEquals': "agentRegistrationUidEquals_example", // {String} 
+  'originalAssociation': true, // {Boolean} 
+  'page': 56, // {Number} 
+  'pageSize': 56, // {Number} 
+  'sourceUidEquals': "sourceUidEquals_example" // {String} 
 };
 var callback = function(error, data, response) {
   if (error) {
@@ -118,7 +122,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.apiKeyCreate(userUID, opts, callback);
+api.agentList(orgUID, opts, callback);
 
 ```
 
@@ -128,10 +132,6 @@ All URIs are relative to *https://api.spyderbat.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SpyderbatApi.APIKeyApi* | [**apiKeyCreate**](docs/APIKeyApi.md#apiKeyCreate) | **POST** /api/v1/user/{userUID}/apikey/ | Creates a new API key
-*SpyderbatApi.APIKeyApi* | [**apiKeyDelete**](docs/APIKeyApi.md#apiKeyDelete) | **DELETE** /api/v1/user/{userUID}/apikey/{uid} | Delete an API key
-*SpyderbatApi.APIKeyApi* | [**apiKeyList**](docs/APIKeyApi.md#apiKeyList) | **GET** /api/v1/user/{userUID}/apikey/ | Lists an API key
-*SpyderbatApi.APIKeyApi* | [**apiKeyUpdate**](docs/APIKeyApi.md#apiKeyUpdate) | **PUT** /api/v1/user/{userUID}/apikey/{uid} | Updates an API key
 *SpyderbatApi.AgentApi* | [**agentList**](docs/AgentApi.md#agentList) | **GET** /api/v1/org/{orgUID}/agent/ | List agents
 *SpyderbatApi.AgentApi* | [**agentLoad**](docs/AgentApi.md#agentLoad) | **GET** /api/v1/org/{orgUID}/agent/{agentUID} | Load an agent
 *SpyderbatApi.AgentRegistrationApi* | [**agentRegistrationCreate**](docs/AgentRegistrationApi.md#agentRegistrationCreate) | **POST** /api/v1/org/{orgUID}/agent_registration/ | Create an agent registration
@@ -182,34 +182,11 @@ Class | Method | HTTP request | Description
 *SpyderbatApi.SourceApi* | [**srcUpdate**](docs/SourceApi.md#srcUpdate) | **PUT** /api/v1/org/{orgUID}/source/{sourceUID} | Update a source
 *SpyderbatApi.SourceDataApi* | [**srcDataQuery**](docs/SourceDataApi.md#srcDataQuery) | **POST** /api/v1/source/query/ | Query source data
 *SpyderbatApi.SourceDataApi* | [**srcDataQueryV2**](docs/SourceDataApi.md#srcDataQueryV2) | **GET** /api/v1/org/{orgUID}/data/ | Query source data
-*SpyderbatApi.SourceDataApi* | [**srcSendData**](docs/SourceDataApi.md#srcSendData) | **POST** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;
-*SpyderbatApi.UIDataApi* | [**uiDataDeleteOrgData**](docs/UIDataApi.md#uiDataDeleteOrgData) | **DELETE** /api/v1/org/{orgUID}/uidata/{dataKey} | Delete Org UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataDeleteSourceData**](docs/UIDataApi.md#uiDataDeleteSourceData) | **DELETE** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Delete Source UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataDeleteUserData**](docs/UIDataApi.md#uiDataDeleteUserData) | **DELETE** /api/v1/user/{userUID}/uidata/{dataKey} | Delete User UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataDeleteUserOrgData**](docs/UIDataApi.md#uiDataDeleteUserOrgData) | **DELETE** /api/v1/user/{userUID}/org/{orgUID}/uidata/{dataKey} | Delete UserOrg UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataDeleteUserSourceData**](docs/UIDataApi.md#uiDataDeleteUserSourceData) | **DELETE** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Delete UserSource UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataGetOrgData**](docs/UIDataApi.md#uiDataGetOrgData) | **GET** /api/v1/org/{orgUID}/uidata/{dataKey} | Get Org UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataGetSourceData**](docs/UIDataApi.md#uiDataGetSourceData) | **GET** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Get Source UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataGetUserData**](docs/UIDataApi.md#uiDataGetUserData) | **GET** /api/v1/user/{userUID}/uidata/{dataKey} | Get User UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataGetUserOrgData**](docs/UIDataApi.md#uiDataGetUserOrgData) | **GET** /api/v1/user/{userUID}/org/{orgUID}/uidata/{dataKey} | Get UserOrg UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataGetUserSourceData**](docs/UIDataApi.md#uiDataGetUserSourceData) | **GET** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Get UserSource UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataQueryOrgData**](docs/UIDataApi.md#uiDataQueryOrgData) | **GET** /api/v1/org/{orgUID}/uidata/ | Query Org UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataQuerySourceData**](docs/UIDataApi.md#uiDataQuerySourceData) | **GET** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/ | Query Source UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataQueryUserData**](docs/UIDataApi.md#uiDataQueryUserData) | **GET** /api/v1/user/{userUID}/uidata/ | Query User UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataQueryUserOrgData**](docs/UIDataApi.md#uiDataQueryUserOrgData) | **GET** /api/v1/user/{userUID}/org/{orgUID}/uidata/ | Query UserOrg UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataQueryUserSourceData**](docs/UIDataApi.md#uiDataQueryUserSourceData) | **GET** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/ | Query UserSource UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataSetOrgData**](docs/UIDataApi.md#uiDataSetOrgData) | **PUT** /api/v1/org/{orgUID}/uidata/{dataKey} | Set Org UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataSetSourceData**](docs/UIDataApi.md#uiDataSetSourceData) | **PUT** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Set Source UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataSetUserData**](docs/UIDataApi.md#uiDataSetUserData) | **PUT** /api/v1/user/{userUID}/uidata/{dataKey} | Set User UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataSetUserOrgData**](docs/UIDataApi.md#uiDataSetUserOrgData) | **PUT** /api/v1/user/{userUID}/org/{orgUID}/uidata/{dataKey} | Set UserOrg UI Data
-*SpyderbatApi.UIDataApi* | [**uiDataSetUserSourceData**](docs/UIDataApi.md#uiDataSetUserSourceData) | **PUT** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Set UserSource UI Data
-*SpyderbatApi.UserApi* | [**userCurrent**](docs/UserApi.md#userCurrent) | **GET** /api/v1/app/user/current | Returns the current user
-*SpyderbatApi.UserApi* | [**userLoad**](docs/UserApi.md#userLoad) | **GET** /api/v1/user/{userUID} | Load a user by ID
+*SpyderbatApi.SourceDataApi* | [**srcSendData**](docs/SourceDataApi.md#srcSendData) | **POST** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
 
 
 ## Documentation for Models
 
- - [SpyderbatApi.APIKey](docs/APIKey.md)
  - [SpyderbatApi.Agent](docs/Agent.md)
  - [SpyderbatApi.AgentRegistration](docs/AgentRegistration.md)
  - [SpyderbatApi.AgentRegistrationCreateInput](docs/AgentRegistrationCreateInput.md)
@@ -220,8 +197,6 @@ Class | Method | HTTP request | Description
  - [SpyderbatApi.ApiAgentRegistrationDownloadLinkHandlerOutput](docs/ApiAgentRegistrationDownloadLinkHandlerOutput.md)
  - [SpyderbatApi.ApiAgentWorkOutput](docs/ApiAgentWorkOutput.md)
  - [SpyderbatApi.ApiInvestigationCreateOutput](docs/ApiInvestigationCreateOutput.md)
- - [SpyderbatApi.ApiKeyCreateInput](docs/ApiKeyCreateInput.md)
- - [SpyderbatApi.ApiKeyUpdateInput](docs/ApiKeyUpdateInput.md)
  - [SpyderbatApi.ApiRBACActions](docs/ApiRBACActions.md)
  - [SpyderbatApi.ApiSOARListHandlerOutput](docs/ApiSOARListHandlerOutput.md)
  - [SpyderbatApi.ApiSourceCreateHandlerOutput](docs/ApiSourceCreateHandlerOutput.md)
@@ -234,6 +209,7 @@ Class | Method | HTTP request | Description
  - [SpyderbatApi.DaoOrgRoles](docs/DaoOrgRoles.md)
  - [SpyderbatApi.DaoOrgType](docs/DaoOrgType.md)
  - [SpyderbatApi.DaoOrgTypePolicy](docs/DaoOrgTypePolicy.md)
+ - [SpyderbatApi.DaoOrgUser](docs/DaoOrgUser.md)
  - [SpyderbatApi.DaoPlan](docs/DaoPlan.md)
  - [SpyderbatApi.DaoPolicy](docs/DaoPolicy.md)
  - [SpyderbatApi.DaoSignupPolicy](docs/DaoSignupPolicy.md)
@@ -270,13 +246,6 @@ Class | Method | HTTP request | Description
  - [SpyderbatApi.SrcCreateInput](docs/SrcCreateInput.md)
  - [SpyderbatApi.SrcDataQueryInput](docs/SrcDataQueryInput.md)
  - [SpyderbatApi.SrcUpdateInput](docs/SrcUpdateInput.md)
- - [SpyderbatApi.UIData](docs/UIData.md)
- - [SpyderbatApi.UiDataSetOrgDataInput](docs/UiDataSetOrgDataInput.md)
- - [SpyderbatApi.UiDataSetSourceDataInput](docs/UiDataSetSourceDataInput.md)
- - [SpyderbatApi.UiDataSetUserDataInput](docs/UiDataSetUserDataInput.md)
- - [SpyderbatApi.UiDataSetUserOrgDataInput](docs/UiDataSetUserOrgDataInput.md)
- - [SpyderbatApi.UiDataSetUserSourceDataInput](docs/UiDataSetUserSourceDataInput.md)
- - [SpyderbatApi.User](docs/User.md)
  - [SpyderbatApi.ValidationError](docs/ValidationError.md)
 
 

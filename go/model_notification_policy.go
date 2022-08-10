@@ -17,16 +17,18 @@ import (
 
 // NotificationPolicy A notification policy in json or hjson
 type NotificationPolicy struct {
-	Routes []NotificationPolicyRoutesInner `json:"routes,omitempty"`
-	Targets *map[string]NotificationPolicyDestination `json:"targets,omitempty"`
+	Routes []NotificationPolicyRoutesInner `json:"routes"`
+	Targets map[string]NotificationPolicyDestination `json:"targets"`
 }
 
 // NewNotificationPolicy instantiates a new NotificationPolicy object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewNotificationPolicy() *NotificationPolicy {
+func NewNotificationPolicy(routes []NotificationPolicyRoutesInner, targets map[string]NotificationPolicyDestination) *NotificationPolicy {
 	this := NotificationPolicy{}
+	this.Routes = routes
+	this.Targets = targets
 	return &this
 }
 
@@ -38,76 +40,60 @@ func NewNotificationPolicyWithDefaults() *NotificationPolicy {
 	return &this
 }
 
-// GetRoutes returns the Routes field value if set, zero value otherwise.
+// GetRoutes returns the Routes field value
 func (o *NotificationPolicy) GetRoutes() []NotificationPolicyRoutesInner {
-	if o == nil || o.Routes == nil {
+	if o == nil {
 		var ret []NotificationPolicyRoutesInner
 		return ret
 	}
+
 	return o.Routes
 }
 
-// GetRoutesOk returns a tuple with the Routes field value if set, nil otherwise
+// GetRoutesOk returns a tuple with the Routes field value
 // and a boolean to check if the value has been set.
 func (o *NotificationPolicy) GetRoutesOk() ([]NotificationPolicyRoutesInner, bool) {
-	if o == nil || o.Routes == nil {
+	if o == nil {
 		return nil, false
 	}
 	return o.Routes, true
 }
 
-// HasRoutes returns a boolean if a field has been set.
-func (o *NotificationPolicy) HasRoutes() bool {
-	if o != nil && o.Routes != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRoutes gets a reference to the given []NotificationPolicyRoutesInner and assigns it to the Routes field.
+// SetRoutes sets field value
 func (o *NotificationPolicy) SetRoutes(v []NotificationPolicyRoutesInner) {
 	o.Routes = v
 }
 
-// GetTargets returns the Targets field value if set, zero value otherwise.
+// GetTargets returns the Targets field value
 func (o *NotificationPolicy) GetTargets() map[string]NotificationPolicyDestination {
-	if o == nil || o.Targets == nil {
+	if o == nil {
 		var ret map[string]NotificationPolicyDestination
 		return ret
 	}
-	return *o.Targets
+
+	return o.Targets
 }
 
-// GetTargetsOk returns a tuple with the Targets field value if set, nil otherwise
+// GetTargetsOk returns a tuple with the Targets field value
 // and a boolean to check if the value has been set.
 func (o *NotificationPolicy) GetTargetsOk() (*map[string]NotificationPolicyDestination, bool) {
-	if o == nil || o.Targets == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.Targets, true
+	return &o.Targets, true
 }
 
-// HasTargets returns a boolean if a field has been set.
-func (o *NotificationPolicy) HasTargets() bool {
-	if o != nil && o.Targets != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetTargets gets a reference to the given map[string]NotificationPolicyDestination and assigns it to the Targets field.
+// SetTargets sets field value
 func (o *NotificationPolicy) SetTargets(v map[string]NotificationPolicyDestination) {
-	o.Targets = &v
+	o.Targets = v
 }
 
 func (o NotificationPolicy) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o.Routes != nil {
+	if true {
 		toSerialize["routes"] = o.Routes
 	}
-	if o.Targets != nil {
+	if true {
 		toSerialize["targets"] = o.Targets
 	}
 	return json.Marshal(toSerialize)

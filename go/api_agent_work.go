@@ -142,7 +142,6 @@ func (a *AgentWorkApiService) AgentDeleteAgentWorkExecute(r ApiAgentDeleteAgentW
 type ApiAgentDeleteOrgWorkRequest struct {
 	ctx context.Context
 	ApiService *AgentWorkApiService
-	agentUID string
 	orgUID string
 }
 
@@ -160,15 +159,13 @@ Delete the work data for all agents for an organization.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param agentUID Agent UID
  @param orgUID
  @return ApiAgentDeleteOrgWorkRequest
 */
-func (a *AgentWorkApiService) AgentDeleteOrgWork(ctx context.Context, agentUID string, orgUID string) ApiAgentDeleteOrgWorkRequest {
+func (a *AgentWorkApiService) AgentDeleteOrgWork(ctx context.Context, orgUID string) ApiAgentDeleteOrgWorkRequest {
 	return ApiAgentDeleteOrgWorkRequest{
 		ApiService: a,
 		ctx: ctx,
-		agentUID: agentUID,
 		orgUID: orgUID,
 	}
 }
@@ -187,15 +184,11 @@ func (a *AgentWorkApiService) AgentDeleteOrgWorkExecute(r ApiAgentDeleteOrgWorkR
 	}
 
 	localVarPath := localBasePath + "/api/v1/org/{orgUID}/agent_work"
-	localVarPath = strings.Replace(localVarPath, "{"+"agentUID"+"}", url.PathEscape(parameterToString(r.agentUID, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"orgUID"+"}", url.PathEscape(parameterToString(r.orgUID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if strlen(r.agentUID) > 20 {
-		return nil, reportError("agentUID must have less than 20 elements")
-	}
 	if strlen(r.orgUID) > 64 {
 		return nil, reportError("orgUID must have less than 64 elements")
 	}
@@ -383,7 +376,6 @@ func (a *AgentWorkApiService) AgentGetAgentWorkExecute(r ApiAgentGetAgentWorkReq
 type ApiAgentGetOrgWorkRequest struct {
 	ctx context.Context
 	ApiService *AgentWorkApiService
-	agentUID string
 	orgUID string
 }
 
@@ -401,15 +393,13 @@ Get the work data for all agents associated with the organization.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param agentUID Agent UID
  @param orgUID
  @return ApiAgentGetOrgWorkRequest
 */
-func (a *AgentWorkApiService) AgentGetOrgWork(ctx context.Context, agentUID string, orgUID string) ApiAgentGetOrgWorkRequest {
+func (a *AgentWorkApiService) AgentGetOrgWork(ctx context.Context, orgUID string) ApiAgentGetOrgWorkRequest {
 	return ApiAgentGetOrgWorkRequest{
 		ApiService: a,
 		ctx: ctx,
-		agentUID: agentUID,
 		orgUID: orgUID,
 	}
 }
@@ -430,15 +420,11 @@ func (a *AgentWorkApiService) AgentGetOrgWorkExecute(r ApiAgentGetOrgWorkRequest
 	}
 
 	localVarPath := localBasePath + "/api/v1/org/{orgUID}/agent_work"
-	localVarPath = strings.Replace(localVarPath, "{"+"agentUID"+"}", url.PathEscape(parameterToString(r.agentUID, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"orgUID"+"}", url.PathEscape(parameterToString(r.orgUID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if strlen(r.agentUID) > 20 {
-		return localVarReturnValue, nil, reportError("agentUID must have less than 20 elements")
-	}
 	if strlen(r.orgUID) > 64 {
 		return localVarReturnValue, nil, reportError("orgUID must have less than 64 elements")
 	}
@@ -632,7 +618,6 @@ func (a *AgentWorkApiService) AgentSetAgentWorkExecute(r ApiAgentSetAgentWorkReq
 type ApiAgentSetOrgWorkRequest struct {
 	ctx context.Context
 	ApiService *AgentWorkApiService
-	agentUID string
 	orgUID string
 	agentSetOrgWorkInput *AgentSetOrgWorkInput
 }
@@ -656,15 +641,13 @@ Set the work data for a specified agent.
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param agentUID Agent UID
  @param orgUID
  @return ApiAgentSetOrgWorkRequest
 */
-func (a *AgentWorkApiService) AgentSetOrgWork(ctx context.Context, agentUID string, orgUID string) ApiAgentSetOrgWorkRequest {
+func (a *AgentWorkApiService) AgentSetOrgWork(ctx context.Context, orgUID string) ApiAgentSetOrgWorkRequest {
 	return ApiAgentSetOrgWorkRequest{
 		ApiService: a,
 		ctx: ctx,
-		agentUID: agentUID,
 		orgUID: orgUID,
 	}
 }
@@ -683,15 +666,11 @@ func (a *AgentWorkApiService) AgentSetOrgWorkExecute(r ApiAgentSetOrgWorkRequest
 	}
 
 	localVarPath := localBasePath + "/api/v1/org/{orgUID}/agent_work"
-	localVarPath = strings.Replace(localVarPath, "{"+"agentUID"+"}", url.PathEscape(parameterToString(r.agentUID, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"orgUID"+"}", url.PathEscape(parameterToString(r.orgUID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if strlen(r.agentUID) > 20 {
-		return nil, reportError("agentUID must have less than 20 elements")
-	}
 	if strlen(r.orgUID) > 64 {
 		return nil, reportError("orgUID must have less than 64 elements")
 	}

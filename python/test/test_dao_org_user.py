@@ -13,11 +13,11 @@ import sys
 import unittest
 
 import spyderbat_api
-from spyderbat_api.model.api_key_create_input import ApiKeyCreateInput
+from spyderbat_api.model.dao_org_user import DaoOrgUser
 
 
-class TestApiKeyCreateInput(unittest.TestCase):
-    """ApiKeyCreateInput unit test stubs"""
+class TestDaoOrgUser(unittest.TestCase):
+    """DaoOrgUser unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,10 +25,10 @@ class TestApiKeyCreateInput(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testApiKeyCreateInput(self):
-        """Test ApiKeyCreateInput"""
+    def testDaoOrgUser(self):
+        """Test DaoOrgUser"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = ApiKeyCreateInput()  # noqa: E501
+        # model = DaoOrgUser()  # noqa: E501
         pass
 
 

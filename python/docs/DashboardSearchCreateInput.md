@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**** | **datetime** | Time last notification window was completed | [optional] 
 **data** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | UI supplied JSON object | [optional] 
 **description** | **str** | Description of query (max 64 chars) | [optional] 
 **notify** | **bool** | Are notifications generated from this search | [optional] 

@@ -54,12 +54,6 @@
       //expect(instance).to.be.a(SpyderbatApi.DashboardSearchCreateInput);
     });
 
-    it('should have the property  (base name: "")', function() {
-      // uncomment below and update the code to test the property 
-      //var instance = new SpyderbatApi.DashboardSearchCreateInput();
-      //expect(instance).to.be();
-    });
-
     it('should have the property data (base name: "data")', function() {
       // uncomment below and update the code to test the property data
       //var instance = new SpyderbatApi.DashboardSearchCreateInput();

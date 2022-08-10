@@ -802,11 +802,11 @@ class Endpoint(object):
         """ This method is invoked when endpoints are called
         Example:
 
-        api_instance = APIKeyApi()
-        api_instance.api_key_create  # this is an instance of the class Endpoint
-        api_instance.api_key_create()  # this invokes api_instance.api_key_create.__call__()
+        api_instance = AgentApi()
+        api_instance.agent_list  # this is an instance of the class Endpoint
+        api_instance.agent_list()  # this invokes api_instance.agent_list.__call__()
         which then invokes the callable functions stored in that endpoint at
-        api_instance.api_key_create.callable or self.callable in this class
+        api_instance.agent_list.callable or self.callable in this class
 
         """
         return self.callable(self, *args, **kwargs)
