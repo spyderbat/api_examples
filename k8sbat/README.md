@@ -17,5 +17,5 @@ The bat is dependent on
 Enter your API and organization key in the k8s_bat-config.json
 
 Run 
-``` python picoagent.py -c k8s_bat-config-guy.json```
+``` python picoagent.py -c k8s_bat-config.json```
 
