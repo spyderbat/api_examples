@@ -1,0 +1,12 @@
+{
+    "API Key": "Your API Key Here",
+    "Org ID": "Your Org ID Here",
+    "Source": "",
+    "Source Desc": "k8s bat",
+    "Bats": [
+        "k8s_bat.sh"
+    ],
+    "URL": "https://api.kangaroobat.net",
+    "Prefix": "k8s",
+    "Timeout": 5
+}
