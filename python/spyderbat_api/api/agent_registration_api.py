@@ -56,12 +56,10 @@ class AgentRegistrationApi(object):
             params_map={
                 'all': [
                     'org_uid',
-                    'uid',
                     'agent_registration_create_input',
                 ],
                 'required': [
                     'org_uid',
-                    'uid',
                 ],
                 'nullable': [
                 ],
@@ -69,7 +67,6 @@ class AgentRegistrationApi(object):
                 ],
                 'validation': [
                     'org_uid',
-                    'uid',
                 ]
             },
             root_map={
@@ -77,27 +74,20 @@ class AgentRegistrationApi(object):
                     ('org_uid',): {
                         'max_length': 32,
                     },
-                    ('uid',): {
-                        'max_length': 64,
-                    },
                 },
                 'allowed_values': {
                 },
                 'openapi_types': {
                     'org_uid':
                         (str,),
-                    'uid':
-                        (str,),
                     'agent_registration_create_input':
                         (AgentRegistrationCreateInput,),
                 },
                 'attribute_map': {
                     'org_uid': 'orgUID',
-                    'uid': 'uid',
                 },
                 'location_map': {
                     'org_uid': 'path',
-                    'uid': 'path',
                     'agent_registration_create_input': 'body',
                 },
                 'collection_format_map': {
@@ -466,7 +456,6 @@ class AgentRegistrationApi(object):
     def agent_registration_create(
         self,
         org_uid,
-        uid,
         **kwargs
     ):
         """Create an agent registration  # noqa: E501
@@ -475,12 +464,11 @@ class AgentRegistrationApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.agent_registration_create(org_uid, uid, async_req=True)
+        >>> thread = api.agent_registration_create(org_uid, async_req=True)
         >>> result = thread.get()
 
         Args:
             org_uid (str): The OrgUID the registration is associated with
-            uid (str): Agent Registration UID
 
         Keyword Args:
             agent_registration_create_input (AgentRegistrationCreateInput): [optional]
@@ -547,8 +535,6 @@ class AgentRegistrationApi(object):
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
         kwargs['org_uid'] = \
             org_uid
-        kwargs['uid'] = \
-            uid
         return self.agent_registration_create_endpoint.call_with_http_info(**kwargs)
 
     def agent_registration_download_link(

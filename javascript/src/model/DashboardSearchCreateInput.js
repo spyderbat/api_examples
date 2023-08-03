@@ -47,9 +47,6 @@ class DashboardSearchCreateInput {
         if (data) {
             obj = obj || new DashboardSearchCreateInput();
 
-            if (data.hasOwnProperty('')) {
-                obj[''] = ApiClient.convertToType(data[''], 'Date');
-            }
             if (data.hasOwnProperty('data')) {
                 obj['data'] = ApiClient.convertToType(data['data'], {'String': Object});
             }
@@ -74,12 +71,6 @@ class DashboardSearchCreateInput {
 
 
 }
-
-/**
- * Time last notification window was completed
- * @member {Date} 
- */
-DashboardSearchCreateInput.prototype[''] = undefined;
 
 /**
  * UI supplied JSON object

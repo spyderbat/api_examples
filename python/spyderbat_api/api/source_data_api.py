@@ -245,11 +245,15 @@ class SourceDataApi(object):
                     'data_type',
                     'org_uid',
                     'source_uid',
+                    'encoding',
+                    'file',
                 ],
                 'required': [
                     'data_type',
                     'org_uid',
                     'source_uid',
+                    'encoding',
+                    'file',
                 ],
                 'nullable': [
                 ],
@@ -282,16 +286,24 @@ class SourceDataApi(object):
                         (str,),
                     'source_uid':
                         (str,),
+                    'encoding':
+                        (str,),
+                    'file':
+                        (file_type,),
                 },
                 'attribute_map': {
                     'data_type': 'dataType',
                     'org_uid': 'orgUID',
                     'source_uid': 'sourceUID',
+                    'encoding': 'encoding',
+                    'file': 'file',
                 },
                 'location_map': {
                     'data_type': 'path',
                     'org_uid': 'path',
                     'source_uid': 'path',
+                    'encoding': 'form',
+                    'file': 'form',
                 },
                 'collection_format_map': {
                 }
@@ -300,7 +312,9 @@ class SourceDataApi(object):
                 'accept': [
                     'application/json'
                 ],
-                'content_type': [],
+                'content_type': [
+                    'multipart/form-data'
+                ]
             },
             api_client=api_client
         )
@@ -311,7 +325,7 @@ class SourceDataApi(object):
     ):
         """Query source data  # noqa: E501
 
-         Allows querying of the source data, data is stored as 'records' which are returned as json objects, in nd-json (see ndjson.org) format.   * Data is returned as it is matched, and no ordering guarentees exist.  * The call completes after it has finished searching for matching records.  * The query expression is limited to seaching a 24 hour period of time, it is the callers responsibility to construct an appropriate 24 hour range. * Documentation for the returned spydergraph datatype can be found at https://app.spyderbat.com/schema/spydergraph/index.html  * The user must have both the *org.ListSourceData* action on the org and *source_data.Query* action on the source    # noqa: E501
+         Allows querying of the source data, data is stored as 'records' which are returned as json objects, in nd-json (see ndjson.org) format.   * Data is returned as it is matched, and no ordering guarentees exist.  * The call completes after it has finished searching for matching records.  * The query expression is limited to seaching a 24 hour period of time, it is the callers responsibility to construct an appropriate 24 hour range. * Documentation for the returned spydergraph datatype can be found at https://app.spyderbat.com/schema/spydergraph/index.html  * The user must have both the *org.ListSourceData* action on the org and *source_data.Query* action on the source * To get a count of results (up to 10K) but no data, use querySize: 0    # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -486,21 +500,25 @@ class SourceDataApi(object):
         data_type,
         org_uid,
         source_uid,
+        encoding,
+        file,
         **kwargs
     ):
-        """Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'  # noqa: E501
+        """Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.  # noqa: E501
 
         Sends data to a source  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.src_send_data(data_type, org_uid, source_uid, async_req=True)
+        >>> thread = api.src_send_data(data_type, org_uid, source_uid, encoding, file, async_req=True)
         >>> result = thread.get()
 
         Args:
             data_type (str):
             org_uid (str):
             source_uid (str):
+            encoding (str): must be gzip
+            file (file_type): The file to upload. The file must be a valid gzip-ed JSON file.
 
         Keyword Args:
             _return_http_data_only (bool): response data without head status
@@ -570,5 +588,9 @@ class SourceDataApi(object):
             org_uid
         kwargs['source_uid'] = \
             source_uid
+        kwargs['encoding'] = \
+            encoding
+        kwargs['file'] = \
+            file
         return self.src_send_data_endpoint.call_with_http_info(**kwargs)
 

@@ -47,27 +47,21 @@ export default class DashboardSearchApi {
     /**
      * Create a dashboard search
      *  Create a dashboard search in an org.   * Requires action dashboard_search:Create
-     * @param {String} dashboardSearchUID UID for the DashboardSearch
      * @param {String} orgUID Org UID
      * @param {Object} opts Optional parameters
      * @param {module:model/DashboardSearchCreateInput} opts.dashboardSearchCreateInput 
      * @param {module:api/DashboardSearchApi~dashboardSearchCreateCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link String}
      */
-    dashboardSearchCreate(dashboardSearchUID, orgUID, opts, callback) {
+    dashboardSearchCreate(orgUID, opts, callback) {
       opts = opts || {};
       let postBody = opts['dashboardSearchCreateInput'];
-      // verify the required parameter 'dashboardSearchUID' is set
-      if (dashboardSearchUID === undefined || dashboardSearchUID === null) {
-        throw new Error("Missing the required parameter 'dashboardSearchUID' when calling dashboardSearchCreate");
-      }
       // verify the required parameter 'orgUID' is set
       if (orgUID === undefined || orgUID === null) {
         throw new Error("Missing the required parameter 'orgUID' when calling dashboardSearchCreate");
       }
 
       let pathParams = {
-        'dashboardSearchUID': dashboardSearchUID,
         'orgUID': orgUID
       };
       let queryParams = {

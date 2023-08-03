@@ -27,7 +27,6 @@ type DashboardSearchApiService service
 type ApiDashboardSearchCreateRequest struct {
 	ctx context.Context
 	ApiService *DashboardSearchApiService
-	dashboardSearchUID string
 	orgUID string
 	dashboardSearchCreateInput *DashboardSearchCreateInput
 }
@@ -50,15 +49,13 @@ Create a dashboard search in an org.
  * Requires action dashboard_search:Create
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param dashboardSearchUID UID for the DashboardSearch
  @param orgUID Org UID
  @return ApiDashboardSearchCreateRequest
 */
-func (a *DashboardSearchApiService) DashboardSearchCreate(ctx context.Context, dashboardSearchUID string, orgUID string) ApiDashboardSearchCreateRequest {
+func (a *DashboardSearchApiService) DashboardSearchCreate(ctx context.Context, orgUID string) ApiDashboardSearchCreateRequest {
 	return ApiDashboardSearchCreateRequest{
 		ApiService: a,
 		ctx: ctx,
-		dashboardSearchUID: dashboardSearchUID,
 		orgUID: orgUID,
 	}
 }
@@ -79,7 +76,6 @@ func (a *DashboardSearchApiService) DashboardSearchCreateExecute(r ApiDashboardS
 	}
 
 	localVarPath := localBasePath + "/api/v1/org/{orgUID}/dashboard_search/"
-	localVarPath = strings.Replace(localVarPath, "{"+"dashboardSearchUID"+"}", url.PathEscape(parameterToString(r.dashboardSearchUID, "")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"orgUID"+"}", url.PathEscape(parameterToString(r.orgUID, "")), -1)
 
 	localVarHeaderParams := make(map[string]string)

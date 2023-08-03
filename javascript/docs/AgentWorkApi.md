@@ -66,7 +66,7 @@ null (empty response body)
 
 ## agentDeleteOrgWork
 
-> agentDeleteOrgWork(agentUID, orgUID)
+> agentDeleteOrgWork(orgUID)
 
 Delete agent work for an org
 
@@ -82,9 +82,8 @@ let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SpyderbatApi.AgentWorkApi();
-let agentUID = "agentUID_example"; // String | Agent UID
 let orgUID = "orgUID_example"; // String | 
-apiInstance.agentDeleteOrgWork(agentUID, orgUID, (error, data, response) => {
+apiInstance.agentDeleteOrgWork(orgUID, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -98,7 +97,6 @@ apiInstance.agentDeleteOrgWork(agentUID, orgUID, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agentUID** | **String**| Agent UID | 
  **orgUID** | **String**|  | 
 
 ### Return type
@@ -168,7 +166,7 @@ Name | Type | Description  | Notes
 
 ## agentGetOrgWork
 
-> ApiAgentWorkOutput agentGetOrgWork(agentUID, orgUID)
+> ApiAgentWorkOutput agentGetOrgWork(orgUID)
 
 Get agent work data for the organization
 
@@ -184,9 +182,8 @@ let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SpyderbatApi.AgentWorkApi();
-let agentUID = "agentUID_example"; // String | Agent UID
 let orgUID = "orgUID_example"; // String | 
-apiInstance.agentGetOrgWork(agentUID, orgUID, (error, data, response) => {
+apiInstance.agentGetOrgWork(orgUID, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -200,7 +197,6 @@ apiInstance.agentGetOrgWork(agentUID, orgUID, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agentUID** | **String**| Agent UID | 
  **orgUID** | **String**|  | 
 
 ### Return type
@@ -274,7 +270,7 @@ null (empty response body)
 
 ## agentSetOrgWork
 
-> agentSetOrgWork(agentUID, orgUID, opts)
+> agentSetOrgWork(orgUID, opts)
 
 Set agent work data for a specific agent
 
@@ -290,12 +286,11 @@ let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SpyderbatApi.AgentWorkApi();
-let agentUID = "agentUID_example"; // String | Agent UID
 let orgUID = "orgUID_example"; // String | 
 let opts = {
   'agentSetOrgWorkInput': new SpyderbatApi.AgentSetOrgWorkInput() // AgentSetOrgWorkInput | 
 };
-apiInstance.agentSetOrgWork(agentUID, orgUID, opts, (error, data, response) => {
+apiInstance.agentSetOrgWork(orgUID, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -309,7 +304,6 @@ apiInstance.agentSetOrgWork(agentUID, orgUID, opts, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agentUID** | **String**| Agent UID | 
  **orgUID** | **String**|  | 
  **agentSetOrgWorkInput** | [**AgentSetOrgWorkInput**](AgentSetOrgWorkInput.md)|  | [optional] 
 

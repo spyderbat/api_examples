@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## DashboardSearchCreate
 
-> string DashboardSearchCreate(ctx, dashboardSearchUID, orgUID).DashboardSearchCreateInput(dashboardSearchCreateInput).Execute()
+> string DashboardSearchCreate(ctx, orgUID).DashboardSearchCreateInput(dashboardSearchCreateInput).Execute()
 
 Create a dashboard search
 
@@ -33,13 +33,12 @@ import (
 )
 
 func main() {
-    dashboardSearchUID := "dashboardSearchUID_example" // string | UID for the DashboardSearch
     orgUID := "orgUID_example" // string | Org UID
     dashboardSearchCreateInput := *openapiclient.NewDashboardSearchCreateInput() // DashboardSearchCreateInput |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.DashboardSearchApi.DashboardSearchCreate(context.Background(), dashboardSearchUID, orgUID).DashboardSearchCreateInput(dashboardSearchCreateInput).Execute()
+    resp, r, err := apiClient.DashboardSearchApi.DashboardSearchCreate(context.Background(), orgUID).DashboardSearchCreateInput(dashboardSearchCreateInput).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `DashboardSearchApi.DashboardSearchCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -55,7 +54,6 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**dashboardSearchUID** | **string** | UID for the DashboardSearch | 
 **orgUID** | **string** | Org UID | 
 
 ### Other Parameters
@@ -65,7 +63,6 @@ Other parameters are passed through a pointer to a apiDashboardSearchCreateReque
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
  **dashboardSearchCreateInput** | [**DashboardSearchCreateInput**](DashboardSearchCreateInput.md) |  | 
 

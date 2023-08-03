@@ -21,25 +21,6 @@ servers:
 security:
 - apiToken: []
 tags:
-- description: "\nAPIKeys are used to authenticate API calls to the API service. Inside\
-    \ the returned APIKey object is a property, 'jwt' which contains a JWT. JWT or\
-    \ JSON Web Tokens provide a means of authentication and are frequently used to\
-    \ authenticate users to web services. The supplied JWT token can be supplied in\
-    \ HTTPS requests using an 'Authorization' header with a 'Bearer', for example\
-    \ 'Authorization: Bearer JWT' where JWT represents the supplied JWT token, found\
-    \ in the 'jwt' property in the returned APIKey object. The APIKeys are read only\
-    \ after being created and only the description and enabled flag may be set after\
-    \ the key has been created, this is because the other fields cannot be changed\
-    \ without updating the JWT token. To identify which JWT is associated with which\
-    \ APIKey, the JWT token can be decoded using a online JWT decoder, and the UID\
-    \ of the associated APIKey is found in the claims with the property 'sub'. \n\n\
-    \ * The API key inherits the same roles and permissions as the user who created\
-    \ the API key. \n * There is a limit of 10 keys per user. \n * The 'jwt' from\
-    \ the returned key should be inserted into a HTTP Header called 'Authorization'\
-    \ like so 'Bearer JWT' where JWT is replaced respectively.\n * The 'valid_to'\
-    \ from the returned key is used to specify the expiration date for the key, after\
-    \ which it will no longer work.\n\n\t"
-  name: APIKey
 - description: |2
 
     Agents represent a sepecific agent which collects data for one or more sources.
@@ -191,44 +172,11 @@ tags:
     \ So for example a machine will send data\nin a raw form which is then analyzed,\
     \ both the raw machine data and the analyzed data is available for querying.\n"
   name: SourceData
-- description: "\nUIData API is intended for use by the UI to store user, organization\
-    \ or source specific data for use by the UI. \n\nExample use cases are for user\
-    \ profile data, data for a specific source or data associated with the organization.\n\
-    \n * Data is stored with an expiration date as specified by the valid_to property,\
-    \ this valid_to propery can be updated as needed\n * A JSON object may be supplied\
-    \ by as the value for the data property\n * Max length of the marshaled data property\
-    \ is 524288 bytes\n * Data may be tagged and queried by tags\n\n\t"
-  name: UIData
 - description: |2
 
      These APIs which do not require authentication.
   name: Unauthenticated APIs
-- description: User APIs
-  name: User
 paths:
-  /api/v1/app/user/current:
-    get:
-      description: "\nThis api call will return the current user as a JSON object,\
-        \ or 404 if there is no user associated with the current authentication token\
-        \ or JWT. When a 403 is received the message\nwill indicate if the user is\
-        \ expired or is pending approval, i.e. \"user is expired\", or if the user\
-        \ is in a pending state \"user is in a pending state\".\n"
-      operationId: UserCurrent
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-          description: OK
-        "403":
-          description: User is expired or in a pending state
-        "404":
-          description: No user is associated
-      security: []
-      summary: Returns the current user
-      tags:
-      - User
   /api/v1/integration/soar/org/{orgUID}/source/:
     get:
       description: "\nLists the sources of data that match the specified query parameters,\
@@ -837,16 +785,6 @@ paths:
           maxLength: 32
           type: string
         style: simple
-      - description: Agent Registration UID
-        explode: false
-        in: path
-        name: uid
-        required: true
-        schema:
-          description: Agent Registration UID
-          maxLength: 64
-          type: string
-        style: simple
       requestBody:
         content:
           application/json:
@@ -1066,16 +1004,6 @@ paths:
         \ * Requires *agent_data:Delete* \n"
       operationId: AgentDeleteOrgWork
       parameters:
-      - description: Agent UID
-        explode: false
-        in: path
-        name: agentUID
-        required: true
-        schema:
-          description: Agent UID
-          maxLength: 20
-          type: string
-        style: simple
       - explode: false
         in: path
         name: orgUID
@@ -1104,16 +1032,6 @@ paths:
          * Requires *agent_data:GetOrgData*
       operationId: AgentGetOrgWork
       parameters:
-      - description: Agent UID
-        explode: false
-        in: path
-        name: agentUID
-        required: true
-        schema:
-          description: Agent UID
-          maxLength: 20
-          type: string
-        style: simple
       - explode: false
         in: path
         name: orgUID
@@ -1146,16 +1064,6 @@ paths:
          * Requires *agent_data:SetData*
       operationId: AgentSetOrgWork
       parameters:
-      - description: Agent UID
-        explode: false
-        in: path
-        name: agentUID
-        required: true
-        schema:
-          description: Agent UID
-          maxLength: 20
-          type: string
-        style: simple
       - explode: false
         in: path
         name: orgUID
@@ -1332,15 +1240,6 @@ paths:
          * Requires action dashboard_search:Create
       operationId: DashboardSearchCreate
       parameters:
-      - description: UID for the DashboardSearch
-        explode: false
-        in: path
-        name: dashboardSearchUID
-        required: true
-        schema:
-          description: UID for the DashboardSearch
-          type: string
-        style: simple
       - description: Org UID
         explode: false
         in: path
@@ -1671,15 +1570,6 @@ paths:
          * Requires the user have the action *investigation:Create*
       operationId: InvestigationCreate
       parameters:
-      - description: Investigation UID
-        explode: false
-        in: path
-        name: investigationUID
-        required: true
-        schema:
-          description: Investigation UID
-          type: string
-        style: simple
       - description: Investigation OrgUID
         explode: false
         in: path
@@ -2351,6 +2241,13 @@ paths:
           maxLength: 64
           type: string
         style: simple
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SrcSendData_request'
+        description: The data sent from the source
+        required: true
       responses:
         "200":
           description: OK
@@ -2363,279 +2260,11 @@ paths:
         "403":
           description: permission denied
       summary: "Send data to a source, this is expected to be gzip compressed nd-json.\
-        \ The 'Content-Encoding' header should be specified with a value of 'gzip'"
+        \ The 'Content-Encoding' header should be specified with a value of 'gzip'.\
+        \ Alternatively, a multi-part form upload may be used with gzipped data up\
+        \ to a maximum size of 1MB."
       tags:
       - SourceData
-  /api/v1/org/{orgUID}/source/{sourceUID}/uidata/:
-    get:
-      description: |2+
-
-        Query UI Data
-
-         * Requires *uidata:Query*
-
-      operationId: UiDataQuerySourceData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Tags to search for
-        explode: true
-        in: query
-        name: tags
-        required: false
-        schema:
-          description: Tags to search for
-          items:
-            type: string
-          maxItems: 5
-          type: array
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/UIData'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Query Source UI Data
-      tags:
-      - UIData
-  /api/v1/org/{orgUID}/source/{sourceUID}/uidata/{dataKey}:
-    delete:
-      description: |2+
-
-        Sets UI Data
-
-         * Requires *uidata:Delete*
-
-      operationId: UiDataDeleteSourceData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Delete Source UI Data
-      tags:
-      - UIData
-    get:
-      description: |2+
-
-        Gets UI Data
-
-         * Updates lastused
-         * Requires *uidata:Get*
-
-      operationId: UiDataGetSourceData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UIData'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Get Source UI Data
-      tags:
-      - UIData
-    put:
-      description: "\nSets UI Data\n\n * Updates data, valid_to (if set), lastused\n\
-        \ * Requires *uidata:Set*\n\n"
-      operationId: UiDataSetSourceData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Source UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Source UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UiDataSetSourceDataInput'
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Set Source UI Data
-      tags:
-      - UIData
   /api/v1/org/{orgUID}/type:
     get:
       description: |2
@@ -2722,276 +2351,6 @@ paths:
       summary: Loads limits regarding org roles
       tags:
       - OrgType
-  /api/v1/org/{orgUID}/uidata/:
-    get:
-      description: |2+
-
-        Query UI Data
-
-         * Requires *uidata:Query*
-
-      operationId: UiDataQueryOrgData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Tags to search for
-        explode: true
-        in: query
-        name: tags
-        required: false
-        schema:
-          description: Tags to search for
-          items:
-            type: string
-          maxItems: 5
-          type: array
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/UIData'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Query Org UI Data
-      tags:
-      - UIData
-  /api/v1/org/{orgUID}/uidata/{dataKey}:
-    delete:
-      description: |2+
-
-        Sets UI Data
-
-         * Requires *uidata:Delete*
-
-      operationId: UiDataDeleteOrgData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Delete Org UI Data
-      tags:
-      - UIData
-    get:
-      description: |2+
-
-        Gets UI Data
-
-         * Updates lastused
-         * Requires *uidata:Get*
-
-      operationId: UiDataGetOrgData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UIData'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Get Org UI Data
-      tags:
-      - UIData
-    put:
-      description: "\nSets UI Data\n\n * Updates data, valid_to (if set), lastused\n\
-        \ * Requires *uidata:Set*\n\n"
-      operationId: UiDataSetOrgData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Source UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Source UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UiDataSetOrgDataInput'
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Set Org UI Data
-      tags:
-      - UIData
   /api/v1/rbac/capabilities/:
     post:
       description: Allows for querying of what actions a user can perform; results
@@ -3028,7 +2387,8 @@ paths:
         \ it is the callers responsibility to construct an appropriate 24 hour range.\n\
         * Documentation for the returned spydergraph datatype can be found at https://app.spyderbat.com/schema/spydergraph/index.html\n\
         \n* The user must have both the *org.ListSourceData* action on the org and\
-        \ *source_data.Query* action on the source\n\n"
+        \ *source_data.Query* action on the source\n* To get a count of results (up\
+        \ to 10K) but no data, use querySize: 0\n\n"
       operationId: SrcDataQuery
       requestBody:
         content:
@@ -3053,1048 +2413,8 @@ paths:
       summary: Query source data
       tags:
       - SourceData
-  /api/v1/user/{userUID}:
-    get:
-      description: "\nLoads a user given the user's user ID. \n\n * By default users\
-        \ may only load their own user ID\n * The action *user:Load* may be placed\
-        \ upon the users role to allowed loading other users\n"
-      operationId: UserLoad
-      parameters:
-      - description: User UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: User UID
-          maxLength: 64
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/User'
-          description: OK
-        "404":
-          description: No user with specified ID was found
-      summary: Load a user by ID
-      tags:
-      - User
-  /api/v1/user/{userUID}/apikey/:
-    get:
-      description: |2+
-
-        Lists API keys associated with a user
-
-         * Requires global action *user:APIKeyList*
-
-      operationId: ApiKeyList
-      parameters:
-      - description: User UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: User UID
-          maxLength: 64
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/APIKey'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Lists an API key
-      tags:
-      - APIKey
-    post:
-      description: |2
-
-        Creates a new API key which is associated with the user
-
-          * Requires global action *user:APIKeyCreate*
-      operationId: ApiKeyCreate
-      parameters:
-      - description: User UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: User UID
-          maxLength: 64
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApiKeyCreateInput'
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                type: string
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Creates a new API key
-      tags:
-      - APIKey
-  /api/v1/user/{userUID}/apikey/{uid}:
-    delete:
-      description: |2
-
-        Deletes a specific API key
-
-         * Requires global action *user:APIKeyDelete*
-      operationId: ApiKeyDelete
-      parameters:
-      - description: API Key UID
-        explode: false
-        in: path
-        name: uid
-        required: true
-        schema:
-          description: API Key UID
-          maxLength: 64
-          type: string
-        style: simple
-      - description: User UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: User UID
-          maxLength: 64
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Delete an API key
-      tags:
-      - APIKey
-    put:
-      description: "\nUpdates a specific API Key, the only fields which can be updated\
-        \ are description and enabled\n\n * Requires global action *user:APIKeyUpdate*\n"
-      operationId: ApiKeyUpdate
-      parameters:
-      - description: API Key UID
-        explode: false
-        in: path
-        name: uid
-        required: true
-        schema:
-          description: API Key UID
-          maxLength: 64
-          type: string
-        style: simple
-      - description: User UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: User UID
-          maxLength: 64
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/ApiKeyUpdateInput'
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Updates an API key
-      tags:
-      - APIKey
-  /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/:
-    get:
-      description: |2+
-
-        Query UI Data
-
-         * Requires *uidata:Query*
-
-      operationId: UiDataQueryUserSourceData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Tags to search for
-        explode: true
-        in: query
-        name: tags
-        required: false
-        schema:
-          description: Tags to search for
-          items:
-            type: string
-          maxItems: 5
-          type: array
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/UIData'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Query UserSource UI Data
-      tags:
-      - UIData
-  /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/{dataKey}:
-    delete:
-      description: |2+
-
-        Sets UI Data
-
-         * Requires *uidata:Delete*
-
-      operationId: UiDataDeleteUserSourceData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Delete UserSource UI Data
-      tags:
-      - UIData
-    get:
-      description: |2+
-
-        Gets UI Data
-
-         * Updates lastused
-         * Requires *uidata:Get*
-
-      operationId: UiDataGetUserSourceData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UIData'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Get UserSource UI Data
-      tags:
-      - UIData
-    put:
-      description: "\nSets UI Data\n\n * Updates data, valid_to (if set), lastused\n\
-        \ * Requires *uidata:Set*\n\n"
-      operationId: UiDataSetUserSourceData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Source UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Source UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UiDataSetUserSourceDataInput'
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Set UserSource UI Data
-      tags:
-      - UIData
-  /api/v1/user/{userUID}/org/{orgUID}/uidata/:
-    get:
-      description: |2+
-
-        Query UI Data
-
-         * Requires *uidata:Query*
-
-      operationId: UiDataQueryUserOrgData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Tags to search for
-        explode: true
-        in: query
-        name: tags
-        required: false
-        schema:
-          description: Tags to search for
-          items:
-            type: string
-          maxItems: 5
-          type: array
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/UIData'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Query UserOrg UI Data
-      tags:
-      - UIData
-  /api/v1/user/{userUID}/org/{orgUID}/uidata/{dataKey}:
-    delete:
-      description: |2+
-
-        Sets UI Data
-
-         * Requires *uidata:Delete*
-
-      operationId: UiDataDeleteUserOrgData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Delete UserOrg UI Data
-      tags:
-      - UIData
-    get:
-      description: |2+
-
-        Gets UI Data
-
-         * Updates lastused
-         * Requires *uidata:Get*
-
-      operationId: UiDataGetUserOrgData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UIData'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Get UserOrg UI Data
-      tags:
-      - UIData
-    put:
-      description: "\nSets UI Data\n\n * Updates data, valid_to (if set), lastused\n\
-        \ * Requires *uidata:Set*\n\n"
-      operationId: UiDataSetUserOrgData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Source UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Source UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UiDataSetUserOrgDataInput'
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Set UserOrg UI Data
-      tags:
-      - UIData
-  /api/v1/user/{userUID}/uidata/:
-    get:
-      description: |2+
-
-        Query UI Data
-
-         * Requires *uidata:Query*
-
-      operationId: UiDataQueryUserData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Tags to search for
-        explode: true
-        in: query
-        name: tags
-        required: false
-        schema:
-          description: Tags to search for
-          items:
-            type: string
-          maxItems: 5
-          type: array
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                items:
-                  $ref: '#/components/schemas/UIData'
-                type: array
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Query User UI Data
-      tags:
-      - UIData
-  /api/v1/user/{userUID}/uidata/{dataKey}:
-    delete:
-      description: |2+
-
-        Sets UI Data
-
-         * Requires *uidata:Delete*
-
-      operationId: UiDataDeleteUserData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Delete User UI Data
-      tags:
-      - UIData
-    get:
-      description: |2+
-
-        Gets UI Data
-
-         * Updates lastused
-         * Requires *uidata:Get*
-
-      operationId: UiDataGetUserData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Src UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Src UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UIData'
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Get User UI Data
-      tags:
-      - UIData
-    put:
-      description: "\nSets UI Data\n\n * Updates data, valid_to (if set), lastused\n\
-        \ * Requires *uidata:Set*\n\n"
-      operationId: UiDataSetUserData
-      parameters:
-      - description: Key for the data
-        explode: false
-        in: path
-        name: dataKey
-        required: true
-        schema:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Org UID
-        explode: false
-        in: path
-        name: orgUID
-        required: true
-        schema:
-          description: Org UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Source UID
-        explode: false
-        in: path
-        name: sourceUID
-        required: true
-        schema:
-          description: Source UID
-          maxLength: 32
-          type: string
-        style: simple
-      - description: Owner UID
-        explode: false
-        in: path
-        name: userUID
-        required: true
-        schema:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        style: simple
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UiDataSetUserDataInput'
-      responses:
-        "200":
-          description: OK
-        "400":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ValidationError'
-          description: Invalid user
-      summary: Set User UI Data
-      tags:
-      - UIData
 components:
   schemas:
-    APIKey:
-      example:
-        uid: uid
-        jwt: jwt
-        owner_uid: owner_uid
-        last_used: 2000-01-23T04:56:07.000+00:00
-        valid_to: 2000-01-23T04:56:07.000+00:00
-        description: description
-        valid_from: 2000-01-23T04:56:07.000+00:00
-        enabled: true
-      properties:
-        description:
-          description: User supplied description of the API key
-          type: string
-        enabled:
-          description: Enables or disables the API key
-          type: boolean
-        jwt:
-          description: JWT to use for authentication
-          type: string
-        last_used:
-          description: The time of las use of the key; only updated every 5 minutes
-          format: date-time
-          type: string
-        owner_uid:
-          description: Owner UID
-          type: string
-        uid:
-          description: APIKey UID
-          type: string
-        valid_from:
-          description: Valid from is the creation date or first date when the API
-            key became valid
-          format: date-time
-          type: string
-        valid_to:
-          description: Valid to is the expiration date or the last date this API key
-            will be valid
-          format: date-time
-          type: string
-      type: object
     Agent:
       example:
         agent_type: agent_type
@@ -4293,8 +2613,6 @@ components:
       type: object
     AgentRegistrationCreateInput:
       example:
-        ? ""
-        : ""
         valid_to: 2000-01-23T04:56:07.000+00:00
         name: name
         description: description
@@ -4348,9 +2666,6 @@ components:
           type: type
         created_by: created_by
       properties:
-        ? ""
-        : description: The agent secret used to authenticate agents
-          type: string
         config:
           $ref: '#/components/schemas/DaoAgentConfig'
         created_by:
@@ -4378,8 +2693,6 @@ components:
       type: object
     AgentRegistrationUpdateInput:
       example:
-        ? ""
-        : ""
         valid_to: 2000-01-23T04:56:07.000+00:00
         name: name
         description: description
@@ -4433,9 +2746,6 @@ components:
           type: type
         created_by: created_by
       properties:
-        ? ""
-        : description: The agent secret used to authenticate agents
-          type: string
         config:
           $ref: '#/components/schemas/DaoAgentConfig'
         created_by:
@@ -4739,35 +3049,6 @@ components:
       properties:
         uid:
           type: string
-      type: object
-    ApiKeyCreateInput:
-      example:
-        valid_to: 2000-01-23T04:56:07.000+00:00
-        description: description
-      properties:
-        description:
-          description: Description of the API key
-          maxLength: 128
-          type: string
-        valid_to:
-          description: "When the key should expire, in a RFC3339 formated string"
-          format: date-time
-          type: string
-      required:
-      - valid_to
-      type: object
-    ApiKeyUpdateInput:
-      example:
-        description: description
-        enabled: true
-      properties:
-        description:
-          description: Description of the API key
-          maxLength: 128
-          type: string
-        enabled:
-          description: Is the key enabled or not
-          type: boolean
       type: object
     ApiRBACActions:
       example:
@@ -5277,6 +3558,22 @@ components:
           format: int32
           type: integer
       type: object
+    DaoOrgUser:
+      properties:
+        email:
+          description: The email address of the user who belongs to this org
+          type: string
+        roles:
+          description: The roles of the user who belongs to this org
+          items:
+            type: string
+          maxItems: 5
+          minItems: 1
+          type: array
+      required:
+      - email
+      - roles
+      type: object
     DaoPlan:
       description: Plan
       properties:
@@ -5384,8 +3681,6 @@ components:
       type: object
     DashboardSearchCreateInput:
       example:
-        ? ""
-        : 2000-01-23T04:56:07.000+00:00
         search: search
         data:
           key: ""
@@ -5399,10 +3694,6 @@ components:
         - tags
         - tags
       properties:
-        ? ""
-        : description: Time last notification window was completed
-          format: date-time
-          type: string
         data:
           additionalProperties: {}
           description: UI supplied JSON object
@@ -5433,8 +3724,6 @@ components:
       type: object
     DashboardSearchUpdateInput:
       example:
-        ? ""
-        : 2000-01-23T04:56:07.000+00:00
         search: search
         data:
           key: ""
@@ -5448,10 +3737,6 @@ components:
         - tags
         - tags
       properties:
-        ? ""
-        : description: Time last notification window was completed
-          format: date-time
-          type: string
         data:
           additionalProperties: {}
           description: UI supplied JSON object
@@ -6058,6 +4343,9 @@ components:
           additionalProperties:
             $ref: '#/components/schemas/NotificationPolicyDestination'
           type: object
+      required:
+      - routes
+      - targets
       type: object
     NotificationPolicyDestination:
       description: "A notification policy destination, containing one and only one\
@@ -6308,13 +4596,23 @@ components:
     Org:
       example:
         owner_email: owner_email
-        uid: uid
         org_type_uid: org_type_uid
+        valid_from: 2000-01-23T04:56:07.000+00:00
+        tags:
+        - tags
+        - tags
+        - tags
+        - tags
+        - tags
+        uid: uid
+        active_users: 6
         owner_uid: owner_uid
         valid_to: 2000-01-23T04:56:07.000+00:00
+        active_sources: 0
         name: name
-        valid_from: 2000-01-23T04:56:07.000+00:00
+        total_sources: 1
         resource_name: resource_name
+        total_users: 5
         resource_policy:
           name: name
           statements:
@@ -6349,13 +4647,16 @@ components:
             - actions
             sid: sid
           version: version
-        tags:
-        - tags
-        - tags
-        - tags
-        - tags
-        - tags
       properties:
+        active_sources:
+          description: Total number of active sources within the last 5 minutes
+          format: int32
+          type: integer
+        active_users:
+          description: Total number of active users within the last 7 days (which
+            might be active on a different org)
+          format: int32
+          type: integer
         name:
           description: Name of the organization
           maxLength: 64
@@ -6363,6 +4664,7 @@ components:
           type: string
         org_type_uid:
           description: Organization Type
+          maxLength: 64
           type: string
         owner_email:
           description: The email address of the user who owns this org
@@ -6382,6 +4684,14 @@ components:
             type: string
           maxItems: 20
           type: array
+        total_sources:
+          description: Total number of sources
+          format: int32
+          type: integer
+        total_users:
+          description: Total number of users
+          format: int32
+          type: integer
         uid:
           description: Org UID
           maxLength: 64
@@ -6396,6 +4706,7 @@ components:
           type: string
       required:
       - name
+      - owner_email
       type: object
     OrgAssignRoleInput:
       example:
@@ -6466,11 +4777,21 @@ components:
       example:
         owner_email: owner_email
         org_type_uid: org_type_uid
+        valid_from: 2000-01-23T04:56:07.000+00:00
+        tags:
+        - tags
+        - tags
+        - tags
+        - tags
+        - tags
+        active_users: 6
         owner_uid: owner_uid
         valid_to: 2000-01-23T04:56:07.000+00:00
+        active_sources: 0
         name: name
-        valid_from: 2000-01-23T04:56:07.000+00:00
+        total_sources: 1
         resource_name: resource_name
+        total_users: 5
         resource_policy:
           name: name
           statements:
@@ -6505,13 +4826,16 @@ components:
             - actions
             sid: sid
           version: version
-        tags:
-        - tags
-        - tags
-        - tags
-        - tags
-        - tags
       properties:
+        active_sources:
+          description: Total number of active sources within the last 5 minutes
+          format: int32
+          type: integer
+        active_users:
+          description: Total number of active users within the last 7 days (which
+            might be active on a different org)
+          format: int32
+          type: integer
         name:
           description: Name of the organization
           maxLength: 64
@@ -6519,6 +4843,7 @@ components:
           type: string
         org_type_uid:
           description: Organization Type
+          maxLength: 64
           type: string
         owner_email:
           description: The email address of the user who owns this org
@@ -6538,6 +4863,14 @@ components:
             type: string
           maxItems: 20
           type: array
+        total_sources:
+          description: Total number of sources
+          format: int32
+          type: integer
+        total_users:
+          description: Total number of users
+          format: int32
+          type: integer
         valid_from:
           description: "Valid from date, the first date this object was valid"
           format: date-time
@@ -6548,6 +4881,7 @@ components:
           type: string
       required:
       - name
+      - owner_email
       type: object
     RBACAction:
       example:
@@ -7216,340 +5550,6 @@ components:
           format: date-time
           type: string
       type: object
-    UIData:
-      example:
-        org_uid: org_uid
-        uid: uid
-        data:
-          key: ""
-        owner_uid: owner_uid
-        last_used: 2000-01-23T04:56:07.000+00:00
-        valid_to: 2000-01-23T04:56:07.000+00:00
-        source_uid: source_uid
-        valid_from: 2000-01-23T04:56:07.000+00:00
-        data_key: data_key
-        tags:
-        - tags
-        - tags
-        - tags
-        - tags
-        - tags
-      properties:
-        data:
-          additionalProperties: {}
-          description: UI supplied JSON object
-          type: object
-        data_key:
-          description: Key for the data
-          maxLength: 32
-          type: string
-        last_used:
-          description: The time of las use of the key; only updated every 5 minutes
-          format: date-time
-          type: string
-        org_uid:
-          description: Org UID
-          maxLength: 32
-          type: string
-        owner_uid:
-          description: Owner UID
-          maxLength: 32
-          type: string
-        source_uid:
-          description: Source UID
-          maxLength: 32
-          type: string
-        tags:
-          description: User supplied tags
-          items:
-            type: string
-          maxItems: 64
-          type: array
-        uid:
-          description: UID for the UIData
-          type: string
-        valid_from:
-          description: Valid from is the creation date or first date when the API
-            key became valid
-          format: date-time
-          type: string
-        valid_to:
-          description: Valid to is the expiration date or the last date this API key
-            will be valid
-          format: date-time
-          type: string
-      type: object
-    UiDataSetOrgDataInput:
-      example:
-        ? ""
-        : ""
-        uid: uid
-        data:
-          key: ""
-        last_used: 2000-01-23T04:56:07.000+00:00
-        valid_to: 2000-01-23T04:56:07.000+00:00
-        valid_from: 2000-01-23T04:56:07.000+00:00
-        tags:
-        - tags
-        - tags
-        - tags
-        - tags
-        - tags
-      properties:
-        ? ""
-        : type: string
-        data:
-          additionalProperties: {}
-          description: UI supplied JSON object
-          type: object
-        last_used:
-          description: The time of las use of the key; only updated every 5 minutes
-          format: date-time
-          type: string
-        tags:
-          description: User supplied tags
-          items:
-            type: string
-          maxItems: 64
-          type: array
-        uid:
-          description: UID for the UIData
-          type: string
-        valid_from:
-          description: Valid from is the creation date or first date when the API
-            key became valid
-          format: date-time
-          type: string
-        valid_to:
-          description: Valid to is the expiration date or the last date this API key
-            will be valid
-          format: date-time
-          type: string
-      type: object
-    UiDataSetSourceDataInput:
-      example:
-        ? ""
-        : ""
-        uid: uid
-        data:
-          key: ""
-        last_used: 2000-01-23T04:56:07.000+00:00
-        valid_to: 2000-01-23T04:56:07.000+00:00
-        valid_from: 2000-01-23T04:56:07.000+00:00
-        tags:
-        - tags
-        - tags
-        - tags
-        - tags
-        - tags
-      properties:
-        ? ""
-        : type: string
-        data:
-          additionalProperties: {}
-          description: UI supplied JSON object
-          type: object
-        last_used:
-          description: The time of las use of the key; only updated every 5 minutes
-          format: date-time
-          type: string
-        tags:
-          description: User supplied tags
-          items:
-            type: string
-          maxItems: 64
-          type: array
-        uid:
-          description: UID for the UIData
-          type: string
-        valid_from:
-          description: Valid from is the creation date or first date when the API
-            key became valid
-          format: date-time
-          type: string
-        valid_to:
-          description: Valid to is the expiration date or the last date this API key
-            will be valid
-          format: date-time
-          type: string
-      type: object
-    UiDataSetUserDataInput:
-      example:
-        ? ""
-        : ""
-        uid: uid
-        data:
-          key: ""
-        last_used: 2000-01-23T04:56:07.000+00:00
-        valid_to: 2000-01-23T04:56:07.000+00:00
-        valid_from: 2000-01-23T04:56:07.000+00:00
-        tags:
-        - tags
-        - tags
-        - tags
-        - tags
-        - tags
-      properties:
-        ? ""
-        : type: string
-        data:
-          additionalProperties: {}
-          description: UI supplied JSON object
-          type: object
-        last_used:
-          description: The time of las use of the key; only updated every 5 minutes
-          format: date-time
-          type: string
-        tags:
-          description: User supplied tags
-          items:
-            type: string
-          maxItems: 64
-          type: array
-        uid:
-          description: UID for the UIData
-          type: string
-        valid_from:
-          description: Valid from is the creation date or first date when the API
-            key became valid
-          format: date-time
-          type: string
-        valid_to:
-          description: Valid to is the expiration date or the last date this API key
-            will be valid
-          format: date-time
-          type: string
-      type: object
-    UiDataSetUserOrgDataInput:
-      example:
-        ? ""
-        : ""
-        uid: uid
-        data:
-          key: ""
-        last_used: 2000-01-23T04:56:07.000+00:00
-        valid_to: 2000-01-23T04:56:07.000+00:00
-        valid_from: 2000-01-23T04:56:07.000+00:00
-        tags:
-        - tags
-        - tags
-        - tags
-        - tags
-        - tags
-      properties:
-        ? ""
-        : type: string
-        data:
-          additionalProperties: {}
-          description: UI supplied JSON object
-          type: object
-        last_used:
-          description: The time of las use of the key; only updated every 5 minutes
-          format: date-time
-          type: string
-        tags:
-          description: User supplied tags
-          items:
-            type: string
-          maxItems: 64
-          type: array
-        uid:
-          description: UID for the UIData
-          type: string
-        valid_from:
-          description: Valid from is the creation date or first date when the API
-            key became valid
-          format: date-time
-          type: string
-        valid_to:
-          description: Valid to is the expiration date or the last date this API key
-            will be valid
-          format: date-time
-          type: string
-      type: object
-    UiDataSetUserSourceDataInput:
-      example:
-        ? ""
-        : ""
-        uid: uid
-        data:
-          key: ""
-        last_used: 2000-01-23T04:56:07.000+00:00
-        valid_to: 2000-01-23T04:56:07.000+00:00
-        valid_from: 2000-01-23T04:56:07.000+00:00
-        tags:
-        - tags
-        - tags
-        - tags
-        - tags
-        - tags
-      properties:
-        ? ""
-        : type: string
-        data:
-          additionalProperties: {}
-          description: UI supplied JSON object
-          type: object
-        last_used:
-          description: The time of las use of the key; only updated every 5 minutes
-          format: date-time
-          type: string
-        tags:
-          description: User supplied tags
-          items:
-            type: string
-          maxItems: 64
-          type: array
-        uid:
-          description: UID for the UIData
-          type: string
-        valid_from:
-          description: Valid from is the creation date or first date when the API
-            key became valid
-          format: date-time
-          type: string
-        valid_to:
-          description: Valid to is the expiration date or the last date this API key
-            will be valid
-          format: date-time
-          type: string
-      type: object
-    User:
-      example:
-        uid: uid
-        disable_email: true
-        valid_to: 2000-01-23T04:56:07.000+00:00
-        valid_from: 2000-01-23T04:56:07.000+00:00
-        resource_name: resource_name
-        email: email
-      properties:
-        disable_email:
-          description: "Disable sending email, this is set when either the user explicitly\
-            \ asks to be unsubscribed to email or there are errors sending emails\
-            \ to the user"
-          type: boolean
-        email:
-          description: User email
-          type: string
-        resource_name:
-          description: Resource name used by RBAC
-          type: string
-        uid:
-          description: User UID
-          type: string
-        valid_from:
-          description: Valid from is the creation date or first date when the object
-            became valid
-          format: date-time
-          type: string
-        valid_to:
-          description: Valid to is the expiration date or the last date this object
-            was valid
-          format: date-time
-          type: string
-      required:
-      - email
-      type: object
     ValidationError:
       properties:
         err_msg:
@@ -7564,6 +5564,19 @@ components:
         tags:
           description: Validation tag which failed
           type: string
+      type: object
+    SrcSendData_request:
+      properties:
+        encoding:
+          description: must be gzip
+          type: string
+        file:
+          description: The file to upload. The file must be a valid gzip-ed JSON file.
+          format: binary
+          type: string
+      required:
+      - encoding
+      - file
       type: object
     NotificationPolicy_routes_inner:
       example:

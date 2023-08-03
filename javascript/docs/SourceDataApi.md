@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**srcDataQuery**](SourceDataApi.md#srcDataQuery) | **POST** /api/v1/source/query/ | Query source data
 [**srcDataQueryV2**](SourceDataApi.md#srcDataQueryV2) | **GET** /api/v1/org/{orgUID}/data/ | Query source data
-[**srcSendData**](SourceDataApi.md#srcSendData) | **POST** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;
+[**srcSendData**](SourceDataApi.md#srcSendData) | **POST** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
 
 
 
@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 Query source data
 
- Allows querying of the source data, data is stored as &#39;records&#39; which are returned as json objects, in nd-json (see ndjson.org) format.   * Data is returned as it is matched, and no ordering guarentees exist.  * The call completes after it has finished searching for matching records.  * The query expression is limited to seaching a 24 hour period of time, it is the callers responsibility to construct an appropriate 24 hour range. * Documentation for the returned spydergraph datatype can be found at https://app.spyderbat.com/schema/spydergraph/index.html  * The user must have both the *org.ListSourceData* action on the org and *source_data.Query* action on the source  
+ Allows querying of the source data, data is stored as &#39;records&#39; which are returned as json objects, in nd-json (see ndjson.org) format.   * Data is returned as it is matched, and no ordering guarentees exist.  * The call completes after it has finished searching for matching records.  * The query expression is limited to seaching a 24 hour period of time, it is the callers responsibility to construct an appropriate 24 hour range. * Documentation for the returned spydergraph datatype can be found at https://app.spyderbat.com/schema/spydergraph/index.html  * The user must have both the *org.ListSourceData* action on the org and *source_data.Query* action on the source * To get a count of results (up to 10K) but no data, use querySize: 0  
 
 ### Example
 
@@ -136,9 +136,9 @@ Name | Type | Description  | Notes
 
 ## srcSendData
 
-> srcSendData(dataType, orgUID, sourceUID)
+> srcSendData(dataType, orgUID, sourceUID, encoding, file)
 
-Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;
+Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
 
 Sends data to a source
 
@@ -155,7 +155,9 @@ let apiInstance = new SpyderbatApi.SourceDataApi();
 let dataType = "dataType_example"; // String | 
 let orgUID = "orgUID_example"; // String | 
 let sourceUID = "sourceUID_example"; // String | 
-apiInstance.srcSendData(dataType, orgUID, sourceUID, (error, data, response) => {
+let encoding = "encoding_example"; // String | must be gzip
+let file = "/path/to/file"; // File | The file to upload. The file must be a valid gzip-ed JSON file.
+apiInstance.srcSendData(dataType, orgUID, sourceUID, encoding, file, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -172,6 +174,8 @@ Name | Type | Description  | Notes
  **dataType** | **String**|  | 
  **orgUID** | **String**|  | 
  **sourceUID** | **String**|  | 
+ **encoding** | **String**| must be gzip | 
+ **file** | **File**| The file to upload. The file must be a valid gzip-ed JSON file. | 
 
 ### Return type
 
@@ -183,6 +187,6 @@ null (empty response body)
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 

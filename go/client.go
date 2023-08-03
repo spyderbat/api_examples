@@ -50,8 +50,6 @@ type APIClient struct {
 
 	// API Services
 
-	APIKeyApi *APIKeyApiService
-
 	AgentApi *AgentApiService
 
 	AgentRegistrationApi *AgentRegistrationApiService
@@ -75,10 +73,6 @@ type APIClient struct {
 	SourceApi *SourceApiService
 
 	SourceDataApi *SourceDataApiService
-
-	UIDataApi *UIDataApiService
-
-	UserApi *UserApiService
 }
 
 type service struct {
@@ -97,7 +91,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.common.client = c
 
 	// API Services
-	c.APIKeyApi = (*APIKeyApiService)(&c.common)
 	c.AgentApi = (*AgentApiService)(&c.common)
 	c.AgentRegistrationApi = (*AgentRegistrationApiService)(&c.common)
 	c.AgentWorkApi = (*AgentWorkApiService)(&c.common)
@@ -110,8 +103,6 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.RBACApi = (*RBACApiService)(&c.common)
 	c.SourceApi = (*SourceApiService)(&c.common)
 	c.SourceDataApi = (*SourceDataApiService)(&c.common)
-	c.UIDataApi = (*UIDataApiService)(&c.common)
-	c.UserApi = (*UserApiService)(&c.common)
 
 	return c
 }

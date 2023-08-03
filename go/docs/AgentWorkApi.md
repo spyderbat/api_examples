@@ -86,7 +86,7 @@ Name | Type | Description  | Notes
 
 ## AgentDeleteOrgWork
 
-> AgentDeleteOrgWork(ctx, agentUID, orgUID).Execute()
+> AgentDeleteOrgWork(ctx, orgUID).Execute()
 
 Delete agent work for an org
 
@@ -105,12 +105,11 @@ import (
 )
 
 func main() {
-    agentUID := "agentUID_example" // string | Agent UID
     orgUID := "orgUID_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AgentWorkApi.AgentDeleteOrgWork(context.Background(), agentUID, orgUID).Execute()
+    resp, r, err := apiClient.AgentWorkApi.AgentDeleteOrgWork(context.Background(), orgUID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AgentWorkApi.AgentDeleteOrgWork``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -124,7 +123,6 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**agentUID** | **string** | Agent UID | 
 **orgUID** | **string** |  | 
 
 ### Other Parameters
@@ -134,7 +132,6 @@ Other parameters are passed through a pointer to a apiAgentDeleteOrgWorkRequest 
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
 
 ### Return type
@@ -230,7 +227,7 @@ Name | Type | Description  | Notes
 
 ## AgentGetOrgWork
 
-> ApiAgentWorkOutput AgentGetOrgWork(ctx, agentUID, orgUID).Execute()
+> ApiAgentWorkOutput AgentGetOrgWork(ctx, orgUID).Execute()
 
 Get agent work data for the organization
 
@@ -249,12 +246,11 @@ import (
 )
 
 func main() {
-    agentUID := "agentUID_example" // string | Agent UID
     orgUID := "orgUID_example" // string | 
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AgentWorkApi.AgentGetOrgWork(context.Background(), agentUID, orgUID).Execute()
+    resp, r, err := apiClient.AgentWorkApi.AgentGetOrgWork(context.Background(), orgUID).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AgentWorkApi.AgentGetOrgWork``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -270,7 +266,6 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**agentUID** | **string** | Agent UID | 
 **orgUID** | **string** |  | 
 
 ### Other Parameters
@@ -280,7 +275,6 @@ Other parameters are passed through a pointer to a apiAgentGetOrgWorkRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
 
 ### Return type
@@ -376,7 +370,7 @@ Name | Type | Description  | Notes
 
 ## AgentSetOrgWork
 
-> AgentSetOrgWork(ctx, agentUID, orgUID).AgentSetOrgWorkInput(agentSetOrgWorkInput).Execute()
+> AgentSetOrgWork(ctx, orgUID).AgentSetOrgWorkInput(agentSetOrgWorkInput).Execute()
 
 Set agent work data for a specific agent
 
@@ -395,13 +389,12 @@ import (
 )
 
 func main() {
-    agentUID := "agentUID_example" // string | Agent UID
     orgUID := "orgUID_example" // string | 
     agentSetOrgWorkInput := *openapiclient.NewAgentSetOrgWorkInput() // AgentSetOrgWorkInput |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AgentWorkApi.AgentSetOrgWork(context.Background(), agentUID, orgUID).AgentSetOrgWorkInput(agentSetOrgWorkInput).Execute()
+    resp, r, err := apiClient.AgentWorkApi.AgentSetOrgWork(context.Background(), orgUID).AgentSetOrgWorkInput(agentSetOrgWorkInput).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AgentWorkApi.AgentSetOrgWork``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -415,7 +408,6 @@ func main() {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**agentUID** | **string** | Agent UID | 
 **orgUID** | **string** |  | 
 
 ### Other Parameters
@@ -425,7 +417,6 @@ Other parameters are passed through a pointer to a apiAgentSetOrgWorkRequest str
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
  **agentSetOrgWorkInput** | [**AgentSetOrgWorkInput**](AgentSetOrgWorkInput.md) |  | 
 

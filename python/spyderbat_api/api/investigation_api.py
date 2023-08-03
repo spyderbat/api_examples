@@ -53,12 +53,10 @@ class InvestigationApi(object):
             },
             params_map={
                 'all': [
-                    'investigation_uid',
                     'org_uid',
                     'investigation_create_input',
                 ],
                 'required': [
-                    'investigation_uid',
                     'org_uid',
                 ],
                 'nullable': [
@@ -74,19 +72,15 @@ class InvestigationApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'investigation_uid':
-                        (str,),
                     'org_uid':
                         (str,),
                     'investigation_create_input':
                         (InvestigationCreateInput,),
                 },
                 'attribute_map': {
-                    'investigation_uid': 'investigationUID',
                     'org_uid': 'orgUID',
                 },
                 'location_map': {
-                    'investigation_uid': 'path',
                     'org_uid': 'path',
                     'investigation_create_input': 'body',
                 },
@@ -456,7 +450,6 @@ class InvestigationApi(object):
 
     def investigation_create(
         self,
-        investigation_uid,
         org_uid,
         **kwargs
     ):
@@ -466,11 +459,10 @@ class InvestigationApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.investigation_create(investigation_uid, org_uid, async_req=True)
+        >>> thread = api.investigation_create(org_uid, async_req=True)
         >>> result = thread.get()
 
         Args:
-            investigation_uid (str): Investigation UID
             org_uid (str): Investigation OrgUID
 
         Keyword Args:
@@ -536,8 +528,6 @@ class InvestigationApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['investigation_uid'] = \
-            investigation_uid
         kwargs['org_uid'] = \
             org_uid
         return self.investigation_create_endpoint.call_with_http_info(**kwargs)

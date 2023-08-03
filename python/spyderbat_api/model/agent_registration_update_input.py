@@ -94,7 +94,6 @@ class AgentRegistrationUpdateInput(ModelNormal):
         """
         lazy_import()
         return {
-            '': (str,),  # noqa: E501
             'config': (DaoAgentConfig,),  # noqa: E501
             'created_by': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
@@ -110,7 +109,6 @@ class AgentRegistrationUpdateInput(ModelNormal):
 
 
     attribute_map = {
-        '': '',  # noqa: E501
         'config': 'config',  # noqa: E501
         'created_by': 'created_by',  # noqa: E501
         'description': 'description',  # noqa: E501
@@ -161,7 +159,6 @@ class AgentRegistrationUpdateInput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-             (str): The agent secret used to authenticate agents. [optional]  # noqa: E501
             config (DaoAgentConfig): [optional]  # noqa: E501
             created_by (str): The user UID of the user who created the agent registration. [optional]  # noqa: E501
             description (str): Description of the agent registration. [optional]  # noqa: E501
@@ -254,7 +251,6 @@ class AgentRegistrationUpdateInput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-             (str): The agent secret used to authenticate agents. [optional]  # noqa: E501
             config (DaoAgentConfig): [optional]  # noqa: E501
             created_by (str): The user UID of the user who created the agent registration. [optional]  # noqa: E501
             description (str): Description of the agent registration. [optional]  # noqa: E501

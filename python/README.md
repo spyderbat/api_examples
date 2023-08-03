@@ -50,11 +50,8 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import spyderbat_api
 from pprint import pprint
-from spyderbat_api.api import api_key_api
-from spyderbat_api.model.api_key import APIKey
-from spyderbat_api.model.api_key_create_input import ApiKeyCreateInput
-from spyderbat_api.model.api_key_update_input import ApiKeyUpdateInput
-from spyderbat_api.model.validation_error import ValidationError
+from spyderbat_api.api import agent_api
+from spyderbat_api.model.agent import Agent
 # Defining the host is optional and defaults to https://api.spyderbat.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = spyderbat_api.Configuration(
@@ -75,19 +72,20 @@ configuration = spyderbat_api.Configuration(
 # Enter a context with an instance of the API client
 with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = api_key_api.APIKeyApi(api_client)
-    user_uid = "userUID_example" # str | User UID
-    api_key_create_input = ApiKeyCreateInput(
-        description="description_example",
-        valid_to=dateutil_parser('1970-01-01T00:00:00.00Z'),
-    ) # ApiKeyCreateInput |  (optional)
+    api_instance = agent_api.AgentApi(api_client)
+    org_uid = "orgUID_example" # str | 
+    agent_registration_uid_equals = "agent_registration_uid_equals_example" # str |  (optional)
+    original_association = True # bool |  (optional)
+    page = 1 # int |  (optional)
+    page_size = 1 # int |  (optional)
+    source_uid_equals = "source_uid_equals_example" # str |  (optional)
 
     try:
-        # Creates a new API key
-        api_response = api_instance.api_key_create(user_uid, api_key_create_input=api_key_create_input)
+        # List agents
+        api_response = api_instance.agent_list(org_uid, agent_registration_uid_equals=agent_registration_uid_equals, original_association=original_association, page=page, page_size=page_size, source_uid_equals=source_uid_equals)
         pprint(api_response)
     except spyderbat_api.ApiException as e:
-        print("Exception when calling APIKeyApi->api_key_create: %s\n" % e)
+        print("Exception when calling AgentApi->agent_list: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
@@ -96,10 +94,6 @@ All URIs are relative to *https://api.spyderbat.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*APIKeyApi* | [**api_key_create**](docs/APIKeyApi.md#api_key_create) | **POST** /api/v1/user/{userUID}/apikey/ | Creates a new API key
-*APIKeyApi* | [**api_key_delete**](docs/APIKeyApi.md#api_key_delete) | **DELETE** /api/v1/user/{userUID}/apikey/{uid} | Delete an API key
-*APIKeyApi* | [**api_key_list**](docs/APIKeyApi.md#api_key_list) | **GET** /api/v1/user/{userUID}/apikey/ | Lists an API key
-*APIKeyApi* | [**api_key_update**](docs/APIKeyApi.md#api_key_update) | **PUT** /api/v1/user/{userUID}/apikey/{uid} | Updates an API key
 *AgentApi* | [**agent_list**](docs/AgentApi.md#agent_list) | **GET** /api/v1/org/{orgUID}/agent/ | List agents
 *AgentApi* | [**agent_load**](docs/AgentApi.md#agent_load) | **GET** /api/v1/org/{orgUID}/agent/{agentUID} | Load an agent
 *AgentWorkApi* | [**agent_delete_agent_work**](docs/AgentWorkApi.md#agent_delete_agent_work) | **DELETE** /api/v1/org/{orgUID}/agent/{agentUID}/work | Delete agent work data for a specific agent
@@ -150,34 +144,11 @@ Class | Method | HTTP request | Description
 *SourceApi* | [**src_update**](docs/SourceApi.md#src_update) | **PUT** /api/v1/org/{orgUID}/source/{sourceUID} | Update a source
 *SourceDataApi* | [**src_data_query**](docs/SourceDataApi.md#src_data_query) | **POST** /api/v1/source/query/ | Query source data
 *SourceDataApi* | [**src_data_query_v2**](docs/SourceDataApi.md#src_data_query_v2) | **GET** /api/v1/org/{orgUID}/data/ | Query source data
-*SourceDataApi* | [**src_send_data**](docs/SourceDataApi.md#src_send_data) | **POST** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;
-*UIDataApi* | [**ui_data_delete_org_data**](docs/UIDataApi.md#ui_data_delete_org_data) | **DELETE** /api/v1/org/{orgUID}/uidata/{dataKey} | Delete Org UI Data
-*UIDataApi* | [**ui_data_delete_source_data**](docs/UIDataApi.md#ui_data_delete_source_data) | **DELETE** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Delete Source UI Data
-*UIDataApi* | [**ui_data_delete_user_data**](docs/UIDataApi.md#ui_data_delete_user_data) | **DELETE** /api/v1/user/{userUID}/uidata/{dataKey} | Delete User UI Data
-*UIDataApi* | [**ui_data_delete_user_org_data**](docs/UIDataApi.md#ui_data_delete_user_org_data) | **DELETE** /api/v1/user/{userUID}/org/{orgUID}/uidata/{dataKey} | Delete UserOrg UI Data
-*UIDataApi* | [**ui_data_delete_user_source_data**](docs/UIDataApi.md#ui_data_delete_user_source_data) | **DELETE** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Delete UserSource UI Data
-*UIDataApi* | [**ui_data_get_org_data**](docs/UIDataApi.md#ui_data_get_org_data) | **GET** /api/v1/org/{orgUID}/uidata/{dataKey} | Get Org UI Data
-*UIDataApi* | [**ui_data_get_source_data**](docs/UIDataApi.md#ui_data_get_source_data) | **GET** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Get Source UI Data
-*UIDataApi* | [**ui_data_get_user_data**](docs/UIDataApi.md#ui_data_get_user_data) | **GET** /api/v1/user/{userUID}/uidata/{dataKey} | Get User UI Data
-*UIDataApi* | [**ui_data_get_user_org_data**](docs/UIDataApi.md#ui_data_get_user_org_data) | **GET** /api/v1/user/{userUID}/org/{orgUID}/uidata/{dataKey} | Get UserOrg UI Data
-*UIDataApi* | [**ui_data_get_user_source_data**](docs/UIDataApi.md#ui_data_get_user_source_data) | **GET** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Get UserSource UI Data
-*UIDataApi* | [**ui_data_query_org_data**](docs/UIDataApi.md#ui_data_query_org_data) | **GET** /api/v1/org/{orgUID}/uidata/ | Query Org UI Data
-*UIDataApi* | [**ui_data_query_source_data**](docs/UIDataApi.md#ui_data_query_source_data) | **GET** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/ | Query Source UI Data
-*UIDataApi* | [**ui_data_query_user_data**](docs/UIDataApi.md#ui_data_query_user_data) | **GET** /api/v1/user/{userUID}/uidata/ | Query User UI Data
-*UIDataApi* | [**ui_data_query_user_org_data**](docs/UIDataApi.md#ui_data_query_user_org_data) | **GET** /api/v1/user/{userUID}/org/{orgUID}/uidata/ | Query UserOrg UI Data
-*UIDataApi* | [**ui_data_query_user_source_data**](docs/UIDataApi.md#ui_data_query_user_source_data) | **GET** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/ | Query UserSource UI Data
-*UIDataApi* | [**ui_data_set_org_data**](docs/UIDataApi.md#ui_data_set_org_data) | **PUT** /api/v1/org/{orgUID}/uidata/{dataKey} | Set Org UI Data
-*UIDataApi* | [**ui_data_set_source_data**](docs/UIDataApi.md#ui_data_set_source_data) | **PUT** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Set Source UI Data
-*UIDataApi* | [**ui_data_set_user_data**](docs/UIDataApi.md#ui_data_set_user_data) | **PUT** /api/v1/user/{userUID}/uidata/{dataKey} | Set User UI Data
-*UIDataApi* | [**ui_data_set_user_org_data**](docs/UIDataApi.md#ui_data_set_user_org_data) | **PUT** /api/v1/user/{userUID}/org/{orgUID}/uidata/{dataKey} | Set UserOrg UI Data
-*UIDataApi* | [**ui_data_set_user_source_data**](docs/UIDataApi.md#ui_data_set_user_source_data) | **PUT** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Set UserSource UI Data
-*UserApi* | [**user_current**](docs/UserApi.md#user_current) | **GET** /api/v1/app/user/current | Returns the current user
-*UserApi* | [**user_load**](docs/UserApi.md#user_load) | **GET** /api/v1/user/{userUID} | Load a user by ID
+*SourceDataApi* | [**src_send_data**](docs/SourceDataApi.md#src_send_data) | **POST** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
 
 
 ## Documentation For Models
 
- - [APIKey](docs/APIKey.md)
  - [Agent](docs/Agent.md)
  - [AgentRegistration](docs/AgentRegistration.md)
  - [AgentRegistrationCreateInput](docs/AgentRegistrationCreateInput.md)
@@ -188,8 +159,6 @@ Class | Method | HTTP request | Description
  - [ApiAgentRegistrationDownloadLinkHandlerOutput](docs/ApiAgentRegistrationDownloadLinkHandlerOutput.md)
  - [ApiAgentWorkOutput](docs/ApiAgentWorkOutput.md)
  - [ApiInvestigationCreateOutput](docs/ApiInvestigationCreateOutput.md)
- - [ApiKeyCreateInput](docs/ApiKeyCreateInput.md)
- - [ApiKeyUpdateInput](docs/ApiKeyUpdateInput.md)
  - [ApiRBACActions](docs/ApiRBACActions.md)
  - [ApiSOARListHandlerOutput](docs/ApiSOARListHandlerOutput.md)
  - [ApiSourceCreateHandlerOutput](docs/ApiSourceCreateHandlerOutput.md)
@@ -202,6 +171,7 @@ Class | Method | HTTP request | Description
  - [DaoOrgRoles](docs/DaoOrgRoles.md)
  - [DaoOrgType](docs/DaoOrgType.md)
  - [DaoOrgTypePolicy](docs/DaoOrgTypePolicy.md)
+ - [DaoOrgUser](docs/DaoOrgUser.md)
  - [DaoPlan](docs/DaoPlan.md)
  - [DaoPolicy](docs/DaoPolicy.md)
  - [DaoSignupPolicy](docs/DaoSignupPolicy.md)
@@ -238,13 +208,6 @@ Class | Method | HTTP request | Description
  - [SrcCreateInput](docs/SrcCreateInput.md)
  - [SrcDataQueryInput](docs/SrcDataQueryInput.md)
  - [SrcUpdateInput](docs/SrcUpdateInput.md)
- - [UIData](docs/UIData.md)
- - [UiDataSetOrgDataInput](docs/UiDataSetOrgDataInput.md)
- - [UiDataSetSourceDataInput](docs/UiDataSetSourceDataInput.md)
- - [UiDataSetUserDataInput](docs/UiDataSetUserDataInput.md)
- - [UiDataSetUserOrgDataInput](docs/UiDataSetUserOrgDataInput.md)
- - [UiDataSetUserSourceDataInput](docs/UiDataSetUserSourceDataInput.md)
- - [User](docs/User.md)
  - [ValidationError](docs/ValidationError.md)
 
 

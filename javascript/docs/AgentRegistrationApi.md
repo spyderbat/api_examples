@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## agentRegistrationCreate
 
-> ApiAgentCreateHandlerOutput agentRegistrationCreate(orgUID, uid, opts)
+> ApiAgentCreateHandlerOutput agentRegistrationCreate(orgUID, opts)
 
 Create an agent registration
 
@@ -32,11 +32,10 @@ apiToken.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SpyderbatApi.AgentRegistrationApi();
 let orgUID = "orgUID_example"; // String | The OrgUID the registration is associated with
-let uid = "uid_example"; // String | Agent Registration UID
 let opts = {
   'agentRegistrationCreateInput': new SpyderbatApi.AgentRegistrationCreateInput() // AgentRegistrationCreateInput | 
 };
-apiInstance.agentRegistrationCreate(orgUID, uid, opts, (error, data, response) => {
+apiInstance.agentRegistrationCreate(orgUID, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -51,7 +50,6 @@ apiInstance.agentRegistrationCreate(orgUID, uid, opts, (error, data, response) =
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **orgUID** | **String**| The OrgUID the registration is associated with | 
- **uid** | **String**| Agent Registration UID | 
  **agentRegistrationCreateInput** | [**AgentRegistrationCreateInput**](AgentRegistrationCreateInput.md)|  | [optional] 
 
 ### Return type

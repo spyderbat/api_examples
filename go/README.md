@@ -79,10 +79,6 @@ All URIs are relative to *https://api.spyderbat.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*APIKeyApi* | [**ApiKeyCreate**](docs/APIKeyApi.md#apikeycreate) | **Post** /api/v1/user/{userUID}/apikey/ | Creates a new API key
-*APIKeyApi* | [**ApiKeyDelete**](docs/APIKeyApi.md#apikeydelete) | **Delete** /api/v1/user/{userUID}/apikey/{uid} | Delete an API key
-*APIKeyApi* | [**ApiKeyList**](docs/APIKeyApi.md#apikeylist) | **Get** /api/v1/user/{userUID}/apikey/ | Lists an API key
-*APIKeyApi* | [**ApiKeyUpdate**](docs/APIKeyApi.md#apikeyupdate) | **Put** /api/v1/user/{userUID}/apikey/{uid} | Updates an API key
 *AgentApi* | [**AgentList**](docs/AgentApi.md#agentlist) | **Get** /api/v1/org/{orgUID}/agent/ | List agents
 *AgentApi* | [**AgentLoad**](docs/AgentApi.md#agentload) | **Get** /api/v1/org/{orgUID}/agent/{agentUID} | Load an agent
 *AgentRegistrationApi* | [**AgentRegistrationCreate**](docs/AgentRegistrationApi.md#agentregistrationcreate) | **Post** /api/v1/org/{orgUID}/agent_registration/ | Create an agent registration
@@ -133,34 +129,11 @@ Class | Method | HTTP request | Description
 *SourceApi* | [**SrcUpdate**](docs/SourceApi.md#srcupdate) | **Put** /api/v1/org/{orgUID}/source/{sourceUID} | Update a source
 *SourceDataApi* | [**SrcDataQuery**](docs/SourceDataApi.md#srcdataquery) | **Post** /api/v1/source/query/ | Query source data
 *SourceDataApi* | [**SrcDataQueryV2**](docs/SourceDataApi.md#srcdataqueryv2) | **Get** /api/v1/org/{orgUID}/data/ | Query source data
-*SourceDataApi* | [**SrcSendData**](docs/SourceDataApi.md#srcsenddata) | **Post** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;
-*UIDataApi* | [**UiDataDeleteOrgData**](docs/UIDataApi.md#uidatadeleteorgdata) | **Delete** /api/v1/org/{orgUID}/uidata/{dataKey} | Delete Org UI Data
-*UIDataApi* | [**UiDataDeleteSourceData**](docs/UIDataApi.md#uidatadeletesourcedata) | **Delete** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Delete Source UI Data
-*UIDataApi* | [**UiDataDeleteUserData**](docs/UIDataApi.md#uidatadeleteuserdata) | **Delete** /api/v1/user/{userUID}/uidata/{dataKey} | Delete User UI Data
-*UIDataApi* | [**UiDataDeleteUserOrgData**](docs/UIDataApi.md#uidatadeleteuserorgdata) | **Delete** /api/v1/user/{userUID}/org/{orgUID}/uidata/{dataKey} | Delete UserOrg UI Data
-*UIDataApi* | [**UiDataDeleteUserSourceData**](docs/UIDataApi.md#uidatadeleteusersourcedata) | **Delete** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Delete UserSource UI Data
-*UIDataApi* | [**UiDataGetOrgData**](docs/UIDataApi.md#uidatagetorgdata) | **Get** /api/v1/org/{orgUID}/uidata/{dataKey} | Get Org UI Data
-*UIDataApi* | [**UiDataGetSourceData**](docs/UIDataApi.md#uidatagetsourcedata) | **Get** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Get Source UI Data
-*UIDataApi* | [**UiDataGetUserData**](docs/UIDataApi.md#uidatagetuserdata) | **Get** /api/v1/user/{userUID}/uidata/{dataKey} | Get User UI Data
-*UIDataApi* | [**UiDataGetUserOrgData**](docs/UIDataApi.md#uidatagetuserorgdata) | **Get** /api/v1/user/{userUID}/org/{orgUID}/uidata/{dataKey} | Get UserOrg UI Data
-*UIDataApi* | [**UiDataGetUserSourceData**](docs/UIDataApi.md#uidatagetusersourcedata) | **Get** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Get UserSource UI Data
-*UIDataApi* | [**UiDataQueryOrgData**](docs/UIDataApi.md#uidataqueryorgdata) | **Get** /api/v1/org/{orgUID}/uidata/ | Query Org UI Data
-*UIDataApi* | [**UiDataQuerySourceData**](docs/UIDataApi.md#uidataquerysourcedata) | **Get** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/ | Query Source UI Data
-*UIDataApi* | [**UiDataQueryUserData**](docs/UIDataApi.md#uidataqueryuserdata) | **Get** /api/v1/user/{userUID}/uidata/ | Query User UI Data
-*UIDataApi* | [**UiDataQueryUserOrgData**](docs/UIDataApi.md#uidataqueryuserorgdata) | **Get** /api/v1/user/{userUID}/org/{orgUID}/uidata/ | Query UserOrg UI Data
-*UIDataApi* | [**UiDataQueryUserSourceData**](docs/UIDataApi.md#uidataqueryusersourcedata) | **Get** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/ | Query UserSource UI Data
-*UIDataApi* | [**UiDataSetOrgData**](docs/UIDataApi.md#uidatasetorgdata) | **Put** /api/v1/org/{orgUID}/uidata/{dataKey} | Set Org UI Data
-*UIDataApi* | [**UiDataSetSourceData**](docs/UIDataApi.md#uidatasetsourcedata) | **Put** /api/v1/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Set Source UI Data
-*UIDataApi* | [**UiDataSetUserData**](docs/UIDataApi.md#uidatasetuserdata) | **Put** /api/v1/user/{userUID}/uidata/{dataKey} | Set User UI Data
-*UIDataApi* | [**UiDataSetUserOrgData**](docs/UIDataApi.md#uidatasetuserorgdata) | **Put** /api/v1/user/{userUID}/org/{orgUID}/uidata/{dataKey} | Set UserOrg UI Data
-*UIDataApi* | [**UiDataSetUserSourceData**](docs/UIDataApi.md#uidatasetusersourcedata) | **Put** /api/v1/user/{userUID}/org/{orgUID}/source/{sourceUID}/uidata/{dataKey} | Set UserSource UI Data
-*UserApi* | [**UserCurrent**](docs/UserApi.md#usercurrent) | **Get** /api/v1/app/user/current | Returns the current user
-*UserApi* | [**UserLoad**](docs/UserApi.md#userload) | **Get** /api/v1/user/{userUID} | Load a user by ID
+*SourceDataApi* | [**SrcSendData**](docs/SourceDataApi.md#srcsenddata) | **Post** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
 
 
 ## Documentation For Models
 
- - [APIKey](docs/APIKey.md)
  - [Agent](docs/Agent.md)
  - [AgentRegistration](docs/AgentRegistration.md)
  - [AgentRegistrationCreateInput](docs/AgentRegistrationCreateInput.md)
@@ -171,8 +144,6 @@ Class | Method | HTTP request | Description
  - [ApiAgentRegistrationDownloadLinkHandlerOutput](docs/ApiAgentRegistrationDownloadLinkHandlerOutput.md)
  - [ApiAgentWorkOutput](docs/ApiAgentWorkOutput.md)
  - [ApiInvestigationCreateOutput](docs/ApiInvestigationCreateOutput.md)
- - [ApiKeyCreateInput](docs/ApiKeyCreateInput.md)
- - [ApiKeyUpdateInput](docs/ApiKeyUpdateInput.md)
  - [ApiRBACActions](docs/ApiRBACActions.md)
  - [ApiSOARListHandlerOutput](docs/ApiSOARListHandlerOutput.md)
  - [ApiSourceCreateHandlerOutput](docs/ApiSourceCreateHandlerOutput.md)
@@ -185,6 +156,7 @@ Class | Method | HTTP request | Description
  - [DaoOrgRoles](docs/DaoOrgRoles.md)
  - [DaoOrgType](docs/DaoOrgType.md)
  - [DaoOrgTypePolicy](docs/DaoOrgTypePolicy.md)
+ - [DaoOrgUser](docs/DaoOrgUser.md)
  - [DaoPlan](docs/DaoPlan.md)
  - [DaoPolicy](docs/DaoPolicy.md)
  - [DaoSignupPolicy](docs/DaoSignupPolicy.md)
@@ -221,13 +193,6 @@ Class | Method | HTTP request | Description
  - [SrcCreateInput](docs/SrcCreateInput.md)
  - [SrcDataQueryInput](docs/SrcDataQueryInput.md)
  - [SrcUpdateInput](docs/SrcUpdateInput.md)
- - [UIData](docs/UIData.md)
- - [UiDataSetOrgDataInput](docs/UiDataSetOrgDataInput.md)
- - [UiDataSetSourceDataInput](docs/UiDataSetSourceDataInput.md)
- - [UiDataSetUserDataInput](docs/UiDataSetUserDataInput.md)
- - [UiDataSetUserOrgDataInput](docs/UiDataSetUserOrgDataInput.md)
- - [UiDataSetUserSourceDataInput](docs/UiDataSetUserSourceDataInput.md)
- - [User](docs/User.md)
  - [ValidationError](docs/ValidationError.md)
 
 
