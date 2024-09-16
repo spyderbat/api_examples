@@ -615,7 +615,7 @@ import (
 
 func main() {
     orgUID := "orgUID_example" // string | Org UID
-    orgUpdateInput := *openapiclient.NewOrgUpdateInput("Name_example") // OrgUpdateInput |  (optional)
+    orgUpdateInput := *openapiclient.NewOrgUpdateInput("Name_example", "OwnerEmail_example") // OrgUpdateInput |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
@@ -685,7 +685,7 @@ import (
 
 func main() {
     orgUID := "orgUID_example" // string | 
-    notificationPolicy := *openapiclient.NewNotificationPolicy() // NotificationPolicy | The notification policy
+    notificationPolicy := *openapiclient.NewNotificationPolicy([]openapiclient.NotificationPolicyRoutesInner{*openapiclient.NewNotificationPolicyRoutesInner()}, map[string]NotificationPolicyDestination{"key": *openapiclient.NewNotificationPolicyDestination()}) // NotificationPolicy | The notification policy
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)

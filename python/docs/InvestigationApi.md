@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 
 # **investigation_create**
-> ApiInvestigationCreateOutput investigation_create(investigation_uid, org_uid)
+> ApiInvestigationCreateOutput investigation_create(org_uid)
 
 Create an investigation
 
@@ -52,7 +52,6 @@ configuration = spyderbat_api.Configuration(
 with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = investigation_api.InvestigationApi(api_client)
-    investigation_uid = "investigationUID_example" # str | Investigation UID
     org_uid = "orgUID_example" # str | Investigation OrgUID
     investigation_create_input = InvestigationCreateInput(
         created_by="created_by_example",
@@ -91,7 +90,7 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create an investigation
-        api_response = api_instance.investigation_create(investigation_uid, org_uid)
+        api_response = api_instance.investigation_create(org_uid)
         pprint(api_response)
     except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_create: %s\n" % e)
@@ -100,7 +99,7 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create an investigation
-        api_response = api_instance.investigation_create(investigation_uid, org_uid, investigation_create_input=investigation_create_input)
+        api_response = api_instance.investigation_create(org_uid, investigation_create_input=investigation_create_input)
         pprint(api_response)
     except spyderbat_api.ApiException as e:
         print("Exception when calling InvestigationApi->investigation_create: %s\n" % e)
@@ -111,7 +110,6 @@ with spyderbat_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **investigation_uid** | **str**| Investigation UID |
  **org_uid** | **str**| Investigation OrgUID |
  **investigation_create_input** | [**InvestigationCreateInput**](InvestigationCreateInput.md)|  | [optional]
 

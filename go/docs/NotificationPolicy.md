@@ -4,14 +4,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Routes** | Pointer to [**[]NotificationPolicyRoutesInner**](NotificationPolicyRoutesInner.md) |  | [optional] 
-**Targets** | Pointer to [**map[string]NotificationPolicyDestination**](NotificationPolicyDestination.md) |  | [optional] 
+**Routes** | [**[]NotificationPolicyRoutesInner**](NotificationPolicyRoutesInner.md) |  | 
+**Targets** | [**map[string]NotificationPolicyDestination**](NotificationPolicyDestination.md) |  | 
 
 ## Methods
 
 ### NewNotificationPolicy
 
-`func NewNotificationPolicy() *NotificationPolicy`
+`func NewNotificationPolicy(routes []NotificationPolicyRoutesInner, targets map[string]NotificationPolicyDestination, ) *NotificationPolicy`
 
 NewNotificationPolicy instantiates a new NotificationPolicy object
 This constructor will assign default values to properties that have it defined,
@@ -45,11 +45,6 @@ and a boolean to check if the value has been set.
 
 SetRoutes sets Routes field to given value.
 
-### HasRoutes
-
-`func (o *NotificationPolicy) HasRoutes() bool`
-
-HasRoutes returns a boolean if a field has been set.
 
 ### GetTargets
 
@@ -70,11 +65,6 @@ and a boolean to check if the value has been set.
 
 SetTargets sets Targets field to given value.
 
-### HasTargets
-
-`func (o *NotificationPolicy) HasTargets() bool`
-
-HasTargets returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

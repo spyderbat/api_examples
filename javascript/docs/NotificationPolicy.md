@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**routes** | [**[NotificationPolicyRoutesInner]**](NotificationPolicyRoutesInner.md) |  | [optional] 
-**targets** | [**{String: NotificationPolicyDestination}**](NotificationPolicyDestination.md) |  | [optional] 
+**routes** | [**[NotificationPolicyRoutesInner]**](NotificationPolicyRoutesInner.md) |  | 
+**targets** | [**{String: NotificationPolicyDestination}**](NotificationPolicyDestination.md) |  | 
 
 

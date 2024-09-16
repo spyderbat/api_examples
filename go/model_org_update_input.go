@@ -18,12 +18,16 @@ import (
 
 // OrgUpdateInput struct for OrgUpdateInput
 type OrgUpdateInput struct {
+	// Total number of active sources within the last 5 minutes
+	ActiveSources *int32 `json:"active_sources,omitempty"`
+	// Total number of active users within the last 7 days (which might be active on a different org)
+	ActiveUsers *int32 `json:"active_users,omitempty"`
 	// Name of the organization
 	Name string `json:"name"`
 	// Organization Type
 	OrgTypeUid *string `json:"org_type_uid,omitempty"`
 	// The email address of the user who owns this org
-	OwnerEmail *string `json:"owner_email,omitempty"`
+	OwnerEmail string `json:"owner_email"`
 	// The user UID who owns this organization
 	OwnerUid *string `json:"owner_uid,omitempty"`
 	// Resource name utilized by RBAC
@@ -31,6 +35,10 @@ type OrgUpdateInput struct {
 	ResourcePolicy *ResourcePolicy `json:"resource_policy,omitempty"`
 	// User supplied tags
 	Tags []string `json:"tags,omitempty"`
+	// Total number of sources
+	TotalSources *int32 `json:"total_sources,omitempty"`
+	// Total number of users
+	TotalUsers *int32 `json:"total_users,omitempty"`
 	// Valid from date, the first date this object was valid
 	ValidFrom *time.Time `json:"valid_from,omitempty"`
 	// Valid to date, the date this object is valid to
@@ -41,9 +49,10 @@ type OrgUpdateInput struct {
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewOrgUpdateInput(name string) *OrgUpdateInput {
+func NewOrgUpdateInput(name string, ownerEmail string) *OrgUpdateInput {
 	this := OrgUpdateInput{}
 	this.Name = name
+	this.OwnerEmail = ownerEmail
 	return &this
 }
 
@@ -53,6 +62,70 @@ func NewOrgUpdateInput(name string) *OrgUpdateInput {
 func NewOrgUpdateInputWithDefaults() *OrgUpdateInput {
 	this := OrgUpdateInput{}
 	return &this
+}
+
+// GetActiveSources returns the ActiveSources field value if set, zero value otherwise.
+func (o *OrgUpdateInput) GetActiveSources() int32 {
+	if o == nil || o.ActiveSources == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ActiveSources
+}
+
+// GetActiveSourcesOk returns a tuple with the ActiveSources field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrgUpdateInput) GetActiveSourcesOk() (*int32, bool) {
+	if o == nil || o.ActiveSources == nil {
+		return nil, false
+	}
+	return o.ActiveSources, true
+}
+
+// HasActiveSources returns a boolean if a field has been set.
+func (o *OrgUpdateInput) HasActiveSources() bool {
+	if o != nil && o.ActiveSources != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveSources gets a reference to the given int32 and assigns it to the ActiveSources field.
+func (o *OrgUpdateInput) SetActiveSources(v int32) {
+	o.ActiveSources = &v
+}
+
+// GetActiveUsers returns the ActiveUsers field value if set, zero value otherwise.
+func (o *OrgUpdateInput) GetActiveUsers() int32 {
+	if o == nil || o.ActiveUsers == nil {
+		var ret int32
+		return ret
+	}
+	return *o.ActiveUsers
+}
+
+// GetActiveUsersOk returns a tuple with the ActiveUsers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrgUpdateInput) GetActiveUsersOk() (*int32, bool) {
+	if o == nil || o.ActiveUsers == nil {
+		return nil, false
+	}
+	return o.ActiveUsers, true
+}
+
+// HasActiveUsers returns a boolean if a field has been set.
+func (o *OrgUpdateInput) HasActiveUsers() bool {
+	if o != nil && o.ActiveUsers != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetActiveUsers gets a reference to the given int32 and assigns it to the ActiveUsers field.
+func (o *OrgUpdateInput) SetActiveUsers(v int32) {
+	o.ActiveUsers = &v
 }
 
 // GetName returns the Name field value
@@ -111,36 +184,28 @@ func (o *OrgUpdateInput) SetOrgTypeUid(v string) {
 	o.OrgTypeUid = &v
 }
 
-// GetOwnerEmail returns the OwnerEmail field value if set, zero value otherwise.
+// GetOwnerEmail returns the OwnerEmail field value
 func (o *OrgUpdateInput) GetOwnerEmail() string {
-	if o == nil || o.OwnerEmail == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.OwnerEmail
+
+	return o.OwnerEmail
 }
 
-// GetOwnerEmailOk returns a tuple with the OwnerEmail field value if set, nil otherwise
+// GetOwnerEmailOk returns a tuple with the OwnerEmail field value
 // and a boolean to check if the value has been set.
 func (o *OrgUpdateInput) GetOwnerEmailOk() (*string, bool) {
-	if o == nil || o.OwnerEmail == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.OwnerEmail, true
+	return &o.OwnerEmail, true
 }
 
-// HasOwnerEmail returns a boolean if a field has been set.
-func (o *OrgUpdateInput) HasOwnerEmail() bool {
-	if o != nil && o.OwnerEmail != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetOwnerEmail gets a reference to the given string and assigns it to the OwnerEmail field.
+// SetOwnerEmail sets field value
 func (o *OrgUpdateInput) SetOwnerEmail(v string) {
-	o.OwnerEmail = &v
+	o.OwnerEmail = v
 }
 
 // GetOwnerUid returns the OwnerUid field value if set, zero value otherwise.
@@ -271,6 +336,70 @@ func (o *OrgUpdateInput) SetTags(v []string) {
 	o.Tags = v
 }
 
+// GetTotalSources returns the TotalSources field value if set, zero value otherwise.
+func (o *OrgUpdateInput) GetTotalSources() int32 {
+	if o == nil || o.TotalSources == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TotalSources
+}
+
+// GetTotalSourcesOk returns a tuple with the TotalSources field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrgUpdateInput) GetTotalSourcesOk() (*int32, bool) {
+	if o == nil || o.TotalSources == nil {
+		return nil, false
+	}
+	return o.TotalSources, true
+}
+
+// HasTotalSources returns a boolean if a field has been set.
+func (o *OrgUpdateInput) HasTotalSources() bool {
+	if o != nil && o.TotalSources != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalSources gets a reference to the given int32 and assigns it to the TotalSources field.
+func (o *OrgUpdateInput) SetTotalSources(v int32) {
+	o.TotalSources = &v
+}
+
+// GetTotalUsers returns the TotalUsers field value if set, zero value otherwise.
+func (o *OrgUpdateInput) GetTotalUsers() int32 {
+	if o == nil || o.TotalUsers == nil {
+		var ret int32
+		return ret
+	}
+	return *o.TotalUsers
+}
+
+// GetTotalUsersOk returns a tuple with the TotalUsers field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *OrgUpdateInput) GetTotalUsersOk() (*int32, bool) {
+	if o == nil || o.TotalUsers == nil {
+		return nil, false
+	}
+	return o.TotalUsers, true
+}
+
+// HasTotalUsers returns a boolean if a field has been set.
+func (o *OrgUpdateInput) HasTotalUsers() bool {
+	if o != nil && o.TotalUsers != nil {
+		return true
+	}
+
+	return false
+}
+
+// SetTotalUsers gets a reference to the given int32 and assigns it to the TotalUsers field.
+func (o *OrgUpdateInput) SetTotalUsers(v int32) {
+	o.TotalUsers = &v
+}
+
 // GetValidFrom returns the ValidFrom field value if set, zero value otherwise.
 func (o *OrgUpdateInput) GetValidFrom() time.Time {
 	if o == nil || o.ValidFrom == nil {
@@ -337,13 +466,19 @@ func (o *OrgUpdateInput) SetValidTo(v time.Time) {
 
 func (o OrgUpdateInput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
+	if o.ActiveSources != nil {
+		toSerialize["active_sources"] = o.ActiveSources
+	}
+	if o.ActiveUsers != nil {
+		toSerialize["active_users"] = o.ActiveUsers
+	}
 	if true {
 		toSerialize["name"] = o.Name
 	}
 	if o.OrgTypeUid != nil {
 		toSerialize["org_type_uid"] = o.OrgTypeUid
 	}
-	if o.OwnerEmail != nil {
+	if true {
 		toSerialize["owner_email"] = o.OwnerEmail
 	}
 	if o.OwnerUid != nil {
@@ -357,6 +492,12 @@ func (o OrgUpdateInput) MarshalJSON() ([]byte, error) {
 	}
 	if o.Tags != nil {
 		toSerialize["tags"] = o.Tags
+	}
+	if o.TotalSources != nil {
+		toSerialize["total_sources"] = o.TotalSources
+	}
+	if o.TotalUsers != nil {
+		toSerialize["total_users"] = o.TotalUsers
 	}
 	if o.ValidFrom != nil {
 		toSerialize["valid_from"] = o.ValidFrom

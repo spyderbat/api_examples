@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**** | **Date** | Time last notification window was completed | [optional] 
 **data** | **{String: Object}** | UI supplied JSON object | [optional] 
 **description** | **String** | Description of query (max 64 chars) | [optional] 
 **notify** | **Boolean** | Are notifications generated from this search | [optional] 

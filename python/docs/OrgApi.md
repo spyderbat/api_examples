@@ -764,6 +764,8 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     api_instance = org_api.OrgApi(api_client)
     org_uid = "orgUID_example" # str | Org UID
     org_update_input = OrgUpdateInput(
+        active_sources=1,
+        active_users=1,
         name="name_example",
         org_type_uid="org_type_uid_example",
         owner_email="owner_email_example",
@@ -789,6 +791,8 @@ with spyderbat_api.ApiClient(configuration) as api_client:
         tags=[
             "tags_example",
         ],
+        total_sources=1,
+        total_users=1,
         valid_from=dateutil_parser('1970-01-01T00:00:00.00Z'),
         valid_to=dateutil_parser('1970-01-01T00:00:00.00Z'),
     ) # OrgUpdateInput |  (optional)

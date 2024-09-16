@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**src_data_query**](SourceDataApi.md#src_data_query) | **POST** /api/v1/source/query/ | Query source data
 [**src_data_query_v2**](SourceDataApi.md#src_data_query_v2) | **GET** /api/v1/org/{orgUID}/data/ | Query source data
-[**src_send_data**](SourceDataApi.md#src_send_data) | **POST** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;
+[**src_send_data**](SourceDataApi.md#src_send_data) | **POST** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
 
 
 # **src_data_query**
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 Query source data
 
- Allows querying of the source data, data is stored as 'records' which are returned as json objects, in nd-json (see ndjson.org) format.   * Data is returned as it is matched, and no ordering guarentees exist.  * The call completes after it has finished searching for matching records.  * The query expression is limited to seaching a 24 hour period of time, it is the callers responsibility to construct an appropriate 24 hour range. * Documentation for the returned spydergraph datatype can be found at https://app.spyderbat.com/schema/spydergraph/index.html  * The user must have both the *org.ListSourceData* action on the org and *source_data.Query* action on the source  
+ Allows querying of the source data, data is stored as 'records' which are returned as json objects, in nd-json (see ndjson.org) format.   * Data is returned as it is matched, and no ordering guarentees exist.  * The call completes after it has finished searching for matching records.  * The query expression is limited to seaching a 24 hour period of time, it is the callers responsibility to construct an appropriate 24 hour range. * Documentation for the returned spydergraph datatype can be found at https://app.spyderbat.com/schema/spydergraph/index.html  * The user must have both the *org.ListSourceData* action on the org and *source_data.Query* action on the source * To get a count of results (up to 10K) but no data, use querySize: 0  
 
 ### Example
 
@@ -267,9 +267,9 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **src_send_data**
-> src_send_data(data_type, org_uid, source_uid)
+> src_send_data(data_type, org_uid, source_uid, encoding, file)
 
-Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'
+Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
 
 Sends data to a source
 
@@ -306,11 +306,13 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     data_type = "dataType_example" # str | 
     org_uid = "orgUID_example" # str | 
     source_uid = "sourceUID_example" # str | 
+    encoding = "encoding_example" # str | must be gzip
+    file = open('/path/to/file', 'rb') # file_type | The file to upload. The file must be a valid gzip-ed JSON file.
 
     # example passing only required values which don't have defaults set
     try:
-        # Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'
-        api_instance.src_send_data(data_type, org_uid, source_uid)
+        # Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
+        api_instance.src_send_data(data_type, org_uid, source_uid, encoding, file)
     except spyderbat_api.ApiException as e:
         print("Exception when calling SourceDataApi->src_send_data: %s\n" % e)
 ```
@@ -323,6 +325,8 @@ Name | Type | Description  | Notes
  **data_type** | **str**|  |
  **org_uid** | **str**|  |
  **source_uid** | **str**|  |
+ **encoding** | **str**| must be gzip |
+ **file** | **file_type**| The file to upload. The file must be a valid gzip-ed JSON file. |
 
 ### Return type
 
@@ -334,7 +338,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: multipart/form-data
  - **Accept**: application/json
 
 

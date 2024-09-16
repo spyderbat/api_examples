@@ -19,6 +19,7 @@ import (
 	"net/url"
 	"strings"
 	"reflect"
+	"os"
 )
 
 
@@ -52,6 +53,7 @@ Allows querying of the source data, data is stored as 'records' which are return
 * Documentation for the returned spydergraph datatype can be found at https://app.spyderbat.com/schema/spydergraph/index.html
 
 * The user must have both the *org.ListSourceData* action on the org and *source_data.Query* action on the source
+* To get a count of results (up to 10K) but no data, use querySize: 0
 
 
 
@@ -404,6 +406,20 @@ type ApiSrcSendDataRequest struct {
 	dataType string
 	orgUID string
 	sourceUID string
+	encoding *string
+	file **os.File
+}
+
+// must be gzip
+func (r ApiSrcSendDataRequest) Encoding(encoding string) ApiSrcSendDataRequest {
+	r.encoding = &encoding
+	return r
+}
+
+// The file to upload. The file must be a valid gzip-ed JSON file.
+func (r ApiSrcSendDataRequest) File(file *os.File) ApiSrcSendDataRequest {
+	r.file = &file
+	return r
 }
 
 func (r ApiSrcSendDataRequest) Execute() (*http.Response, error) {
@@ -411,7 +427,7 @@ func (r ApiSrcSendDataRequest) Execute() (*http.Response, error) {
 }
 
 /*
-SrcSendData Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'
+SrcSendData Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
 
 Sends data to a source
 
@@ -461,9 +477,15 @@ func (a *SourceDataApiService) SrcSendDataExecute(r ApiSrcSendDataRequest) (*htt
 	if strlen(r.sourceUID) > 64 {
 		return nil, reportError("sourceUID must have less than 64 elements")
 	}
+	if r.encoding == nil {
+		return nil, reportError("encoding is required and must be specified")
+	}
+	if r.file == nil {
+		return nil, reportError("file is required and must be specified")
+	}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"multipart/form-data"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -479,6 +501,21 @@ func (a *SourceDataApiService) SrcSendDataExecute(r ApiSrcSendDataRequest) (*htt
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	localVarFormParams.Add("encoding", parameterToString(*r.encoding, ""))
+	var fileLocalVarFormFileName string
+	var fileLocalVarFileName     string
+	var fileLocalVarFileBytes    []byte
+
+	fileLocalVarFormFileName = "file"
+
+	fileLocalVarFile := *r.file
+	if fileLocalVarFile != nil {
+		fbs, _ := ioutil.ReadAll(fileLocalVarFile)
+		fileLocalVarFileBytes = fbs
+		fileLocalVarFileName = fileLocalVarFile.Name()
+		fileLocalVarFile.Close()
+	}
+	formFiles = append(formFiles, formFile{fileBytes: fileLocalVarFileBytes, fileName: fileLocalVarFileName, formFileName: fileLocalVarFormFileName})
 	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
 	if err != nil {
 		return nil, err

@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **agent_registration_create**
-> ApiAgentCreateHandlerOutput agent_registration_create(org_uid, uid)
+> ApiAgentCreateHandlerOutput agent_registration_create(org_uid)
 
 Create an agent registration
 
@@ -52,9 +52,7 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_registration_api.AgentRegistrationApi(api_client)
     org_uid = "orgUID_example" # str | The OrgUID the registration is associated with
-    uid = "uid_example" # str | Agent Registration UID
     agent_registration_create_input = AgentRegistrationCreateInput(
-        ="_example",
         config=DaoAgentConfig(
             classes=[
                 DaoAgentClass(
@@ -82,7 +80,7 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Create an agent registration
-        api_response = api_instance.agent_registration_create(org_uid, uid)
+        api_response = api_instance.agent_registration_create(org_uid)
         pprint(api_response)
     except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_create: %s\n" % e)
@@ -91,7 +89,7 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Create an agent registration
-        api_response = api_instance.agent_registration_create(org_uid, uid, agent_registration_create_input=agent_registration_create_input)
+        api_response = api_instance.agent_registration_create(org_uid, agent_registration_create_input=agent_registration_create_input)
         pprint(api_response)
     except spyderbat_api.ApiException as e:
         print("Exception when calling AgentRegistrationApi->agent_registration_create: %s\n" % e)
@@ -103,7 +101,6 @@ with spyderbat_api.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **org_uid** | **str**| The OrgUID the registration is associated with |
- **uid** | **str**| Agent Registration UID |
  **agent_registration_create_input** | [**AgentRegistrationCreateInput**](AgentRegistrationCreateInput.md)|  | [optional]
 
 ### Return type
@@ -520,7 +517,6 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     org_uid = "orgUID_example" # str | The OrgUID the registration is associated with
     uid = "uid_example" # str | Agent Registration UID
     agent_registration_update_input = AgentRegistrationUpdateInput(
-        ="_example",
         config=DaoAgentConfig(
             classes=[
                 DaoAgentClass(

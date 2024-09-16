@@ -92,7 +92,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **agent_delete_org_work**
-> agent_delete_org_work(agent_uid, org_uid)
+> agent_delete_org_work(org_uid)
 
 Delete agent work for an org
 
@@ -128,13 +128,12 @@ configuration = spyderbat_api.Configuration(
 with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_work_api.AgentWorkApi(api_client)
-    agent_uid = "agentUID_example" # str | Agent UID
     org_uid = "orgUID_example" # str | 
 
     # example passing only required values which don't have defaults set
     try:
         # Delete agent work for an org
-        api_instance.agent_delete_org_work(agent_uid, org_uid)
+        api_instance.agent_delete_org_work(org_uid)
     except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_delete_org_work: %s\n" % e)
 ```
@@ -144,7 +143,6 @@ with spyderbat_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_uid** | **str**| Agent UID |
  **org_uid** | **str**|  |
 
 ### Return type
@@ -252,7 +250,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **agent_get_org_work**
-> ApiAgentWorkOutput agent_get_org_work(agent_uid, org_uid)
+> ApiAgentWorkOutput agent_get_org_work(org_uid)
 
 Get agent work data for the organization
 
@@ -289,13 +287,12 @@ configuration = spyderbat_api.Configuration(
 with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_work_api.AgentWorkApi(api_client)
-    agent_uid = "agentUID_example" # str | Agent UID
     org_uid = "orgUID_example" # str | 
 
     # example passing only required values which don't have defaults set
     try:
         # Get agent work data for the organization
-        api_response = api_instance.agent_get_org_work(agent_uid, org_uid)
+        api_response = api_instance.agent_get_org_work(org_uid)
         pprint(api_response)
     except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_get_org_work: %s\n" % e)
@@ -306,7 +303,6 @@ with spyderbat_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_uid** | **str**| Agent UID |
  **org_uid** | **str**|  |
 
 ### Return type
@@ -446,7 +442,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **agent_set_org_work**
-> agent_set_org_work(agent_uid, org_uid)
+> agent_set_org_work(org_uid)
 
 Set agent work data for a specific agent
 
@@ -483,7 +479,6 @@ configuration = spyderbat_api.Configuration(
 with spyderbat_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agent_work_api.AgentWorkApi(api_client)
-    agent_uid = "agentUID_example" # str | Agent UID
     org_uid = "orgUID_example" # str | 
     agent_set_org_work_input = AgentSetOrgWorkInput(
         tags=[
@@ -513,7 +508,7 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     # example passing only required values which don't have defaults set
     try:
         # Set agent work data for a specific agent
-        api_instance.agent_set_org_work(agent_uid, org_uid)
+        api_instance.agent_set_org_work(org_uid)
     except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_set_org_work: %s\n" % e)
 
@@ -521,7 +516,7 @@ with spyderbat_api.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Set agent work data for a specific agent
-        api_instance.agent_set_org_work(agent_uid, org_uid, agent_set_org_work_input=agent_set_org_work_input)
+        api_instance.agent_set_org_work(org_uid, agent_set_org_work_input=agent_set_org_work_input)
     except spyderbat_api.ApiException as e:
         print("Exception when calling AgentWorkApi->agent_set_org_work: %s\n" % e)
 ```
@@ -531,7 +526,6 @@ with spyderbat_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_uid** | **str**| Agent UID |
  **org_uid** | **str**|  |
  **agent_set_org_work_input** | [**AgentSetOrgWorkInput**](AgentSetOrgWorkInput.md)|  | [optional]
 

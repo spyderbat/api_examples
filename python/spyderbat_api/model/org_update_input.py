@@ -67,6 +67,9 @@ class OrgUpdateInput(ModelNormal):
             'max_length': 64,
             'min_length': 3,
         },
+        ('org_type_uid',): {
+            'max_length': 64,
+        },
         ('owner_uid',): {
             'max_length': 64,
         },
@@ -99,12 +102,16 @@ class OrgUpdateInput(ModelNormal):
         lazy_import()
         return {
             'name': (str,),  # noqa: E501
-            'org_type_uid': (str,),  # noqa: E501
             'owner_email': (str,),  # noqa: E501
+            'active_sources': (int,),  # noqa: E501
+            'active_users': (int,),  # noqa: E501
+            'org_type_uid': (str,),  # noqa: E501
             'owner_uid': (str,),  # noqa: E501
             'resource_name': (str,),  # noqa: E501
             'resource_policy': (ResourcePolicy,),  # noqa: E501
             'tags': ([str],),  # noqa: E501
+            'total_sources': (int,),  # noqa: E501
+            'total_users': (int,),  # noqa: E501
             'valid_from': (datetime,),  # noqa: E501
             'valid_to': (datetime,),  # noqa: E501
         }
@@ -116,12 +123,16 @@ class OrgUpdateInput(ModelNormal):
 
     attribute_map = {
         'name': 'name',  # noqa: E501
-        'org_type_uid': 'org_type_uid',  # noqa: E501
         'owner_email': 'owner_email',  # noqa: E501
+        'active_sources': 'active_sources',  # noqa: E501
+        'active_users': 'active_users',  # noqa: E501
+        'org_type_uid': 'org_type_uid',  # noqa: E501
         'owner_uid': 'owner_uid',  # noqa: E501
         'resource_name': 'resource_name',  # noqa: E501
         'resource_policy': 'resource_policy',  # noqa: E501
         'tags': 'tags',  # noqa: E501
+        'total_sources': 'total_sources',  # noqa: E501
+        'total_users': 'total_users',  # noqa: E501
         'valid_from': 'valid_from',  # noqa: E501
         'valid_to': 'valid_to',  # noqa: E501
     }
@@ -133,11 +144,12 @@ class OrgUpdateInput(ModelNormal):
 
     @classmethod
     @convert_js_args_to_python_args
-    def _from_openapi_data(cls, name, *args, **kwargs):  # noqa: E501
+    def _from_openapi_data(cls, name, owner_email, *args, **kwargs):  # noqa: E501
         """OrgUpdateInput - a model defined in OpenAPI
 
         Args:
             name (str): Name of the organization
+            owner_email (str): The email address of the user who owns this org
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -170,12 +182,15 @@ class OrgUpdateInput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            active_sources (int): Total number of active sources within the last 5 minutes. [optional]  # noqa: E501
+            active_users (int): Total number of active users within the last 7 days (which might be active on a different org). [optional]  # noqa: E501
             org_type_uid (str): Organization Type. [optional]  # noqa: E501
-            owner_email (str): The email address of the user who owns this org. [optional]  # noqa: E501
             owner_uid (str): The user UID who owns this organization. [optional]  # noqa: E501
             resource_name (str): Resource name utilized by RBAC. [optional]  # noqa: E501
             resource_policy (ResourcePolicy): [optional]  # noqa: E501
             tags ([str]): User supplied tags. [optional]  # noqa: E501
+            total_sources (int): Total number of sources. [optional]  # noqa: E501
+            total_users (int): Total number of users. [optional]  # noqa: E501
             valid_from (datetime): Valid from date, the first date this object was valid. [optional]  # noqa: E501
             valid_to (datetime): Valid to date, the date this object is valid to. [optional]  # noqa: E501
         """
@@ -210,6 +225,7 @@ class OrgUpdateInput(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.owner_email = owner_email
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \
@@ -230,11 +246,12 @@ class OrgUpdateInput(ModelNormal):
     ])
 
     @convert_js_args_to_python_args
-    def __init__(self, name, *args, **kwargs):  # noqa: E501
+    def __init__(self, name, owner_email, *args, **kwargs):  # noqa: E501
         """OrgUpdateInput - a model defined in OpenAPI
 
         Args:
             name (str): Name of the organization
+            owner_email (str): The email address of the user who owns this org
 
         Keyword Args:
             _check_type (bool): if True, values for parameters in openapi_types
@@ -267,12 +284,15 @@ class OrgUpdateInput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
+            active_sources (int): Total number of active sources within the last 5 minutes. [optional]  # noqa: E501
+            active_users (int): Total number of active users within the last 7 days (which might be active on a different org). [optional]  # noqa: E501
             org_type_uid (str): Organization Type. [optional]  # noqa: E501
-            owner_email (str): The email address of the user who owns this org. [optional]  # noqa: E501
             owner_uid (str): The user UID who owns this organization. [optional]  # noqa: E501
             resource_name (str): Resource name utilized by RBAC. [optional]  # noqa: E501
             resource_policy (ResourcePolicy): [optional]  # noqa: E501
             tags ([str]): User supplied tags. [optional]  # noqa: E501
+            total_sources (int): Total number of sources. [optional]  # noqa: E501
+            total_users (int): Total number of users. [optional]  # noqa: E501
             valid_from (datetime): Valid from date, the first date this object was valid. [optional]  # noqa: E501
             valid_to (datetime): Valid to date, the date this object is valid to. [optional]  # noqa: E501
         """
@@ -305,6 +325,7 @@ class OrgUpdateInput(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         self.name = name
+        self.owner_email = owner_email
         for var_name, var_value in kwargs.items():
             if var_name not in self.attribute_map and \
                         self._configuration is not None and \

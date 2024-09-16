@@ -4,13 +4,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**ActiveSources** | Pointer to **int32** | Total number of active sources within the last 5 minutes | [optional] 
+**ActiveUsers** | Pointer to **int32** | Total number of active users within the last 7 days (which might be active on a different org) | [optional] 
 **Name** | **string** | Name of the organization | 
 **OrgTypeUid** | Pointer to **string** | Organization Type | [optional] 
-**OwnerEmail** | Pointer to **string** | The email address of the user who owns this org | [optional] 
+**OwnerEmail** | **string** | The email address of the user who owns this org | 
 **OwnerUid** | Pointer to **string** | The user UID who owns this organization | [optional] 
 **ResourceName** | Pointer to **string** | Resource name utilized by RBAC | [optional] 
 **ResourcePolicy** | Pointer to [**ResourcePolicy**](ResourcePolicy.md) |  | [optional] 
 **Tags** | Pointer to **[]string** | User supplied tags | [optional] 
+**TotalSources** | Pointer to **int32** | Total number of sources | [optional] 
+**TotalUsers** | Pointer to **int32** | Total number of users | [optional] 
 **ValidFrom** | Pointer to **time.Time** | Valid from date, the first date this object was valid | [optional] 
 **ValidTo** | Pointer to **time.Time** | Valid to date, the date this object is valid to | [optional] 
 
@@ -18,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewOrgUpdateInput
 
-`func NewOrgUpdateInput(name string, ) *OrgUpdateInput`
+`func NewOrgUpdateInput(name string, ownerEmail string, ) *OrgUpdateInput`
 
 NewOrgUpdateInput instantiates a new OrgUpdateInput object
 This constructor will assign default values to properties that have it defined,
@@ -32,6 +36,56 @@ will change when the set of required properties is changed
 NewOrgUpdateInputWithDefaults instantiates a new OrgUpdateInput object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
+
+### GetActiveSources
+
+`func (o *OrgUpdateInput) GetActiveSources() int32`
+
+GetActiveSources returns the ActiveSources field if non-nil, zero value otherwise.
+
+### GetActiveSourcesOk
+
+`func (o *OrgUpdateInput) GetActiveSourcesOk() (*int32, bool)`
+
+GetActiveSourcesOk returns a tuple with the ActiveSources field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActiveSources
+
+`func (o *OrgUpdateInput) SetActiveSources(v int32)`
+
+SetActiveSources sets ActiveSources field to given value.
+
+### HasActiveSources
+
+`func (o *OrgUpdateInput) HasActiveSources() bool`
+
+HasActiveSources returns a boolean if a field has been set.
+
+### GetActiveUsers
+
+`func (o *OrgUpdateInput) GetActiveUsers() int32`
+
+GetActiveUsers returns the ActiveUsers field if non-nil, zero value otherwise.
+
+### GetActiveUsersOk
+
+`func (o *OrgUpdateInput) GetActiveUsersOk() (*int32, bool)`
+
+GetActiveUsersOk returns a tuple with the ActiveUsers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetActiveUsers
+
+`func (o *OrgUpdateInput) SetActiveUsers(v int32)`
+
+SetActiveUsers sets ActiveUsers field to given value.
+
+### HasActiveUsers
+
+`func (o *OrgUpdateInput) HasActiveUsers() bool`
+
+HasActiveUsers returns a boolean if a field has been set.
 
 ### GetName
 
@@ -97,11 +151,6 @@ and a boolean to check if the value has been set.
 
 SetOwnerEmail sets OwnerEmail field to given value.
 
-### HasOwnerEmail
-
-`func (o *OrgUpdateInput) HasOwnerEmail() bool`
-
-HasOwnerEmail returns a boolean if a field has been set.
 
 ### GetOwnerUid
 
@@ -202,6 +251,56 @@ SetTags sets Tags field to given value.
 `func (o *OrgUpdateInput) HasTags() bool`
 
 HasTags returns a boolean if a field has been set.
+
+### GetTotalSources
+
+`func (o *OrgUpdateInput) GetTotalSources() int32`
+
+GetTotalSources returns the TotalSources field if non-nil, zero value otherwise.
+
+### GetTotalSourcesOk
+
+`func (o *OrgUpdateInput) GetTotalSourcesOk() (*int32, bool)`
+
+GetTotalSourcesOk returns a tuple with the TotalSources field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalSources
+
+`func (o *OrgUpdateInput) SetTotalSources(v int32)`
+
+SetTotalSources sets TotalSources field to given value.
+
+### HasTotalSources
+
+`func (o *OrgUpdateInput) HasTotalSources() bool`
+
+HasTotalSources returns a boolean if a field has been set.
+
+### GetTotalUsers
+
+`func (o *OrgUpdateInput) GetTotalUsers() int32`
+
+GetTotalUsers returns the TotalUsers field if non-nil, zero value otherwise.
+
+### GetTotalUsersOk
+
+`func (o *OrgUpdateInput) GetTotalUsersOk() (*int32, bool)`
+
+GetTotalUsersOk returns a tuple with the TotalUsers field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTotalUsers
+
+`func (o *OrgUpdateInput) SetTotalUsers(v int32)`
+
+SetTotalUsers sets TotalUsers field to given value.
+
+### HasTotalUsers
+
+`func (o *OrgUpdateInput) HasTotalUsers() bool`
+
+HasTotalUsers returns a boolean if a field has been set.
 
 ### GetValidFrom
 

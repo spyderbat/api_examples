@@ -96,23 +96,17 @@ export default class AgentWorkApi {
     /**
      * Delete agent work for an org
      *  Delete the work data for all agents for an organization.   * Requires *agent_data:Delete*  
-     * @param {String} agentUID Agent UID
      * @param {String} orgUID 
      * @param {module:api/AgentWorkApi~agentDeleteOrgWorkCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    agentDeleteOrgWork(agentUID, orgUID, callback) {
+    agentDeleteOrgWork(orgUID, callback) {
       let postBody = null;
-      // verify the required parameter 'agentUID' is set
-      if (agentUID === undefined || agentUID === null) {
-        throw new Error("Missing the required parameter 'agentUID' when calling agentDeleteOrgWork");
-      }
       // verify the required parameter 'orgUID' is set
       if (orgUID === undefined || orgUID === null) {
         throw new Error("Missing the required parameter 'orgUID' when calling agentDeleteOrgWork");
       }
 
       let pathParams = {
-        'agentUID': agentUID,
         'orgUID': orgUID
       };
       let queryParams = {
@@ -193,24 +187,18 @@ export default class AgentWorkApi {
     /**
      * Get agent work data for the organization
      *  Get the work data for all agents associated with the organization.   * Requires *agent_data:GetOrgData* 
-     * @param {String} agentUID Agent UID
      * @param {String} orgUID 
      * @param {module:api/AgentWorkApi~agentGetOrgWorkCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/ApiAgentWorkOutput}
      */
-    agentGetOrgWork(agentUID, orgUID, callback) {
+    agentGetOrgWork(orgUID, callback) {
       let postBody = null;
-      // verify the required parameter 'agentUID' is set
-      if (agentUID === undefined || agentUID === null) {
-        throw new Error("Missing the required parameter 'agentUID' when calling agentGetOrgWork");
-      }
       // verify the required parameter 'orgUID' is set
       if (orgUID === undefined || orgUID === null) {
         throw new Error("Missing the required parameter 'orgUID' when calling agentGetOrgWork");
       }
 
       let pathParams = {
-        'agentUID': agentUID,
         'orgUID': orgUID
       };
       let queryParams = {
@@ -293,26 +281,20 @@ export default class AgentWorkApi {
     /**
      * Set agent work data for a specific agent
      *  Set the work data for a specified agent.   * Requires *agent_data:SetData* 
-     * @param {String} agentUID Agent UID
      * @param {String} orgUID 
      * @param {Object} opts Optional parameters
      * @param {module:model/AgentSetOrgWorkInput} opts.agentSetOrgWorkInput 
      * @param {module:api/AgentWorkApi~agentSetOrgWorkCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    agentSetOrgWork(agentUID, orgUID, opts, callback) {
+    agentSetOrgWork(orgUID, opts, callback) {
       opts = opts || {};
       let postBody = opts['agentSetOrgWorkInput'];
-      // verify the required parameter 'agentUID' is set
-      if (agentUID === undefined || agentUID === null) {
-        throw new Error("Missing the required parameter 'agentUID' when calling agentSetOrgWork");
-      }
       // verify the required parameter 'orgUID' is set
       if (orgUID === undefined || orgUID === null) {
         throw new Error("Missing the required parameter 'orgUID' when calling agentSetOrgWork");
       }
 
       let pathParams = {
-        'agentUID': agentUID,
         'orgUID': orgUID
       };
       let queryParams = {

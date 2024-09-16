@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**** | Pointer to **time.Time** | Time last notification window was completed | [optional] 
 **Data** | Pointer to **map[string]interface{}** | UI supplied JSON object | [optional] 
 **Description** | Pointer to **string** | Description of query (max 64 chars) | [optional] 
 **Notify** | Pointer to **bool** | Are notifications generated from this search | [optional] 
@@ -30,31 +29,6 @@ will change when the set of required properties is changed
 NewDashboardSearchUpdateInputWithDefaults instantiates a new DashboardSearchUpdateInput object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
-
-### Get
-
-`func (o *DashboardSearchUpdateInput) Get() time.Time`
-
-Get returns the  field if non-nil, zero value otherwise.
-
-### GetOk
-
-`func (o *DashboardSearchUpdateInput) GetOk() (*time.Time, bool)`
-
-GetOk returns a tuple with the  field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### Set
-
-`func (o *DashboardSearchUpdateInput) Set(v time.Time)`
-
-Set sets  field to given value.
-
-### Has
-
-`func (o *DashboardSearchUpdateInput) Has() bool`
-
-Has returns a boolean if a field has been set.
 
 ### GetData
 

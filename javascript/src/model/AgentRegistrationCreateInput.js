@@ -48,9 +48,6 @@ class AgentRegistrationCreateInput {
         if (data) {
             obj = obj || new AgentRegistrationCreateInput();
 
-            if (data.hasOwnProperty('')) {
-                obj[''] = ApiClient.convertToType(data[''], 'String');
-            }
             if (data.hasOwnProperty('config')) {
                 obj['config'] = DaoAgentConfig.constructFromObject(data['config']);
             }
@@ -78,12 +75,6 @@ class AgentRegistrationCreateInput {
 
 
 }
-
-/**
- * The agent secret used to authenticate agents
- * @member {String} 
- */
-AgentRegistrationCreateInput.prototype[''] = undefined;
 
 /**
  * @member {module:model/DaoAgentConfig} config

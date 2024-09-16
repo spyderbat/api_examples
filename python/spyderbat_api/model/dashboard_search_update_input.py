@@ -92,7 +92,6 @@ class DashboardSearchUpdateInput(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            '': (datetime,),  # noqa: E501
             'data': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
             'description': (str,),  # noqa: E501
             'notify': (bool,),  # noqa: E501
@@ -107,7 +106,6 @@ class DashboardSearchUpdateInput(ModelNormal):
 
 
     attribute_map = {
-        '': '',  # noqa: E501
         'data': 'data',  # noqa: E501
         'description': 'description',  # noqa: E501
         'notify': 'notify',  # noqa: E501
@@ -157,7 +155,6 @@ class DashboardSearchUpdateInput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-             (datetime): Time last notification window was completed. [optional]  # noqa: E501
             data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): UI supplied JSON object. [optional]  # noqa: E501
             description (str): Description of query (max 64 chars). [optional]  # noqa: E501
             notify (bool): Are notifications generated from this search. [optional]  # noqa: E501
@@ -249,7 +246,6 @@ class DashboardSearchUpdateInput(ModelNormal):
                                 Animal class but this time we won't travel
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
-             (datetime): Time last notification window was completed. [optional]  # noqa: E501
             data ({str: (bool, date, datetime, dict, float, int, list, str, none_type)}): UI supplied JSON object. [optional]  # noqa: E501
             description (str): Description of query (max 64 chars). [optional]  # noqa: E501
             notify (bool): Are notifications generated from this search. [optional]  # noqa: E501

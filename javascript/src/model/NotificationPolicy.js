@@ -25,10 +25,12 @@ class NotificationPolicy {
      * Constructs a new <code>NotificationPolicy</code>.
      * A notification policy in json or hjson
      * @alias module:model/NotificationPolicy
+     * @param routes {Array.<module:model/NotificationPolicyRoutesInner>} 
+     * @param targets {Object.<String, module:model/NotificationPolicyDestination>} 
      */
-    constructor() { 
+    constructor(routes, targets) { 
         
-        NotificationPolicy.initialize(this);
+        NotificationPolicy.initialize(this, routes, targets);
     }
 
     /**
@@ -36,7 +38,9 @@ class NotificationPolicy {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj) { 
+    static initialize(obj, routes, targets) { 
+        obj['routes'] = routes;
+        obj['targets'] = targets;
     }
 
     /**

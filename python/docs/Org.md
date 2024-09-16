@@ -5,12 +5,16 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Name of the organization | 
+**owner_email** | **str** | The email address of the user who owns this org | 
+**active_sources** | **int** | Total number of active sources within the last 5 minutes | [optional] 
+**active_users** | **int** | Total number of active users within the last 7 days (which might be active on a different org) | [optional] 
 **org_type_uid** | **str** | Organization Type | [optional] 
-**owner_email** | **str** | The email address of the user who owns this org | [optional] 
 **owner_uid** | **str** | The user UID who owns this organization | [optional] 
 **resource_name** | **str** | Resource name utilized by RBAC | [optional] 
 **resource_policy** | [**ResourcePolicy**](ResourcePolicy.md) |  | [optional] 
 **tags** | **[str]** | User supplied tags | [optional] 
+**total_sources** | **int** | Total number of sources | [optional] 
+**total_users** | **int** | Total number of users | [optional] 
 **uid** | **str** | Org UID | [optional] 
 **valid_from** | **datetime** | Valid from date, the first date this object was valid | [optional] 
 **valid_to** | **datetime** | Valid to date, the date this object is valid to | [optional] 

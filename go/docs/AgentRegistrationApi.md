@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 ## AgentRegistrationCreate
 
-> ApiAgentCreateHandlerOutput AgentRegistrationCreate(ctx, orgUID, uid).AgentRegistrationCreateInput(agentRegistrationCreateInput).Execute()
+> ApiAgentCreateHandlerOutput AgentRegistrationCreate(ctx, orgUID).AgentRegistrationCreateInput(agentRegistrationCreateInput).Execute()
 
 Create an agent registration
 
@@ -35,12 +35,11 @@ import (
 
 func main() {
     orgUID := "orgUID_example" // string | The OrgUID the registration is associated with
-    uid := "uid_example" // string | Agent Registration UID
     agentRegistrationCreateInput := *openapiclient.NewAgentRegistrationCreateInput() // AgentRegistrationCreateInput |  (optional)
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.AgentRegistrationApi.AgentRegistrationCreate(context.Background(), orgUID, uid).AgentRegistrationCreateInput(agentRegistrationCreateInput).Execute()
+    resp, r, err := apiClient.AgentRegistrationApi.AgentRegistrationCreate(context.Background(), orgUID).AgentRegistrationCreateInput(agentRegistrationCreateInput).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `AgentRegistrationApi.AgentRegistrationCreate``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -57,7 +56,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
 **orgUID** | **string** | The OrgUID the registration is associated with | 
-**uid** | **string** | Agent Registration UID | 
 
 ### Other Parameters
 
@@ -66,7 +64,6 @@ Other parameters are passed through a pointer to a apiAgentRegistrationCreateReq
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-
 
  **agentRegistrationCreateInput** | [**AgentRegistrationCreateInput**](AgentRegistrationCreateInput.md) |  | 
 

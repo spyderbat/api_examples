@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**SrcDataQuery**](SourceDataApi.md#SrcDataQuery) | **Post** /api/v1/source/query/ | Query source data
 [**SrcDataQueryV2**](SourceDataApi.md#SrcDataQueryV2) | **Get** /api/v1/org/{orgUID}/data/ | Query source data
-[**SrcSendData**](SourceDataApi.md#SrcSendData) | **Post** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;
+[**SrcSendData**](SourceDataApi.md#SrcSendData) | **Post** /api/v1/org/{orgUID}/source/{sourceUID}/data/{dataType} | Send data to a source, this is expected to be gzip compressed nd-json. The &#39;Content-Encoding&#39; header should be specified with a value of &#39;gzip&#39;. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
 
 
 
@@ -170,9 +170,9 @@ Name | Type | Description  | Notes
 
 ## SrcSendData
 
-> SrcSendData(ctx, dataType, orgUID, sourceUID).Execute()
+> SrcSendData(ctx, dataType, orgUID, sourceUID).Encoding(encoding).File(file).Execute()
 
-Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'
+Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
 
 
 
@@ -192,10 +192,12 @@ func main() {
     dataType := "dataType_example" // string | 
     orgUID := "orgUID_example" // string | 
     sourceUID := "sourceUID_example" // string | 
+    encoding := "encoding_example" // string | must be gzip
+    file := os.NewFile(1234, "some_file") // *os.File | The file to upload. The file must be a valid gzip-ed JSON file.
 
     configuration := openapiclient.NewConfiguration()
     apiClient := openapiclient.NewAPIClient(configuration)
-    resp, r, err := apiClient.SourceDataApi.SrcSendData(context.Background(), dataType, orgUID, sourceUID).Execute()
+    resp, r, err := apiClient.SourceDataApi.SrcSendData(context.Background(), dataType, orgUID, sourceUID).Encoding(encoding).File(file).Execute()
     if err != nil {
         fmt.Fprintf(os.Stderr, "Error when calling `SourceDataApi.SrcSendData``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
@@ -223,6 +225,8 @@ Name | Type | Description  | Notes
 
 
 
+ **encoding** | **string** | must be gzip | 
+ **file** | ***os.File** | The file to upload. The file must be a valid gzip-ed JSON file. | 
 
 ### Return type
 
@@ -234,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: multipart/form-data
 - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)

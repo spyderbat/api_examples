@@ -45,7 +45,7 @@ export default class SourceDataApi {
 
     /**
      * Query source data
-     *  Allows querying of the source data, data is stored as 'records' which are returned as json objects, in nd-json (see ndjson.org) format.   * Data is returned as it is matched, and no ordering guarentees exist.  * The call completes after it has finished searching for matching records.  * The query expression is limited to seaching a 24 hour period of time, it is the callers responsibility to construct an appropriate 24 hour range. * Documentation for the returned spydergraph datatype can be found at https://app.spyderbat.com/schema/spydergraph/index.html  * The user must have both the *org.ListSourceData* action on the org and *source_data.Query* action on the source  
+     *  Allows querying of the source data, data is stored as 'records' which are returned as json objects, in nd-json (see ndjson.org) format.   * Data is returned as it is matched, and no ordering guarentees exist.  * The call completes after it has finished searching for matching records.  * The query expression is limited to seaching a 24 hour period of time, it is the callers responsibility to construct an appropriate 24 hour range. * Documentation for the returned spydergraph datatype can be found at https://app.spyderbat.com/schema/spydergraph/index.html  * The user must have both the *org.ListSourceData* action on the org and *source_data.Query* action on the source * To get a count of results (up to 10K) but no data, use querySize: 0  
      * @param {Object} opts Optional parameters
      * @param {module:model/SrcDataQueryInput} opts.srcDataQueryInput 
      * @param {module:api/SourceDataApi~srcDataQueryCallback} callback The callback function, accepting three arguments: error, data, response
@@ -155,14 +155,16 @@ export default class SourceDataApi {
      */
 
     /**
-     * Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'
+     * Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.
      * Sends data to a source
      * @param {String} dataType 
      * @param {String} orgUID 
      * @param {String} sourceUID 
+     * @param {String} encoding must be gzip
+     * @param {File} file The file to upload. The file must be a valid gzip-ed JSON file.
      * @param {module:api/SourceDataApi~srcSendDataCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    srcSendData(dataType, orgUID, sourceUID, callback) {
+    srcSendData(dataType, orgUID, sourceUID, encoding, file, callback) {
       let postBody = null;
       // verify the required parameter 'dataType' is set
       if (dataType === undefined || dataType === null) {
@@ -176,6 +178,14 @@ export default class SourceDataApi {
       if (sourceUID === undefined || sourceUID === null) {
         throw new Error("Missing the required parameter 'sourceUID' when calling srcSendData");
       }
+      // verify the required parameter 'encoding' is set
+      if (encoding === undefined || encoding === null) {
+        throw new Error("Missing the required parameter 'encoding' when calling srcSendData");
+      }
+      // verify the required parameter 'file' is set
+      if (file === undefined || file === null) {
+        throw new Error("Missing the required parameter 'file' when calling srcSendData");
+      }
 
       let pathParams = {
         'dataType': dataType,
@@ -187,10 +197,12 @@ export default class SourceDataApi {
       let headerParams = {
       };
       let formParams = {
+        'encoding': encoding,
+        'file': file
       };
 
       let authNames = ['apiToken'];
-      let contentTypes = [];
+      let contentTypes = ['multipart/form-data'];
       let accepts = ['application/json'];
       let returnType = null;
       return this.apiClient.callApi(

@@ -54,12 +54,6 @@
       //expect(instance).to.be.a(SpyderbatApi.AgentRegistrationCreateInput);
     });
 
-    it('should have the property  (base name: "")', function() {
-      // uncomment below and update the code to test the property 
-      //var instance = new SpyderbatApi.AgentRegistrationCreateInput();
-      //expect(instance).to.be();
-    });
-
     it('should have the property config (base name: "config")', function() {
       // uncomment below and update the code to test the property config
       //var instance = new SpyderbatApi.AgentRegistrationCreateInput();

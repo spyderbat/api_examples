@@ -54,6 +54,18 @@
       //expect(instance).to.be.a(SpyderbatApi.Org);
     });
 
+    it('should have the property activeSources (base name: "active_sources")', function() {
+      // uncomment below and update the code to test the property activeSources
+      //var instance = new SpyderbatApi.Org();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property activeUsers (base name: "active_users")', function() {
+      // uncomment below and update the code to test the property activeUsers
+      //var instance = new SpyderbatApi.Org();
+      //expect(instance).to.be();
+    });
+
     it('should have the property name (base name: "name")', function() {
       // uncomment below and update the code to test the property name
       //var instance = new SpyderbatApi.Org();
@@ -92,6 +104,18 @@
 
     it('should have the property tags (base name: "tags")', function() {
       // uncomment below and update the code to test the property tags
+      //var instance = new SpyderbatApi.Org();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property totalSources (base name: "total_sources")', function() {
+      // uncomment below and update the code to test the property totalSources
+      //var instance = new SpyderbatApi.Org();
+      //expect(instance).to.be();
+    });
+
+    it('should have the property totalUsers (base name: "total_users")', function() {
+      // uncomment below and update the code to test the property totalUsers
       //var instance = new SpyderbatApi.Org();
       //expect(instance).to.be();
     });

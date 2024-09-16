@@ -41,7 +41,7 @@ class TestSourceDataApi(unittest.TestCase):
     def test_src_send_data(self):
         """Test case for src_send_data
 
-        Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'  # noqa: E501
+        Send data to a source, this is expected to be gzip compressed nd-json. The 'Content-Encoding' header should be specified with a value of 'gzip'. Alternatively, a multi-part form upload may be used with gzipped data up to a maximum size of 1MB.  # noqa: E501
         """
         pass
 

@@ -13,13 +13,10 @@ package spyderbat_api
 
 import (
 	"encoding/json"
-	"time"
 )
 
 // DashboardSearchCreateInput struct for DashboardSearchCreateInput
 type DashboardSearchCreateInput struct {
-	// Time last notification window was completed
-	 *time.Time `json:",omitempty"`
 	// UI supplied JSON object
 	Data map[string]interface{} `json:"data,omitempty"`
 	// Description of query (max 64 chars)
@@ -49,38 +46,6 @@ func NewDashboardSearchCreateInput() *DashboardSearchCreateInput {
 func NewDashboardSearchCreateInputWithDefaults() *DashboardSearchCreateInput {
 	this := DashboardSearchCreateInput{}
 	return &this
-}
-
-// Get returns the  field value if set, zero value otherwise.
-func (o *DashboardSearchCreateInput) Get() time.Time {
-	if o == nil || o. == nil {
-		var ret time.Time
-		return ret
-	}
-	return *o.
-}
-
-// GetOk returns a tuple with the  field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *DashboardSearchCreateInput) GetOk() (*time.Time, bool) {
-	if o == nil || o. == nil {
-		return nil, false
-	}
-	return o., true
-}
-
-// Has returns a boolean if a field has been set.
-func (o *DashboardSearchCreateInput) Has() bool {
-	if o != nil && o. != nil {
-		return true
-	}
-
-	return false
-}
-
-// Set gets a reference to the given time.Time and assigns it to the  field.
-func (o *DashboardSearchCreateInput) Set(v time.Time) {
-	o. = &v
 }
 
 // GetData returns the Data field value if set, zero value otherwise.
@@ -277,9 +242,6 @@ func (o *DashboardSearchCreateInput) SetTags(v []string) {
 
 func (o DashboardSearchCreateInput) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if o. != nil {
-		toSerialize[""] = o.
-	}
 	if o.Data != nil {
 		toSerialize["data"] = o.Data
 	}

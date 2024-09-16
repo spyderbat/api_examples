@@ -117,11 +117,9 @@ class AgentWorkApi(object):
             },
             params_map={
                 'all': [
-                    'agent_uid',
                     'org_uid',
                 ],
                 'required': [
-                    'agent_uid',
                     'org_uid',
                 ],
                 'nullable': [
@@ -129,15 +127,11 @@ class AgentWorkApi(object):
                 'enum': [
                 ],
                 'validation': [
-                    'agent_uid',
                     'org_uid',
                 ]
             },
             root_map={
                 'validations': {
-                    ('agent_uid',): {
-                        'max_length': 20,
-                    },
                     ('org_uid',): {
                         'max_length': 64,
                     },
@@ -145,17 +139,13 @@ class AgentWorkApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'agent_uid':
-                        (str,),
                     'org_uid':
                         (str,),
                 },
                 'attribute_map': {
-                    'agent_uid': 'agentUID',
                     'org_uid': 'orgUID',
                 },
                 'location_map': {
-                    'agent_uid': 'path',
                     'org_uid': 'path',
                 },
                 'collection_format_map': {
@@ -247,11 +237,9 @@ class AgentWorkApi(object):
             },
             params_map={
                 'all': [
-                    'agent_uid',
                     'org_uid',
                 ],
                 'required': [
-                    'agent_uid',
                     'org_uid',
                 ],
                 'nullable': [
@@ -259,15 +247,11 @@ class AgentWorkApi(object):
                 'enum': [
                 ],
                 'validation': [
-                    'agent_uid',
                     'org_uid',
                 ]
             },
             root_map={
                 'validations': {
-                    ('agent_uid',): {
-                        'max_length': 20,
-                    },
                     ('org_uid',): {
                         'max_length': 64,
                     },
@@ -275,17 +259,13 @@ class AgentWorkApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'agent_uid':
-                        (str,),
                     'org_uid':
                         (str,),
                 },
                 'attribute_map': {
-                    'agent_uid': 'agentUID',
                     'org_uid': 'orgUID',
                 },
                 'location_map': {
-                    'agent_uid': 'path',
                     'org_uid': 'path',
                 },
                 'collection_format_map': {
@@ -383,12 +363,10 @@ class AgentWorkApi(object):
             },
             params_map={
                 'all': [
-                    'agent_uid',
                     'org_uid',
                     'agent_set_org_work_input',
                 ],
                 'required': [
-                    'agent_uid',
                     'org_uid',
                 ],
                 'nullable': [
@@ -396,15 +374,11 @@ class AgentWorkApi(object):
                 'enum': [
                 ],
                 'validation': [
-                    'agent_uid',
                     'org_uid',
                 ]
             },
             root_map={
                 'validations': {
-                    ('agent_uid',): {
-                        'max_length': 20,
-                    },
                     ('org_uid',): {
                         'max_length': 64,
                     },
@@ -412,19 +386,15 @@ class AgentWorkApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'agent_uid':
-                        (str,),
                     'org_uid':
                         (str,),
                     'agent_set_org_work_input':
                         (AgentSetOrgWorkInput,),
                 },
                 'attribute_map': {
-                    'agent_uid': 'agentUID',
                     'org_uid': 'orgUID',
                 },
                 'location_map': {
-                    'agent_uid': 'path',
                     'org_uid': 'path',
                     'agent_set_org_work_input': 'body',
                 },
@@ -531,7 +501,6 @@ class AgentWorkApi(object):
 
     def agent_delete_org_work(
         self,
-        agent_uid,
         org_uid,
         **kwargs
     ):
@@ -541,11 +510,10 @@ class AgentWorkApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.agent_delete_org_work(agent_uid, org_uid, async_req=True)
+        >>> thread = api.agent_delete_org_work(org_uid, async_req=True)
         >>> result = thread.get()
 
         Args:
-            agent_uid (str): Agent UID
             org_uid (str):
 
         Keyword Args:
@@ -610,8 +578,6 @@ class AgentWorkApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['agent_uid'] = \
-            agent_uid
         kwargs['org_uid'] = \
             org_uid
         return self.agent_delete_org_work_endpoint.call_with_http_info(**kwargs)
@@ -705,7 +671,6 @@ class AgentWorkApi(object):
 
     def agent_get_org_work(
         self,
-        agent_uid,
         org_uid,
         **kwargs
     ):
@@ -715,11 +680,10 @@ class AgentWorkApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.agent_get_org_work(agent_uid, org_uid, async_req=True)
+        >>> thread = api.agent_get_org_work(org_uid, async_req=True)
         >>> result = thread.get()
 
         Args:
-            agent_uid (str): Agent UID
             org_uid (str):
 
         Keyword Args:
@@ -784,8 +748,6 @@ class AgentWorkApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['agent_uid'] = \
-            agent_uid
         kwargs['org_uid'] = \
             org_uid
         return self.agent_get_org_work_endpoint.call_with_http_info(**kwargs)
@@ -880,7 +842,6 @@ class AgentWorkApi(object):
 
     def agent_set_org_work(
         self,
-        agent_uid,
         org_uid,
         **kwargs
     ):
@@ -890,11 +851,10 @@ class AgentWorkApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.agent_set_org_work(agent_uid, org_uid, async_req=True)
+        >>> thread = api.agent_set_org_work(org_uid, async_req=True)
         >>> result = thread.get()
 
         Args:
-            agent_uid (str): Agent UID
             org_uid (str):
 
         Keyword Args:
@@ -960,8 +920,6 @@ class AgentWorkApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['agent_uid'] = \
-            agent_uid
         kwargs['org_uid'] = \
             org_uid
         return self.agent_set_org_work_endpoint.call_with_http_info(**kwargs)

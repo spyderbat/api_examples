@@ -51,12 +51,10 @@ class DashboardSearchApi(object):
             },
             params_map={
                 'all': [
-                    'dashboard_search_uid',
                     'org_uid',
                     'dashboard_search_create_input',
                 ],
                 'required': [
-                    'dashboard_search_uid',
                     'org_uid',
                 ],
                 'nullable': [
@@ -76,19 +74,15 @@ class DashboardSearchApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'dashboard_search_uid':
-                        (str,),
                     'org_uid':
                         (str,),
                     'dashboard_search_create_input':
                         (DashboardSearchCreateInput,),
                 },
                 'attribute_map': {
-                    'dashboard_search_uid': 'dashboardSearchUID',
                     'org_uid': 'orgUID',
                 },
                 'location_map': {
-                    'dashboard_search_uid': 'path',
                     'org_uid': 'path',
                     'dashboard_search_create_input': 'body',
                 },
@@ -356,7 +350,6 @@ class DashboardSearchApi(object):
 
     def dashboard_search_create(
         self,
-        dashboard_search_uid,
         org_uid,
         **kwargs
     ):
@@ -366,11 +359,10 @@ class DashboardSearchApi(object):
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.dashboard_search_create(dashboard_search_uid, org_uid, async_req=True)
+        >>> thread = api.dashboard_search_create(org_uid, async_req=True)
         >>> result = thread.get()
 
         Args:
-            dashboard_search_uid (str): UID for the DashboardSearch
             org_uid (str): Org UID
 
         Keyword Args:
@@ -436,8 +428,6 @@ class DashboardSearchApi(object):
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
         kwargs['_request_auths'] = kwargs.get('_request_auths', None)
-        kwargs['dashboard_search_uid'] = \
-            dashboard_search_uid
         kwargs['org_uid'] = \
             org_uid
         return self.dashboard_search_create_endpoint.call_with_http_info(**kwargs)

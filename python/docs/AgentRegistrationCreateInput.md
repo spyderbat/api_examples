@@ -4,7 +4,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**** | **str** | The agent secret used to authenticate agents | [optional] 
 **config** | [**DaoAgentConfig**](DaoAgentConfig.md) |  | [optional] 
 **created_by** | **str** | The user UID of the user who created the agent registration | [optional] 
 **description** | **str** | Description of the agent registration | [optional] 

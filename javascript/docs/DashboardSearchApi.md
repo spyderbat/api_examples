@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## dashboardSearchCreate
 
-> String dashboardSearchCreate(dashboardSearchUID, orgUID, opts)
+> String dashboardSearchCreate(orgUID, opts)
 
 Create a dashboard search
 
@@ -30,12 +30,11 @@ let apiToken = defaultClient.authentications['apiToken'];
 apiToken.accessToken = "YOUR ACCESS TOKEN"
 
 let apiInstance = new SpyderbatApi.DashboardSearchApi();
-let dashboardSearchUID = "dashboardSearchUID_example"; // String | UID for the DashboardSearch
 let orgUID = "orgUID_example"; // String | Org UID
 let opts = {
   'dashboardSearchCreateInput': new SpyderbatApi.DashboardSearchCreateInput() // DashboardSearchCreateInput | 
 };
-apiInstance.dashboardSearchCreate(dashboardSearchUID, orgUID, opts, (error, data, response) => {
+apiInstance.dashboardSearchCreate(orgUID, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -49,7 +48,6 @@ apiInstance.dashboardSearchCreate(dashboardSearchUID, orgUID, opts, (error, data
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **dashboardSearchUID** | **String**| UID for the DashboardSearch | 
  **orgUID** | **String**| Org UID | 
  **dashboardSearchCreateInput** | [**DashboardSearchCreateInput**](DashboardSearchCreateInput.md)|  | [optional] 
 
